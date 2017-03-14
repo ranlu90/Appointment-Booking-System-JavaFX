@@ -1,15 +1,19 @@
-package client;
+package user;
+
+
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class BusinessOwner {
 	private String BusinessName;
 	private String BusinessOwnerName;
 	private String address;
 	private String phone;
-	private String username;
-	private String password;
+	private TextField username;
+	private PasswordField password;
 
 	public BusinessOwner(String BusinessName,String BusinessOwnerName,
-						String address,String phone,String username,String password){
+						String address,String phone,TextField username,PasswordField password){
 		this.BusinessName = BusinessName;
 		this.BusinessOwnerName = BusinessOwnerName;
 		this.address = address;
@@ -50,19 +54,19 @@ public class BusinessOwner {
 		this.phone = phone;
 	}
 
-	public String getusername(){
+	public TextField getusername(){
 		return username;
 	}
 
-	public void setusername(String username){
+	public void setusername(TextField username){
 		this.username = username;
 	}
 
-	public String getpassword(){
+	public PasswordField getpassword(){
 		return password;
 	}
 
-	public void setpassword(String password){
+	public void setpassword(PasswordField password){
 		this.password = password;
 	}
 }
