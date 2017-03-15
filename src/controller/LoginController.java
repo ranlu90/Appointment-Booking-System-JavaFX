@@ -17,6 +17,8 @@ public class LoginController {
     private PasswordField password;
 
 	//user select to go to business owner login menu
+
+
 	public void businessLogin()
 	{
 		if(username.getText() != null && password.getText() != null)

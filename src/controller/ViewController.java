@@ -9,29 +9,12 @@ public class ViewController {
 
 	}
 	public void initMenu(){
-		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Welcome to Appointment Booking System!");
+		System.out.println("Welcome to Appointment Booking System!" + "\n");
 		System.out.println("Please select one of the following options:");
 		System.out.println("1:Business Owner Login");
 		System.out.println("2:Customer Login");
-		System.out.println("3:Customer Registration");
+		System.out.println("3:Customer Registration" + "\n");
 		System.out.print("Your selection is:");
-		int input = sc.nextInt();
-
-		if(input == 1){
-			businessLogin();
-		}
-		else if(input == 2){
-			customerLogin();
-		}
-		else if(input == 3){
-			register();
-		}
-		else{
-			System.out.println("Invaild selection!");
-			return;
-		}
 	}
 	/**
 	 * Go to main menu of business owner, functions include
