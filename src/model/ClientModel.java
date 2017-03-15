@@ -120,6 +120,7 @@ public class ClientModel {
 			if(password.matches(password2)){
 				//add username and password to the database
 
+				System.out.println("Your customer account has been successfully created!");
 			}
 			else
 				System.out.println("Passwords does not match, please reenter username and password.");
