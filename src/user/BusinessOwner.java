@@ -9,11 +9,14 @@ public class BusinessOwner {
 	private String BusinessOwnerName;
 	private String address;
 	private String phone;
-	private TextField username;
-	private PasswordField password;
+	private String username;
+	private String password;
 
+	/**
+	 * business owner information will be stored in business owner database
+	 */
 	public BusinessOwner(String BusinessName,String BusinessOwnerName,
-						String address,String phone,TextField username,PasswordField password){
+						String address,String phone,String username,String password){
 		this.BusinessName = BusinessName;
 		this.BusinessOwnerName = BusinessOwnerName;
 		this.address = address;
@@ -54,19 +57,19 @@ public class BusinessOwner {
 		this.phone = phone;
 	}
 
-	public TextField getusername(){
+	public String getusername(){
 		return username;
 	}
 
-	public void setusername(TextField username){
+	public void setusername(String username){
 		this.username = username;
 	}
 
-	public PasswordField getpassword(){
+	public String getpassword(){
 		return password;
 	}
 
-	public void setpassword(PasswordField password){
+	public void setpassword(String password){
 		this.password = password;
 	}
 }

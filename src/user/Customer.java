@@ -4,27 +4,30 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class Customer {
-	private TextField username;
-	private PasswordField password;
+	private String username;
+	private String password;
 
-	public Customer(TextField username, PasswordField password){
+	/**
+	 * customer information will be stored in customer info database
+	 */
+	public Customer(String username, String password){
 		this.username = username;
 		this.password = password;
 	}
 
-	public TextField getusername(){
+	public String getusername(){
 		return username;
 	}
 
-	public void setusername(TextField username){
+	public void setusername(String username){
 		this.username = username;
 	}
 
-	public PasswordField getpassword(){
+	public String getpassword(){
 		return password;
 	}
 
-	public void setpassword(PasswordField password){
+	public void setpassword(String password){
 		this.password = password;
 	}
 }
