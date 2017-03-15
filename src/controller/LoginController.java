@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Scanner;
+
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import user.BusinessOwner;
@@ -14,36 +16,37 @@ public class LoginController {
 	private TextField username;
     private PasswordField password;
 
-
-	public void login()
+	//user select to go to business owner login menu
+	public void businessLogin()
 	{
-		String userType;
-
 		if(username.getText() != null && password.getText() != null)
 		{
-			//retrive usertype from database
-			//userType =
+			//get username from business owner database, if attemptLogin for business owner is true
 			if(userType != null){
-				if(userType.equals("businessOwner"))
-				{
-					businesOwner.setusername(username);
-					viewController.gotoBusiness();
-				}
-				else if (userType.equals("customer")){
-					customer.setusername(username);
-					viewController.gotoCustomer();
-				}
-				else
-					System.out.println("userType is not in the database!");
+				businesOwner.setusername(username);
+				viewController.gotoBusiness();
 			}
-			//If a user is not found neither in business owner database or customer database
-			else
-			{
+			else{
 				System.out.println("Incorrect credentials!");
+				return;
 			}
 		}
 	}
 
-
-
+	//user select to go to customer login menu
+	public void customerLogin()
+	{
+		if(username.getText() != null && password.getText() != null)
+		{
+			//get username from customer info database, if attemptLogin for customer is true
+			if(userType != null){
+				customer.setusername(username);
+				viewController.gotoCustomer();
+			}
+			else{
+				System.out.println("Incorrect credentials!");
+				return;
+			}
+		}
+	}
 }
