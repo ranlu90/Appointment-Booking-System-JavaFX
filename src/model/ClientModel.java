@@ -111,7 +111,7 @@ public class ClientModel {
 		username = sc.next();
 		System.out.print("Password: ");
 		password = sc.next();
-		System.out.println("Confirm Password: ");
+		System.out.print("Confirm Password: ");
 		String password2 = sc.next();
 
 		//search the database and find if the username has not been used
@@ -122,7 +122,7 @@ public class ClientModel {
 				System.out.println("Your customer account has been successfully created!");
 			}
 			else
-				System.out.println("Passwords does not match, please reenter username and password.");
+				System.out.println("Passwords does not match, please enter username and password.");
 		}
 		else
 			System.out.println("This username has already been taken!");
