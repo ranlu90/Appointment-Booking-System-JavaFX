@@ -1,7 +1,6 @@
 package model;
 
 import java.util.Scanner;
-import controller.LoginController;
 import controller.ViewController;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -68,7 +67,7 @@ public class ClientModel {
 		if(username != null && password != null)
 		{
 			//get username from business owner database, if attemptLogin for business owner is true
-			if(     ){
+			if(true){
 				//businessOwner.setusername(username);
 				viewController.gotoBusiness();
 			}
@@ -93,7 +92,7 @@ public class ClientModel {
 		if(username != null && password != null)
 		{
 			//get username from customer info database, if attemptLogin for customer is true
-			if(    ){
+			if(true){
 				//customer.setusername(username);
 				viewController.gotoCustomer();
 			}
@@ -116,7 +115,7 @@ public class ClientModel {
 		String password2 = sc.next();
 
 		//search the database and find if the username has not been used
-		if(  ){
+		if(true){
 			if(password.matches(password2)){
 				//add username and password to the database
 
