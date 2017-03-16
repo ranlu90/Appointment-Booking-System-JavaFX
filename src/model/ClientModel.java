@@ -2,6 +2,7 @@ package model;
 
 import java.util.Scanner;
 import controller.ViewController;
+import database.DatabaseManager;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import user.BusinessOwner;
@@ -12,9 +13,10 @@ public class ClientModel {
 	private BusinessOwner businessOwner;
 	private Customer customer;
 	private ViewController viewController = new ViewController();
+	private DatabaseManager databaseManager = new DatabaseManager();
 
-	private String username = null;
-	private String password = null;
+	private String username;
+	private String password;
 	Scanner sc = new Scanner(System.in);
 
 	public ClientModel() {}
@@ -66,8 +68,8 @@ public class ClientModel {
 
 		if(username != null && password != null)
 		{
-			//get username from business owner database, if attemptLogin for business owner is true
-			if(true){
+			if(databaseManager.searchBusinessUserName(username) == true &&
+					databaseManager.searchBusinessPassword(password) == true ){
 				//businessOwner.setusername(username);
 				viewController.gotoBusiness();
 			}
