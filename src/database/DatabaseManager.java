@@ -10,9 +10,34 @@ public class DatabaseManager {
 	public DatabaseManager(){}
 
 	/**
-	 * Match user's input username with data in business to find if the username is correct.
+	 * Search business database to find if username and password exist and they are in the same row.
 	 */
-	public Boolean searchBusinessUserName(String input){
+	public boolean searchBusiness(String username, String password){
+		try{
+			//connect to appointment booking system in the database
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
+			//create a query searching username
+			final String userCheck = "select * from business where username = '" + username + "'";
+			//create a query to find if the password matches username
+			final String passwordCheck = "select * from business where password = '" + password + "' and username = '" + username + "'";
+			//create a statement
+			final Statement ps = connection.createStatement();
+			//get all tuples from business table that matches the input
+			ResultSet result1 = ps.executeQuery(userCheck);
+			ResultSet result2 = ps.executeQuery(passwordCheck);
+			if(result1.next() && result2.next()){
+				return true;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
+
+
+
+	public boolean searchBusinessUserName(String input){
 		try{
 			//connect to appointment booking system in the database
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
@@ -36,7 +61,7 @@ public class DatabaseManager {
 	/**
 	 * Match user's input password with data in business to find if the password is correct.
 	 */
-	public Boolean searchBusinessPassword(String input){
+	public boolean searchBusinessPassword(String input){
 		try{
 			//connect to appointment booking system in the database
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
@@ -59,7 +84,7 @@ public class DatabaseManager {
 	/**
 	 * Match user's input username with data in customerinfo to find if the username is correct.
 	 */
-	public Boolean searchCustomerUserName(String input){
+	public boolean searchCustomerUserName(String input){
 		try{
 			//connect to appointment booking system in the database
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
