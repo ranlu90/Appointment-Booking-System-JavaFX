@@ -94,7 +94,8 @@ public class ClientModel {
 		if(username != null && password != null)
 		{
 			//get username from customer info database, if attemptLogin for customer is true
-			if(true){
+			if(databaseManager.searchCustomerUserName(username) == true &&
+					databaseManager.searchCustomerPassword(password) == true ){
 				//customer.setusername(username);
 				viewController.gotoCustomer();
 			}
@@ -117,11 +118,10 @@ public class ClientModel {
 		String password2 = sc.next();
 
 		//search the database and find if the username has not been used
-		if(true){
+		if(databaseManager.searchCustomerUserName(username) == false){
 			if(password.matches(password2)){
 				//add username and password to the database
-
-				System.out.println("Your customer account has been successfully created!");
+				databaseManager.insertIntoCustomer(username,password);
 			}
 			else
 				System.out.println("Passwords does not match, please enter username and password.");
