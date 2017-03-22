@@ -10,17 +10,6 @@ public class ViewController {
 	}
 
 	/**
-	 * Print to the console main menu of the application.
-	 */
-	public void initMenu(){
-		System.out.println("Welcome to Appointment Booking System!" + "\n");
-		System.out.println("Please select one of the following options:");
-		System.out.println("1:Business Owner Login");
-		System.out.println("2:Customer Login");
-		System.out.println("3:Customer Registration" + "\n");
-		System.out.print("Your selection is: ");
-	}
-	/**
 	 * Go to main menu of business owner, functions include
 	 * add a new employee, add working time/dates for the next month,
 	 * look at the summaries of bookings, new booking,
