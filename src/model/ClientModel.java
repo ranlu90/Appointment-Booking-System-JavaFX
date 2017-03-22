@@ -36,27 +36,13 @@ public class ClientModel {
         this.customer = customer;
     }
 
-    public void options(){
-    	int i = sc.nextInt();
-		if(i == 1){
-			businessLogin();
-		}
-		else if(i == 2){
-			customerLogin();
-		}
-		else if(i == 3){
-			register();
-		}
-		else{
-			System.out.println("Invaild selection!");
-			return;
-		}
-    }
+   
+		
 
     /**
      * Get user's input for username and password, if both are found in the database, go to main menu for business owner.
      */
-	public void businessLogin()
+	public void login()
 	{
 		//get user input
 		System.out.print("Username: ");
@@ -69,7 +55,12 @@ public class ClientModel {
 			//get username from business owner database, if attemptLogin for business owner is true
 			if(true){
 				//businessOwner.setusername(username);
+				if(username.equals("admin")&&password.equals("admin")){
 				viewController.gotoBusiness();
+				}
+				else{
+					viewController.gotoCustomer();
+				}
 			}
 			else{
 				System.out.println("Incorrect credentials!");
@@ -81,27 +72,7 @@ public class ClientModel {
 	/**
 	 * Get user's input for username and password, if both are found in the database, go to main menu for customer.
 	 */
-	public void customerLogin()
-	{
-		//get user input
-		System.out.print("Username: ");
-		username = sc.next();
-		System.out.print("Password: ");
-		password = sc.next();
-
-		if(username != null && password != null)
-		{
-			//get username from customer info database, if attemptLogin for customer is true
-			if(true){
-				//customer.setusername(username);
-				viewController.gotoCustomer();
-			}
-			else{
-				System.out.println("Incorrect credentials!");
-				return;
-			}
-		}
-	}
+	
 
 	//the user selected to register as a customer
 	public void register(){
@@ -121,8 +92,10 @@ public class ClientModel {
 
 				System.out.println("Your customer account has been successfully created!");
 			}
-			else
-				System.out.println("Passwords does not match, please enter username and password.");
+			else{
+				System.out.println("Passwords does not match, please enter username password again.");
+		    register();
+			}
 		}
 		else
 			System.out.println("This username has already been taken!");
