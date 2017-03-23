@@ -81,7 +81,7 @@ public class ClientModel {
 		String password2 = sc.next();
 
 		//search the database and find if the username has not been used
-		if(databaseManager.searchCustomerUserName(username) == false){
+		if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
 			if(password.matches(password2)){
 				//add username and password to the database
 				databaseManager.insertIntoCustomer(username,password);
