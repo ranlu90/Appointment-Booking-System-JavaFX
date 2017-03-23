@@ -38,8 +38,8 @@ public class ClientModel {
         this.customer = customer;
     }
 
-   
-		
+
+
 
     /**
      * Get user's input for username and password, if both are found in the database, go to main menu for business owner.
@@ -74,7 +74,6 @@ public class ClientModel {
 	/**
 	 * Get user's input for username and password, if both are found in the database, go to main menu for customer.
 	 */
-<<<<<<< HEAD
 	public void customerLogin()
 	{
 		//get user input
@@ -97,9 +96,7 @@ public class ClientModel {
 			}
 		}
 	}
-=======
-	
->>>>>>> origin/login
+
 
 	//the user selected to register as a customer
 	public void register(){
