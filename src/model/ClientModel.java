@@ -87,8 +87,8 @@ public class ClientModel {
 				databaseManager.insertIntoCustomer(username,password);
 			}
 			else{
-				System.out.println("Passwords does not match, please enter username password again.");
-		    register();
+				System.out.println("Passwords does not match, return to the main menu.");
+				return;
 			}
 		}
 		else
