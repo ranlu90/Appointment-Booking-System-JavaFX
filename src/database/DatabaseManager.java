@@ -16,22 +16,22 @@ public class DatabaseManager {
 		try{
 			//connect to appointment booking system in the database
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
-			//create a query searching username
-			final String userCheck = "select * from business where username = '" + username + "'";
-			//create a query to find if the password matches username
-			final String passwordCheck = "select * from business where password = '" + password + "' and username = '" + username + "'";
+			//create a query searching username and password
+			final String business = "select * from business where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
 			final Statement ps = connection.createStatement();
 			//get all tuples from business table that matches the input
-			ResultSet result1 = ps.executeQuery(userCheck);
-			ResultSet result2 = ps.executeQuery(passwordCheck);
-			if(result1.next() && result2.next()){
+			ResultSet result1 = ps.executeQuery(business);
+			if(result1.next()){
 				return true;
 			}
 		}
 		catch (Exception exp){
 			exp.printStackTrace();
 		}
+		return false;
+	}
+	public boolean searchCustomer(String username, String password){
 		return false;
 	}
 

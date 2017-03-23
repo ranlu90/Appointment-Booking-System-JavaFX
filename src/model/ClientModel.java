@@ -3,8 +3,6 @@ package model;
 import java.util.Scanner;
 import controller.ViewController;
 import database.DatabaseManager;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import user.BusinessOwner;
 import user.Customer;
 
@@ -54,43 +52,16 @@ public class ClientModel {
 
 		if(username != null && password != null)
 		{
-			if(databaseManager.searchBusinessUserName(username) == true &&
-					databaseManager.searchBusinessPassword(password) == true ){
-				//businessOwner.setusername(username);
-				if(username.equals("admin")&&password.equals("admin")){
+			if(databaseManager.searchBusiness(username,password) == true){
+
 				viewController.gotoBusiness();
-				}
-				else{
-					viewController.gotoCustomer();
-				}
 			}
-			else{
-				System.out.println("Incorrect credentials!");
-				return;
-			}
-		}
-	}
+			else if(databaseManager.searchCustomer(username, password) == true){
 
-	/**
-	 * Get user's input for username and password, if both are found in the database, go to main menu for customer.
-	 */
-	public void customerLogin()
-	{
-		//get user input
-		System.out.print("Username: ");
-		username = sc.next();
-		System.out.print("Password: ");
-		password = sc.next();
-
-		if(username != null && password != null)
-		{
-			//get username from customer info database, if attemptLogin for customer is true
-			if(databaseManager.searchCustomerUserName(username) == true &&
-					databaseManager.searchCustomerPassword(password) == true ){
-				//customer.setusername(username);
 				viewController.gotoCustomer();
 			}
 			else{
+
 				System.out.println("Incorrect credentials!");
 				return;
 			}
