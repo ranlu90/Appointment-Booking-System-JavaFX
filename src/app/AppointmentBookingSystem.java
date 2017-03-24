@@ -9,30 +9,29 @@ public class AppointmentBookingSystem {
 
 	private static final Scanner sc = new Scanner(System.in);
 	private static ClientModel clientModel = new ClientModel();
-	
+
 	public static void main(String[] args) throws Exception{
 
-		
-		
-		
+
+
+
 		 String input;
 	        char selection = '\0';
 	        do
 	        {
 	            // display menu options
-	            System.out.println("Welcome to Appointment Booking System!" + "\n");
+	            System.out.println("Welcome to Appointment Booking System!");
 	            System.out.println("Please select one of the following options:");
 	            System.out.println("A - Login");
 	            System.out.println("B - Register");
 	            System.out.println("X - Exit Program");
-	            System.out.println();
 
 	            // prompt the user to enter their selection
 	            System.out.print("Enter your selection: ");
 	            input = sc.nextLine();
 
 	            System.out.println();
-	            
+
 	            if (input.length() != 1)
 	            {
 	                System.out
@@ -77,8 +76,8 @@ public class AppointmentBookingSystem {
 
 	        } while (selection != 'X');
 
-	    
-	
+
+
 
 }
 
