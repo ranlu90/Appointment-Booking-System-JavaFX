@@ -1,5 +1,6 @@
 package app;
 
+import java.sql.DriverManager;
 import java.util.Scanner;
 
 import controller.ViewController;
@@ -12,6 +13,7 @@ public class AppointmentBookingSystem {
 
 	public static void main(String[] args) throws Exception{
 
+		clientModel.initDatabase();
 
 
 

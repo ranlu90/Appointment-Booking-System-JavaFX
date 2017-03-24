@@ -37,6 +37,14 @@ public class ClientModel {
     }
 
 
+    /**
+     * create appointment booking system datbase
+     * create tables for business and customerinfo
+     * insert inital values for them
+     */
+    public void initDatabase(){
+    	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
+    }
 
 
     /**

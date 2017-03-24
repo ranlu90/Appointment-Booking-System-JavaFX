@@ -9,6 +9,30 @@ public class DatabaseManager {
 
 	public DatabaseManager(){}
 
+	/**
+	 * This method will create a database in /Users/me/ using SQLite.
+	 * @param fileName will be retrieved from clientModel, default will be AppointmentBookingSystem.
+	 */
+    public void createNewDatabase(String fileName) {
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + fileName;
+
+        try (Connection conn = DriverManager.getConnection(url)) {
+            if (conn != null) {
+                System.out.println(fileName + " database has been created." + "\n");
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * create new table business
+     */
+    public void createBusinessTable(){
+
+    }
 
 	/**
 	 * Search business database to find if username and password exist and they are in the business name.
