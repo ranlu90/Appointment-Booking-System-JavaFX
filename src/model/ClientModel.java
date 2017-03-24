@@ -1,19 +1,13 @@
 package model;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 import controller.ViewController;
 import database.DatabaseManager;
-import user.BusinessOwner;
-import user.Customer;
+
 
 public class ClientModel {
 
-	private BusinessOwner businessOwner;
-	private Customer customer;
 	private ViewController viewController = new ViewController();
 	private DatabaseManager databaseManager = new DatabaseManager();
 
@@ -22,23 +16,6 @@ public class ClientModel {
 	Scanner sc = new Scanner(System.in);
 
 	public ClientModel() {}
-
-    /**
-     * Pass the business owner to the model.
-     * @param businessOwner The UserManager being passed.
-     */
-    public void initBusinessOwner(BusinessOwner businessOwner)
-    {
-        this.businessOwner = businessOwner;
-    }
-    /**
-     * Pass the customer to the model.
-     * @param customer The UserManager being passed.
-     */
-    public void initCustomer(Customer customer)
-    {
-        this.customer = customer;
-    }
 
 
     /**

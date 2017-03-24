@@ -1,9 +1,6 @@
 package app;
 
-import java.sql.DriverManager;
 import java.util.Scanner;
-
-import controller.ViewController;
 import model.ClientModel;
 
 public class AppointmentBookingSystem {
