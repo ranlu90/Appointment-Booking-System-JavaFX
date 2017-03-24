@@ -40,7 +40,7 @@ public class DatabaseManager {
           c = DriverManager.getConnection(url);
           stmt = c.createStatement();
           String sql = "CREATE TABLE business " +
-                       "(business_name	        TEXT     NOT NULL," +
+                       "(business_name	        TEXT," +
                        " business_owner_name	TEXT, " +
                        " address            	TEXT, " +
                        " phone        			TEXT, " +
@@ -56,6 +56,42 @@ public class DatabaseManager {
         System.out.println("Business table has been created.");
     }
 
+
+    /**
+     * Insert entities for business table.
+     */
+    public void insertInitialEntitiesForBusiness(){
+        Connection c = null;
+        Statement stmt = null;
+       	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          c.setAutoCommit(false);
+
+          stmt = c.createStatement();
+          String sql = "INSERT INTO business (business_name,business_owner_name,address,phone,username,password) " +
+                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', 'daguido','daguido' );";
+          stmt.executeUpdate(sql);
+
+          sql = "INSERT INTO business (business_name,business_owner_name,address,phone,username,password) " +
+                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', 'toniguy', 'toniguy');";
+          stmt.executeUpdate(sql);
+
+          sql = "INSERT INTO business (business_name,business_owner_name,address,phone,username,password) " +
+                "VALUES (null,null,null,null,'admin','admin');";
+          stmt.executeUpdate(sql);
+
+          stmt.close();
+          c.commit();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+        System.out.println("Business entities have been inserted successfully.");
+    }
 
     /**
      * create new table customerinfo
