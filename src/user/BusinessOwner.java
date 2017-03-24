@@ -1,9 +1,5 @@
 package user;
 
-
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-
 public class BusinessOwner {
 	private String BusinessName;
 	private String BusinessOwnerName;
