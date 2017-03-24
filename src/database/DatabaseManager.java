@@ -123,6 +123,43 @@ public class DatabaseManager {
     }
 
 
+    /**
+     * Insert entities for customerinfo table.
+     */
+    public void insertInitialEntitiesForCustomerInfo(){
+        Connection c = null;
+        Statement stmt = null;
+       	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          c.setAutoCommit(false);
+
+          stmt = c.createStatement();
+          String sql = "INSERT INTO customerinfo (first_name,last_name,address,contact_number,username,password) " +
+                       "VALUES ('David', 'Beckham','London', '0123 456 789', 'david','david' );";
+          stmt.executeUpdate(sql);
+
+          sql = "INSERT INTO customerinfo (first_name,last_name,address,contact_number,username,password) " +
+                "VALUES ('Bruce', 'Wayne', 'New York City', '0345 689 910', 'bruce', 'bruce');";
+          stmt.executeUpdate(sql);
+
+          sql = "INSERT INTO customerinfo (first_name,last_name,address,contact_number,username,password) " +
+                "VALUES ('Test','Test',null,null,'customer','customer');";
+          stmt.executeUpdate(sql);
+
+          stmt.close();
+          c.commit();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+        System.out.println("Business entities have been inserted successfully.");
+    }
+
+
 	/**
 	 * Search business database to find if username and password exist and they are in the business name.
 	 */

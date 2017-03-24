@@ -47,6 +47,8 @@ public class ClientModel {
     	databaseManager.createBusinessTable();
     	databaseManager.createCustomerInfoTable();
     	databaseManager.insertInitialEntitiesForBusiness();
+    	databaseManager.insertInitialEntitiesForCustomerInfo();
+    	System.out.println();
     }
 
 
