@@ -56,6 +56,37 @@ public class DatabaseManager {
         System.out.println("Business table has been created.");
     }
 
+
+    /**
+     * create new table customerinfo
+     */
+    public void createCustomerInfoTable(){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "CREATE TABLE customerinfo " +
+                       "(first_name	        TEXT     NOT NULL," +
+                       " last_name			TEXT     NOT NULL, " +
+                       " address            TEXT, " +
+                       " contact_number     TEXT, " +
+                       " username        	TEXT     PRIMARY KEY     NOT NULL, " +
+                       " password         	TEXT     NOT NULL)";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+        System.out.println("Customerinfo table has been created.");
+    }
+
+
 	/**
 	 * Search business database to find if username and password exist and they are in the business name.
 	 */
