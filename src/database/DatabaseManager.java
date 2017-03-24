@@ -16,7 +16,7 @@ public class DatabaseManager {
 	public boolean searchBusiness(String username, String password){
 		try{
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
 			//create a query searching username and password
 			final String business = "select * from business where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
@@ -41,7 +41,7 @@ public class DatabaseManager {
 	public boolean searchCustomer(String username, String password){
 		try{
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
 			//create a query searching username and password
 			final String customer = "select * from customerinfo where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
@@ -67,7 +67,7 @@ public class DatabaseManager {
 	public boolean searchBusinessUserName(String input){
 		try{
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
 			//create a query for MySQL search
 			final String userCheck = "select * from business where username = '" + input + "'";
 			//create a statement
@@ -93,7 +93,7 @@ public class DatabaseManager {
 	public boolean searchCustomerUserName(String input){
 		try{
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
 			//create a query for MySQL search
 			final String userCheck = "select * from customerinfo where username = '" + input + "'";
 			//create a statement
@@ -118,7 +118,7 @@ public class DatabaseManager {
 	public boolean insertIntoCustomer(String input, String input2){
 		try{
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS","root","root");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
 			//create a query for MySQL search
 			final String insertData = "insert into customerinfo values ('" + input + "','" + input2 + "')";
 			//create a statement
