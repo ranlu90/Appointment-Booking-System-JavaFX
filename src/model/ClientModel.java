@@ -91,11 +91,19 @@ public class ClientModel {
 	//the user selected to register as a customer
 	public void register(){
 
+		//regular expression for password check
+		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
 		//get user input
+		System.out.println("Password must contain one uppercase, one lowercase, a number and minimum length of 6.");
 		System.out.print("Username: ");
 		username = sc.next();
 		System.out.print("Password: ");
 		password = sc.next();
+		if(!password.matches(check)){
+			System.out.println("Please choose a more complicated password, return to the main menu.");
+			return;
+		}
+
 		System.out.print("Confirm Password: ");
 		String password2 = sc.next();
 
