@@ -10,6 +10,7 @@ public class DatabaseManager {
 
 	public DatabaseManager(){}
 
+
 	/**
 	 * delete existing database in local files, the path is /Users/'username'/AppointmentBookingSystem.db
 	 */
@@ -20,6 +21,8 @@ public class DatabaseManager {
     	f.delete();
     	System.out.println("Existing database have been deleted.");
 	}
+
+
 	/**
 	 * This method will create a database in /Users/me/ using SQLite.
 	 * @param fileName will be retrieved from clientModel, default will be AppointmentBookingSystem.
@@ -37,6 +40,7 @@ public class DatabaseManager {
             System.out.println(e.getMessage());
         }
     }
+
 
     /**
      * create new table business
@@ -103,6 +107,7 @@ public class DatabaseManager {
         }
         System.out.println("Business entities have been inserted successfully.");
     }
+
 
     /**
      * create new table customerinfo
@@ -176,8 +181,11 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusiness(String username, String password){
 		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
+			Connection connection = DriverManager.getConnection(url);
 			//create a query searching username and password
 			final String business = "select * from business where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
@@ -201,8 +209,11 @@ public class DatabaseManager {
 	 */
 	public boolean searchCustomer(String username, String password){
 		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
+			Connection connection = DriverManager.getConnection(url);
 			//create a query searching username and password
 			final String customer = "select * from customerinfo where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
@@ -227,8 +238,11 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusinessUserName(String input){
 		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
+			Connection connection = DriverManager.getConnection(url);
 			//create a query for MySQL search
 			final String userCheck = "select * from business where username = '" + input + "'";
 			//create a statement
@@ -253,8 +267,11 @@ public class DatabaseManager {
 	 */
 	public boolean searchCustomerUserName(String input){
 		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
+			Connection connection = DriverManager.getConnection(url);
 			//create a query for MySQL search
 			final String userCheck = "select * from customerinfo where username = '" + input + "'";
 			//create a statement
@@ -274,18 +291,24 @@ public class DatabaseManager {
 
 
 	/**
-	 * This function will insert username into customerinfo database
+	 * Insert username, password, firstname, lastname,
+	 *  address and contact number into customerinfo database
 	 */
-	public boolean insertIntoCustomer(String input, String input2){
+	public boolean insertIntoCustomer(String username, String password, String firstname, String lastname,
+			String address, String contactNumber){
 		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ABS?autoReconnect=true&useSSL=false","root","root");
+			Connection c = DriverManager.getConnection(url);
+			Statement ps = c.createStatement();
+
 			//create a query for MySQL search
-			final String insertData = "insert into customerinfo values ('" + input + "','" + input2 + "')";
-			//create a statement
-			final Statement ps = connection.createStatement();
-			//get all tuples from business table that matches the input
-			ps.executeUpdate(insertData);
+	        String sql = "INSERT INTO customerinfo (first_name,last_name,address,contact_number,username,password) " +
+	                  "VALUES ('" + firstname + "','" + lastname + "','" + address + "',''" + contactNumber + "'','" + username + "','" + password + "');";
+
+			ps.executeUpdate(sql);
 			System.out.println("Your customer account has been successfully created!");
 			return true;
 

@@ -110,8 +110,12 @@ public class ClientModel {
 		//search the database and find if the username has not been used
 		if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
 			if(password.matches(password2)){
+				//implement functions here for get first_name, last_name, address and contact_number
+
+
 				//add username and password to the database
-				databaseManager.insertIntoCustomer(username,password);
+				//remove "//" when functions have been completed.
+				//databaseManager.insertIntoCustomer(username,password,firstname,lastname,address,contactNumber);
 			}
 			else{
 				System.out.println("Passwords does not match, return to the main menu.");
