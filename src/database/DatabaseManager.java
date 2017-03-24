@@ -19,7 +19,7 @@ public class DatabaseManager {
 
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
-                System.out.println(fileName + " database has been created." + "\n");
+                System.out.println(fileName + " database has been created.");
             }
         }
         catch (SQLException e) {
@@ -31,7 +31,29 @@ public class DatabaseManager {
      * create new table business
      */
     public void createBusinessTable(){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
 
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "CREATE TABLE business " +
+                       "(business_name	        TEXT     NOT NULL," +
+                       " business_owner_name	TEXT, " +
+                       " address            	TEXT, " +
+                       " phone        			TEXT, " +
+                       " username        		TEXT     PRIMARY KEY     NOT NULL, " +
+                       " password         		TEXT     NOT NULL)";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+        System.out.println("Business table has been created.");
     }
 
 	/**

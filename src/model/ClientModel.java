@@ -44,6 +44,7 @@ public class ClientModel {
      */
     public void initDatabase(){
     	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
+    	databaseManager.createBusinessTable();
     }
 
 
