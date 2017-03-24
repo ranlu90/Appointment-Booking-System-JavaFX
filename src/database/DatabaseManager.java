@@ -1,5 +1,6 @@
 package database;
 
+import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -9,6 +10,16 @@ public class DatabaseManager {
 
 	public DatabaseManager(){}
 
+	/**
+	 * delete existing database in local files, the path is /Users/'username'/AppointmentBookingSystem.db
+	 */
+	public void deleteDatabase(){
+       	String username = System.getProperty("user.name");
+        String url = "/Users/" + username + "/" + "AppointmentBookingSystem.db";
+        File f = new File(url);
+    	f.delete();
+    	System.out.println("Existing database have been deleted.");
+	}
 	/**
 	 * This method will create a database in /Users/me/ using SQLite.
 	 * @param fileName will be retrieved from clientModel, default will be AppointmentBookingSystem.

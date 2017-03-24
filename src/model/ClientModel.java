@@ -1,5 +1,9 @@
 package model;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 import controller.ViewController;
 import database.DatabaseManager;
@@ -41,8 +45,10 @@ public class ClientModel {
      * create appointment booking system datbase,
      * create tables for business and customerinfo and
      * insert entities for them.
+     * @throws IOException
      */
-    public void initDatabase(){
+    public void initDatabase() throws IOException{
+    	databaseManager.deleteDatabase();
     	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
     	databaseManager.createBusinessTable();
     	databaseManager.createCustomerInfoTable();
