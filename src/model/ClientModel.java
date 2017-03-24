@@ -52,11 +52,11 @@ public class ClientModel {
 
 		if(username != null && password != null)
 		{
-			if( username.equals("admin")){
+			if(databaseManager.searchBusiness(username,password) == true){
 
 				viewController.gotoBusiness();
 			}
-			else if( username.equals("customer")){
+			else if(databaseManager.searchCustomer(username, password) == true){
 
 				viewController.gotoCustomer();
 			}
