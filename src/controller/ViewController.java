@@ -1,11 +1,32 @@
 package controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ViewController {
 
 	public ViewController()
 	{
 
 	}
+
+	/**
+	 * Add logging information to console.
+	 * @param from the class name for printed information.
+	 * @param message print to console.
+	 */
+    public void add(String from, String message)
+    {
+        // Get the date and format it for output
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
+        // Create the output message
+        String logMsg = "["+dateFormat.format(date)+"] "+from+": "+message;
+        // Output to console
+        System.out.println(logMsg);
+    }
+
 
 	/**
 	 * Go to main menu of business owner, functions include
