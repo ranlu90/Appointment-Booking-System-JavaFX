@@ -8,7 +8,7 @@ import database.DatabaseManager;
 
 public class ClientModel {
 
-	private ViewController viewController = new ViewController();
+	private ViewController view = new ViewController();
 	private DatabaseManager databaseManager = new DatabaseManager();
 
 	private String username;
@@ -50,11 +50,11 @@ public class ClientModel {
 		{
 			if(databaseManager.searchBusiness(username,password) == true || username.equals("admin")){
 
-				viewController.gotoBusiness();
+				view.gotoBusiness();
 			}
 			else if(databaseManager.searchCustomer(username, password) == true || username.equals("customer")){
 
-				viewController.gotoCustomer();
+				view.gotoCustomer();
 			}
 			else{
 
@@ -93,6 +93,7 @@ public class ClientModel {
 				//add username and password to the database
 				//remove "//" when functions have been completed.
 				//databaseManager.insertIntoCustomer(username,password,firstname,lastname,address,contactNumber);
+				System.out.println("Your customer account has been successfully created!");
 			}
 			else{
 				System.out.println("Passwords does not match, return to the main menu.");

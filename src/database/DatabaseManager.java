@@ -3,10 +3,13 @@ package database;
 import java.io.File;
 import java.sql.*;
 
+import controller.ViewController;
+
 public class DatabaseManager {
 
 	public DatabaseManager(){}
 
+	ViewController view = new ViewController();
 
 	/**
 	 * delete existing database in local files, the path is /Users/'username'/AppointmentBookingSystem.db
@@ -16,7 +19,7 @@ public class DatabaseManager {
         String url = "/Users/" + username + "/" + "AppointmentBookingSystem.db";
         File f = new File(url);
     	f.delete();
-    	System.out.println("Existing database have been deleted.");
+    	view.add("DatabaseManager", "The existing database has been deleted.");
 	}
 
 
@@ -30,7 +33,7 @@ public class DatabaseManager {
 
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
-                System.out.println(fileName + " database has been created.");
+            	view.add("DatabaseManager", fileName + " database has been created.");
             }
         }
         catch (SQLException e) {
@@ -65,7 +68,7 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-        System.out.println("Business table has been created.");
+    	view.add("DatabaseManager", "Business table has been created.");
     }
 
 
@@ -102,7 +105,7 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-        System.out.println("Business entities have been inserted successfully.");
+    	view.add("DatabaseManager", "Business entities have been inserted.");
     }
 
 
@@ -132,7 +135,7 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-        System.out.println("Customerinfo table has been created.");
+    	view.add("DatabaseManager", "Customerinfo table has been created.");
     }
 
 
@@ -169,7 +172,7 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-        System.out.println("Business entities have been inserted successfully.");
+    	view.add("DatabaseManager", "Customerinfo entities have been inserted.");
     }
 
 
@@ -306,7 +309,6 @@ public class DatabaseManager {
 	                  "VALUES ('" + firstname + "','" + lastname + "','" + address + "',''" + contactNumber + "'','" + username + "','" + password + "');";
 
 			ps.executeUpdate(sql);
-			System.out.println("Your customer account has been successfully created!");
 			return true;
 
 		}
