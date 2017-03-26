@@ -76,10 +76,10 @@ public class ClientModel {
 		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
 		//get user input
 		System.out.print("Username: ");
-		username = sc.next();
+		username = sc.nextLine();
 		System.out.println("Password must contain one uppercase, one lowercase, a number and minimum length of 6.");
 		System.out.print("Password: ");
-		password = sc.next();
+		password = sc.nextLine();
 		if(!password.matches(check)){
 			System.out.println("Please choose a more complicated password.");
 			System.out.println("=========================================");
@@ -87,19 +87,19 @@ public class ClientModel {
 		}
 
 		System.out.print("Confirm Password: ");
-		String password2 = sc.next();
+		String password2 = sc.nextLine();
 
 		//search the database and find if the username has not been used
 		if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
 			if(password.matches(password2)){
 				System.out.print("Please enter your first name: ");
-				firstname = sc.next();
+				firstname = sc.nextLine();
 				System.out.print("Please enter your last name: ");
-				lastname = sc.next();
+				lastname = sc.nextLine();
 				System.out.print("Please enter your address: ");
-				address = sc.next();
+				address = sc.nextLine();
 				System.out.print("Please enter your contact number: ");
-				contactNumber = sc.next();
+				contactNumber = sc.nextLine();
 
 				if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
 					System.out.println("Your customer account has been successfully created!");
