@@ -75,9 +75,9 @@ public class ClientModel {
 		//regular expression for password check
 		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
 		//get user input
-		System.out.println("Password must contain one uppercase, one lowercase, a number and minimum length of 6.");
 		System.out.print("Username: ");
 		username = sc.next();
+		System.out.println("Password must contain one uppercase, one lowercase, a number and minimum length of 6.");
 		System.out.print("Password: ");
 		password = sc.next();
 		if(!password.matches(check)){
@@ -103,13 +103,20 @@ public class ClientModel {
 				firstname = sc.next();
 				System.out.print("Please enter your last name: ");
 				lastname = sc.next();
-				System.out.print("Please enter your address: ");
-				address = sc.next();
-				System.out.print("Please enter your contact number: ");
-				number = sc.nextInt();
 				
-				System.out.println("Your customer account has been successfully created!");
-			}
+				System.out.print("Please enter your contact number: ");
+				if (sc.hasNextInt()) {
+				 number = sc.nextInt();
+				 System.out.print("Please enter your address: ");
+					address = sc.next();
+				 System.out.println("Your customer account has been successfully created!");
+				 	
+				} else {
+					System.out.println("Please enter correct contact number");
+					}
+				}
+			
+			
 			else{
 				System.out.println("Passwords does not match, return to the main menu.");
 				return;
