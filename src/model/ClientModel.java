@@ -13,6 +13,10 @@ public class ClientModel {
 
 	private String username;
 	private String password;
+	private String firstname;
+	private String lastname;
+	private String address;
+	private int number;
 	Scanner sc = new Scanner(System.in);
 
 	public ClientModel() {}
@@ -77,8 +81,9 @@ public class ClientModel {
 		System.out.print("Password: ");
 		password = sc.next();
 		if(!password.matches(check)){
-			System.out.println("Please choose a more complicated password, return to the main menu.");
-			return;
+			System.out.println("Please choose a more complicated password.");
+			System.out.println("=========================================");
+			register();
 		}
 
 		System.out.print("Confirm Password: ");
@@ -93,6 +98,16 @@ public class ClientModel {
 				//add username and password to the database
 				//remove "//" when functions have been completed.
 				//databaseManager.insertIntoCustomer(username,password,firstname,lastname,address,contactNumber);
+				
+				System.out.print("Please enter your first name: ");
+				firstname = sc.next();
+				System.out.print("Please enter your last name: ");
+				lastname = sc.next();
+				System.out.print("Please enter your address: ");
+				address = sc.next();
+				System.out.print("Please enter your contact number: ");
+				number = sc.nextInt();
+				
 				System.out.println("Your customer account has been successfully created!");
 			}
 			else{
