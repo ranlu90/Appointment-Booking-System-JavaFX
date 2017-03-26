@@ -6,19 +6,19 @@ public class Customer {
 	private String firstname;
 	private String lastname;
 	private String address;
-	private int number;
+	private String contactNumber;
 
 	/**
 	 * customer information will be stored in customer info database
 	 */
-	public Customer(String username, String password, String fistname, String lastname, String address,
-			int number){
+	public Customer(String firstname, String lastname, String address, String contactNumber, String username,
+			String password){
 		this.username = username;
 		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.address = address;
-		this.number = number;
+		this.contactNumber = contactNumber;
 	}
 
 	public String getusername(){
@@ -36,15 +36,15 @@ public class Customer {
 	public void setpassword(String password){
 		this.password = password;
 	}
-	
+
 	public String getfirstname(){
 		return firstname;
 	}
 
 	public void setfirstname(String firstname){
-		this.firstname = firstname;	
+		this.firstname = firstname;
 	}
-	
+
 	public String getlastname(){
 		return lastname;
 	}
@@ -52,7 +52,7 @@ public class Customer {
 	public void setlastname(String lastname){
 		this.lastname = lastname;
 	}
-	
+
 	public String getaddress(){
 		return address;
 	}
@@ -60,12 +60,12 @@ public class Customer {
 	public void setaddress(String address){
 		this.address = address;
 	}
-	
-	public int getnumber(){
-		return number;
+
+	public String getContactNumber(){
+		return contactNumber;
 	}
 
-	public void setnumber(int number){
-		this.number = number;
+	public void setContactNumber(String contactNumber){
+		this.contactNumber = contactNumber;
 	}
 }
