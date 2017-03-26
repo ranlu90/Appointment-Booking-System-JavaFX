@@ -103,6 +103,7 @@ public class ClientModel {
 
 				databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password);
 				System.out.println("Your customer account has been successfully created!");
+				return;
 			}
 			else{
 				System.out.println("Passwords does not match, return to the main menu.");
@@ -111,5 +112,7 @@ public class ClientModel {
 		}
 		else
 			System.out.println("This username has already been taken!");
-	}
+			return;
+		}
+
 }
