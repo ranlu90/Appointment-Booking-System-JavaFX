@@ -81,9 +81,9 @@ public class ClientModel {
 		System.out.print("Password: ");
 		password = sc.nextLine();
 		if(!password.matches(check)){
-			System.out.println("Please choose a more complicated password.");
+			System.out.println("Password is too easy, return to the main menu.");
 			System.out.println("=========================================");
-				register();
+				return;
 		}
 
 		System.out.print("Confirm Password: ");
