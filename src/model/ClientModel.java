@@ -16,7 +16,7 @@ public class ClientModel {
 	private String firstname;
 	private String lastname;
 	private String address;
-	private int number;
+	private String contactNumber;
 	Scanner sc = new Scanner(System.in);
 
 	public ClientModel() {}
@@ -83,7 +83,7 @@ public class ClientModel {
 		if(!password.matches(check)){
 			System.out.println("Please choose a more complicated password.");
 			System.out.println("=========================================");
-			register();
+				register();
 		}
 
 		System.out.print("Confirm Password: ");
@@ -92,31 +92,18 @@ public class ClientModel {
 		//search the database and find if the username has not been used
 		if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
 			if(password.matches(password2)){
-				//implement functions here for get first_name, last_name, address and contact_number
-
-
-				//add username and password to the database
-				//remove "//" when functions have been completed.
-				//databaseManager.insertIntoCustomer(username,password,firstname,lastname,address,contactNumber);
-				
 				System.out.print("Please enter your first name: ");
 				firstname = sc.next();
 				System.out.print("Please enter your last name: ");
 				lastname = sc.next();
-				
+				System.out.print("Please enter your address: ");
+				address = sc.next();
 				System.out.print("Please enter your contact number: ");
-				if (sc.hasNextInt()) {
-				 number = sc.nextInt();
-				 System.out.print("Please enter your address: ");
-					address = sc.next();
-				 System.out.println("Your customer account has been successfully created!");
-				 	
-				} else {
-					System.out.println("Please enter correct contact number");
-					}
-				}
-			
-			
+				contactNumber = sc.next();
+
+				databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password);
+				System.out.println("Your customer account has been successfully created!");
+			}
 			else{
 				System.out.println("Passwords does not match, return to the main menu.");
 				return;
