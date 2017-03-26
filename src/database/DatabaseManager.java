@@ -294,7 +294,7 @@ public class DatabaseManager {
 	 * Insert username, password, firstname, lastname,
 	 *  address and contact number into customerinfo database
 	 */
-    public void insertIntoCustomer(String firstname, String lastname,
+    public boolean insertIntoCustomer(String firstname, String lastname,
 			String address, String contactNumber, String username, String password){
         Connection c = null;
         Statement stmt = null;
@@ -313,9 +313,11 @@ public class DatabaseManager {
           stmt.close();
           c.commit();
           c.close();
+          return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+        return false;
     }
 }

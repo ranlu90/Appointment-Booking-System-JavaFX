@@ -101,9 +101,10 @@ public class ClientModel {
 				System.out.print("Please enter your contact number: ");
 				contactNumber = sc.next();
 
-				databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password);
-				System.out.println("Your customer account has been successfully created!");
-				return;
+				if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
+					System.out.println("Your customer account has been successfully created!");
+					return;
+				}
 			}
 			else{
 				System.out.println("Passwords does not match, return to the main menu.");
