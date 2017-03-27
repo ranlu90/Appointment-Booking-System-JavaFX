@@ -11,7 +11,7 @@ public class RegisterTest1 {
 		private static ClientModel clientModel = new ClientModel();
 
 		@Test
-		public void test2() {
+		public void test() {
 			//check every attribute meets the requirements
 			boolean f = clientModel.register("test","test","test","test","test","Test000");
 			assertTrue(f);
