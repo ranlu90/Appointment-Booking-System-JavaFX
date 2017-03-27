@@ -11,6 +11,8 @@ public class Customer {
 	/**
 	 * customer information will be stored in customer info database
 	 */
+	public Customer(){}
+
 	public Customer(String firstname, String lastname, String address, String contactNumber, String username,
 			String password){
 		this.username = username;
@@ -20,7 +22,6 @@ public class Customer {
 		this.address = address;
 		this.contactNumber = contactNumber;
 	}
-
 	public String getusername(){
 		return username;
 	}

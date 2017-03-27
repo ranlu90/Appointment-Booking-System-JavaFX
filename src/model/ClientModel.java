@@ -11,6 +11,7 @@ public class ClientModel {
 	private ViewController view = new ViewController();
 	private DatabaseManager databaseManager = new DatabaseManager();
 
+
 	private String username;
 	private String password;
 	private String firstname;
@@ -42,7 +43,7 @@ public class ClientModel {
     /**
      * Get user's input for username and password, if both are found in the database, go to main menu for business owner.
      */
-	public void login()
+	public boolean login()
 	{
 		//get user input
 		System.out.print("Username: ");
@@ -55,17 +56,20 @@ public class ClientModel {
 			if(databaseManager.searchBusiness(username,password) == true){
 
 				view.gotoBusiness();
+				return true;
 			}
 			else if(databaseManager.searchCustomer(username, password) == true){
 
 				view.gotoCustomer();
+				return true;
 			}
 			else{
 
 				System.out.println("Incorrect credentials!");
-				return;
+				return false;
 			}
 		}
+		return false;
 	}
 
 
