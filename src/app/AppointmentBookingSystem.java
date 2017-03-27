@@ -22,6 +22,10 @@ public class AppointmentBookingSystem {
 		 String input;
 		 String username;
 		 String password;
+		 String firstname;
+		 String lastname;
+		 String address;
+		 String contactNumber;
 
 	        char selection = '\0';
 	        do
@@ -61,15 +65,42 @@ public class AppointmentBookingSystem {
 	            		username = sc.nextLine();
 	            		System.out.print("Password: ");
 	            		password = sc.nextLine();
-
-	                    // call addTour() helper method
 	                    clientModel.login(username,password);
 	                    break;
 
 	                case 'B':
+	            		//regular expression for password check
+	            		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+	            		//get user input
+	            		System.out.print("Username: ");
+	            		username = sc.nextLine();
+	            		//^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{1,}$
+	            		if(!username.matches("^[0-9a-zA-Z@\\.]{1,}$")){
+	            			System.out.println("Username only contains digits, letters and @ or dot without any white spaces!");
+	            			break;
+	            		}
+	            		System.out.println("Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.");
+	            		System.out.print("Password: ");
+	            		password = sc.nextLine();
+	            		if(!password.matches(check)){
+	            			System.out.println("Password is too easy, return to the main menu.");
+	            			System.out.println("=========================================");
+	            			break;
+	            		}
+	            		System.out.print("Confirm Password: ");
+	            		String password2 = sc.nextLine();
+	            		if(password.matches(password2)){
+	        				System.out.print("Please enter your first name: ");
+	        				firstname = sc.nextLine();
+	        				System.out.print("Please enter your last name: ");
+	        				lastname = sc.nextLine();
+	        				System.out.print("Please enter your address: ");
+	        				address = sc.nextLine();
+	        				System.out.print("Please enter your contact number: ");
+	        				contactNumber = sc.nextLine();
 
-	                    // call displayTourSummary() helper method
-	                   clientModel.register();
+	        				clientModel.register(firstname,lastname,address,contactNumber,username,password);
+	            		}
 	                    break;
 
 	                case 'X':

@@ -1,7 +1,6 @@
 package model;
 
 import java.io.IOException;
-import java.util.Scanner;
 import controller.ViewController;
 import database.DatabaseManager;
 import user.BusinessOwner;
@@ -17,13 +16,6 @@ public class ClientModel {
 	private BusinessOwner businessOwner = new BusinessOwner();
 	private Customer customer = new Customer();
 
-	private String username;
-	private String password;
-	private String firstname;
-	private String lastname;
-	private String address;
-	private String contactNumber;
-	Scanner sc = new Scanner(System.in);
 
 	public ClientModel() {}
 
@@ -68,8 +60,6 @@ public class ClientModel {
      */
 	public boolean login(String username, String password)
 	{
-		this.username = username;
-		this.password = password;
 		if(username != null && password != null)
 		{
 			if(databaseManager.searchBusiness(username,password) == true){
@@ -94,55 +84,21 @@ public class ClientModel {
 
 
 	//the user selected to register as a customer
-	public void register(){
+	public boolean register(String firstname, String lastname, String address,
+			String contactNumber, String username, String password){
 
-		//regular expression for password check
-		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
-		//get user input
-		System.out.print("Username: ");
-		username = sc.nextLine();
-
-		if(!username.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{1,}$")){
-			System.out.println("Username cannot contain white spaces!");
-			return;
-		}
-		System.out.println("Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.");
-		System.out.print("Password: ");
-		password = sc.nextLine();
-		if(!password.matches(check)){
-			System.out.println("Password is too easy, return to the main menu.");
-			System.out.println("=========================================");
-				return;
-		}
-
-		System.out.print("Confirm Password: ");
-		String password2 = sc.nextLine();
-
-		//search the database and find if the username has not been used
+		//search the database and find if the username has been used
 		if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
-			if(password.matches(password2)){
-				System.out.print("Please enter your first name: ");
-				firstname = sc.nextLine();
-				System.out.print("Please enter your last name: ");
-				lastname = sc.nextLine();
-				System.out.print("Please enter your address: ");
-				address = sc.nextLine();
-				System.out.print("Please enter your contact number: ");
-				contactNumber = sc.nextLine();
+				databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password);
+				System.out.println("Your customer account has been successfully created!");
+				return true;
 
-				if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
-					System.out.println("Your customer account has been successfully created!");
-					return;
-				}
-			}
-			else{
-				System.out.println("Passwords does not match, return to the main menu.");
-				return;
-			}
 		}
-		else
+		else{
 			System.out.println("This username has already been taken!");
-			return;
+			return false;
 		}
+
+	}
 
 }

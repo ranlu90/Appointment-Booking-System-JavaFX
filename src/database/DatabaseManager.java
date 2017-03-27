@@ -34,6 +34,7 @@ public class DatabaseManager {
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
             	view.add("DatabaseManager", fileName + " database has been created.");
+            	conn.close();
             }
         }
         catch (SQLException e) {
@@ -185,13 +186,18 @@ public class DatabaseManager {
 	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection(url);
+			Connection c = DriverManager.getConnection(url);
+			c.setAutoCommit(false);
 			//create a query searching username and password
 			final String business = "select * from Business where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
-			final Statement ps = connection.createStatement();
+			final Statement stmt = c.createStatement();
 			//get all tuples from business table that matches the input
-			ResultSet result1 = ps.executeQuery(business);
+			ResultSet result1 = stmt.executeQuery(business);
+			stmt.close();
+	        c.commit();
+	        c.close();
+
 			if(result1.next()){
 				return true;
 			}
@@ -213,13 +219,18 @@ public class DatabaseManager {
 	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection(url);
+			Connection c = DriverManager.getConnection(url);
+			c.setAutoCommit(false);
 			//create a query searching username and password
 			final String customer = "select * from Customerinfo where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
-			final Statement ps = connection.createStatement();
+			final Statement stmt = c.createStatement();
 			//get all tuples from customer table that matches the input
-			ResultSet result = ps.executeQuery(customer);
+			ResultSet result = stmt.executeQuery(customer);
+			stmt.close();
+	        c.commit();
+	        c.close();
+
 			if(result.next()){
 				return true;
 			}
@@ -242,15 +253,19 @@ public class DatabaseManager {
 	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection(url);
+			Connection c = DriverManager.getConnection(url);
+			c.setAutoCommit(false);
 			//create a query for MySQL search
 			final String userCheck = "select * from Business where username = '" + input + "'";
 			//create a statement
-			final Statement ps = connection.createStatement();
+			final Statement stmt = c.createStatement();
 			//get all tuples from business table that matches the input
-			final ResultSet result = ps.executeQuery(userCheck);
+			final ResultSet result = stmt.executeQuery(userCheck);
+			stmt.close();
+	        c.commit();
+	        c.close();
+
 			if(result.next()){
-				input = result.getString("username");
 				return true;
 			}
 		}
@@ -271,15 +286,19 @@ public class DatabaseManager {
 	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 
 			//connect to appointment booking system in the database
-			Connection connection = DriverManager.getConnection(url);
+			Connection c = DriverManager.getConnection(url);
+			c.setAutoCommit(false);
 			//create a query for MySQL search
 			final String userCheck = "select * from Customerinfo where username = '" + input + "'";
 			//create a statement
-			final Statement ps = connection.createStatement();
+			final Statement stmt = c.createStatement();
 			//get all tuples from business table that matches the input
-			final ResultSet result = ps.executeQuery(userCheck);
+			final ResultSet result = stmt.executeQuery(userCheck);
+			stmt.close();
+	        c.commit();
+	        c.close();
+
 			if(result.next()){
-				input = result.getString("username");
 				return true;
 			}
 		}
