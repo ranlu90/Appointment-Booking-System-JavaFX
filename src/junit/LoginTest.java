@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import model.ClientModel;
 
-public class TestLogin {
+public class LoginTest {
 	private static ClientModel clientModel = new ClientModel();
 
 	@Test

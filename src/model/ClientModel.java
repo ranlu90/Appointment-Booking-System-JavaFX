@@ -89,16 +89,20 @@ public class ClientModel {
 
 		//search the database and find if the username has been used
 		if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
-				databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password);
-				System.out.println("Your customer account has been successfully created!");
-				return true;
+				if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
+					System.out.println("Your customer account has been successfully created!");
+					return true;
+				}
+				else{
+					System.out.println("Insertion into Customer table failed!");
+					return false;
+				}
 
 		}
 		else{
 			System.out.println("This username has already been taken!");
 			return false;
 		}
-
 	}
 
 }
