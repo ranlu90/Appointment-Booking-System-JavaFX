@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class ViewController {
 
 	private static final Scanner sc = new Scanner(System.in);
+	private BusinessController businessController = new BusinessController();
 
 	public ViewController(){}
 

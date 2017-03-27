@@ -24,6 +24,7 @@ public class AppointmentBookingSystem {
 		clientModel.initDatabase();
 		clientModel.initBusinessOwner(businessOwner);
 		clientModel.initCustomer(customer);
+		clientModel.start();
 
 		 String input;
 		 String username;

@@ -16,4 +16,36 @@ public class BusinessController {
 	public boolean addEmployee(){
 		return false;
 	}
+
+
+	/**
+	 *
+	 */
+	public boolean addBusinessHours(){
+		return false;
+	}
+
+
+	/**
+	 *
+	 */
+	public boolean viewAllBookings(){
+		return false;
+	}
+
+
+	/**
+	 *
+	 */
+	public boolean viewNewBookings(){
+		return false;
+	}
+
+
+	/**
+	 *
+	 */
+	public boolean viewWorkersAvailability(){
+		return false;
+	}
 }

@@ -19,6 +19,13 @@ public class ClientModel {
 
 	public ClientModel() {}
 
+	/**
+	 * Start the system, initiate the main menu by calling initMenu() in the inputController class
+	 */
+	public void start(){
+
+	}
+
 
 	/**
 	 * passing businessowner from main method to this class when system starts.
