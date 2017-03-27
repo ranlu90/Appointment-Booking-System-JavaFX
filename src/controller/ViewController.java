@@ -14,14 +14,6 @@ public class ViewController {
 
 
 	/**
-	 * Initiate system main menu, allow user to enter options.
-	 */
-	public void initMenu(){
-
-	}
-
-
-	/**
 	 * Add logging information to console.
 	 * @param from the class name for printed information.
 	 * @param message print to console.
