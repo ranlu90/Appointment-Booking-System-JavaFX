@@ -26,6 +26,24 @@ public class ClientModel {
 	public ClientModel() {}
 
 
+	/**
+	 * passing businessowner from main method to this class when system starts.
+	 * @param businessOwner initial null variable
+	 */
+	public void initBusinessOwner(BusinessOwner businessOwner){
+		this.businessOwner = businessOwner;
+	}
+
+
+	/**
+	 * passing customer from main method to this class when system starts.
+	 * @param customer initial null variable
+	 */
+	public void initCustomer(Customer customer){
+		this.customer = customer;
+	}
+
+
     /**
      * create appointment booking system datbase,
      * create tables for business and customerinfo and
