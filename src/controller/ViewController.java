@@ -3,9 +3,10 @@ package controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class ViewController {
-
+	private static final Scanner sc = new Scanner(System.in);
 	public ViewController()
 	{
 
@@ -36,17 +37,157 @@ public class ViewController {
 	 */
 	public void gotoBusiness()
 	{
-		System.out.println("1.Add a new employee");
-		System.out.println("2.Add working time/dates for the next month");
-		System.out.println("3.View the summaries of bookings");
-		System.out.println("4.View new booking");
-		System.out.println("5.Show all workers’ availability for the next 7 days");
+		 String input;
+	        char selection = '\0';
+	        do
+	        {
+		System.out.println("A.Add a new employee");
+		System.out.println("B.Add working time/dates for the next month");
+		System.out.println("C.View the summaries of bookings");
+		System.out.println("D.View new booking");
+		System.out.println("E.Show all workers’ availability for the next 7 days");
+		System.out.println("X.Logout");
+		System.out.print("Enter your selection: ");
+        input = sc.nextLine();
+
+        System.out.println();
+
+        if (input.length() != 1)
+        {
+            System.out
+                    .println("Error - selection must be a single character!");
+
+        } else
+        {
+            // extract the user's menu selection as a char value and
+            // convert it to upper case so that the menu becomes
+            // case-insensitive
+
+            selection = Character.toUpperCase(input.charAt(0));
+
+            // process the user's selection
+            switch (selection)
+            {
+            case 'A':
+                  addemployee();
+               
+                break;
+
+            case 'B':
+                  addtime();
+              
+                break;
+                
+            case 'C':
+                  viewbooking();
+                
+                break;
+                
+            case 'D':
+                  viewnew();
+                
+                break;
+                
+            case 'E':
+                  available();
+                
+                break;
+
+            case 'X':
+                 
+               
+                break;
+
+            default:
+
+                // default case - handles invalid selections
+                System.out.println("Error - invalid selection!");
+
+            }
+        }
+        System.out.println();
+
+    } while (selection != 'X');
 	}
+	private void available() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addtime() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void viewnew() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void viewbooking() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void addemployee() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/**
 	 * Go to main menu of customer, customer can only view available days/time.
 	 */
 	public void gotoCustomer()
-	{
-		System.out.println("1.View availabe days/time");
+	{ 
+		String input2;
+	
+    char selection2 = '\0';
+    do
+    {
+		System.out.println("A.View availabe days/time");
+		System.out.print("Enter your selection: ");
+        input2 = sc.nextLine();
+
+        System.out.println();
+
+        if (input2.length() != 1)
+        {
+            System.out
+                    .println("Error - selection must be a single character!");
+
+        } else
+        {
+            // extract the user's menu selection as a char value and
+            // convert it to upper case so that the menu becomes
+            // case-insensitive
+
+            selection2 = Character.toUpperCase(input2.charAt(0));
+
+            // process the user's selection
+            switch (selection2)
+            {
+            case 'A':
+            	view();
+            	break;
+            case 'X':
+                
+                
+                break;
+
+            default:
+
+                // default case - handles invalid selections
+                System.out.println("Error - invalid selection!");
+
+            }
+        }
+        System.out.println();
+
+    } while (selection2 != 'X');
+	}
+
+	private void view() {
+		// TODO Auto-generated method stub
+		
 	}
 }
