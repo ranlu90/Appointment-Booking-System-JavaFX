@@ -2,6 +2,8 @@ package app;
 
 import java.util.Scanner;
 import model.ClientModel;
+import user.BusinessOwner;
+import user.Customer;
 
 public class AppointmentBookingSystem {
 
@@ -10,11 +12,17 @@ public class AppointmentBookingSystem {
 
 	public static void main(String[] args) throws Exception{
 
+		BusinessOwner businessOwner = new BusinessOwner();
+		Customer customer = new Customer();
+
 		clientModel.initDatabase();
-
-
+		clientModel.initBusinessOwner(businessOwner);
+		clientModel.initCustomer(customer);
 
 		 String input;
+		 String username;
+		 String password;
+
 	        char selection = '\0';
 	        do
 	        {
@@ -48,9 +56,14 @@ public class AppointmentBookingSystem {
 	                switch (selection)
 	                {
 	                case 'A':
+	            		//get user input
+	            		System.out.print("Username: ");
+	            		username = sc.nextLine();
+	            		System.out.print("Password: ");
+	            		password = sc.nextLine();
 
 	                    // call addTour() helper method
-	                    clientModel.login();
+	                    clientModel.login(username,password);
 	                    break;
 
 	                case 'B':

@@ -7,7 +7,9 @@ import database.DatabaseManager;
 import user.BusinessOwner;
 import user.Customer;
 
-
+/**
+ *	System class, containing functions register, login etc.
+ */
 public class ClientModel {
 
 	private ViewController view = new ViewController();
@@ -62,30 +64,27 @@ public class ClientModel {
 
 
     /**
-     * Get user's input for username and password, if both are found in the database, go to main menu for business owner.
+     * Get user's input for username and password, if both are found in the database, go to relative menu.
      */
-	public boolean login()
+	public boolean login(String username, String password)
 	{
-		//get user input
-		System.out.print("Username: ");
-		username = sc.next();
-		System.out.print("Password: ");
-		password = sc.next();
-
+		this.username = username;
+		this.password = password;
 		if(username != null && password != null)
 		{
 			if(databaseManager.searchBusiness(username,password) == true){
-
+				businessOwner.setusername(username);
+				businessOwner.setpassword(password);
 				view.gotoBusiness();
 				return true;
 			}
 			else if(databaseManager.searchCustomer(username, password) == true){
-
+				customer.setusername(username);
+				customer.setpassword(password);
 				view.gotoCustomer();
 				return true;
 			}
 			else{
-
 				System.out.println("Incorrect credentials!");
 				return false;
 			}
