@@ -12,6 +12,15 @@ public class ViewController {
 
 	public ViewController(){}
 
+
+	/**
+	 * Initiate system main menu, allow user to enter options.
+	 */
+	public void initMenu(){
+
+	}
+
+
 	/**
 	 * Add logging information to console.
 	 * @param from the class name for printed information.
@@ -52,87 +61,50 @@ public class ViewController {
 
         System.out.println();
 
-        if (input.length() != 1)
-        {
-            System.out
-                    .println("Error - selection must be a single character!");
-
-        } else
-        {
+        if (input.length() != 1){
+            System.out.println("Error - selection must be a single character!");
+        }
+        else{
             // extract the user's menu selection as a char value and
             // convert it to upper case so that the menu becomes
             // case-insensitive
-
             selection = Character.toUpperCase(input.charAt(0));
 
             // process the user's selection
             switch (selection)
             {
             case 'A':
-                  addemployee();
-
+            	businessController.addEmployee();
                 break;
 
             case 'B':
-                  addtime();
-
+            	businessController.addBusinessHours();
                 break;
 
             case 'C':
-                  viewbooking();
-
+            	businessController.viewAllBookings();
                 break;
 
             case 'D':
-                  viewnew();
-
+            	businessController.viewNewBookings();
                 break;
 
             case 'E':
-                  available();
-
+            	businessController.viewWorkersAvailability();
                 break;
 
             case 'X':
-
-
                 break;
 
             default:
-
                 // default case - handles invalid selections
                 System.out.println("Error - invalid selection!");
-
             }
         }
         System.out.println();
-
     } while (selection != 'X');
 	}
-	private void available() {
-		// TODO Auto-generated method stub
 
-	}
-
-	private void addtime() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void viewnew() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void viewbooking() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void addemployee() {
-		// TODO Auto-generated method stub
-
-	}
 
 	/**
 	 * Go to main menu of customer, customer can only view available days/time.
@@ -140,23 +112,23 @@ public class ViewController {
 	public void gotoCustomer()
 	{
 		String input2;
+		char selection2 = '\0';
 
-    char selection2 = '\0';
-    do
-    {
-		System.out.println("A.View availabe days/time");
-		System.out.print("Enter your selection: ");
-        input2 = sc.nextLine();
+		do
+		{
+			System.out.println("A.View availabe days/time");
+			System.out.print("Enter your selection: ");
+			input2 = sc.nextLine();
 
-        System.out.println();
+			System.out.println();
 
-        if (input2.length() != 1)
-        {
-            System.out
-                    .println("Error - selection must be a single character!");
+			if (input2.length() != 1)
+			{
+				System.out.println("Error - selection must be a single character!");
 
-        } else
-        {
+			}
+			else
+			{
             // extract the user's menu selection as a char value and
             // convert it to upper case so that the menu becomes
             // case-insensitive
@@ -167,27 +139,18 @@ public class ViewController {
             switch (selection2)
             {
             case 'A':
-            	view();
+            	//view available days/time
             	break;
+
             case 'X':
-
-
                 break;
 
             default:
-
                 // default case - handles invalid selections
                 System.out.println("Error - invalid selection!");
-
             }
-        }
-        System.out.println();
-
-    } while (selection2 != 'X');
-	}
-
-	private void view() {
-		// TODO Auto-generated method stub
-
+        	}
+        	System.out.println();
+    	} while (selection2 != 'X');
 	}
 }

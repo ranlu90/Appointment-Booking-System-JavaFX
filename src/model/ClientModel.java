@@ -23,16 +23,24 @@ public class ClientModel {
 	 * Start the system, initiate the main menu by calling initMenu() in the inputController class
 	 */
 	public void start(){
-
+		view.initMenu();
 	}
 
 
 	/**
-	 * passing businessowner from main method to this class when system starts.
+	 * passing businessOwner from main method to this class when system starts.
 	 * @param businessOwner initially null
 	 */
 	public void initBusinessOwner(BusinessOwner businessOwner){
 		this.businessOwner = businessOwner;
+	}
+
+
+	/**
+	 *	passing viewController from main method to this class when system starts.
+	 */
+	public void initViewController(ViewController view){
+		this.view = view;
 	}
 
 
