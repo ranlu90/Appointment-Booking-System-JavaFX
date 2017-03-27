@@ -11,15 +11,8 @@ public class BusinessOwner {
 	/**
 	 * business owner information will be stored in business owner database
 	 */
-	public BusinessOwner(String BusinessName,String BusinessOwnerName,
-						String address,String phone,String username,String password){
-		this.BusinessName = BusinessName;
-		this.BusinessOwnerName = BusinessOwnerName;
-		this.address = address;
-		this.phone = phone;
-		this.username = username;
-		this.password = password;
-	}
+	public BusinessOwner(){}
+
 
 	public String getBusinessName(){
 		return BusinessName;

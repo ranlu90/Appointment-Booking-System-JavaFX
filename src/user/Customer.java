@@ -13,15 +13,7 @@ public class Customer {
 	 */
 	public Customer(){}
 
-	public Customer(String firstname, String lastname, String address, String contactNumber, String username,
-			String password){
-		this.username = username;
-		this.password = password;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.address = address;
-		this.contactNumber = contactNumber;
-	}
+
 	public String getusername(){
 		return username;
 	}

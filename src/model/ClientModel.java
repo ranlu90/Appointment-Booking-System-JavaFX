@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.Scanner;
 import controller.ViewController;
 import database.DatabaseManager;
+import user.BusinessOwner;
+import user.Customer;
 
 
 public class ClientModel {
 
 	private ViewController view = new ViewController();
 	private DatabaseManager databaseManager = new DatabaseManager();
-
+	private BusinessOwner businessOwner = new BusinessOwner();
+	private Customer customer = new Customer();
 
 	private String username;
 	private String password;
