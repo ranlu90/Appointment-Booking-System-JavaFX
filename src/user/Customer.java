@@ -1,5 +1,8 @@
 package user;
 
+/**
+ * customer information will be stored in Customer table.
+ */
 public class Customer {
 	private String username;
 	private String password;

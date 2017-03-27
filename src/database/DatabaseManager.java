@@ -5,6 +5,13 @@ import java.sql.*;
 
 import controller.ViewController;
 
+/**
+ * Manage databases include delete database if existed, create a AppointmentBookingSystem database,
+ * create Business and Customerinfo tables, insert initial entities for them, search username or password,
+ * and update new customer in the Customerinfo.
+ * @author ranlu
+ *
+ */
 public class DatabaseManager {
 
 	public DatabaseManager(){}

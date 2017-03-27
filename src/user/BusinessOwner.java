@@ -1,5 +1,8 @@
 package user;
 
+/**
+ * business owner information will be stored in Businessowner table.
+ */
 public class BusinessOwner {
 	private String BusinessName;
 	private String BusinessOwnerName;
@@ -8,9 +11,7 @@ public class BusinessOwner {
 	private String username;
 	private String password;
 
-	/**
-	 * business owner information will be stored in business owner database
-	 */
+	//create default constructor to evoke methods in the class
 	public BusinessOwner(){}
 
 

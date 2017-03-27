@@ -5,6 +5,12 @@ import model.ClientModel;
 import user.BusinessOwner;
 import user.Customer;
 
+/**
+ * This is the main class for the system. All data will be initiated including business owner, customer, database.
+ * And start the main menu.
+ * @author ranlu
+ *
+ */
 public class AppointmentBookingSystem {
 
 	private static final Scanner sc = new Scanner(System.in);
@@ -76,7 +82,7 @@ public class AppointmentBookingSystem {
 	            		username = sc.nextLine();
 	            		//^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{1,}$
 	            		if(!username.matches("^[0-9a-zA-Z@\\.]{1,}$")){
-	            			System.out.println("Username only contains digits, letters and @ or dot without any white spaces!");
+	            			System.out.println("Username only contains digits, letters, '@', '.' and no spaces!");
 	            			break;
 	            		}
 	            		System.out.println("Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.");

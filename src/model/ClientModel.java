@@ -7,7 +7,7 @@ import user.BusinessOwner;
 import user.Customer;
 
 /**
- *	System class, containing functions register, login etc.
+ *	System class, containing functions register and login.
  */
 public class ClientModel {
 
@@ -22,7 +22,7 @@ public class ClientModel {
 
 	/**
 	 * passing businessowner from main method to this class when system starts.
-	 * @param businessOwner initial null variable
+	 * @param businessOwner initially null
 	 */
 	public void initBusinessOwner(BusinessOwner businessOwner){
 		this.businessOwner = businessOwner;
@@ -31,7 +31,7 @@ public class ClientModel {
 
 	/**
 	 * passing customer from main method to this class when system starts.
-	 * @param customer initial null variable
+	 * @param customer initially null
 	 */
 	public void initCustomer(Customer customer){
 		this.customer = customer;
@@ -56,7 +56,7 @@ public class ClientModel {
 
 
     /**
-     * Get user's input for username and password, if both are found in the database, go to relative menu.
+     * Get user's input for username and password, if both are found in the database, go to client menus.
      */
 	public boolean login(String username, String password)
 	{
@@ -83,7 +83,16 @@ public class ClientModel {
 	}
 
 
-	//the user selected to register as a customer
+	/**
+	 *	Insert user's input to Customerinfo table.
+	 * @param firstname
+	 * @param lastname
+	 * @param address
+	 * @param contactNumber
+	 * @param username	Username only contains digits, letters, '@', '.' and no spaces.
+	 * @param password	Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.
+	 * @return true if registration is successful
+	 */
 	public boolean register(String firstname, String lastname, String address,
 			String contactNumber, String username, String password){
 

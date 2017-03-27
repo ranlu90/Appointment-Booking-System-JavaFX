@@ -2,6 +2,11 @@ package business;
 
 import java.util.HashMap;
 
+/**
+ * Each business owner can have many employees, each employee has separate working days/time in a week.
+ * @author ranlu
+ *
+ */
 public class Employee {
 
 	private String firstname;
