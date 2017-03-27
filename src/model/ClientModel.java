@@ -77,7 +77,12 @@ public class ClientModel {
 		//get user input
 		System.out.print("Username: ");
 		username = sc.nextLine();
-		System.out.println("Password must contain one uppercase, one lowercase, a number and minimum length of 6.");
+
+		if(!username.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{1,}$")){
+			System.out.println("Username cannot contain white spaces!");
+			return;
+		}
+		System.out.println("Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.");
 		System.out.print("Password: ");
 		password = sc.nextLine();
 		if(!password.matches(check)){
