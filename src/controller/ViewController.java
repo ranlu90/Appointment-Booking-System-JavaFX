@@ -6,11 +6,10 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class ViewController {
-	private static final Scanner sc = new Scanner(System.in);
-	public ViewController()
-	{
 
-	}
+	private static final Scanner sc = new Scanner(System.in);
+
+	public ViewController(){}
 
 	/**
 	 * Add logging information to console.
@@ -70,32 +69,32 @@ public class ViewController {
             {
             case 'A':
                   addemployee();
-               
+
                 break;
 
             case 'B':
                   addtime();
-              
+
                 break;
-                
+
             case 'C':
                   viewbooking();
-                
+
                 break;
-                
+
             case 'D':
                   viewnew();
-                
+
                 break;
-                
+
             case 'E':
                   available();
-                
+
                 break;
 
             case 'X':
-                 
-               
+
+
                 break;
 
             default:
@@ -111,36 +110,36 @@ public class ViewController {
 	}
 	private void available() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void addtime() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void viewnew() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void viewbooking() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void addemployee() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/**
 	 * Go to main menu of customer, customer can only view available days/time.
 	 */
 	public void gotoCustomer()
-	{ 
+	{
 		String input2;
-	
+
     char selection2 = '\0';
     do
     {
@@ -170,8 +169,8 @@ public class ViewController {
             	view();
             	break;
             case 'X':
-                
-                
+
+
                 break;
 
             default:
@@ -188,6 +187,6 @@ public class ViewController {
 
 	private void view() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
