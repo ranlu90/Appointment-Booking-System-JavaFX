@@ -171,7 +171,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                "VALUES ('Test','Test',null,null,'customer','customer');";
+                "VALUES ('" + username + "','" + username + "',null,null,'customer','customer');";
           stmt.executeUpdate(sql);
 
           stmt.close();
@@ -335,6 +335,11 @@ public class DatabaseManager {
     }
 
 
+    /**
+     * Get business name for a given username in the business table.
+     * @param username received from cilentModel, pass to the database.
+     * @return business name for the given username.
+     */
 	public String getBusinessName(String username){
 		try{
 	    	String user = System.getProperty("user.name");
@@ -353,6 +358,38 @@ public class DatabaseManager {
 			if(result.next()){
 				businessName = result.getString("business_name");
 				return businessName;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return null;
+	}
+
+
+    /**
+     * Get name for a given username in the customer table.
+     * @param username received from cilentModel, pass to the database.
+     * @return name for the given username.
+     */
+	public String getCustomerName(String username){
+		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+	        String firstname;
+	        String lastname;
+			//connect to appointment booking system in the database
+			Connection c = DriverManager.getConnection(url);
+			//create a query for SQLite search
+			final String getName = "select * from Customerinfo where username = '" + username + "'";
+			//create a statement
+			final Statement stmt = c.createStatement();
+			//get all tuples from business table that matches the input
+			final ResultSet result = stmt.executeQuery(getName);
+			if(result.next()){
+				firstname = result.getString("first_name");
+				lastname = result.getString("last_name");
+				return firstname + " " + lastname;
 			}
 		}
 		catch (Exception exp){

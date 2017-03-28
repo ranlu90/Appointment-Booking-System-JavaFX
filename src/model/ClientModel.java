@@ -188,7 +188,7 @@ public class ClientModel {
 				businessOwner.setusername(username);
 				businessOwner.setpassword(password);
 				//go to business owner menu
-				System.out.println("\n"+"====================================================");
+				System.out.println("\n"+"==================================================================");
 				System.out.println("You have logined in the business menu as '"+ databaseManager.getBusinessName(username)  + "'.\n");
 				view.gotoBusiness();
 				return true;
@@ -196,8 +196,8 @@ public class ClientModel {
 			else if(databaseManager.searchCustomer(username, password) == true){
 				customer.setusername(username);
 				customer.setpassword(password);
-				System.out.println("\n"+"====================================================");
-				System.out.println("You have logined in the customer menu as '"+ customer.getusername()  + "'.\n");
+				System.out.println("\n"+"==================================================================");
+				System.out.println("You have logined in the customer menu as '"+ databaseManager.getCustomerName(username)  + "'.\n");
 				//go to customer menu
 				view.gotoCustomer();
 				return true;
