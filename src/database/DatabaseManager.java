@@ -104,7 +104,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,working_hours,username,password) " +
-                "VALUES (null,null,null,null, '9:00 - 6:00 Monday to Friday', 'admin','admin');";
+                "VALUES ('System Testing Account',null,null,null, '9:00 - 6:00 Monday to Friday', 'admin','admin');";
           stmt.executeUpdate(sql);
 
           stmt.close();
@@ -333,4 +333,31 @@ public class DatabaseManager {
         }
         return false;
     }
+
+
+	public String getBusinessName(String username){
+		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+	        String businessName;
+
+			//connect to appointment booking system in the database
+			Connection c = DriverManager.getConnection(url);
+			//create a query for SQLite search
+			final String getBusiness = "select business_name from Business where username = '" + username + "'";
+			//create a statement
+			final Statement stmt = c.createStatement();
+			//get all tuples from business table that matches the input
+			final ResultSet result = stmt.executeQuery(getBusiness);
+
+			if(result.next()){
+				businessName = result.getString("business_name");
+				return businessName;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return null;
+	}
 }

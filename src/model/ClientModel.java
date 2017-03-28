@@ -189,7 +189,7 @@ public class ClientModel {
 				businessOwner.setpassword(password);
 				//go to business owner menu
 				System.out.println("\n"+"====================================================");
-				System.out.println("You have logined in the business menu as '"+ businessOwner.getusername()  + "'.\n");
+				System.out.println("You have logined in the business menu as '"+ databaseManager.getBusinessName(username)  + "'.\n");
 				view.gotoBusiness();
 				return true;
 			}
