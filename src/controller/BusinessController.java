@@ -48,23 +48,29 @@ public class BusinessController {
 		System.out.println("Please enter the emplyee's e-mail address:");
 		email = sc.nextLine();
 		if(email.matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})")){
-			employee.setEmail(email);
-			System.out.println("Please enter the emplyee's contact number:");
-			contactNumber = sc.nextLine();
-			employee.setContactNumber(contactNumber);
-			do{
-				System.out.println("Please enter the emplyee's working day in a week:");
-				workingDay = sc.nextLine();
-				System.out.println("Please enter the emplyee's working time:");
-				workingTime = sc.nextLine();
-				employee.getWorkingSchedule().put(workingDay, workingTime);
-				System.out.println("Enter anything to add more working days/time OR");
-				System.out.println("Enter 'save' to store the employee's details:");
-				selection = sc.nextLine();
-			}while(!selection.equalsIgnoreCase("save"));
-			businessOwner.getEmployeeList().add(employee);
-			System.out.println("The employee's details have been added to your employee list.\n");
-			return true;
+			if(!searchExistingEmployee(email)){
+				employee.setEmail(email);
+				System.out.println("Please enter the emplyee's contact number:");
+				contactNumber = sc.nextLine();
+				employee.setContactNumber(contactNumber);
+				do{
+					System.out.println("Please enter the emplyee's working day in a week:");
+					workingDay = sc.nextLine();
+					System.out.println("Please enter the emplyee's working time:");
+					workingTime = sc.nextLine();
+					employee.getWorkingSchedule().put(workingDay, workingTime);
+					System.out.println("Enter anything to add more working days/time OR");
+					System.out.println("Enter 'save' to store the employee's details:");
+					selection = sc.nextLine();
+				}while(!selection.equalsIgnoreCase("save"));
+				businessOwner.getEmployeeList().add(employee);
+				System.out.println("The employee's details have been added to your employee list.\n");
+				return true;
+			}
+			else{
+				System.out.println("An employee with the same email address exists!");
+					return false;
+			}
 		}
 		else{
 			System.out.println("email address format is invalid!");
@@ -120,5 +126,20 @@ public class BusinessController {
 			System.out.println("No employees in your employee list.\n");
 			return false;
 		}
+	}
+
+
+	/**
+	 * Search the business owner's employee list to find if a specific employee exists.
+	 * @param email	Use email as the primary key, each employee's email is unique.
+	 * @return	true if employee exists, otherwise false.
+	 */
+	public boolean searchExistingEmployee(String email){
+		for(Employee employee : businessOwner.getEmployeeList()){
+			if(email.equalsIgnoreCase(employee.getEmail())){
+				return true;
+			}
+		}
+		return false;
 	}
 }
