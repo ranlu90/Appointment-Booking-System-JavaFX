@@ -1,5 +1,9 @@
 package user;
 
+import java.util.ArrayList;
+
+import business.Employee;
+
 /**
  * business owner information will be stored in Businessowner table.
  */
@@ -10,6 +14,8 @@ public class BusinessOwner {
 	private String phone;
 	private String username;
 	private String password;
+	//the list containing all employee information
+	private ArrayList<Employee> employeeList;
 
 	//create default constructor to evoke methods in the class
 	public BusinessOwner(){}
@@ -61,5 +67,13 @@ public class BusinessOwner {
 
 	public void setpassword(String password){
 		this.password = password;
+	}
+
+	public ArrayList<Employee> getEmployeeList(){
+		return employeeList;
+	}
+
+	public void setEmployeeList(ArrayList<Employee> employeeList){
+		this.employeeList = employeeList;
 	}
 }

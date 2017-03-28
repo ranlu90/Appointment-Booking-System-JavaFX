@@ -1,11 +1,15 @@
 package controller;
 
+import user.BusinessOwner;
+
 /**
  * Include functions for business owner, retrieve information from viewController.
  * @author ranlu
  *
  */
 public class BusinessController {
+
+	private BusinessOwner businessOwner = new BusinessOwner();
 
 	public BusinessController(){}
 
