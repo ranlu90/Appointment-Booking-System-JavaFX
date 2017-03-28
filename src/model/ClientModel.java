@@ -15,10 +15,12 @@ import user.Customer;
  */
 public class ClientModel {
 
+
 	private ViewController view = new ViewController();
 	private DatabaseManager databaseManager = new DatabaseManager();
 	private BusinessOwner businessOwner = new BusinessOwner();
 	private Customer customer = new Customer();
+	private static Scanner sc = new Scanner(System.in);
 
 
 	public ClientModel() {}
@@ -28,7 +30,6 @@ public class ClientModel {
 	 */
 	public void initMenu(){
 
-		Scanner sc = new Scanner(System.in);
 		String input;
 		String username;
 		String password;
@@ -41,6 +42,7 @@ public class ClientModel {
 	    do
 	        {
 	            // display menu options
+				System.out.println("\n"+"====================================================");
 	            System.out.println("Welcome to Appointment Booking System!");
 	            System.out.println("Please select one of the following options:");
 	            System.out.println("A - Login");
@@ -116,7 +118,7 @@ public class ClientModel {
 
 	                case 'X':
 
-	                    System.out.println("Booking system shutting down goodbye!");
+	                    System.out.println("Booking system shutting down and goodbye!");
 	                    break;
 
 	                default:
@@ -186,12 +188,16 @@ public class ClientModel {
 				businessOwner.setusername(username);
 				businessOwner.setpassword(password);
 				//go to business owner menu
+				System.out.println("\n"+"====================================================");
+				System.out.println("You have logined in the business menu as '"+ businessOwner.getusername()  + "'.\n");
 				view.gotoBusiness();
 				return true;
 			}
 			else if(databaseManager.searchCustomer(username, password) == true){
 				customer.setusername(username);
 				customer.setpassword(password);
+				System.out.println("\n"+"====================================================");
+				System.out.println("You have logined in the customer menu as '"+ customer.getusername()  + "'.\n");
 				//go to customer menu
 				view.gotoCustomer();
 				return true;

@@ -13,9 +13,11 @@ import java.util.Scanner;
  */
 public class ViewController {
 
-	private static final Scanner sc = new Scanner(System.in);
+
 	private BusinessController businessController = new BusinessController();
 	private CustomerController customerController = new CustomerController();
+	private static Scanner sc = new Scanner(System.in);
+
 
 	public ViewController(){}
 
@@ -46,19 +48,20 @@ public class ViewController {
 	public void gotoBusiness()
 	{
 		 String input;
-	        char selection = '\0';
-	        do
-	        {
-		System.out.println("A.Add a new employee");
-		System.out.println("B.Add working time/dates for the next month");
-		System.out.println("C.View the summaries of bookings");
-		System.out.println("D.View new booking");
-		System.out.println("E.Show all workers’ availability for the next 7 days");
-		System.out.println("X.Logout");
-		System.out.print("Enter your selection: ");
-        input = sc.nextLine();
+		 char selection = '\0';
+		 do
+		 {
+			 System.out.println("Please select one of the following options:");
+			 System.out.println("A - Add a new employee");
+			 System.out.println("B - Add working time/dates for the next month");
+			 System.out.println("C - View the summaries of bookings");
+			 System.out.println("D - View new booking");
+			 System.out.println("E - Show all workers’ availability for the next 7 days");
+			 System.out.println("X - Logout");
+			 System.out.print("Enter your selection: ");
+			 input = sc.nextLine();
 
-        System.out.println();
+			 System.out.println();
 
         if (input.length() != 1){
             System.out.println("Error - selection must be a single character!");
@@ -101,7 +104,7 @@ public class ViewController {
             }
         }
         System.out.println();
-    } while (selection != 'X');
+		 } while (selection != 'X');
 	}
 
 
@@ -115,7 +118,9 @@ public class ViewController {
 
 		do
 		{
-			System.out.println("A.View availabe days/time");
+		    System.out.println("Please select one of the following options:");
+			System.out.println("A - View availabe days/time");
+			System.out.println("X - Logout");
 			System.out.print("Enter your selection: ");
 			input2 = sc.nextLine();
 

@@ -15,7 +15,7 @@ public class Employee {
 	private String contactNumber;
 
 	//	The first string contains days information in a week, the second contains time in each day.
-	private HashMap<String, String> workingTime = new HashMap<String, String>();
+	private HashMap<String, String> workingSchedule = new HashMap<String, String>();
 
 
 	//create constructor to call methods from Employee to other class
@@ -53,11 +53,11 @@ public class Employee {
 		this.contactNumber = contactNumber;
 	}
 
-	public HashMap<String, String> getWorkingTime(){
-		return workingTime;
+	public HashMap<String, String> getWorkingSchedule(){
+		return workingSchedule;
 	}
 
-	public void setWorkingTime(HashMap<String,String> workingTime){
-		this.workingTime = workingTime;
+	public void setWorkingSchedule(HashMap<String,String> workingSchedule){
+		this.workingSchedule = workingSchedule;
 	}
 }

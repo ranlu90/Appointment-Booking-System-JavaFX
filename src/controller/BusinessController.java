@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Scanner;
+import business.Employee;
 import user.BusinessOwner;
 
 /**
@@ -10,7 +12,10 @@ import user.BusinessOwner;
  */
 public class BusinessController {
 
+
 	private BusinessOwner businessOwner = new BusinessOwner();
+	private static Scanner sc = new Scanner(System.in);
+
 
 	public BusinessController(){}
 
@@ -19,7 +24,52 @@ public class BusinessController {
 	 * @return true if adding info successfully
 	 */
 	public boolean addEmployee(){
-		return false;
+
+		String selection;
+
+		//capture user's input in the console
+		Employee employee = new Employee();
+		String firstname;
+		String lastname;
+		String email;
+		String contactNumber;
+		String workingDay;
+		String workingTime;
+
+		System.out.println("You have chosen option A: Add a new employee.");
+		System.out.println("Please enter the emplyee's first name:");
+		firstname = sc.nextLine();
+		employee.setFirstName(firstname);
+
+		System.out.println("Please enter the emplyee's last name:");
+		lastname = sc.nextLine();
+		employee.setLastName(lastname);
+
+		System.out.println("Please enter the emplyee's e-mail address:");
+		email = sc.nextLine();
+		if(email.matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})")){
+			employee.setEmail(email);
+			System.out.println("Please enter the emplyee's contact number:");
+			contactNumber = sc.nextLine();
+			employee.setContactNumber(contactNumber);
+			do{
+				System.out.println("Please enter the emplyee's working day in a week:");
+				workingDay = sc.nextLine();
+				System.out.println("Please enter the emplyee's working time:");
+				workingTime = sc.nextLine();
+				employee.getWorkingSchedule().put(workingDay, workingTime);
+				System.out.println("Enter anything to add more working days/time OR");
+				System.out.println("Enter 'save'   to store the employee's details:");
+				selection = sc.nextLine();
+			}while(!selection.equalsIgnoreCase("save"));
+			businessOwner.getEmployeeList().add(employee);
+			System.out.println("The employee's details have been added to your employee list.\n");
+			return true;
+		}
+		else{
+			System.out.println("email address format is invalid!");
+			return false;
+		}
 	}
 
 

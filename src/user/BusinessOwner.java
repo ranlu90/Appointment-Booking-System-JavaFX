@@ -15,7 +15,7 @@ public class BusinessOwner {
 	private String username;
 	private String password;
 	//the list containing all employee information
-	private ArrayList<Employee> employeeList;
+	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
 
 	//create default constructor to evoke methods in the class
 	public BusinessOwner(){}
