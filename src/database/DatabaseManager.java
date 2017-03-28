@@ -67,6 +67,7 @@ public class DatabaseManager {
                        " business_owner_name	TEXT, " +
                        " address            	TEXT, " +
                        " phone        			TEXT, " +
+                       " working_hours        	TEXT, " +
                        " username        		TEXT     PRIMARY KEY     NOT NULL, " +
                        " password         		TEXT     NOT NULL)";
           stmt.executeUpdate(sql);
@@ -94,16 +95,16 @@ public class DatabaseManager {
           c.setAutoCommit(false);
 
           stmt = c.createStatement();
-          String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', 'daguido','daguido' );";
+          String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,working_hours,username,password) " +
+                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', '11:00 - 9:00 Monday to Sunday', 'daguido','daguido' );";
           stmt.executeUpdate(sql);
 
-          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', 'toniguy', 'toniguy');";
+          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,working_hours,username,password) " +
+                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', '9:00 - 20:00 Monday to Saturday', 'toniguy', 'toniguy');";
           stmt.executeUpdate(sql);
 
-          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                "VALUES (null,null,null,null,'admin','admin');";
+          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,working_hours,username,password) " +
+                "VALUES (null,null,null,null, '9:00 - 6:00 Monday to Friday', 'admin','admin');";
           stmt.executeUpdate(sql);
 
           stmt.close();

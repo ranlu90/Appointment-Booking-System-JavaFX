@@ -1,7 +1,7 @@
 package user;
 
 import java.util.ArrayList;
-
+import java.util.Date;
 import business.Employee;
 
 /**
@@ -12,6 +12,7 @@ public class BusinessOwner {
 	private String BusinessOwnerName;
 	private String address;
 	private String phone;
+	private Date workingHours;
 	private String username;
 	private String password;
 	//the list containing all employee information
@@ -51,6 +52,14 @@ public class BusinessOwner {
 
 	public void setphone(String phone){
 		this.phone = phone;
+	}
+
+	public Date getWorkingHours(){
+		return workingHours;
+	}
+
+	public void setWorkingHours(Date workingHours){
+		this.workingHours = workingHours;
 	}
 
 	public String getusername(){
