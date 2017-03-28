@@ -3,7 +3,8 @@ package controller;
 import user.BusinessOwner;
 
 /**
- * Include functions for business owner, retrieve information from viewController.
+ * Include functions for business owner, provide fundamental methods for viewController, add information to business owner.
+ * Parameters received from ViewController class, managing information in business owner.
  * @author ranlu
  *
  */

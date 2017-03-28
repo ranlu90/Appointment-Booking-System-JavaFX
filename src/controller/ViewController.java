@@ -5,18 +5,25 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * This class manages functions of add logging information, gotoBusiness and gotoCustonmer.
+ * parameters received from clientModel, allow the user to select functions in business or customer menu,
+ * pass the user's selection to BusinessController or CustomerController.
+ * @author ranlu
+ */
 public class ViewController {
 
 	private static final Scanner sc = new Scanner(System.in);
 	private BusinessController businessController = new BusinessController();
+	private CustomerController customerController = new CustomerController();
 
 	public ViewController(){}
 
 
 	/**
 	 * Add logging information to console.
-	 * @param from the class name for printed information.
-	 * @param message print to console.
+	 * @param from - the class name for printed information.
+	 * @param message - print to console.
 	 */
     public void add(String from, String message)
     {
@@ -132,6 +139,7 @@ public class ViewController {
             {
             case 'A':
             	//view available days/time
+            	customerController.viewBookingAvailability();
             	break;
 
             case 'X':

@@ -10,6 +10,8 @@ import user.Customer;
 
 /**
  *	System class, containing functions register and login.
+ *	Get the user's input, move to login or register.
+ *	If logging is successful, go to business or customer menu.
  */
 public class ClientModel {
 
@@ -73,8 +75,8 @@ public class ClientModel {
 	            		username = sc.nextLine();
 	            		System.out.print("Password: ");
 	            		password = sc.nextLine();
+
 	                    login(username,password);
-	                    sc.close();
 	                    break;
 
 	                case 'B':
@@ -109,7 +111,6 @@ public class ClientModel {
 	        				contactNumber = sc.nextLine();
 
 	        				register(firstname,lastname,address,contactNumber,username,password);
-	        				sc.close();
 	            		}
 	                    break;
 
@@ -184,12 +185,14 @@ public class ClientModel {
 			if(databaseManager.searchBusiness(username,password) == true){
 				businessOwner.setusername(username);
 				businessOwner.setpassword(password);
+				//go to business owner menu
 				view.gotoBusiness();
 				return true;
 			}
 			else if(databaseManager.searchCustomer(username, password) == true){
 				customer.setusername(username);
 				customer.setpassword(password);
+				//go to customer menu
 				view.gotoCustomer();
 				return true;
 			}

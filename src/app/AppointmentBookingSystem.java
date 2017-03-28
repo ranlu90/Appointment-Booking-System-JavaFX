@@ -6,8 +6,8 @@ import user.BusinessOwner;
 import user.Customer;
 
 /**
- * This is the main class for the system. All data will be initiated including business owner, customer, database.
- * And start the main menu.
+ * This is the main class for the system. All data will be initiated including business owner, customer, database and view.
+ * Launch the main menu.
  * @author ranlu
  *
  */
