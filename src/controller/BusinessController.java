@@ -59,7 +59,7 @@ public class BusinessController {
 				workingTime = sc.nextLine();
 				employee.getWorkingSchedule().put(workingDay, workingTime);
 				System.out.println("Enter anything to add more working days/time OR");
-				System.out.println("Enter 'save'   to store the employee's details:");
+				System.out.println("Enter 'save' to store the employee's details:");
 				selection = sc.nextLine();
 			}while(!selection.equalsIgnoreCase("save"));
 			businessOwner.getEmployeeList().add(employee);
@@ -98,9 +98,27 @@ public class BusinessController {
 
 
 	/**
-	 *
+	 *	print all worker's name, email, contact number and working days/time in a week.
 	 */
 	public boolean viewWorkersAvailability(){
-		return false;
+		if(!businessOwner.getEmployeeList().isEmpty()){
+			System.out.println("Your emloyees' working days and time are as following:");
+			for(Employee employee : businessOwner.getEmployeeList()){
+				System.out.println(employee.getFirstName() +" " + employee.getLastName());
+				System.out.println(employee.getEmail());
+				System.out.println(employee.getContactNumber());
+				System.out.println("Working Days/Time:");
+				for(String day : employee.getWorkingSchedule().keySet()){
+					String time = employee.getWorkingSchedule().get(day);
+					System.out.println(day + "  " + time);
+				}
+				System.out.println();
+			}
+			return true;
+		}
+		else{
+			System.out.println("No employees in your employee list.\n");
+			return false;
+		}
 	}
 }
