@@ -112,7 +112,7 @@ public class BusinessController {
 					String time = employee.getWorkingSchedule().get(day);
 					System.out.println(day + "  " + time);
 				}
-				System.out.println();
+				System.out.println("=========================");
 			}
 			return true;
 		}
