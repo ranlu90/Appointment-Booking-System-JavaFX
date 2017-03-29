@@ -397,4 +397,35 @@ public class DatabaseManager {
 		}
 		return null;
 	}
+
+
+    /**
+     * Get predefined working hours for a given business in the Business table.
+     * @param username received from cilentModel, pass to the database.
+     * @return working hours in a week for the given business.
+     */
+	public String getWorkingHoursInBusiness(String username){
+		try{
+	    	String user = System.getProperty("user.name");
+	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
+	        String workingHours;
+
+			//connect to appointment booking system in the database
+			Connection c = DriverManager.getConnection(url);
+			//create a query for SQLite search
+			final String get = "select working_hours from Business where username = '" + username + "'";
+			//create a statement
+			final Statement stmt = c.createStatement();
+			//get all tuples from business table that matches the input
+			final ResultSet result = stmt.executeQuery(get);
+			if(result.next()){
+				workingHours = result.getString("working_hours");
+				return workingHours;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return null;
+	}
 }

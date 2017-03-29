@@ -12,11 +12,14 @@ public class BusinessOwner {
 	private String BusinessOwnerName;
 	private String address;
 	private String phone;
-	private Date workingHours;
+	//The predefined working hours in a week, defined by business owner upon business registration.
+	private String workingHours;
 	private String username;
 	private String password;
 	//the list containing all employee information
 	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
+	//the actual working date in a month
+	private ArrayList<Date> actualWorkingHours = new ArrayList<Date>();
 
 	//create default constructor to evoke methods in the class
 	public BusinessOwner(){}
@@ -54,11 +57,11 @@ public class BusinessOwner {
 		this.phone = phone;
 	}
 
-	public Date getWorkingHours(){
+	public String getWorkingHours(){
 		return workingHours;
 	}
 
-	public void setWorkingHours(Date workingHours){
+	public void setWorkingHours(String workingHours){
 		this.workingHours = workingHours;
 	}
 
@@ -84,5 +87,13 @@ public class BusinessOwner {
 
 	public void setEmployeeList(ArrayList<Employee> employeeList){
 		this.employeeList = employeeList;
+	}
+
+	public ArrayList<Date> getActualWorkingHours(){
+		return actualWorkingHours;
+	}
+
+	public void setActualWorkingHours(ArrayList<Date> actualWorkingHours){
+		this.actualWorkingHours = actualWorkingHours;
 	}
 }

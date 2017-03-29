@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Scanner;
+
 import business.Employee;
 import user.BusinessOwner;
 
@@ -15,7 +16,6 @@ public class BusinessController {
 
 	private BusinessOwner businessOwner = new BusinessOwner();
 	private static Scanner sc = new Scanner(System.in);
-
 
 	public BusinessController(){}
 
@@ -83,6 +83,7 @@ public class BusinessController {
 	 *
 	 */
 	public boolean addBusinessHours(){
+
 		return false;
 	}
 
@@ -109,6 +110,7 @@ public class BusinessController {
 	public boolean viewWorkersAvailability(){
 		if(!businessOwner.getEmployeeList().isEmpty()){
 			System.out.println("Your emloyees' working days and time are as following:");
+			System.out.println("=========================");
 			for(Employee employee : businessOwner.getEmployeeList()){
 				System.out.println(employee.getFirstName() +" " + employee.getLastName());
 				System.out.println(employee.getEmail());

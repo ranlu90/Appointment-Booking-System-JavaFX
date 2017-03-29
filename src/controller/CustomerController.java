@@ -1,6 +1,5 @@
 package controller;
 
-import user.Customer;
 
 /**
  * Include functions for customer, provide fundamental methods for viewController, add information to customer.
@@ -9,7 +8,7 @@ import user.Customer;
  */
 public class CustomerController {
 
-	private Customer customer = new Customer();
+	//private Customer customer = new Customer();
 
 	public CustomerController(){}
 
