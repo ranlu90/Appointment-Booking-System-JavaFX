@@ -33,7 +33,7 @@ public class ViewController {
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
         // Create the output message
-        String logMsg = "["+dateFormat.format(date)+"] "+from+": "+message;
+        String logMsg = "[" + dateFormat.format(date) + "] "+ from +": "+ message;
         // Output to console
         System.out.println(logMsg);
     }

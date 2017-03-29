@@ -11,7 +11,7 @@ import user.Customer;
 /**
  *	System class, containing functions register and login.
  *	Get the user's input, move to login or register.
- *	If logging is successful, go to business or customer menu.
+ *	If login is successful, go to business or customer menu.
  */
 public class ClientModel {
 
@@ -173,7 +173,6 @@ public class ClientModel {
     	databaseManager.createCustomerInfoTable();
     	databaseManager.insertInitialEntitiesForBusiness();
     	databaseManager.insertInitialEntitiesForCustomerInfo();
-    	System.out.println();
     }
 
 

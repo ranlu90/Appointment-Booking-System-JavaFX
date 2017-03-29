@@ -1,7 +1,10 @@
 package controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Scanner;
-
 import business.Employee;
 import user.BusinessOwner;
 
@@ -25,7 +28,7 @@ public class BusinessController {
 	 */
 	public boolean addEmployee(){
 
-		String selection;
+		String line;
 
 		//capture user's input in the console
 		Employee employee = new Employee();
@@ -56,20 +59,27 @@ public class BusinessController {
 				do{
 					System.out.println("Please enter the emplyee's working day in a week:");
 					workingDay = sc.nextLine();
-					System.out.println("Please enter the emplyee's working time:");
+					System.out.println("Please enter the emplyee's working period in a day:");
 					workingTime = sc.nextLine();
 					employee.getWorkingSchedule().put(workingDay, workingTime);
-					System.out.println("Enter anything to add more working days/time OR");
-					System.out.println("Enter 'save' to store the employee's details:");
-					selection = sc.nextLine();
-				}while(!selection.equalsIgnoreCase("save"));
+					System.out.println("Please select one of the following options:");
+					System.out.println("A - Add more working days/time");
+					System.out.println("S - Store the employee's details");
+					System.out.println("X - Quit without saving any information");
+					line = sc.nextLine();
+					if(line.equalsIgnoreCase("X")){
+						System.out.println("Information wasn't stored, return to the business menu.\n");
+						return false;
+					}
+				}while(!line.equalsIgnoreCase("S"));
+
 				businessOwner.getEmployeeList().add(employee);
 				System.out.println("The employee's details have been added to your employee list.\n");
 				return true;
 			}
 			else{
 				System.out.println("An employee with the same email address exists!");
-					return false;
+				return false;
 			}
 		}
 		else{
@@ -84,7 +94,54 @@ public class BusinessController {
 	 */
 	public boolean addBusinessHours(){
 
-		return false;
+		//Store the business open and closing hours in a day, key '0' for open time, '1' for closing time.
+		HashMap<Integer,Date> timePeriod = new HashMap<Integer,Date>();
+
+		//Temporary HashMap <date,business hours>, the business hours information will be stored here before
+		//business owners select to save information.
+		HashMap<Date,HashMap<Integer,Date>> temp = new HashMap<Date,HashMap<Integer,Date>>();
+		Date businessDay;
+		Date openTime;
+		Date closingTime;
+		String line;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+		System.out.println("You have chosen option B: Add working time/dates for the next month.");
+
+	    try {
+			do{
+				System.out.println("Please enter dates with format (DD/MM): ");
+				line = sc.nextLine();
+				businessDay = dateFormat.parse(line);
+				System.out.println("Please enter business open time with 24-hour format (HH:mm): ");
+				line = sc.nextLine();
+				openTime = timeFormat.parse(line);
+				System.out.println("Please enter business closing time with 24-hour format (HH:mm): ");
+				line = sc.nextLine();
+				closingTime = timeFormat.parse(line);
+				timePeriod.put(0, openTime);
+				timePeriod.put(1, closingTime);
+				temp.put(businessDay, timePeriod);
+				System.out.println("Please select one of the following options:");
+				System.out.println("A - Add more business dates/time");
+				System.out.println("S - Store the business hours");
+				System.out.println("X - Quit without saving any information:");
+				line = sc.nextLine();
+				if(line.equalsIgnoreCase("X")){
+					System.out.println("Information wasn't stored, return to the business menu.\n");
+					return false;
+				}
+			}while(!line.equalsIgnoreCase("S"));
+
+			businessOwner.setActualBusinessHours(temp);
+			System.out.println("The information have been added to your actual business hours.\n");
+			return true;
+
+	    }catch (ParseException e) {
+	    	System.out.println("Not a valid date/time format, return to the business menu.");
+	    	return false;
+	    }
 	}
 
 
