@@ -67,7 +67,7 @@ public class DatabaseManager {
                        " business_owner_name	TEXT, " +
                        " address            	TEXT, " +
                        " phone        			TEXT, " +
-                       " working_hours        	TEXT, " +
+                       " business_hours        	TEXT, " +
                        " username        		TEXT     PRIMARY KEY     NOT NULL, " +
                        " password         		TEXT     NOT NULL)";
           stmt.executeUpdate(sql);
@@ -95,15 +95,15 @@ public class DatabaseManager {
           c.setAutoCommit(false);
 
           stmt = c.createStatement();
-          String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,working_hours,username,password) " +
+          String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
                        "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', '11:00 - 9:00 Monday to Sunday', 'daguido','daguido' );";
           stmt.executeUpdate(sql);
 
-          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,working_hours,username,password) " +
+          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
                 "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', '9:00 - 20:00 Monday to Saturday', 'toniguy', 'toniguy');";
           stmt.executeUpdate(sql);
 
-          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,working_hours,username,password) " +
+          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
                 "VALUES ('System Testing Account',null,null,null, '9:00 - 6:00 Monday to Friday', 'admin','admin');";
           stmt.executeUpdate(sql);
 
@@ -400,11 +400,11 @@ public class DatabaseManager {
 
 
     /**
-     * Get predefined working hours for a given business in the Business table.
+     * Get predefined business hours for a given business in the Business table.
      * @param username received from cilentModel, pass to the database.
-     * @return working hours in a week for the given business.
+     * @return business hours in a week for the given business.
      */
-	public String getWorkingHoursInBusiness(String username){
+	public String getBusinessHours(String username){
 		try{
 	    	String user = System.getProperty("user.name");
 	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";

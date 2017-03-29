@@ -2,24 +2,35 @@ package user;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+
 import business.Employee;
 
 /**
  * business owner information will be stored in Businessowner table.
  */
 public class BusinessOwner {
+
 	private String BusinessName;
 	private String BusinessOwnerName;
 	private String address;
 	private String phone;
-	//The predefined working hours in a week, defined by business owner upon business registration.
-	private String workingHours;
+
+	//The predefined business hours in a week, defined by business owner upon business registration.
+	private String businessHours;
 	private String username;
 	private String password;
+
 	//the list containing all employee information
 	private ArrayList<Employee> employeeList = new ArrayList<Employee>();
-	//the actual working date in a month
-	private ArrayList<Date> actualWorkingHours = new ArrayList<Date>();
+
+	/**
+	 * The first variable 'Date' stores the business owner's selected business days in a month.
+	 * The second variable 'HashMap<Integer,Date>' stores actual business hours in a particular day,
+	 * 'Integer' - '0' the open time, '1' the closing time; 'Date' the actual time variable.
+	 */
+	private HashMap<Date,HashMap<Integer,Date>> businessSchedule = new HashMap<Date,HashMap<Integer,Date>>();
+
 
 	//create default constructor to evoke methods in the class
 	public BusinessOwner(){}
@@ -57,12 +68,12 @@ public class BusinessOwner {
 		this.phone = phone;
 	}
 
-	public String getWorkingHours(){
-		return workingHours;
+	public String getBusinessHours(){
+		return businessHours;
 	}
 
-	public void setWorkingHours(String workingHours){
-		this.workingHours = workingHours;
+	public void setBusinessHours(String businessHours){
+		this.businessHours = businessHours;
 	}
 
 	public String getusername(){
@@ -89,11 +100,11 @@ public class BusinessOwner {
 		this.employeeList = employeeList;
 	}
 
-	public ArrayList<Date> getActualWorkingHours(){
-		return actualWorkingHours;
+	public HashMap<Date,HashMap<Integer,Date>> getActualBusinessHours(){
+		return businessSchedule;
 	}
 
-	public void setActualWorkingHours(ArrayList<Date> actualWorkingHours){
-		this.actualWorkingHours = actualWorkingHours;
+	public void setActualBusinessHours(HashMap<Date,HashMap<Integer,Date>> businessSchedule){
+		this.businessSchedule = businessSchedule;
 	}
 }
