@@ -134,32 +134,6 @@ public class ClientModel {
 	}
 
 
-	/**
-	 * passing businessOwner from main method to this class when system starts.
-	 * @param businessOwner initially null
-	 */
-	public void initBusinessOwner(BusinessOwner businessOwner){
-		this.businessOwner = businessOwner;
-	}
-
-
-	/**
-	 *	passing viewController from main method to this class when system starts.
-	 */
-	public void initViewController(ViewController view){
-		this.view = view;
-	}
-
-
-	/**
-	 * passing customer from main method to this class when system starts.
-	 * @param customer initially null
-	 */
-	public void initCustomer(Customer customer){
-		this.customer = customer;
-	}
-
-
     /**
      * create appointment booking system datbase,
      * create tables for business and customerinfo and
