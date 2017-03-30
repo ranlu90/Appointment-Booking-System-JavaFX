@@ -1,12 +1,11 @@
 package model;
 
 import java.io.IOException;
-import java.util.Scanner;
 
+import java.util.Scanner;
 import controller.ViewController;
 import database.DatabaseManager;
-import user.BusinessOwner;
-import user.Customer;
+
 
 /**
  *	System class, containing functions register and login.
@@ -15,11 +14,8 @@ import user.Customer;
  */
 public class ClientModel {
 
-
 	private ViewController view = new ViewController();
 	private DatabaseManager databaseManager = new DatabaseManager();
-	private BusinessOwner businessOwner = new BusinessOwner();
-	private Customer customer = new Customer();
 	private static Scanner sc = new Scanner(System.in);
 
 
@@ -158,20 +154,20 @@ public class ClientModel {
 		if(username != null && password != null)
 		{
 			if(databaseManager.searchBusiness(username,password) == true){
-				businessOwner.setusername(username);
-				businessOwner.setpassword(password);
+
 				//go to business owner menu
 				System.out.println("\n"+"==================================================================");
 				System.out.println("You have logined in the business menu as '"+ databaseManager.getBusinessName(username)  + "'.\n");
+				view.setUserName(username);
 				view.gotoBusiness();
 				return true;
 			}
 			else if(databaseManager.searchCustomer(username, password) == true){
-				customer.setusername(username);
-				customer.setpassword(password);
+
 				System.out.println("\n"+"==================================================================");
 				System.out.println("You have logined in the customer menu as '"+ databaseManager.getCustomerName(username)  + "'.\n");
 				//go to customer menu
+				view.setUserName(username);
 				view.gotoCustomer();
 				return true;
 			}

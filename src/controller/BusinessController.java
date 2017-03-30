@@ -16,12 +16,19 @@ import user.BusinessOwner;
  */
 public class BusinessController {
 
-
+	//business owner list, using business owner's username as a key for each entity in the list.
+	private	HashMap<String,BusinessOwner> businessOwnerList = new HashMap<String,BusinessOwner>();
 	private BusinessOwner businessOwner = new BusinessOwner();
+	//get the username from ClientModel class
+	private String username;
 	private static Scanner sc = new Scanner(System.in);
 
 	public BusinessController(){}
 
+
+	public void setUsername(String username){
+		this.username = username;
+	}
 	/**
 	 * from each business owner, add employee information
 	 * @return true if adding info successfully
@@ -74,6 +81,8 @@ public class BusinessController {
 				}while(!line.equalsIgnoreCase("S"));
 
 				businessOwner.getEmployeeList().add(employee);
+				//update business owner information for a given username
+				businessOwnerList.put(username, businessOwner);
 				System.out.println("The employee's details have been added to your employee list.\n");
 				return true;
 			}
@@ -135,6 +144,7 @@ public class BusinessController {
 			}while(!line.equalsIgnoreCase("S"));
 
 			businessOwner.setActualBusinessHours(temp);
+			businessOwnerList.put(username, businessOwner);
 			System.out.println("The information have been added to your actual business hours.\n");
 			return true;
 
@@ -165,10 +175,13 @@ public class BusinessController {
 	 *	print all worker's name, email, contact number and working days/time in a week.
 	 */
 	public boolean viewWorkersAvailability(){
-		if(!businessOwner.getEmployeeList().isEmpty()){
+		//retrieve data for a specific business owner
+		BusinessOwner temp = businessOwnerList.get(username);
+
+		try{
 			System.out.println("Your emloyees' working days and time are as following:");
 			System.out.println("=========================");
-			for(Employee employee : businessOwner.getEmployeeList()){
+			for(Employee employee : temp.getEmployeeList()){
 				System.out.println(employee.getFirstName() +" " + employee.getLastName());
 				System.out.println(employee.getEmail());
 				System.out.println(employee.getContactNumber());
@@ -181,7 +194,7 @@ public class BusinessController {
 			}
 			return true;
 		}
-		else{
+		catch(NullPointerException e){
 			System.out.println("No employees in your employee list.\n");
 			return false;
 		}

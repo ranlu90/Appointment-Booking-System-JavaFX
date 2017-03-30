@@ -17,9 +17,14 @@ public class ViewController {
 	private BusinessController businessController = new BusinessController();
 	private CustomerController customerController = new CustomerController();
 	private static Scanner sc = new Scanner(System.in);
-
+	private String username;
 
 	public ViewController(){}
+
+
+	public void setUserName(String username){
+		this.username = username;
+	}
 
 
 	/**
@@ -47,6 +52,7 @@ public class ViewController {
 	 */
 	public void gotoBusiness()
 	{
+		 businessController.setUsername(username);
 		 String input;
 		 char selection = '\0';
 		 do
@@ -113,6 +119,7 @@ public class ViewController {
 	 */
 	public void gotoCustomer()
 	{
+		customerController.setUserName(username);
 		String input2;
 		char selection2 = '\0';
 

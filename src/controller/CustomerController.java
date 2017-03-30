@@ -1,5 +1,6 @@
 package controller;
 
+import user.Customer;
 
 /**
  * Include functions for customer, provide fundamental methods for viewController, add information to customer.
@@ -8,7 +9,8 @@ package controller;
  */
 public class CustomerController {
 
-	//private Customer customer = new Customer();
+	private Customer customer = new Customer();
+	private String username;
 
 	public CustomerController(){}
 
@@ -17,5 +19,9 @@ public class CustomerController {
 	 */
 	public void viewBookingAvailability(){
 
+	}
+
+	public void setUserName(String username) {
+		this.username = username;
 	}
 }
