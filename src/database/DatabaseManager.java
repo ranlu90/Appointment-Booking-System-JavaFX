@@ -433,7 +433,7 @@ public class DatabaseManager {
     /**
      * create new table EmployeeList
      */
-    public void createEmployeeListTable(){
+    public void createEmployeeTable(){
         Connection c = null;
         Statement stmt = null;
     	String username = System.getProperty("user.name");
@@ -442,19 +442,12 @@ public class DatabaseManager {
         try {
           c = DriverManager.getConnection(url);
           stmt = c.createStatement();
-          String sql = "CREATE TABLE EmployeeList " +
+          String sql = "CREATE TABLE Employe " +
                        "(firstname	        TEXT," +
                        " lastname			TEXT, " +
                        " owner_username     TEXT	NOT NULL, " +
                        " email			    TEXT 		 PRIMARY KEY     NOT NULL, " +
                        " contact_number     TEXT, " +
-                       " Monday        		TEXT, " +
-                       " Tuesday       		TEXT, " +
-                       " Wednesday        	TEXT, " +
-                       " Thursday        	TEXT, " +
-                       " Friday        		TEXT, " +
-                       " Saturday        	TEXT, " +
-                       " Sunday         	TEXT, "	+
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
           stmt.close();
@@ -463,14 +456,14 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "EmployeeList table has been created.");
+    	view.add("DatabaseManager", "Employee table has been created.");
     }
 
 
     /**
-     * create new table BusinessHours, store each business owner's business date and time.
+     * create new table BusinessTime, store each business owner's business date and time.
      */
-    public void createBusinessHoursTable(){
+    public void createBusinessTimeTable(){
         Connection c = null;
         Statement stmt = null;
     	String username = System.getProperty("user.name");
@@ -479,7 +472,7 @@ public class DatabaseManager {
         try {
           c = DriverManager.getConnection(url);
           stmt = c.createStatement();
-          String sql = "CREATE TABLE BusinessHours " +
+          String sql = "CREATE TABLE BusinessTime " +
                        "(business_date	    TEXT	PRIMARY KEY	NOT NULL," +
                        " owner_username     TEXT	NOT NULL, " +
                        " open_time     		TEXT	NOT NULL, " +
@@ -492,6 +485,33 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "BusinessHours table has been created.");
+    	view.add("DatabaseManager", "BusinessTime table has been created.");
+    }
+
+    /**
+     * create new table WorkingTime, store each employee's working time in a week, user day as primary key, email as foreign key.
+     */
+    public void createWorkingTimeTable(){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "CREATE TABLE WorkingTime " +
+                       "(day	 	 	TEXT	PRIMARY KEY	NOT NULL," +
+                       " time	     	TEXT	NOT NULL, " +
+                       " employee_email	TEXT	NOT NULL, " +
+                       "FOREIGN KEY(employee_email)	REFERENCES Employee(email))";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "WorkingTime table has been created.");
     }
 }

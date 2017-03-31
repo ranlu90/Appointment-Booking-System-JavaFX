@@ -139,12 +139,16 @@ public class ClientModel {
     public void initDatabase() throws IOException{
     	databaseManager.deleteDatabase();
     	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
+    	
     	databaseManager.createBusinessTable();
     	databaseManager.createCustomerInfoTable();
+    	databaseManager.createEmployeeTable();
+    	databaseManager.createBusinessTimeTable();
+    	databaseManager.createWorkingTimeTable();
+    	
     	databaseManager.insertInitialEntitiesForBusiness();
     	databaseManager.insertInitialEntitiesForCustomerInfo();
-    	databaseManager.createEmployeeListTable();
-    	databaseManager.createBusinessHoursTable();
+
     }
 
 
