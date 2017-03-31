@@ -104,7 +104,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
-                "VALUES ('System Testing Account',null,null,null, '9:00 - 6:00 Monday to Friday', 'admin','admin');";
+                "VALUES ('System Testing Account',null,null,null, '9:00 - 6:00 Monday to Friday', 'owner','owner');";
           stmt.executeUpdate(sql);
 
           stmt.close();
@@ -428,4 +428,70 @@ public class DatabaseManager {
 		}
 		return null;
 	}
+
+
+    /**
+     * create new table EmployeeList
+     */
+    public void createEmployeeListTable(){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "CREATE TABLE EmployeeList " +
+                       "(firstname	        TEXT," +
+                       " lastname			TEXT, " +
+                       " owner_username     TEXT	NOT NULL, " +
+                       " email			    TEXT 		 PRIMARY KEY     NOT NULL, " +
+                       " contact_number     TEXT, " +
+                       " Monday        		TEXT, " +
+                       " Tuesday       		TEXT, " +
+                       " Wednesday        	TEXT, " +
+                       " Thursday        	TEXT, " +
+                       " Friday        		TEXT, " +
+                       " Saturday        	TEXT, " +
+                       " Sunday         	TEXT, "	+
+                       "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "EmployeeList table has been created.");
+    }
+
+
+    /**
+     * create new table BusinessHours, store each business owner's business date and time.
+     */
+    public void createBusinessHoursTable(){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "CREATE TABLE BusinessHours " +
+                       "(business_date	    TEXT	PRIMARY KEY	NOT NULL," +
+                       " owner_username     TEXT	NOT NULL, " +
+                       " open_time     		TEXT	NOT NULL, " +
+                       " closing_time       TEXT	NOT NULL, " +
+                       "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "BusinessHours table has been created.");
+    }
 }

@@ -143,6 +143,8 @@ public class ClientModel {
     	databaseManager.createCustomerInfoTable();
     	databaseManager.insertInitialEntitiesForBusiness();
     	databaseManager.insertInitialEntitiesForCustomerInfo();
+    	databaseManager.createEmployeeListTable();
+    	databaseManager.createBusinessHoursTable();
     }
 
 
