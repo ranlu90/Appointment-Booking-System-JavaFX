@@ -10,7 +10,7 @@ public class LoginTest {
 	@Test
 	public void test1() {
 		//check both username and password exists in business
-		boolean f = clientModel.login("admin","admin");
+		boolean f = clientModel.login("owner","owner");
 		assertTrue(f);
 	}
 

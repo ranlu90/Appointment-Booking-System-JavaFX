@@ -63,7 +63,7 @@ public class DatabaseManager {
           c = DriverManager.getConnection(url);
           stmt = c.createStatement();
           String sql = "CREATE TABLE Business " +
-                       "(business_name	        TEXT," +
+                       "(business_name	        TEXT	NOT NULL," +
                        " business_owner_name	TEXT, " +
                        " address            	TEXT, " +
                        " phone        			TEXT, " +
@@ -443,8 +443,8 @@ public class DatabaseManager {
           c = DriverManager.getConnection(url);
           stmt = c.createStatement();
           String sql = "CREATE TABLE Employe " +
-                       "(firstname	        TEXT," +
-                       " lastname			TEXT, " +
+                       "(firstname	        TEXT	NOT NULL," +
+                       " lastname			TEXT	NOT NULL, " +
                        " owner_username     TEXT	NOT NULL, " +
                        " email			    TEXT 		 PRIMARY KEY     NOT NULL, " +
                        " contact_number     TEXT, " +
