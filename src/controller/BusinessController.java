@@ -64,39 +64,52 @@ public class BusinessController {
 				contactNumber = sc.nextLine();
 				employee.setContactNumber(contactNumber);
 				do{
+					
 					System.out.println("Please enter the emplyee's working day in a week:");
 					workingDay = sc.nextLine();
-					System.out.println("Please enter the emplyee's working period in a day:");
+					if(workingDay.matches("Monday")||workingDay.matches("Tuesday")||workingDay.matches("Wednesday")
+							||workingDay.matches("Thursday")||workingDay.matches("Friday")){
+						System.out.println("Please enter the emplyee's working period in a day:");
 					workingTime = sc.nextLine();
+					if(workingTime.matches("[0-9]{2}:[0-9]{2}-[0-9]{2}:[0-9]{2}")){
 					employee.getWorkingSchedule().put(workingDay, workingTime);
 					System.out.println("Please select one of the following options:");
 					System.out.println("A - Add more working days/time");
 					System.out.println("S - Store the employee's details");
 					System.out.println("X - Quit without saving any information");
+					}
+					}
 					line = sc.nextLine();
+					
 					if(line.equalsIgnoreCase("X")){
 						System.out.println("Information wasn't stored, return to the business menu.\n");
 						return false;
+					
 					}
+					
+					
 				}while(!line.equalsIgnoreCase("S"));
-
+				
 				businessOwner.getEmployeeList().add(employee);
 				//update business owner information for a given username
 				businessOwnerList.put(username, businessOwner);
 				System.out.println("The employee's details have been added to your employee list.\n");
 				return true;
 			}
+			
+			
 			else{
 				System.out.println("An employee with the same email address exists!");
 				return false;
 			}
+			
 		}
 		else{
 			System.out.println("email address format is invalid!");
 			return false;
 		}
 	}
-
+	
 
 	/**
 	 *
