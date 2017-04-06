@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import database.DatabaseManager;
@@ -73,7 +74,7 @@ public class BusinessController {
 
 
 	/**
-	 *
+	 * insert business time information into the database.
 	 */
 	public boolean addBusinessTime(String business_date, String owner_username, String open_time, String closing_time){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM");
@@ -96,7 +97,7 @@ public class BusinessController {
 					return false;
 				}
 	    }catch (ParseException e) {
-	        System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+	        System.out.println("Invalid data/time format.");
 	    	return false;
 	    }
 	}
@@ -120,34 +121,26 @@ public class BusinessController {
 
 	/**
 	 *	print all worker's name, email, contact number and working days/time in a week.
-	 * @throws SQLException
 	 */
 	public boolean viewWorkersAvailability(){
 		try{
-			ResultSet result = databaseManager.getEmployee(username);
-			//move cursor to the last object and get the row number, therefore get the number of rows in the table, starting from 1.
-			result.last();
-			int size = result.getRow();
+			ArrayList<ArrayList<String>> employee = databaseManager.getEmployee(username);
 			System.out.println("Your emloyees' working days and time are as following:");
 			System.out.println("=========================");
-			for(int i = 1; i < size; i ++){
-				//move cursor to the current employee object
-				result.absolute(i);
-				System.out.println(result.getString("first_name") + " " + result.getString("last_name"));
-				System.out.println(result.getString("email"));
-				System.out.println(result.getString("contact_number"));
+			for(ArrayList<String> temp : employee){
+				System.out.println(temp.get(0) + " " + temp.get(1));	//firstname + lastname
+				System.out.println(temp.get(2));						//the emplyee's email
+				System.out.println(temp.get(3));						//contact number
 				System.out.println("Working Days/Time:");
-				ResultSet workingTime = databaseManager.getWorkingTime(result.getString("email"));
-				workingTime.last();
-				int sizeOfTable = workingTime.getRow();
-				for(int j = 1; j < sizeOfTable; j ++){
-					System.out.println(workingTime.getString("day") + "  " + workingTime.getString("time"));
+				ArrayList<ArrayList<String>> workingTime = databaseManager.getWorkingTime(temp.get(2));
+				for(ArrayList<String> t : workingTime){
+					System.out.println(t.get(0) + "   " + t.get(1));
 				}
 				System.out.println("=========================");
 			}
 			return true;
 		}
-		catch(NullPointerException | SQLException e){
+		catch(NullPointerException e){
 			System.out.println("No employees in your employee list.\n");
 			return false;
 		}

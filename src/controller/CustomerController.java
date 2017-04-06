@@ -1,7 +1,8 @@
 package controller;
 
+
+import java.util.ArrayList;
 import database.DatabaseManager;
-import user.Customer;
 
 /**
  * Include functions for customer, provide fundamental methods for viewController, add information to customer.
@@ -10,11 +11,11 @@ import user.Customer;
  */
 public class CustomerController {
 
-	private Customer customer = new Customer();
 	private String username;
 	private DatabaseManager databaseManager;
 
 	public CustomerController(){}
+
 
 	/**
 	 * set database for business owner
@@ -23,14 +24,21 @@ public class CustomerController {
 	public void setDatabaseManager(DatabaseManager database){
 		this.databaseManager = database;
 	}
+
+	public void setUserName(String username) {
+		this.username = username;
+	}
+
 	/**
 	 * Customer can view available booking days and time.
 	 */
 	public void viewBookingAvailability(){
-
-	}
-
-	public void setUserName(String username) {
-		this.username = username;
+		System.out.println("Available booking dates and time for 'owner' are:");
+		System.out.println("business_date  open_time   closing_time");
+		System.out.println("-------------  ----------  ------------");
+		ArrayList<ArrayList<String>> businessTime = databaseManager.getBusinessTime("owner");
+		for(ArrayList<String> temp : businessTime){
+			System.out.println(temp.get(0) + "          " + temp.get(1) + "         "  + temp.get(2));
+		}
 	}
 }

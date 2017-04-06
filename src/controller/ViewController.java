@@ -142,7 +142,7 @@ public class ViewController {
 		do
 		{
 		    System.out.println("Please select one of the following options:");
-			System.out.println("A - View availabe days/time");
+			System.out.println("A - View available days/time");
 			System.out.println("X - Logout");
 			System.out.print("Enter your selection: ");
 			input2 = sc.nextLine();

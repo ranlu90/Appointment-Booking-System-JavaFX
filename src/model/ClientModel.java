@@ -1,5 +1,6 @@
 package model;
 
+
 import java.io.IOException;
 
 import java.util.Scanner;
@@ -137,6 +138,7 @@ public class ClientModel {
      * @throws IOException
      */
     public void initDatabase() throws IOException{
+
     	databaseManager.deleteDatabase();
     	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
 

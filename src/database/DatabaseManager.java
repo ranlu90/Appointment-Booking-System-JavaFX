@@ -1,7 +1,9 @@
 package database;
 
 import java.io.File;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 import controller.ViewController;
 
@@ -144,7 +146,7 @@ public class DatabaseManager {
 	 */
 	public ResultSet getCustomerinfo(String username){
 		try{
-			final String sql = "select * from Customerinfo where username = '"+username+"'";
+			   String sql = "select * from Customerinfo where username = '"+username+"'";
 			ResultSet result = stmt.executeQuery(sql);
 			if(result.next()){
 				return result;
@@ -188,7 +190,7 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusiness(String username, String password){
 		try{
-			final String business = "select * from Business where username = '" + username + "' and password = '" + password + "'";
+			   String business = "select * from Business where username = '" + username + "' and password = '" + password + "'";
 			ResultSet result = stmt.executeQuery(business);
 			if(result.next()){
 				return true;
@@ -207,7 +209,7 @@ public class DatabaseManager {
 	 */
 	public boolean searchCustomer(String username, String password){
 		try{
-			final String customer = "select * from Customerinfo where username = '" + username + "' and password = '" + password + "'";
+			   String customer = "select * from Customerinfo where username = '" + username + "' and password = '" + password + "'";
 			ResultSet result = stmt.executeQuery(customer);
 			if(result.next()){
 				return true;
@@ -227,8 +229,8 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusinessUserName(String input){
 		try{
-			final String userCheck = "select * from Business where username = '" + input + "'";
-			final ResultSet result = stmt.executeQuery(userCheck);
+			   String userCheck = "select * from Business where username = '" + input + "'";
+			   ResultSet result = stmt.executeQuery(userCheck);
 			if(result.next()){
 				return true;
 			}
@@ -245,8 +247,8 @@ public class DatabaseManager {
 	 */
 	public boolean searchCustomerUserName(String input){
 		try{
-			final String userCheck = "select * from Customerinfo where username = '" + input + "'";
-			final ResultSet result = stmt.executeQuery(userCheck);
+			   String userCheck = "select * from Customerinfo where username = '" + input + "'";
+			   ResultSet result = stmt.executeQuery(userCheck);
 			if(result.next()){
 				return true;
 			}
@@ -288,9 +290,9 @@ public class DatabaseManager {
 		try{
 	        String businessName;
 			//create a query for SQLite search
-			final String getBusiness = "select business_name from Business where username = '" + username + "'";
+			   String getBusiness = "select business_name from Business where username = '" + username + "'";
 			//get all tuples from business table that matches the input
-			final ResultSet result = stmt.executeQuery(getBusiness);
+			   ResultSet result = stmt.executeQuery(getBusiness);
 			if(result.next()){
 				businessName = result.getString("business_name");
 				return businessName;
@@ -313,8 +315,8 @@ public class DatabaseManager {
 	        String firstname;
 	        String lastname;
 			//create a query for SQLite search
-			final String getName = "select * from Customerinfo where username = '" + username + "'";
-			final ResultSet result = stmt.executeQuery(getName);
+			   String getName = "select * from Customerinfo where username = '" + username + "'";
+			   ResultSet result = stmt.executeQuery(getName);
 			if(result.next()){
 				firstname = result.getString("first_name");
 				lastname = result.getString("last_name");
@@ -354,8 +356,8 @@ public class DatabaseManager {
 	 */
 	public boolean searchEmployeeEmail(String email){
 		try{
-			final String check = "select * from Employee where email = '" + email + "'";
-			final ResultSet result = stmt.executeQuery(check);
+			   String check = "select * from Employee where email = '" + email + "'";
+			   ResultSet result = stmt.executeQuery(check);
 			if(result.next()){
 				return true;
 			}
@@ -388,11 +390,20 @@ public class DatabaseManager {
     /**
      * Get all employees for one business owner.
      */
-    public ResultSet getEmployee(String username){
+    public ArrayList<ArrayList<String>> getEmployee(String username){
         try {
-			String sql = "select * from Business where username = '" + username + "'";
+			ArrayList<ArrayList<String>> employee = new ArrayList<ArrayList<String>>();
+			String sql = "select * from Employee where owner_username = '" + username + "'";
 			ResultSet result = stmt.executeQuery(sql);
-            return result;
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("first_name"));
+				temp.add(result.getString("last_name"));
+				temp.add(result.getString("email"));
+				temp.add(result.getString("contact_number"));
+				employee.add(temp);
+			}
+            return employee;
           } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
@@ -427,11 +438,19 @@ public class DatabaseManager {
      * @param username received from cilentModel, passed to the businessController.
      * @return business time for the given business username.
      */
-	public ResultSet getBusinessTime(String username){
+	public ArrayList<ArrayList<String>> getBusinessTime(String username){
 		try{
-			String sql = "select * from BusinessTime where username = '" + username + "'";
+			ArrayList<ArrayList<String>> businessTime = new ArrayList<ArrayList<String>>();
+			String sql = "select * from BusinessTime where owner_username = '" + username + "'";
 			ResultSet result = stmt.executeQuery(sql);
-			return result;
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("business_date"));
+				temp.add(result.getString("open_time"));
+				temp.add(result.getString("closing_time"));
+				businessTime.add(temp);
+			}
+			return businessTime;
 		}
 		catch (Exception e){
 	          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -481,11 +500,18 @@ public class DatabaseManager {
     /**
      * Get all working time for one employee.
      */
-    public ResultSet getWorkingTime(String email){
+    public ArrayList<ArrayList<String>> getWorkingTime(String email){
         try {
+			ArrayList<ArrayList<String>> workingTime = new ArrayList<ArrayList<String>>();
 			String sql = "select * from WorkingTime where employee_email = '" + email + "'";
 			ResultSet result = stmt.executeQuery(sql);
-            return result;
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("day"));
+				temp.add(result.getString("time"));
+				workingTime.add(temp);
+			}
+            return workingTime;
           } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
@@ -529,7 +555,7 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "WorkingTime table has been created.");
+    	view.add("DatabaseManager", "Booking table has been created.");
     }
 
     /**
