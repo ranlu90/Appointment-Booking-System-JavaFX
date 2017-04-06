@@ -32,8 +32,8 @@ public class BusinessController {
 	 * set database for business owner
 	 * @param database get from clientModel
 	 */
-	public void setDatabaseManager(DatabaseManager database){
-		this.databaseManager = database;
+	public void setDatabaseManager(DatabaseManager databaseManager){
+		this.databaseManager = databaseManager;
 	}
 
 	public void setUsername(String username){
@@ -129,17 +129,18 @@ public class BusinessController {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM");
 		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
+
 	    try {
 				Date day = dateFormat.parse(business_date);
 				Date open = timeFormat.parse(open_time);
 				Date close = timeFormat.parse(closing_time);
 				System.out.println("Please select one of the following options:");
-				System.out.println("S - Store the business hours");
+				System.out.println("S - Store the business time");
 				System.out.println("X - Quit without saving any information:");
 				String line = sc.nextLine();
 				if(line.equalsIgnoreCase("S")){
 					databaseManager.setBusinessTime(business_date, owner_username, open_time, closing_time);
-					System.out.println("The information have been added to your actual business hours.\n");
+					System.out.println("The information have been added to your actual business time.\n");
 					return true;
 
 				}

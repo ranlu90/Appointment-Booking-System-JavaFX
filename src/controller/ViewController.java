@@ -20,7 +20,7 @@ public class ViewController {
 	private CustomerController customerController = new CustomerController();
 	private static Scanner sc = new Scanner(System.in);
 	private String username;
-	private DatabaseManager database;
+	private DatabaseManager databaseManager;
 
 	public ViewController(){}
 
@@ -34,8 +34,8 @@ public class ViewController {
 	 * set database for view controller
 	 * @param database get from clientModel
 	 */
-	public void setDatabaseManager(DatabaseManager database){
-		this.database = database;
+	public void setDatabaseManager(DatabaseManager databaseManager){
+		this.databaseManager = databaseManager;
 	}
 
 
@@ -65,7 +65,7 @@ public class ViewController {
 	public void gotoBusiness()
 	{
 		 businessController.setUsername(username);
-		 businessController.setDatabaseManager(database);
+		 businessController.setDatabaseManager(databaseManager);
 		 String input;
 		 char selection = '\0';
 		 do
@@ -133,7 +133,7 @@ public class ViewController {
 	public void gotoCustomer()
 	{
 		customerController.setUserName(username);
-		customerController.setDatabaseManager(database);
+		customerController.setDatabaseManager(databaseManager);
 		String input2;
 		char selection2 = '\0';
 

@@ -338,7 +338,7 @@ public class DatabaseManager {
      */
     public void createEmployeeTable(){
         try {
-          String sql = "CREATE TABLE Employe " +
+          String sql = "CREATE TABLE Employee " +
                        "(firstname	        TEXT	NOT NULL," +
                        " lastname			TEXT	NOT NULL, " +
                        " owner_username     TEXT	NOT NULL, " +
@@ -346,11 +346,11 @@ public class DatabaseManager {
                        " contact_number     TEXT, " +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
+      	  view.add("DatabaseManager", "Employee table has been created.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Employee table has been created.");
     }
 
 
@@ -395,9 +395,11 @@ public class DatabaseManager {
      */
     public void setBusinessTime(String business_date, String owner_username, String open_time, String closing_time){
         try {
+          c.setAutoCommit(false);
           String sql = "INSERT INTO BusinessTime (business_date,owner_username,open_time,closing_time) " +
                   "VALUES ('"+ business_date +"', '"+ owner_username +"','"+ open_time +"', '"+ closing_time +"');";
           stmt.executeUpdate(sql);
+          c.commit();
       	  view.add("DatabaseManager", "New business time has been inserted into BusinessTime.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
