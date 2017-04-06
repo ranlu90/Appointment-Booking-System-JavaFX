@@ -146,7 +146,9 @@ public class ClientModel {
     	databaseManager.createEmployeeTable();
     	databaseManager.createBusinessTimeTable();
     	databaseManager.createWorkingTimeTable();
+    	databaseManager.createBookingTable();
 
+    	databaseManager.insertInitialEntitiesForBooking();
     	databaseManager.insertInitialEntitiesForBusiness();
     	databaseManager.insertInitialEntitiesForCustomerInfo();
 

@@ -139,6 +139,24 @@ public class DatabaseManager {
     }
 
 
+	/**
+	 * Search Customerinfo table to find customer information.
+	 */
+	public ResultSet getCustomerinfo(String username){
+		try{
+			final String sql = "select * from Customerinfo where username = '"+username+"'";
+			ResultSet result = stmt.executeQuery(sql);
+			if(result.next()){
+				return result;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return null;
+	}
+
+
     /**
      * Insert entities for customerinfo table.
      */
@@ -220,7 +238,6 @@ public class DatabaseManager {
 		}
 		return false;
 	}
-
 
 
 	/**
@@ -359,9 +376,11 @@ public class DatabaseManager {
      */
     public void setEmployee(String firstname, String lastname, String owner_username, String email, String contact_number){
         try {
+          c.setAutoCommit(false);
           String sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
                   "VALUES ('"+ firstname +"', '"+ lastname +"','"+ owner_username +"', '"+ email +"', '"+ contact_number +"');";
           stmt.executeUpdate(sql);
+          c.commit();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -376,10 +395,11 @@ public class DatabaseManager {
     public void createBusinessTimeTable(){
         try {
           String sql = "CREATE TABLE BusinessTime " +
-                       "(business_date	    TEXT	PRIMARY KEY	NOT NULL," +
+                       "(business_date	    TEXT	NOT NULL," +
                        " owner_username     TEXT	NOT NULL, " +
                        " open_time     		TEXT	NOT NULL, " +
                        " closing_time       TEXT	NOT NULL, " +
+                       "PRIMARY KEY(business_date,owner_username)," +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
@@ -414,9 +434,10 @@ public class DatabaseManager {
     public void createWorkingTimeTable(){
         try {
           String sql = "CREATE TABLE WorkingTime " +
-                       "(day	 	 	TEXT	PRIMARY KEY	NOT NULL," +
+                       "(day	 	 	TEXT	NOT NULL," +
                        " time	     	TEXT	NOT NULL, " +
                        " employee_email	TEXT	NOT NULL, " +
+                       "PRIMARY KEY (day,employee_email)," +
                        "FOREIGN KEY(employee_email)	REFERENCES Employee(email))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
@@ -432,13 +453,80 @@ public class DatabaseManager {
      */
     public void setWorkingTime(String day, String time, String employee_email){
         try {
+          c.setAutoCommit(false);
           String sql = "INSERT INTO WorkingTime (day,time,employee_email) " +
                   "VALUES ('"+ day +"', '"+ time +"','"+ employee_email +"');";
           stmt.executeUpdate(sql);
+          c.commit();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
     	view.add("DatabaseManager", "New working time has been inserted into WorkingTime.");
+    }
+
+
+    /**
+     * Create new table Booking, store each booking's time, owner_username, customer_username.
+     */
+    public void createBookingTable(){
+        try {
+          String sql = "CREATE TABLE Booking " +
+                       "(booking_time		TEXT	NOT NULL," +
+                       " owner_username		TEXT	NOT NULL, " +
+                       " customer_username	TEXT	NOT NULL, " +
+                       "PRIMARY KEY (booking_time,owner_username,customer_username)," +
+                       "FOREIGN KEY(owner_username) REFERENCES Business(username)," +
+                       "FOREIGN KEY(customer_username)	REFERENCES CustomerInfo(username))";
+          stmt.executeUpdate(sql);
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "WorkingTime table has been created.");
+    }
+
+
+    /**
+     * Insert initial entities for booking on test purposes.
+     */
+    public void insertInitialEntitiesForBooking(){
+        try {
+          c.setAutoCommit(false);
+
+          String sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                       "VALUES ('07.04.2017 11:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('08.04.2017 13:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('09.04.2017 15:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('20.04.2017 13:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('21.04.2017 15:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('22.04.2017 17:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('01.05.2017 13:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('02.05.2017 15:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('03.05.2017 17:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+
+          c.commit();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "Booking entities have been inserted.");
     }
 }
