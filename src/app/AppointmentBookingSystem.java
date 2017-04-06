@@ -15,7 +15,6 @@ public class AppointmentBookingSystem {
 
 		ClientModel clientModel = new ClientModel();
 
-
 		clientModel.initDatabase();
 		clientModel.initMenu();
 	}

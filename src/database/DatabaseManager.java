@@ -14,6 +14,11 @@ import controller.ViewController;
  */
 public class DatabaseManager {
 
+   	String username = System.getProperty("user.name");
+    String path = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+    Connection c = null;
+    Statement stmt = null;
+
 	public DatabaseManager(){}
 
 	ViewController view = new ViewController();
@@ -22,7 +27,6 @@ public class DatabaseManager {
 	 * delete existing database in local files, the path is /Users/'username'/AppointmentBookingSystem.db
 	 */
 	public void deleteDatabase(){
-       	String username = System.getProperty("user.name");
         String url = "/Users/" + username + "/" + "AppointmentBookingSystem.db";
         File f = new File(url);
     	f.delete();
@@ -35,13 +39,13 @@ public class DatabaseManager {
 	 * @param fileName will be retrieved from clientModel, default will be AppointmentBookingSystem.
 	 */
     public void createNewDatabase(String fileName) {
-    	String username = System.getProperty("user.name");
+
         String url = "jdbc:sqlite:/Users/" + username + "/" + fileName;
 
-        try (Connection conn = DriverManager.getConnection(url)) {
-            if (conn != null) {
+        try ( Connection con = DriverManager.getConnection(url)) {
+            if (con != null) {
             	view.add("DatabaseManager", fileName + " database has been created.");
-            	conn.close();
+            	con.close();
             }
         }
         catch (SQLException e) {
@@ -54,13 +58,9 @@ public class DatabaseManager {
      * create new table business
      */
     public void createBusinessTable(){
-        Connection c = null;
-        Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
 
         try {
-          c = DriverManager.getConnection(url);
+          c = DriverManager.getConnection(path);
           stmt = c.createStatement();
           String sql = "CREATE TABLE Business " +
                        "(business_name	        TEXT	NOT NULL," +
@@ -72,7 +72,7 @@ public class DatabaseManager {
                        " password         		TEXT     NOT NULL)";
           stmt.executeUpdate(sql);
           stmt.close();
-          c.close();
+          //c.close();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -85,13 +85,9 @@ public class DatabaseManager {
      * Insert entities for business table.
      */
     public void insertInitialEntitiesForBusiness(){
-        Connection c = null;
-        Statement stmt = null;
-       	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
 
         try {
-          c = DriverManager.getConnection(url);
+
           c.setAutoCommit(false);
 
           stmt = c.createStatement();
@@ -124,11 +120,8 @@ public class DatabaseManager {
     public void createCustomerInfoTable(){
         Connection c = null;
         Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
+          c = DriverManager.getConnection(path);
           stmt = c.createStatement();
           String sql = "CREATE TABLE Customerinfo " +
                        "(first_name	        TEXT     NOT NULL," +
@@ -154,11 +147,9 @@ public class DatabaseManager {
     public void insertInitialEntitiesForCustomerInfo(){
         Connection c = null;
         Statement stmt = null;
-       	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
 
         try {
-          c = DriverManager.getConnection(url);
+          c = DriverManager.getConnection(path);
           c.setAutoCommit(false);
 
           stmt = c.createStatement();
@@ -190,11 +181,9 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusiness(String username, String password){
 		try{
-	    	String user = System.getProperty("user.name");
-	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 
 			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(url);
+			Connection c = DriverManager.getConnection(path);
 			//create a query searching username and password
 			final String business = "select * from Business where username = '" + username + "' and password = '" + password + "'";
 			//create a statement
@@ -219,11 +208,9 @@ public class DatabaseManager {
 	 */
 	public boolean searchCustomer(String username, String password){
 		try{
-	    	String user = System.getProperty("user.name");
-	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 
 			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(url);
+			Connection c = DriverManager.getConnection(path);
 
 			//create a query searching username and password
 			final String customer = "select * from Customerinfo where username = '" + username + "' and password = '" + password + "'";
@@ -250,11 +237,9 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusinessUserName(String input){
 		try{
-	    	String user = System.getProperty("user.name");
-	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 
 			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(url);
+			Connection c = DriverManager.getConnection(path);
 			//create a query for MySQL search
 			final String userCheck = "select * from Business where username = '" + input + "'";
 			//create a statement
