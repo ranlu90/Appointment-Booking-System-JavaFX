@@ -35,6 +35,20 @@ public class DatabaseManager {
 
 
 	/**
+	 * Establish connection to the database, the connection will be only created once.
+	 */
+	public void setConnection(){
+		try{
+			c = DriverManager.getConnection(path);
+			stmt = c.createStatement();
+			view.add("DatabaseManager", "The connection to the database has been established.");
+		}
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+	}
+
+	/**
 	 * This method will create a database in /Users/me/ using SQLite.
 	 * @param fileName will be retrieved from clientModel, default will be AppointmentBookingSystem.
 	 */
@@ -60,7 +74,6 @@ public class DatabaseManager {
     public void createBusinessTable(){
 
         try {
-          c = DriverManager.getConnection(path);
           stmt = c.createStatement();
           String sql = "CREATE TABLE Business " +
                        "(business_name	        TEXT	NOT NULL," +
@@ -72,7 +85,7 @@ public class DatabaseManager {
                        " password         		TEXT     NOT NULL)";
           stmt.executeUpdate(sql);
           stmt.close();
-          //c.close();
+
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -105,7 +118,7 @@ public class DatabaseManager {
 
           stmt.close();
           c.commit();
-          c.close();
+
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -118,10 +131,8 @@ public class DatabaseManager {
      * create new table customerinfo
      */
     public void createCustomerInfoTable(){
-        Connection c = null;
-        Statement stmt = null;
+
         try {
-          c = DriverManager.getConnection(path);
           stmt = c.createStatement();
           String sql = "CREATE TABLE Customerinfo " +
                        "(first_name	        TEXT     NOT NULL," +
@@ -132,7 +143,7 @@ public class DatabaseManager {
                        " password         	TEXT     NOT NULL)";
           stmt.executeUpdate(sql);
           stmt.close();
-          c.close();
+
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -145,13 +156,9 @@ public class DatabaseManager {
      * Insert entities for customerinfo table.
      */
     public void insertInitialEntitiesForCustomerInfo(){
-        Connection c = null;
-        Statement stmt = null;
 
         try {
-          c = DriverManager.getConnection(path);
           c.setAutoCommit(false);
-
           stmt = c.createStatement();
           String sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
                        "VALUES ('David', 'Beckham','London', '0123 456 789', 'david','david' );";

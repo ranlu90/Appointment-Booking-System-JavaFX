@@ -140,6 +140,7 @@ public class ClientModel {
     	databaseManager.deleteDatabase();
     	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
 
+    	databaseManager.setConnection();
     	databaseManager.createBusinessTable();
     	databaseManager.createCustomerInfoTable();
     	databaseManager.createEmployeeTable();
