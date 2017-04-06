@@ -461,6 +461,31 @@ public class DatabaseManager {
 
 
     /**
+     * set new employee in database
+     */
+    public void setEmployee(String firstname, String lastname, String owner_username, String email, String contact_number){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
+                  "VALUES ('"+ firstname +"', '"+ lastname +"','"+ owner_username +"', '"+ email +"', '"+ contact_number +"');";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "A new employee has been inserted into Employee.");
+    }
+
+
+    /**
      * create new table BusinessTime, store each business owner's business date and time.
      */
     public void createBusinessTimeTable(){
@@ -488,6 +513,32 @@ public class DatabaseManager {
     	view.add("DatabaseManager", "BusinessTime table has been created.");
     }
 
+
+    /**
+     * set business time for a business owner.
+     */
+    public void setBusinessTime(String business_date, String owner_username, String open_time, String closing_time){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "INSERT INTO BusinessTime (business_date,owner_username,open_time,closing_time) " +
+                  "VALUES ('"+ business_date +"', '"+ owner_username +"','"+ open_time +"', '"+ closing_time +"');";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "New business time has been inserted into BusinessTime.");
+    }
+
+
     /**
      * create new table WorkingTime, store each employee's working time in a week, user day as primary key, email as foreign key.
      */
@@ -513,5 +564,30 @@ public class DatabaseManager {
           System.exit(0);
         }
     	view.add("DatabaseManager", "WorkingTime table has been created.");
+    }
+
+
+    /**
+     * set working time for an employee.
+     */
+    public void setWorkingTime(String day, String time, String employee_email){
+        Connection c = null;
+        Statement stmt = null;
+    	String username = System.getProperty("user.name");
+        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+
+        try {
+          c = DriverManager.getConnection(url);
+          stmt = c.createStatement();
+          String sql = "INSERT INTO WorkingTime (day,time,employee_email) " +
+                  "VALUES ('"+ day +"', '"+ time +"','"+ employee_email +"');";
+          stmt.executeUpdate(sql);
+          stmt.close();
+          c.close();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "New working time has been inserted into WorkingTime.");
     }
 }
