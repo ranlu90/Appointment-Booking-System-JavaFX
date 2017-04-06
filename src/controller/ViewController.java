@@ -99,7 +99,7 @@ public class ViewController {
                 break;
 
             case 'B':
-            	businessController.addBusinessHours();
+            	businessController.businessTimeInput();
                 break;
 
             case 'C':
