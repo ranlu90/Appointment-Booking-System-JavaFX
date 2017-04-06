@@ -139,13 +139,13 @@ public class ClientModel {
     public void initDatabase() throws IOException{
     	databaseManager.deleteDatabase();
     	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
-    	
+
     	databaseManager.createBusinessTable();
     	databaseManager.createCustomerInfoTable();
     	databaseManager.createEmployeeTable();
     	databaseManager.createBusinessTimeTable();
     	databaseManager.createWorkingTimeTable();
-    	
+
     	databaseManager.insertInitialEntitiesForBusiness();
     	databaseManager.insertInitialEntitiesForCustomerInfo();
 
@@ -157,6 +157,8 @@ public class ClientModel {
      */
 	public boolean login(String username, String password)
 	{
+		view.setDatabaseManager(databaseManager);
+
 		if(username != null && password != null)
 		{
 			if(databaseManager.searchBusiness(username,password) == true){

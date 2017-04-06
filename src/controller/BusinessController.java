@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import business.Employee;
+import database.DatabaseManager;
 import user.BusinessOwner;
 
 /**
@@ -16,6 +17,7 @@ import user.BusinessOwner;
  */
 public class BusinessController {
 
+	private DatabaseManager databaseManager;
 	//business owner list, using business owner's username as a key for each entity in the list.
 	private	HashMap<String,BusinessOwner> businessOwnerList = new HashMap<String,BusinessOwner>();
 	private BusinessOwner businessOwner = new BusinessOwner();
@@ -25,6 +27,14 @@ public class BusinessController {
 
 	public BusinessController(){}
 
+
+	/**
+	 * set database for business owner
+	 * @param database get from clientModel
+	 */
+	public void setDatabaseManager(DatabaseManager database){
+		this.databaseManager = database;
+	}
 
 	public void setUsername(String username){
 		this.username = username;
@@ -64,7 +74,7 @@ public class BusinessController {
 				contactNumber = sc.nextLine();
 				employee.setContactNumber(contactNumber);
 				do{
-					
+
 					System.out.println("Please enter the emplyee's working day in a week:");
 					workingDay = sc.nextLine();
 					if(workingDay.matches("Monday")||workingDay.matches("Tuesday")||workingDay.matches("Wednesday")
@@ -80,36 +90,36 @@ public class BusinessController {
 					}
 					}
 					line = sc.nextLine();
-					
+
 					if(line.equalsIgnoreCase("X")){
 						System.out.println("Information wasn't stored, return to the business menu.\n");
 						return false;
-					
+
 					}
-					
-					
+
+
 				}while(!line.equalsIgnoreCase("S"));
-				
+
 				businessOwner.getEmployeeList().add(employee);
 				//update business owner information for a given username
 				businessOwnerList.put(username, businessOwner);
 				System.out.println("The employee's details have been added to your employee list.\n");
 				return true;
 			}
-			
-			
+
+
 			else{
 				System.out.println("An employee with the same email address exists!");
 				return false;
 			}
-			
+
 		}
 		else{
 			System.out.println("email address format is invalid!");
 			return false;
 		}
 	}
-	
+
 
 	/**
 	 *

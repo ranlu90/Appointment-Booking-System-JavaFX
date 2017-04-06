@@ -1,5 +1,6 @@
 package controller;
 
+import database.DatabaseManager;
 import user.Customer;
 
 /**
@@ -11,9 +12,17 @@ public class CustomerController {
 
 	private Customer customer = new Customer();
 	private String username;
+	private DatabaseManager databaseManager;
 
 	public CustomerController(){}
 
+	/**
+	 * set database for business owner
+	 * @param database get from clientModel
+	 */
+	public void setDatabaseManager(DatabaseManager database){
+		this.databaseManager = database;
+	}
 	/**
 	 * Customer can view available booking days and time.
 	 */

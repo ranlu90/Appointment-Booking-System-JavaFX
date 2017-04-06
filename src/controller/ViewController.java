@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import database.DatabaseManager;
+
 /**
  * This class manages functions of add logging information, gotoBusiness and gotoCustonmer.
  * parameters received from clientModel, allow the user to select functions in business or customer menu,
@@ -18,12 +20,22 @@ public class ViewController {
 	private CustomerController customerController = new CustomerController();
 	private static Scanner sc = new Scanner(System.in);
 	private String username;
+	private DatabaseManager database;
 
 	public ViewController(){}
 
 
 	public void setUserName(String username){
 		this.username = username;
+	}
+
+
+	/**
+	 * set database for view controller
+	 * @param database get from clientModel
+	 */
+	public void setDatabaseManager(DatabaseManager database){
+		this.database = database;
 	}
 
 
@@ -53,6 +65,7 @@ public class ViewController {
 	public void gotoBusiness()
 	{
 		 businessController.setUsername(username);
+		 businessController.setDatabaseManager(database);
 		 String input;
 		 char selection = '\0';
 		 do
@@ -120,6 +133,7 @@ public class ViewController {
 	public void gotoCustomer()
 	{
 		customerController.setUserName(username);
+		customerController.setDatabaseManager(database);
 		String input2;
 		char selection2 = '\0';
 
