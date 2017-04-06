@@ -72,9 +72,7 @@ public class DatabaseManager {
      * create new table business
      */
     public void createBusinessTable(){
-
         try {
-          stmt = c.createStatement();
           String sql = "CREATE TABLE Business " +
                        "(business_name	        TEXT	NOT NULL," +
                        " business_owner_name	TEXT, " +
@@ -84,8 +82,6 @@ public class DatabaseManager {
                        " username        		TEXT     PRIMARY KEY     NOT NULL, " +
                        " password         		TEXT     NOT NULL)";
           stmt.executeUpdate(sql);
-          stmt.close();
-
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -98,12 +94,8 @@ public class DatabaseManager {
      * Insert entities for business table.
      */
     public void insertInitialEntitiesForBusiness(){
-
         try {
-
           c.setAutoCommit(false);
-
-          stmt = c.createStatement();
           String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
                        "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', '11:00 - 9:00 Monday to Sunday', 'daguido','daguido' );";
           stmt.executeUpdate(sql);
@@ -115,8 +107,6 @@ public class DatabaseManager {
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
                 "VALUES ('System Testing Account',null,null,null, '9:00 - 6:00 Monday to Friday', 'owner','owner');";
           stmt.executeUpdate(sql);
-
-          stmt.close();
           c.commit();
 
         } catch ( Exception e ) {
@@ -131,9 +121,7 @@ public class DatabaseManager {
      * create new table customerinfo
      */
     public void createCustomerInfoTable(){
-
         try {
-          stmt = c.createStatement();
           String sql = "CREATE TABLE Customerinfo " +
                        "(first_name	        TEXT     NOT NULL," +
                        " last_name			TEXT     NOT NULL, " +
@@ -142,7 +130,6 @@ public class DatabaseManager {
                        " username        	TEXT     PRIMARY KEY     NOT NULL, " +
                        " password         	TEXT     NOT NULL)";
           stmt.executeUpdate(sql);
-          stmt.close();
 
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -156,10 +143,8 @@ public class DatabaseManager {
      * Insert entities for customerinfo table.
      */
     public void insertInitialEntitiesForCustomerInfo(){
-
         try {
           c.setAutoCommit(false);
-          stmt = c.createStatement();
           String sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
                        "VALUES ('David', 'Beckham','London', '0123 456 789', 'david','david' );";
           stmt.executeUpdate(sql);
@@ -171,10 +156,7 @@ public class DatabaseManager {
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
                 "VALUES ('" + username + "','" + username + "',null,null,'customer','customer');";
           stmt.executeUpdate(sql);
-
-          stmt.close();
           c.commit();
-          c.close();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -188,17 +170,9 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusiness(String username, String password){
 		try{
-
-			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(path);
-			//create a query searching username and password
 			final String business = "select * from Business where username = '" + username + "' and password = '" + password + "'";
-			//create a statement
-			final Statement stmt = c.createStatement();
-			//get all tuples from business table that matches the input
-			ResultSet result1 = stmt.executeQuery(business);
-
-			if(result1.next()){
+			ResultSet result = stmt.executeQuery(business);
+			if(result.next()){
 				return true;
 			}
 		}
@@ -215,17 +189,8 @@ public class DatabaseManager {
 	 */
 	public boolean searchCustomer(String username, String password){
 		try{
-
-			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(path);
-
-			//create a query searching username and password
 			final String customer = "select * from Customerinfo where username = '" + username + "' and password = '" + password + "'";
-			//create a statement
-			final Statement stmt = c.createStatement();
-			//get all tuples from customer table that matches the input
 			ResultSet result = stmt.executeQuery(customer);
-
 			if(result.next()){
 				return true;
 			}
@@ -244,17 +209,8 @@ public class DatabaseManager {
 	 */
 	public boolean searchBusinessUserName(String input){
 		try{
-
-			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(path);
-			//create a query for MySQL search
 			final String userCheck = "select * from Business where username = '" + input + "'";
-			//create a statement
-			final Statement stmt = c.createStatement();
-			//get all tuples from business table that matches the input
 			final ResultSet result = stmt.executeQuery(userCheck);
-
-
 			if(result.next()){
 				return true;
 			}
@@ -272,18 +228,8 @@ public class DatabaseManager {
 	 */
 	public boolean searchCustomerUserName(String input){
 		try{
-	    	String user = System.getProperty("user.name");
-	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
-
-			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(url);
-			//create a query for MySQL search
 			final String userCheck = "select * from Customerinfo where username = '" + input + "'";
-			//create a statement
-			final Statement stmt = c.createStatement();
-			//get all tuples from business table that matches the input
 			final ResultSet result = stmt.executeQuery(userCheck);
-
 			if(result.next()){
 				return true;
 			}
@@ -301,23 +247,12 @@ public class DatabaseManager {
 	 */
     public boolean insertIntoCustomer(String firstname, String lastname,
 			String address, String contactNumber, String username, String password){
-        Connection c = null;
-        Statement stmt = null;
-       	String user = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
           c.setAutoCommit(false);
-
-          stmt = c.createStatement();
           String sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
                        "VALUES ('"+ firstname +"', '"+ lastname +"','"+ address +"', '"+ contactNumber +"', '"+ username +"','"+ password +"' );";
           stmt.executeUpdate(sql);
-
-          stmt.close();
           c.commit();
-          c.close();
           return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -334,19 +269,11 @@ public class DatabaseManager {
      */
 	public String getBusinessName(String username){
 		try{
-	    	String user = System.getProperty("user.name");
-	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 	        String businessName;
-
-			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(url);
 			//create a query for SQLite search
 			final String getBusiness = "select business_name from Business where username = '" + username + "'";
-			//create a statement
-			final Statement stmt = c.createStatement();
 			//get all tuples from business table that matches the input
 			final ResultSet result = stmt.executeQuery(getBusiness);
-
 			if(result.next()){
 				businessName = result.getString("business_name");
 				return businessName;
@@ -366,17 +293,10 @@ public class DatabaseManager {
      */
 	public String getCustomerName(String username){
 		try{
-	    	String user = System.getProperty("user.name");
-	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 	        String firstname;
 	        String lastname;
-			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(url);
 			//create a query for SQLite search
 			final String getName = "select * from Customerinfo where username = '" + username + "'";
-			//create a statement
-			final Statement stmt = c.createStatement();
-			//get all tuples from business table that matches the input
 			final ResultSet result = stmt.executeQuery(getName);
 			if(result.next()){
 				firstname = result.getString("first_name");
@@ -398,17 +318,8 @@ public class DatabaseManager {
      */
 	public String getBusinessHours(String username){
 		try{
-	    	String user = System.getProperty("user.name");
-	        String url = "jdbc:sqlite:/Users/" + user + "/" + "AppointmentBookingSystem.db";
 	        String workingHours;
-
-			//connect to appointment booking system in the database
-			Connection c = DriverManager.getConnection(url);
-			//create a query for SQLite search
 			final String get = "select working_hours from Business where username = '" + username + "'";
-			//create a statement
-			final Statement stmt = c.createStatement();
-			//get all tuples from business table that matches the input
 			final ResultSet result = stmt.executeQuery(get);
 			if(result.next()){
 				workingHours = result.getString("working_hours");
@@ -426,14 +337,7 @@ public class DatabaseManager {
      * create new table EmployeeList
      */
     public void createEmployeeTable(){
-        Connection c = null;
-        Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
-          stmt = c.createStatement();
           String sql = "CREATE TABLE Employe " +
                        "(firstname	        TEXT	NOT NULL," +
                        " lastname			TEXT	NOT NULL, " +
@@ -442,8 +346,6 @@ public class DatabaseManager {
                        " contact_number     TEXT, " +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
-          stmt.close();
-          c.close();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -456,19 +358,10 @@ public class DatabaseManager {
      * set new employee in database
      */
     public void setEmployee(String firstname, String lastname, String owner_username, String email, String contact_number){
-        Connection c = null;
-        Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
-          stmt = c.createStatement();
           String sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
                   "VALUES ('"+ firstname +"', '"+ lastname +"','"+ owner_username +"', '"+ email +"', '"+ contact_number +"');";
           stmt.executeUpdate(sql);
-          stmt.close();
-          c.close();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -481,14 +374,7 @@ public class DatabaseManager {
      * create new table BusinessTime, store each business owner's business date and time.
      */
     public void createBusinessTimeTable(){
-        Connection c = null;
-        Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
-          stmt = c.createStatement();
           String sql = "CREATE TABLE BusinessTime " +
                        "(business_date	    TEXT	PRIMARY KEY	NOT NULL," +
                        " owner_username     TEXT	NOT NULL, " +
@@ -496,8 +382,6 @@ public class DatabaseManager {
                        " closing_time       TEXT	NOT NULL, " +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
-          stmt.close();
-          c.close();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -510,24 +394,15 @@ public class DatabaseManager {
      * set business time for a business owner.
      */
     public void setBusinessTime(String business_date, String owner_username, String open_time, String closing_time){
-        Connection c = null;
-        Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
-          stmt = c.createStatement();
           String sql = "INSERT INTO BusinessTime (business_date,owner_username,open_time,closing_time) " +
                   "VALUES ('"+ business_date +"', '"+ owner_username +"','"+ open_time +"', '"+ closing_time +"');";
           stmt.executeUpdate(sql);
-          stmt.close();
-          c.close();
+      	  view.add("DatabaseManager", "New business time has been inserted into BusinessTime.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "New business time has been inserted into BusinessTime.");
     }
 
 
@@ -535,22 +410,13 @@ public class DatabaseManager {
      * create new table WorkingTime, store each employee's working time in a week, user day as primary key, email as foreign key.
      */
     public void createWorkingTimeTable(){
-        Connection c = null;
-        Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
-          stmt = c.createStatement();
           String sql = "CREATE TABLE WorkingTime " +
                        "(day	 	 	TEXT	PRIMARY KEY	NOT NULL," +
                        " time	     	TEXT	NOT NULL, " +
                        " employee_email	TEXT	NOT NULL, " +
                        "FOREIGN KEY(employee_email)	REFERENCES Employee(email))";
           stmt.executeUpdate(sql);
-          stmt.close();
-          c.close();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -563,19 +429,10 @@ public class DatabaseManager {
      * set working time for an employee.
      */
     public void setWorkingTime(String day, String time, String employee_email){
-        Connection c = null;
-        Statement stmt = null;
-    	String username = System.getProperty("user.name");
-        String url = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
-
         try {
-          c = DriverManager.getConnection(url);
-          stmt = c.createStatement();
           String sql = "INSERT INTO WorkingTime (day,time,employee_email) " +
                   "VALUES ('"+ day +"', '"+ time +"','"+ employee_email +"');";
           stmt.executeUpdate(sql);
-          stmt.close();
-          c.close();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);

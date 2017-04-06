@@ -11,8 +11,8 @@ public class AddBusinessHoursTest {
 	@Test
 	public void test() {
 		BusinessController business = new BusinessController();
-		boolean f = business.addBusinessHours();
-		assertTrue(f);
+		boolean f = business.addBusinessTime("abc", "owner", "11:00", "16:00");
+		assertFalse(f);
 	}
 
 }
