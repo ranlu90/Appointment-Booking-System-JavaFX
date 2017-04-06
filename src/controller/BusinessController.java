@@ -1,13 +1,12 @@
 package controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Scanner;
-import business.Employee;
 import database.DatabaseManager;
-import user.BusinessOwner;
 
 /**
  * Include functions for business owner, provide fundamental methods for viewController, add information to business owner.
@@ -18,10 +17,6 @@ import user.BusinessOwner;
 public class BusinessController {
 
 	private DatabaseManager databaseManager;
-	//business owner list, using business owner's username as a key for each entity in the list.
-	private	HashMap<String,BusinessOwner> businessOwnerList = new HashMap<String,BusinessOwner>();
-	private BusinessOwner businessOwner = new BusinessOwner();
-	//get the username from ClientModel class
 	private String username;
 	private static Scanner sc = new Scanner(System.in);
 
@@ -39,118 +34,69 @@ public class BusinessController {
 	public void setUsername(String username){
 		this.username = username;
 	}
+
+
 	/**
 	 * from each business owner, add employee information
 	 * @return true if adding info successfully
 	 */
-	public boolean addEmployee(){
-
-		String line;
-
-		//capture user's input in the console
-		Employee employee = new Employee();
-		String firstname;
-		String lastname;
-		String email;
-		String contactNumber;
-		String workingDay;
-		String workingTime;
-
-		System.out.println("You have chosen option A: Add a new employee.");
-		System.out.println("Please enter the emplyee's first name:");
-		firstname = sc.nextLine();
-		employee.setFirstName(firstname);
-
-		System.out.println("Please enter the emplyee's last name:");
-		lastname = sc.nextLine();
-		employee.setLastName(lastname);
-
-		System.out.println("Please enter the emplyee's e-mail address:");
-		email = sc.nextLine();
+	public boolean addEmployee(String firstname,String lastname,String owner_username,String email,
+			String contact_number,String workingDay,String workingTime){
 		if(email.matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})")){
-			if(!searchExistingEmployee(email)){
-				employee.setEmail(email);
-				System.out.println("Please enter the emplyee's contact number:");
-				contactNumber = sc.nextLine();
-				employee.setContactNumber(contactNumber);
-				do{
-
-					System.out.println("Please enter the emplyee's working day in a week:");
-					workingDay = sc.nextLine();
-					if(workingDay.matches("Monday")||workingDay.matches("Tuesday")||workingDay.matches("Wednesday")
-							||workingDay.matches("Thursday")||workingDay.matches("Friday")){
-						System.out.println("Please enter the emplyee's working period in a day:");
-					workingTime = sc.nextLine();
-					if(workingTime.matches("[0-9]{2}:[0-9]{2}-[0-9]{2}:[0-9]{2}")){
-					employee.getWorkingSchedule().put(workingDay, workingTime);
-					System.out.println("Please select one of the following options:");
-					System.out.println("A - Add more working days/time");
-					System.out.println("S - Store the employee's details");
-					System.out.println("X - Quit without saving any information");
-					}
-					}
-					line = sc.nextLine();
-
-					if(line.equalsIgnoreCase("X")){
-						System.out.println("Information wasn't stored, return to the business menu.\n");
-						return false;
-
-					}
-
-
-				}while(!line.equalsIgnoreCase("S"));
-
-				businessOwner.getEmployeeList().add(employee);
-				//update business owner information for a given username
-				businessOwnerList.put(username, businessOwner);
-				System.out.println("The employee's details have been added to your employee list.\n");
-				return true;
+			if(!databaseManager.searchEmployeeEmail(email)){
+				System.out.println("Please select one of the following options:");
+				System.out.println("S - Store the employee information");
+				System.out.println("X - Quit without saving any information");
+				String line = sc.nextLine();
+				if(line.equalsIgnoreCase("S")){
+					databaseManager.setEmployee(firstname, lastname, owner_username, email, contact_number);
+					databaseManager.setWorkingTime(workingDay, workingTime, email);
+					System.out.println("The information have been added to your actual business time.\n");
+					return true;
+				}
+				else{
+					System.out.println("Information wasn't stored, return to the business menu.\n");
+					return false;
+				}
 			}
-
-
 			else{
-				System.out.println("An employee with the same email address exists!");
+				System.out.println("Email already exists!");
 				return false;
 			}
-
 		}
 		else{
-			System.out.println("email address format is invalid!");
+			System.out.println("Email address format is invalid!");
 			return false;
 		}
 	}
+
 
 
 	/**
 	 *
 	 */
 	public boolean addBusinessTime(String business_date, String owner_username, String open_time, String closing_time){
-
 		SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM");
 		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-
-
 	    try {
 				Date day = dateFormat.parse(business_date);
 				Date open = timeFormat.parse(open_time);
 				Date close = timeFormat.parse(closing_time);
 				System.out.println("Please select one of the following options:");
 				System.out.println("S - Store the business time");
-				System.out.println("X - Quit without saving any information:");
+				System.out.println("X - Quit without saving any information");
 				String line = sc.nextLine();
 				if(line.equalsIgnoreCase("S")){
 					databaseManager.setBusinessTime(business_date, owner_username, open_time, closing_time);
 					System.out.println("The information have been added to your actual business time.\n");
 					return true;
-
 				}
 				else{
 					System.out.println("Information wasn't stored, return to the business menu.\n");
 					return false;
 				}
-
 	    }catch (ParseException e) {
-	    	System.out.println("Not a valid date/time format, return to the business menu.");
+	        System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 	    	return false;
 	    }
 	}
@@ -174,46 +120,37 @@ public class BusinessController {
 
 	/**
 	 *	print all worker's name, email, contact number and working days/time in a week.
+	 * @throws SQLException
 	 */
 	public boolean viewWorkersAvailability(){
-		//retrieve data for a specific business owner
-		BusinessOwner temp = businessOwnerList.get(username);
-
 		try{
+			ResultSet result = databaseManager.getEmployee(username);
+			//move cursor to the last object and get the row number, therefore get the number of rows in the table, starting from 1.
+			result.last();
+			int size = result.getRow();
 			System.out.println("Your emloyees' working days and time are as following:");
 			System.out.println("=========================");
-			for(Employee employee : temp.getEmployeeList()){
-				System.out.println(employee.getFirstName() +" " + employee.getLastName());
-				System.out.println(employee.getEmail());
-				System.out.println(employee.getContactNumber());
+			for(int i = 1; i < size; i ++){
+				//move cursor to the current employee object
+				result.absolute(i);
+				System.out.println(result.getString("first_name") + " " + result.getString("last_name"));
+				System.out.println(result.getString("email"));
+				System.out.println(result.getString("contact_number"));
 				System.out.println("Working Days/Time:");
-				for(String day : employee.getWorkingSchedule().keySet()){
-					String time = employee.getWorkingSchedule().get(day);
-					System.out.println(day + "  " + time);
+				ResultSet workingTime = databaseManager.getWorkingTime(result.getString("email"));
+				workingTime.last();
+				int sizeOfTable = workingTime.getRow();
+				for(int j = 1; j < sizeOfTable; j ++){
+					System.out.println(workingTime.getString("day") + "  " + workingTime.getString("time"));
 				}
 				System.out.println("=========================");
 			}
 			return true;
 		}
-		catch(NullPointerException e){
+		catch(NullPointerException | SQLException e){
 			System.out.println("No employees in your employee list.\n");
 			return false;
 		}
-	}
-
-
-	/**
-	 * Search the business owner's employee list to find if a specific employee exists.
-	 * @param email	Use email as the primary key, each employee's email is unique.
-	 * @return	true if employee exists, otherwise false.
-	 */
-	public boolean searchExistingEmployee(String email){
-		for(Employee employee : businessOwner.getEmployeeList()){
-			if(email.equalsIgnoreCase(employee.getEmail())){
-				return true;
-			}
-		}
-		return false;
 	}
 
 
@@ -234,5 +171,44 @@ public class BusinessController {
 		System.out.println("Please enter business closing time with 24-hour format (HH:mm): ");
 		closing_time = sc.nextLine();
 		addBusinessTime(business_date, owner_username, open_time, closing_time);
+	}
+
+
+	/**
+	 * Get user's input from console for add employee.
+	 */
+	public void employeeInput(){
+		try{
+		String firstname;
+		String lastname;
+		String email;
+		String contactNumber;
+		String workingDay;
+		String workingTime;
+		String owner_username = username;
+
+		String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+		String period[] = {"9:00 - 11:00","11:00 - 13:00","13:00 - 15:00","15:00 - 17:00"};
+		;
+		System.out.println("You have chosen option A: Add a new employee.");
+		System.out.println("Please enter the emplyee's first name:");
+		firstname = sc.nextLine();
+		System.out.println("Please enter the emplyee's last name:");
+		lastname = sc.nextLine();
+		System.out.println("Please enter the emplyee's e-mail address:");
+		email = sc.nextLine();
+		System.out.println("Please enter the emplyee's contact number:");
+		contactNumber = sc.nextLine();
+		System.out.println("Please select the emplyee's working day in a week:");
+		System.out.println("1.Monday  2.Tuesday  3.Wednesday  4.Thursday  5.Friday  6.Saturday  7.Sunday");
+		workingDay = week[Integer.parseInt(sc.nextLine()) -1];
+		System.out.println("Please select the emplyee's working time in a day:");
+		System.out.println("1. 9:00-11:00  2. 11:00-13:00  3. 13:00-15:00  4. 15:00-17:00");
+		workingTime = period[Integer.parseInt(sc.nextLine()) -1];
+		addEmployee(firstname,lastname,owner_username,email,contactNumber, workingDay, workingTime);
+		}catch(Exception e){
+			System.out.println("Invalid input!");
+			return;
+		}
 	}
 }

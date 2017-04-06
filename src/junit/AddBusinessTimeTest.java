@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import controller.BusinessController;
 
-public class AddBusinessHoursTest {
+public class AddBusinessTimeTest {
 
 	@Test
 	public void test() {

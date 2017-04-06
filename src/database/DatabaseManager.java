@@ -74,13 +74,13 @@ public class DatabaseManager {
     public void createBusinessTable(){
         try {
           String sql = "CREATE TABLE Business " +
-                       "(business_name	        TEXT	NOT NULL," +
-                       " business_owner_name	TEXT, " +
-                       " address            	TEXT, " +
-                       " phone        			TEXT, " +
-                       " business_hours        	TEXT, " +
-                       " username        		TEXT     PRIMARY KEY     NOT NULL, " +
-                       " password         		TEXT     NOT NULL)";
+                       "(business_name	        TEXT	NOT NULL, " +
+                       " business_owner_name	TEXT	NOT NULL, " +
+                       " address            	TEXT	NOT NULL, " +
+                       " phone        			TEXT	NOT NULL, " +
+                       " business_hours        	TEXT	NOT NULL, " +
+                       " username        		TEXT    PRIMARY KEY     NOT NULL, " +
+                       " password         		TEXT    NOT NULL)";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -97,7 +97,7 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
-                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', '11:00 - 9:00 Monday to Sunday', 'daguido','daguido' );";
+                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', '11:00 - 21:00 Monday to Sunday', 'daguido','daguido' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
@@ -105,7 +105,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
-                "VALUES ('System Testing Account',null,null,null, '9:00 - 6:00 Monday to Friday', 'owner','owner');";
+                "VALUES ('System Testing Account','RMIT','Melbourne CBD','+61 3 9925 2000', '9:00 - 18:00 Monday to Friday', 'owner','owner');";
           stmt.executeUpdate(sql);
           c.commit();
 
@@ -123,12 +123,12 @@ public class DatabaseManager {
     public void createCustomerInfoTable(){
         try {
           String sql = "CREATE TABLE Customerinfo " +
-                       "(first_name	        TEXT     NOT NULL," +
-                       " last_name			TEXT     NOT NULL, " +
-                       " address            TEXT, " +
-                       " contact_number     TEXT, " +
-                       " username        	TEXT     PRIMARY KEY     NOT NULL, " +
-                       " password         	TEXT     NOT NULL)";
+                       "(first_name	        TEXT	NOT NULL, " +
+                       " last_name			TEXT    NOT NULL, " +
+                       " address            TEXT	NOT NULL, " +
+                       " contact_number     TEXT	NOT NULL, " +
+                       " username        	TEXT    PRIMARY KEY     NOT NULL, " +
+                       " password         	TEXT    NOT NULL)";
           stmt.executeUpdate(sql);
 
         } catch ( Exception e ) {
@@ -172,7 +172,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                "VALUES ('" + username + "','" + username + "',null,null,'customer','customer');";
+                "VALUES ('" + username + "','" + username + "','Melbourne','0123 456 789','customer','customer');";
           stmt.executeUpdate(sql);
           c.commit();
         } catch ( Exception e ) {
@@ -329,38 +329,16 @@ public class DatabaseManager {
 
 
     /**
-     * Get predefined business hours for a given business in the Business table.
-     * @param username received from cilentModel, pass to the database.
-     * @return business hours in a week for the given business.
-     */
-	public String getBusinessHours(String username){
-		try{
-	        String workingHours;
-			final String get = "select working_hours from Business where username = '" + username + "'";
-			final ResultSet result = stmt.executeQuery(get);
-			if(result.next()){
-				workingHours = result.getString("working_hours");
-				return workingHours;
-			}
-		}
-		catch (Exception exp){
-			exp.printStackTrace();
-		}
-		return null;
-	}
-
-
-    /**
-     * create new table EmployeeList
+     * create new table Employee.
      */
     public void createEmployeeTable(){
         try {
           String sql = "CREATE TABLE Employee " +
-                       "(firstname	        TEXT	NOT NULL," +
-                       " lastname			TEXT	NOT NULL, " +
+                       "(first_name	        TEXT	NOT NULL," +
+                       " last_name			TEXT	NOT NULL, " +
                        " owner_username     TEXT	NOT NULL, " +
                        " email			    TEXT 		 PRIMARY KEY     NOT NULL, " +
-                       " contact_number     TEXT, " +
+                       " contact_number     TEXT	NOT NULL, " +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
       	  view.add("DatabaseManager", "Employee table has been created.");
@@ -369,6 +347,24 @@ public class DatabaseManager {
           System.exit(0);
         }
     }
+
+
+	/**
+	 * Match user's input email with data in Employee to find if the email already exists.
+	 */
+	public boolean searchEmployeeEmail(String email){
+		try{
+			final String check = "select * from Employee where email = '" + email + "'";
+			final ResultSet result = stmt.executeQuery(check);
+			if(result.next()){
+				return true;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
 
 
     /**
@@ -386,6 +382,22 @@ public class DatabaseManager {
           System.exit(0);
         }
     	view.add("DatabaseManager", "A new employee has been inserted into Employee.");
+    }
+
+
+    /**
+     * Get all employees for one business owner.
+     */
+    public ResultSet getEmployee(String username){
+        try {
+			String sql = "select * from Business where username = '" + username + "'";
+			ResultSet result = stmt.executeQuery(sql);
+            return result;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
     }
 
 
@@ -408,6 +420,24 @@ public class DatabaseManager {
         }
     	view.add("DatabaseManager", "BusinessTime table has been created.");
     }
+
+
+    /**
+     * Get business time for a given business in the BusinessTime.
+     * @param username received from cilentModel, passed to the businessController.
+     * @return business time for the given business username.
+     */
+	public ResultSet getBusinessTime(String username){
+		try{
+			String sql = "select * from BusinessTime where username = '" + username + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			return result;
+		}
+		catch (Exception e){
+	          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+		}
+		return null;
+	}
 
 
     /**
@@ -437,7 +467,7 @@ public class DatabaseManager {
                        "(day	 	 	TEXT	NOT NULL," +
                        " time	     	TEXT	NOT NULL, " +
                        " employee_email	TEXT	NOT NULL, " +
-                       "PRIMARY KEY (day,employee_email)," +
+                       "PRIMARY KEY (day,time,employee_email)," +
                        "FOREIGN KEY(employee_email)	REFERENCES Employee(email))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
@@ -445,6 +475,22 @@ public class DatabaseManager {
           System.exit(0);
         }
     	view.add("DatabaseManager", "WorkingTime table has been created.");
+    }
+
+
+    /**
+     * Get all working time for one employee.
+     */
+    public ResultSet getWorkingTime(String email){
+        try {
+			String sql = "select * from WorkingTime where employee_email = '" + email + "'";
+			ResultSet result = stmt.executeQuery(sql);
+            return result;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
     }
 
 
@@ -484,6 +530,21 @@ public class DatabaseManager {
           System.exit(0);
         }
     	view.add("DatabaseManager", "WorkingTime table has been created.");
+    }
+
+    /**
+     * Get all bookings for one business owner.
+     */
+    public ResultSet getBooking(String username){
+        try {
+			String sql = "select * from Booking where owner_username = '" + username + "'";
+			ResultSet result = stmt.executeQuery(sql);
+            return result;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
     }
 
 

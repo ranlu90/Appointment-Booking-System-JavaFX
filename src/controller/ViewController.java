@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -61,6 +62,7 @@ public class ViewController {
 	 * add a new employee, add working time/dates for the next month,
 	 * look at the summaries of bookings, new booking,
 	 * show all workers’ availability for the next 7 days.
+	 * @throws
 	 */
 	public void gotoBusiness()
 	{
@@ -95,7 +97,7 @@ public class ViewController {
             switch (selection)
             {
             case 'A':
-            	businessController.addEmployee();
+            	businessController.employeeInput();
                 break;
 
             case 'B':
