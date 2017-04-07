@@ -65,15 +65,12 @@ public class BusinessController {
 	/**
 	 * insert business time information into the database.
 	 */
-	public boolean addBusinessTime(String business_date, String owner_username, String open_time, String closing_time){
-		SimpleDateFormat dateFormat = new SimpleDateFormat("DD/MM");
+	public boolean addBusinessTime(String business_day, String owner_username, String open_time, String closing_time){
 		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 	    try {
-				Date day = dateFormat.parse(business_date);
 				Date open = timeFormat.parse(open_time);
 				Date close = timeFormat.parse(closing_time);
-
-				databaseManager.setBusinessTime(business_date, owner_username, open_time, closing_time);
+				databaseManager.setBusinessTime(business_day, owner_username, open_time, closing_time);
 				System.out.println("The information have been added to your actual business time.\n");
 				return true;
 	    }catch (ParseException e) {
@@ -171,25 +168,27 @@ public class BusinessController {
 	 * Get user's input for add business time from console
 	 */
 	public void businessTimeInput(){
-		String business_date;
+		String business_day;
 		String owner_username = username;
 		String open_time;
 		String closing_time;
+		String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+		String time[] = {"9:00 - 13:00","13:00 - 17:00"};
 
-		System.out.println("You have chosen option B: Add working time/dates for the next month.");
-		System.out.println("Please enter dates with format (DD/MM): ");
-		business_date = sc.nextLine();
+		System.out.println("You have chosen option B: Add business time for the next month.");
+		System.out.println("Please select business days in a week:");
+		System.out.println("1.Monday  2.Tuesday  3.Wednesday  4.Thursday  5.Friday  6.Saturday  7.Sunday");
+		business_day = week[Integer.parseInt(sc.nextLine()) -1];
 		System.out.println("Please enter business open time with 24-hour format (HH:mm): ");
 		open_time = sc.nextLine();
 		System.out.println("Please enter business closing time with 24-hour format (HH:mm): ");
 		closing_time = sc.nextLine();
-
 		System.out.println("Please select one of the following options:");
 		System.out.println("S - Store the business time");
 		System.out.println("X - Quit without saving any information");
 		String line = sc.nextLine();
 		if(line.equalsIgnoreCase("S")){
-			addBusinessTime(business_date, owner_username, open_time, closing_time);
+			addBusinessTime(business_day, owner_username, open_time, closing_time);
 		}
 		else{
 			System.out.println("Information wasn't stored, return to the business menu.\n");
@@ -212,8 +211,8 @@ public class BusinessController {
 		String owner_username = username;
 
 		String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
-		String period[] = {"9:00 - 11:00","11:00 - 13:00","13:00 - 15:00","15:00 - 17:00"};
-		;
+		String period[] = {"9:00-13:00","13:00-17:00","9:00-13:00 and 13:00-17:00",""};
+
 		System.out.println("You have chosen option A: Add a new employee.");
 		System.out.println("Please enter the emplyee's first name:");
 		firstname = sc.nextLine();
@@ -227,7 +226,7 @@ public class BusinessController {
 		System.out.println("1.Monday  2.Tuesday  3.Wednesday  4.Thursday  5.Friday  6.Saturday  7.Sunday");
 		workingDay = week[Integer.parseInt(sc.nextLine()) -1];
 		System.out.println("Please select the emplyee's working time in a day:");
-		System.out.println("1. 9:00-11:00  2. 11:00-13:00  3. 13:00-15:00  4. 15:00-17:00");
+		System.out.println("1. 9:00-13:00  2. 13:00-17:00  3. 9:00-13:00 and 13:00-17:00  4. null");
 		workingTime = period[Integer.parseInt(sc.nextLine()) -1];
 
 		System.out.println("Please select one of the following options:");
