@@ -80,7 +80,6 @@ public class DatabaseManager {
                        " business_owner_name	TEXT	NOT NULL, " +
                        " address            	TEXT	NOT NULL, " +
                        " phone        			TEXT	NOT NULL, " +
-                       " business_hours        	TEXT	NOT NULL, " +
                        " username        		TEXT    PRIMARY KEY     NOT NULL, " +
                        " password         		TEXT    NOT NULL)";
           stmt.executeUpdate(sql);
@@ -98,16 +97,16 @@ public class DatabaseManager {
     public void insertInitialEntitiesForBusiness(){
         try {
           c.setAutoCommit(false);
-          String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
-                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547', '11:00 - 21:00 Monday to Sunday', 'daguido','daguido' );";
+          String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
+                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547','daguido','daguido' );";
           stmt.executeUpdate(sql);
 
-          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
-                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', '9:00 - 20:00 Monday to Saturday', 'toniguy', 'toniguy');";
+          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
+                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', 'toniguy', 'toniguy');";
           stmt.executeUpdate(sql);
 
-          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,business_hours,username,password) " +
-                "VALUES ('System Testing Account','RMIT','Melbourne CBD','+61 3 9925 2000', '9:00 - 18:00 Monday to Friday', 'owner','owner');";
+          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
+                "VALUES ('System Testing Account','RMIT','Melbourne CBD','+61 3 9925 2000', 'owner','owner');";
           stmt.executeUpdate(sql);
           c.commit();
 
