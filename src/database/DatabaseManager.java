@@ -418,11 +418,11 @@ public class DatabaseManager {
     public void createBusinessTimeTable(){
         try {
           String sql = "CREATE TABLE BusinessTime " +
-                       "(business_date	    TEXT	NOT NULL," +
+                       "(business_day	    TEXT	NOT NULL," +
                        " owner_username     TEXT	NOT NULL, " +
                        " open_time     		TEXT	NOT NULL, " +
                        " closing_time       TEXT	NOT NULL, " +
-                       "PRIMARY KEY(business_date,owner_username)," +
+                       "PRIMARY KEY(business_day,owner_username)," +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
@@ -445,7 +445,7 @@ public class DatabaseManager {
 			ResultSet result = stmt.executeQuery(sql);
 			while(result.next()){
 				ArrayList<String> temp = new ArrayList<String>();
-				temp.add(result.getString("business_date"));
+				temp.add(result.getString("business_day"));
 				temp.add(result.getString("open_time"));
 				temp.add(result.getString("closing_time"));
 				businessTime.add(temp);
@@ -462,11 +462,11 @@ public class DatabaseManager {
     /**
      * set business time for a business owner.
      */
-    public void setBusinessTime(String business_date, String owner_username, String open_time, String closing_time){
+    public void setBusinessTime(String business_day, String owner_username, String open_time, String closing_time){
         try {
           c.setAutoCommit(false);
-          String sql = "INSERT INTO BusinessTime (business_date,owner_username,open_time,closing_time) " +
-                  "VALUES ('"+ business_date +"', '"+ owner_username +"','"+ open_time +"', '"+ closing_time +"');";
+          String sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                  "VALUES ('"+ business_day +"', '"+ owner_username +"','"+ open_time +"', '"+ closing_time +"');";
           stmt.executeUpdate(sql);
           c.commit();
       	  view.add("DatabaseManager", "New business time has been inserted into BusinessTime.");
@@ -569,6 +569,7 @@ public class DatabaseManager {
 			while(result.next()){
 				ArrayList<String> temp = new ArrayList<String>();
 				temp.add(result.getString("booking_time"));
+				temp.add(result.getString("owner_username"));
 				temp.add(result.getString("customer_username"));
 				booking.add(temp);
 			}
