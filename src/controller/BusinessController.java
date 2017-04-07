@@ -98,17 +98,19 @@ public class BusinessController {
 			
 			try {
 				ArrayList<ArrayList<String>> booking = databaseManager.getBookingForBusiness(username);
+				
 				SimpleDateFormat df = new SimpleDateFormat("dd.MM.YYYY HH:mm");
 				
 				System.out.println("The New Booking information as following:");
 				System.out.println("==========================================");
 				for(ArrayList<String> temp : booking){
+					ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(2));
 					Date date = df.parse(temp.get(0));
 					Date current = df.parse(df.format(new Date()));
-				if( date.getTime() < current.getTime()){
+				if( date.after(current)){
 					System.out.println(temp.get(0));
 					System.out.println(temp.get(1));
-					System.out.println(temp.get(2));
+					System.out.println(customerinfo);
 			    System.out.println("==========================================");
 					
 				}

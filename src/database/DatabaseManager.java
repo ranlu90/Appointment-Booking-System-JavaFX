@@ -154,8 +154,7 @@ public class DatabaseManager {
 				customer.add(result.getString("last_name"));
 				customer.add(result.getString("address"));
 				customer.add(result.getString("contact_number"));
-				customer.add(result.getString("username"));
-				customer.add(result.getString("password"));
+				
 				return customer;
 			}
 		}
@@ -597,16 +596,16 @@ public class DatabaseManager {
           c.setAutoCommit(false);
 
           String sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
-                       "VALUES ('07.04.2017 11:00', 'owner','customer');";
+                       "VALUES ('07.04.2017 11:00', 'owner','bruce');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
-                  "VALUES ('08.04.2017 13:00', 'owner','customer');";
+                  "VALUES ('08.04.2017 13:00', 'owner','bruce');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
-                  "VALUES ('09.04.2017 15:00', 'owner','customer');";
+                  "VALUES ('09.04.2017 15:00', 'owner','david');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
-                  "VALUES ('20.04.2017 13:00', 'owner','customer');";
+                  "VALUES ('20.04.2017 13:00', 'owner','david');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
                   "VALUES ('21.04.2017 15:00', 'owner','customer');";
