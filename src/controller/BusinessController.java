@@ -46,7 +46,7 @@ public class BusinessController {
 			if(contact_number.matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
 				if(!databaseManager.searchEmployeeEmail(email)){
 					databaseManager.setEmployee(firstname, lastname, owner_username, email, contact_number);
-					System.out.println("The information have been added to your actual business time.\n");
+					System.out.println("The employee's information have been added to your account.\n");
 					return true;
 				}
 				else{
@@ -112,51 +112,44 @@ public class BusinessController {
 
 
 	/**
-	 * @throws ParseException
-	 *
+	 * View all bookings after current date and time.
+	 * @return true if bookings exist and print to the console.
 	 */
 	public boolean viewNewBookings(){
-            //	   Array[] a = result.getArray("booking_time")
-			//     date = timeFormat.parse(a[i]);
+		try {
+			ArrayList<ArrayList<String>> bookingList = databaseManager.getBookingForBusiness(username);
+			SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+			SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
 
-			try {
-				ArrayList<ArrayList<String>> booking = databaseManager.getBookingForBusiness(username);
-
-				SimpleDateFormat df = new SimpleDateFormat("dd.MM.YYYY HH:mm");
-
-				System.out.println("The New Booking information as following:");
-				System.out.println("==========================================");
-				for(ArrayList<String> temp : booking){
-					ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(2));
-					Date date = df.parse(temp.get(0));
-					Date current = df.parse(df.format(new Date()));
-				if( date.after(current)){
-					System.out.println(temp.get(0));
-					System.out.println(temp.get(1));
+			System.out.println("The New Booking information as following:");
+			System.out.println("==========================================");
+			for(ArrayList<String> temp : bookingList){
+				ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(3));
+				Date date = df.parse(temp.get(0));
+				Date time = tf.parse(temp.get(1));
+				Date currentDate = df.parse(df.format(new Date()));
+				Date currentTime = tf.parse(tf.format(new Date()));
+				if( date.compareTo(currentDate) > 0){
+					System.out.println(temp.get(0) + " " + temp.get(1));
 					System.out.println(customerinfo);
-			    System.out.println("==========================================");
-
+					System.out.println("==========================================");
 				}
-
+				else if(date.compareTo(currentDate) == 0 && time.compareTo(currentTime) >= 0){
+					System.out.println(temp.get(0) + " " + temp.get(1));
+					System.out.println(customerinfo);
+					System.out.println("==========================================");
 				}
-
-
-
-
-
-
-
-
-
-				return true;
 			}
-			catch(NullPointerException e){
-				System.out.println("No booking in your database.\n");
-				return false;
-			} catch (ParseException e) {
-				e.printStackTrace();
-				return false;
-			}
+			return true;
+		}
+		catch(NullPointerException e){
+			System.out.println("No bookings in your database.\n");
+			return false;
+		}
+		catch (ParseException e) {
+			System.out.println("Invalid date format.\n");
+			return false;
+		}
 	}
 
 

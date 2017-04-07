@@ -602,6 +602,9 @@ public class DatabaseManager {
                   "VALUES ('09.03.2017','15:00', 'owner','david');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
+                  "VALUES ('08.04.2017','12:00', 'owner','customer');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
                   "VALUES ('02.05.2017','15:00', 'owner','david');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
