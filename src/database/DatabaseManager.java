@@ -144,12 +144,19 @@ public class DatabaseManager {
 	/**
 	 * Search Customerinfo table to find customer information.
 	 */
-	public ResultSet getCustomerinfo(String username){
+	public ArrayList<String> getCustomerinfo(String username){
 		try{
-			   String sql = "select * from Customerinfo where username = '"+username+"'";
+			ArrayList<String> customer = new ArrayList<String>();
+			String sql = "select * from Customerinfo where username = '"+username+"'";
 			ResultSet result = stmt.executeQuery(sql);
 			if(result.next()){
-				return result;
+				customer.add(result.getString("first_name"));
+				customer.add(result.getString("last_name"));
+				customer.add(result.getString("address"));
+				customer.add(result.getString("contact_number"));
+				customer.add(result.getString("username"));
+				customer.add(result.getString("password"));
+				return customer;
 			}
 		}
 		catch (Exception exp){
