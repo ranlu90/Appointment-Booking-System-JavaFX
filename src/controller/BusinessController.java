@@ -213,7 +213,7 @@ public class BusinessController {
 				System.out.println("2 - Quit without saving any information");
 				i = Integer.parseInt(sc.nextLine());
 				if(i == 1){
-						addBusinessTime(business_day,username,open_time,closing_time);
+						addBusinessTime(business_day,owner_username,open_time,closing_time);
 						return;
 				}
 			}while(i != 2);
@@ -231,49 +231,47 @@ public class BusinessController {
 	 */
 	public void employeeInput(){
 		try{
-		String firstname;
-		String lastname;
-		String email;
-		String contactNumber;
-		String workingDay;
-		String workingTime;
-		String owner_username = username;
+			int i;
+			String firstname;
+			String lastname;
+			String email;
+			String contactNumber;
+			String workingDay;
+			String workingTime;
+			String owner_username = username;
+			String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+			String period[] = {"9:00-13:00","13:00-17:00","9:00-13:00 and 13:00-17:00",""};
 
-		String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
-		String period[] = {"9:00-13:00","13:00-17:00","9:00-13:00 and 13:00-17:00",""};
-
-		System.out.println("You have chosen option A: Add a new employee.");
-		System.out.println("Please enter the emplyee's first name:");
-		firstname = sc.nextLine();
-		System.out.println("Please enter the emplyee's last name:");
-		lastname = sc.nextLine();
-		System.out.println("Please enter the emplyee's e-mail address:");
-		email = sc.nextLine();
-		System.out.println("Please enter the emplyee's contact number:");
-		contactNumber = sc.nextLine();
-		System.out.println("Please select the emplyee's working day in a week:");
-		System.out.println("1.Monday  2.Tuesday  3.Wednesday  4.Thursday  5.Friday  6.Saturday  7.Sunday");
-		workingDay = week[Integer.parseInt(sc.nextLine()) -1];
-		System.out.println("Please select the emplyee's working time in a day:");
-		System.out.println("1. 9:00-13:00  2. 13:00-17:00  3. 9:00-13:00 and 13:00-17:00  4. null");
-		workingTime = period[Integer.parseInt(sc.nextLine()) -1];
-
-		System.out.println("Please select one of the following options:");
-		System.out.println("1 - Store the employee information");
-		System.out.println("2 - Add more working time");
-		System.out.println("3 - Quit without saving any information");
-		int i = Integer.parseInt(sc.nextLine());
-		if(i == 1){
-			addEmployee(firstname,lastname,owner_username,email,contactNumber, workingDay, workingTime);
-		}
-		else if(i == 2){
-			databaseManager.setWorkingTime(workingDay, workingTime, email);
-		}
-		else{
-			System.out.println("Information wasn't stored, return to the business menu.\n");
+			System.out.println("You have chosen option A: Add a new employee.");
+			System.out.println("Please enter the emplyee's first name:");
+			firstname = sc.nextLine();
+			System.out.println("Please enter the emplyee's last name:");
+			lastname = sc.nextLine();
+			System.out.println("Please enter the emplyee's e-mail address:");
+			email = sc.nextLine();
+			System.out.println("Please enter the emplyee's contact number:");
+			contactNumber = sc.nextLine();
+			do{
+				System.out.println("Please select the emplyee's working day in a week:");
+				System.out.println("1.Monday  2.Tuesday  3.Wednesday  4.Thursday  5.Friday  6.Saturday  7.Sunday");
+				workingDay = week[Integer.parseInt(sc.nextLine()) -1];
+				System.out.println("Please select the emplyee's working time in a day:");
+				System.out.println("1. 9:00-13:00  2. 13:00-17:00  3. 9:00-13:00 and 13:00-17:00  4. null");
+				workingTime = period[Integer.parseInt(sc.nextLine()) -1];
+				System.out.println("Please select one of the following options:");
+				System.out.println("1 - Store the employee information");
+				System.out.println("2 - Add more working time");
+				System.out.println("3 - Quit without saving any information");
+				databaseManager.setWorkingTime(workingDay, workingTime, email);
+				i = Integer.parseInt(sc.nextLine());
+				if(i == 1){
+					addEmployee(firstname,lastname,owner_username,email,contactNumber, workingDay, workingTime);
+					break;
+				}
+			}while(i != 3);
 			return;
 		}
-		}catch(Exception e){
+		catch(Exception e){
 			System.out.println("Invalid input!");
 			return;
 		}

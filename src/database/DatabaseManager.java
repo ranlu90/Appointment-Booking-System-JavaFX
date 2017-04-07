@@ -540,7 +540,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "New working time has been inserted into WorkingTime.");
     }
 
 
