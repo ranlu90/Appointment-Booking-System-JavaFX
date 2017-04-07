@@ -45,20 +45,10 @@ public class BusinessController {
 			String contact_number,String workingDay,String workingTime){
 		if(email.matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})")){
 			if(!databaseManager.searchEmployeeEmail(email)){
-				System.out.println("Please select one of the following options:");
-				System.out.println("S - Store the employee information");
-				System.out.println("X - Quit without saving any information");
-				String line = sc.nextLine();
-				if(line.equalsIgnoreCase("S")){
-					databaseManager.setEmployee(firstname, lastname, owner_username, email, contact_number);
-					databaseManager.setWorkingTime(workingDay, workingTime, email);
-					System.out.println("The information have been added to your actual business time.\n");
-					return true;
-				}
-				else{
-					System.out.println("Information wasn't stored, return to the business menu.\n");
-					return false;
-				}
+				databaseManager.setEmployee(firstname, lastname, owner_username, email, contact_number);
+				databaseManager.setWorkingTime(workingDay, workingTime, email);
+				System.out.println("The information have been added to your actual business time.\n");
+				return true;
 			}
 			else{
 				System.out.println("Email already exists!");
@@ -83,19 +73,10 @@ public class BusinessController {
 				Date day = dateFormat.parse(business_date);
 				Date open = timeFormat.parse(open_time);
 				Date close = timeFormat.parse(closing_time);
-				System.out.println("Please select one of the following options:");
-				System.out.println("S - Store the business time");
-				System.out.println("X - Quit without saving any information");
-				String line = sc.nextLine();
-				if(line.equalsIgnoreCase("S")){
-					databaseManager.setBusinessTime(business_date, owner_username, open_time, closing_time);
-					System.out.println("The information have been added to your actual business time.\n");
-					return true;
-				}
-				else{
-					System.out.println("Information wasn't stored, return to the business menu.\n");
-					return false;
-				}
+
+				databaseManager.setBusinessTime(business_date, owner_username, open_time, closing_time);
+				System.out.println("The information have been added to your actual business time.\n");
+				return true;
 	    }catch (ParseException e) {
 	        System.out.println("Invalid data/time format.");
 	    	return false;
@@ -163,7 +144,18 @@ public class BusinessController {
 		open_time = sc.nextLine();
 		System.out.println("Please enter business closing time with 24-hour format (HH:mm): ");
 		closing_time = sc.nextLine();
-		addBusinessTime(business_date, owner_username, open_time, closing_time);
+
+		System.out.println("Please select one of the following options:");
+		System.out.println("S - Store the business time");
+		System.out.println("X - Quit without saving any information");
+		String line = sc.nextLine();
+		if(line.equalsIgnoreCase("S")){
+			addBusinessTime(business_date, owner_username, open_time, closing_time);
+		}
+		else{
+			System.out.println("Information wasn't stored, return to the business menu.\n");
+			return;
+		}
 	}
 
 
@@ -198,7 +190,18 @@ public class BusinessController {
 		System.out.println("Please select the emplyee's working time in a day:");
 		System.out.println("1. 9:00-11:00  2. 11:00-13:00  3. 13:00-15:00  4. 15:00-17:00");
 		workingTime = period[Integer.parseInt(sc.nextLine()) -1];
-		addEmployee(firstname,lastname,owner_username,email,contactNumber, workingDay, workingTime);
+
+		System.out.println("Please select one of the following options:");
+		System.out.println("S - Store the employee information");
+		System.out.println("X - Quit without saving any information");
+		String line = sc.nextLine();
+		if(line.equalsIgnoreCase("S")){
+			addEmployee(firstname,lastname,owner_username,email,contactNumber, workingDay, workingTime);
+		}
+		else{
+			System.out.println("Information wasn't stored, return to the business menu.\n");
+			return;
+		}
 		}catch(Exception e){
 			System.out.println("Invalid input!");
 			return;
