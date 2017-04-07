@@ -596,6 +596,7 @@ public class DatabaseManager {
           c.setAutoCommit(false);
 
           String sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+<<<<<<< HEAD
                        "VALUES ('07.04.2017 11:00', 'owner','bruce');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
@@ -618,6 +619,15 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
                   "VALUES ('02.05.2017 15:00', 'owner','customer');";
+=======
+                       "VALUES ('01.03.2017 11:00', 'owner','david');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('02.03.2017 13:00', 'owner','bruce');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
+                  "VALUES ('02.05.2017 15:00', 'owner','david');";
+>>>>>>> f9d69f23e35befcdbacd7bf42436b1a0426e6bdc
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_time,owner_username,customer_username) " +
                   "VALUES ('03.05.2017 17:00', 'owner','customer');";
