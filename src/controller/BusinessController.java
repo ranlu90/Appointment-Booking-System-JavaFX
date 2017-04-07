@@ -193,32 +193,32 @@ public class BusinessController {
 	 */
 	public void businessTimeInput(){
 		try{
-		String business_day;
-		String owner_username = username;
-		String open_time;
-		String closing_time;
-		String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
-
-		System.out.println("You have chosen option B: Add business time for the next month.");
-		System.out.println("Please select business days in a week:");
-		System.out.println("1.Monday  2.Tuesday  3.Wednesday  4.Thursday  5.Friday  6.Saturday  7.Sunday");
-		business_day = week[Integer.parseInt(sc.nextLine()) -1];
-		System.out.println("Please enter business open time with 24-hour format (HH:mm): ");
-		open_time = sc.nextLine();
-		System.out.println("Please enter business closing time with 24-hour format (HH:mm): ");
-		closing_time = sc.nextLine();
-		System.out.println("Please select one of the following options:");
-		System.out.println("1 - Store the business time");
-		System.out.println("2 - Add more business time");
-		System.out.println("3 - Quit without saving any information");
-		int i = Integer.parseInt(sc.nextLine());
-		if(line.equalsIgnoreCase("S")){
-			addBusinessTime(business_day, owner_username, open_time, closing_time);
-		}
-		else{
+			int i;
+			do{
+				String business_day;
+				String owner_username = username;
+				String open_time;
+				String closing_time;
+				String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+				System.out.println("You have chosen option B: Add business time for the next month.");
+				System.out.println("Please select business days in a week:");
+				System.out.println("1.Monday  2.Tuesday  3.Wednesday  4.Thursday  5.Friday  6.Saturday  7.Sunday");
+				business_day = week[Integer.parseInt(sc.nextLine()) -1];
+				System.out.println("Please enter business open time with 24-hour format (HH:mm): ");
+				open_time = sc.nextLine();
+				System.out.println("Please enter business closing time with 24-hour format (HH:mm): ");
+				closing_time = sc.nextLine();
+				System.out.println("Please select one of the following options:");
+				System.out.println("1 - Store the business time");
+				System.out.println("2 - Quit without saving any information");
+				i = Integer.parseInt(sc.nextLine());
+				if(i == 1){
+						addBusinessTime(business_day,username,open_time,closing_time);
+						return;
+				}
+			}while(i != 2);
 			System.out.println("Information wasn't stored, return to the business menu.\n");
 			return;
-		}
 		}catch(Exception e){
 			System.out.println("Invalid input!");
 			return;
