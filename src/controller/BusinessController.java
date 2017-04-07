@@ -81,10 +81,28 @@ public class BusinessController {
 
 
 	/**
-	 *
+	 * Get all bookings for the current business owner.
+	 * @return true if bookings are found.
 	 */
 	public boolean viewAllBookings(){
-		return false;
+		System.out.println("You have chosen option C - View the summaries of bookings\n");
+		try {
+			ArrayList<ArrayList<String>> booking = databaseManager.getBookingForBusiness(username);
+			System.out.println("Summary of Booking information are shown as following:");
+			System.out.println("==========================================");
+			for(ArrayList<String> temp : booking){
+				ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(3));
+				System.out.println(temp.get(0) + " "+ temp.get(1));
+				System.out.println(customerinfo);
+		    System.out.println("==========================================");
+			}
+
+			return true;
+		}
+		catch(NullPointerException e){
+			System.out.println("No bookings in your database.\n");
+			return false;
+		}
 	}
 
 
