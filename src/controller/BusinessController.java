@@ -89,17 +89,17 @@ public class BusinessController {
 
 
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 *
 	 */
 	public boolean viewNewBookings(){
             //	   Array[] a = result.getArray("booking_time")
 			//     date = timeFormat.parse(a[i]);
-			
+
 			try {
 				ArrayList<ArrayList<String>> booking = databaseManager.getBookingForBusiness(username);
 				SimpleDateFormat df = new SimpleDateFormat("dd.MM.YYYY HH:mm");
-				
+
 				System.out.println("The New Booking information as following:");
 				System.out.println("==========================================");
 				for(ArrayList<String> temp : booking){
@@ -110,19 +110,19 @@ public class BusinessController {
 					System.out.println(temp.get(1));
 					System.out.println(temp.get(2));
 			    System.out.println("==========================================");
-					
+
 				}
-					
+
 				}
-				
-				
-				
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
+
+
+
 				return true;
 			}
 			catch(NullPointerException e){
@@ -173,7 +173,6 @@ public class BusinessController {
 		String open_time;
 		String closing_time;
 		String week[] = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
-		String time[] = {"9:00 - 13:00","13:00 - 17:00"};
 
 		System.out.println("You have chosen option B: Add business time for the next month.");
 		System.out.println("Please select business days in a week:");
