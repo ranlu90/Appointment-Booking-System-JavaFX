@@ -92,10 +92,50 @@ public class BusinessController {
 
 
 	/**
+	 * @throws ParseException 
 	 *
 	 */
 	public boolean viewNewBookings(){
-		return false;
+            //	   Array[] a = result.getArray("booking_time")
+			//     date = timeFormat.parse(a[i]);
+			
+			try {
+				ArrayList<ArrayList<String>> booking = databaseManager.getBookingForBusiness(username);
+				SimpleDateFormat df = new SimpleDateFormat("dd.MM.YYYY HH:mm");
+				
+				System.out.println("The New Booking information as following:");
+				System.out.println("==========================================");
+				for(ArrayList<String> temp : booking){
+					Date date = df.parse(temp.get(0));
+					Date current = df.parse(df.format(new Date()));
+				if( date.getTime() < current.getTime()){
+					System.out.println(temp.get(0));
+					System.out.println(temp.get(1));
+					System.out.println(temp.get(2));
+			    System.out.println("==========================================");
+					
+				}
+					
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				return true;
+			}
+			catch(NullPointerException e){
+				System.out.println("No booking in your database.\n");
+				return false;
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
 	}
 
 
