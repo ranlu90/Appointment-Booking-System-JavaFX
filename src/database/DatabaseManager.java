@@ -16,6 +16,7 @@ import controller.ViewController;
  */
 public class DatabaseManager {
 
+	ViewController view = new ViewController();
    	String username = System.getProperty("user.name");
     String path = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
     Connection c = null;
@@ -23,7 +24,6 @@ public class DatabaseManager {
 
 	public DatabaseManager(){}
 
-	ViewController view = new ViewController();
 
 	/**
 	 * delete existing database in local files, the path is /Users/'username'/AppointmentBookingSystem.db
@@ -561,11 +561,18 @@ public class DatabaseManager {
     /**
      * Get all bookings for one business owner.
      */
-    public ResultSet getBooking(String username){
+    public ArrayList<ArrayList<String>> getBookingForBusiness(String username){
         try {
+			ArrayList<ArrayList<String>> booking = new ArrayList<ArrayList<String>>();
 			String sql = "select * from Booking where owner_username = '" + username + "'";
 			ResultSet result = stmt.executeQuery(sql);
-            return result;
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("booking_time"));
+				temp.add(result.getString("customer_username"));
+				booking.add(temp);
+			}
+            return booking;
           } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
