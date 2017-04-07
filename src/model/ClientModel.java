@@ -39,7 +39,7 @@ public class ClientModel {
 	    do
 	        {
 	            // display menu options
-				System.out.println("\n"+"====================================================");
+				System.out.println("\n"+"======================================================");
 	            System.out.println("Welcome to Appointment Booking System!");
 	            System.out.println("Please select one of the following options:");
 	            System.out.println("A - Login");
@@ -79,38 +79,27 @@ public class ClientModel {
 	                    break;
 
 	                case 'B':
-	            		//regular expression for password check
-	            		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
 	            		//get user input
 	            		System.out.print("Username: ");
 	            		username = sc.nextLine();
-	            		//^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{1,}$
-	            		if(!username.matches("^[0-9a-zA-Z@\\.]{1,}$")){
-	            			System.out.println("Username only contains digits, letters, '@', '.' and no spaces!");
-	            			break;
-	            		}
 	            		System.out.println("Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.");
 	            		System.out.print("Password: ");
 	            		password = sc.nextLine();
-	            		if(!password.matches(check)){
-	            			System.out.println("Password is too easy, return to the main menu.");
-	            			System.out.println("=========================================");
-	            			break;
-	            		}
 	            		System.out.print("Confirm Password: ");
 	            		String password2 = sc.nextLine();
-	            		if(password.matches(password2)){
-	        				System.out.print("Please enter your first name: ");
-	        				firstname = sc.nextLine();
-	        				System.out.print("Please enter your last name: ");
-	        				lastname = sc.nextLine();
-	        				System.out.print("Please enter your address: ");
-	        				address = sc.nextLine();
-	        				System.out.print("Please enter your contact number: ");
-	        				contactNumber = sc.nextLine();
-
+	        			System.out.print("Please enter your first name: ");
+	        			firstname = sc.nextLine();
+	        			System.out.print("Please enter your last name: ");
+	        			lastname = sc.nextLine();
+	        			System.out.print("Please enter your address: ");
+	        			address = sc.nextLine();
+	        			System.out.print("Please enter your contact number: ");
+	        			contactNumber = sc.nextLine();
+		            	if(password.matches(password2)){
 	        				register(firstname,lastname,address,contactNumber,username,password);
 	            		}
+		            	else
+		            		System.out.println("Passwords don't match!");
 	                    break;
 
 	                case 'X':
@@ -169,16 +158,16 @@ public class ClientModel {
 			if(databaseManager.searchBusiness(username,password) == true){
 
 				//go to business owner menu
-				System.out.println("\n"+"==================================================================");
-				System.out.println("You have logined in the business menu as '"+ databaseManager.getBusinessName(username)  + "'.\n");
+				System.out.println("\n"+"======================================================");
+				System.out.println("Welcome! '"+ databaseManager.getBusinessName(username)  + "'.\n");
 				view.setUserName(username);
 				view.gotoBusiness();
 				return true;
 			}
 			else if(databaseManager.searchCustomer(username, password) == true){
 
-				System.out.println("\n"+"==================================================================");
-				System.out.println("You have logined in the customer menu as '"+ databaseManager.getCustomerName(username)  + "'.\n");
+				System.out.println("\n"+"======================================================");
+				System.out.println("Welcome! '"+ databaseManager.getCustomerName(username)  + "'.\n");
 				//go to customer menu
 				view.setUserName(username);
 				view.gotoCustomer();
@@ -205,22 +194,34 @@ public class ClientModel {
 	 */
 	public boolean register(String firstname, String lastname, String address,
 			String contactNumber, String username, String password){
-
-		//search the database and find if the username has been used
-		if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
-				if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
-					System.out.println("Your customer account has been successfully created!");
-					return true;
+		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+		if(username.matches("^[0-9a-zA-Z@\\.]{1,}$")){
+			if(password.matches(check)){
+				//search the database and find if the username has been used
+				if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
+						if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
+							System.out.println("Your customer account has been successfully created!");
+							return true;
+						}
+						else{
+							System.out.println("Insertion into Customer table failed!");
+							return false;
+						}
 				}
 				else{
-					System.out.println("Insertion into Customer table failed!");
+					System.out.println("This username has already been taken!");
 					return false;
 				}
+			}
+			else{
+				System.out.println("Password is too easy, return to the main menu.");
+				System.out.println("======================================================");
+				return false;
+			}
 		}
 		else{
-			System.out.println("This username has already been taken!");
+			System.out.println("Username only contains digits, letters, '@', '.' and no spaces!");
 			return false;
 		}
 	}
-
 }

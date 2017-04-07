@@ -106,7 +106,7 @@ public class BusinessController {
 		try{
 			ArrayList<ArrayList<String>> employee = databaseManager.getEmployee(username);
 			System.out.println("Your emloyees' working days and time are as following:");
-			System.out.println("=========================");
+			System.out.println("======================================================");
 			for(ArrayList<String> temp : employee){
 				System.out.println(temp.get(0) + " " + temp.get(1));	//firstname + lastname
 				System.out.println(temp.get(2));						//the emplyee's email
