@@ -73,8 +73,8 @@ public class BusinessController {
 	public boolean addBusinessTime(String business_day, String owner_username, String open_time, String closing_time){
 		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 	    try {
-				Date open = timeFormat.parse(open_time);
-				Date close = timeFormat.parse(closing_time);
+				timeFormat.parse(open_time);
+				timeFormat.parse(closing_time);
 				databaseManager.setBusinessTime(business_day, owner_username, open_time, closing_time);
 				System.out.println("The information have been added to your actual business time.\n");
 				return true;
