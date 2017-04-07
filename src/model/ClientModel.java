@@ -26,18 +26,9 @@ public class ClientModel {
 	 * Start the system, initiate the main menu by calling initMenu() in the inputController class
 	 */
 	public void initMenu(){
-
 		String input;
-		String username;
-		String password;
-		String firstname;
-		String lastname;
-		String address;
-		String contactNumber;
-
 		char selection = '\0';
-	    do
-	        {
+	    do{
 	            // display menu options
 				System.out.println("\n"+"======================================================");
 	            System.out.println("Welcome to Appointment Booking System!");
@@ -54,9 +45,7 @@ public class ClientModel {
 
 	            if (input.length() != 1)
 	            {
-	                System.out
-	                        .println("Error - selection must be a single character!");
-
+	                System.out.println("Error - selection must be a single character!");
 	            } else
 	            {
 	                // extract the user's menu selection as a char value and
@@ -69,54 +58,66 @@ public class ClientModel {
 	                switch (selection)
 	                {
 	                case 'A':
-	            		//get user input
-	            		System.out.print("Username: ");
-	            		username = sc.nextLine();
-	            		System.out.print("Password: ");
-	            		password = sc.nextLine();
-
-	                    login(username,password);
-	                    break;
+	                	getLoginInput();
+	                	break;
 
 	                case 'B':
-	            		//get user input
-	            		System.out.print("Username: ");
-	            		username = sc.nextLine();
-	            		System.out.println("Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.");
-	            		System.out.print("Password: ");
-	            		password = sc.nextLine();
-	            		System.out.print("Confirm Password: ");
-	            		String password2 = sc.nextLine();
-	        			System.out.print("Please enter your first name: ");
-	        			firstname = sc.nextLine();
-	        			System.out.print("Please enter your last name: ");
-	        			lastname = sc.nextLine();
-	        			System.out.print("Please enter your address: ");
-	        			address = sc.nextLine();
-	        			System.out.print("Please enter your contact number: ");
-	        			contactNumber = sc.nextLine();
-		            	if(password.matches(password2)){
-	        				register(firstname,lastname,address,contactNumber,username,password);
-	            		}
-		            	else
-		            		System.out.println("Passwords don't match!");
+	                	getRegisterInput();
 	                    break;
 
 	                case 'X':
-
 	                    System.out.println("Booking system shutting down and goodbye!");
 	                    break;
 
 	                default:
-
 	                    // default case - handles invalid selections
 	                    System.out.println("Error - invalid selection!");
-
 	                }
 	            }
 	            System.out.println();
+	    }
+	    while (selection != 'X');
+	}
 
-	        } while (selection != 'X');
+
+	/**
+	 * Get user input for login, then go to login function to check if username and password matches.
+	 */
+	public void getLoginInput(){
+		System.out.print("Username: ");
+		String username = sc.nextLine();
+		System.out.print("Password: ");
+		String password = sc.nextLine();
+		login(username,password);
+	}
+
+
+	/**
+	 * Get user input for register, then go to register function to check if username already exists.
+	 */
+	public void getRegisterInput(){
+		System.out.print("Username: ");
+		String username = sc.nextLine();
+		System.out.println("Password must contain 1 uppercase, 1 lowercase, 1 digit, no space and minimum length of 6.");
+		System.out.print("Password: ");
+		String password = sc.nextLine();
+		System.out.print("Confirm Password: ");
+		String password2 = sc.nextLine();
+		System.out.print("Please enter your first name: ");
+		String firstname = sc.nextLine();
+		System.out.print("Please enter your last name: ");
+		String lastname = sc.nextLine();
+		System.out.print("Please enter your address: ");
+		String address = sc.nextLine();
+		System.out.print("Please enter your contact number: ");
+		String contactNumber = sc.nextLine();
+    	if(password.matches(password2)){
+			register(firstname,lastname,address,contactNumber,username,password);
+		}
+    	else{
+    		System.out.println("Passwords don't match!");
+    		return;
+    	}
 	}
 
 
@@ -194,28 +195,31 @@ public class ClientModel {
 	 */
 	public boolean register(String firstname, String lastname, String address,
 			String contactNumber, String username, String password){
-		String check = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
 		if(username.matches("^[0-9a-zA-Z@\\.]{1,}$")){
-			if(password.matches(check)){
-				//search the database and find if the username has been used
-				if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
-						if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
-							System.out.println("Your customer account has been successfully created!");
-							return true;
-						}
-						else{
-							System.out.println("Insertion into Customer table failed!");
-							return false;
-						}
+			if(password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$")){
+				if(contactNumber.matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
+					//search the database and find if the username has been used
+					if(databaseManager.searchCustomerUserName(username) == false && databaseManager.searchBusinessUserName(username) == false){
+							if(databaseManager.insertIntoCustomer(firstname,lastname,address,contactNumber,username,password)){
+								System.out.println("Your customer account has been successfully created!");
+								return true;
+							}
+							else{
+								System.out.println("Insertion into Customer table failed!");
+								return false;
+							}
+					}
+					else{
+						System.out.println("This username has already been taken!");
+						return false;
+					}
 				}
-				else{
-					System.out.println("This username has already been taken!");
+				else
+					System.out.println("Contact number format is invalid!");
 					return false;
-				}
 			}
 			else{
 				System.out.println("Password is too easy, return to the main menu.");
-				System.out.println("======================================================");
 				return false;
 			}
 		}
