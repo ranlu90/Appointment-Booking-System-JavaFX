@@ -98,7 +98,7 @@ public class BusinessController {
 
 			try {
 				ArrayList<ArrayList<String>> booking = databaseManager.getBookingForBusiness(username);
-				
+
 				SimpleDateFormat df = new SimpleDateFormat("dd.MM.YYYY HH:mm");
 
 				System.out.println("The New Booking information as following:");
@@ -131,7 +131,6 @@ public class BusinessController {
 				System.out.println("No booking in your database.\n");
 				return false;
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return false;
 			}
@@ -145,7 +144,7 @@ public class BusinessController {
 		try{
 			ArrayList<ArrayList<String>> employee = databaseManager.getEmployee(username);
 			System.out.println("Your emloyees' working days and time are as following:");
-			System.out.println("======================================================");
+		 	System.out.println("======================================================");
 			for(ArrayList<String> temp : employee){
 				System.out.println(temp.get(0) + " " + temp.get(1));	//firstname + lastname
 				System.out.println(temp.get(2));						//the emplyee's email
@@ -170,6 +169,7 @@ public class BusinessController {
 	 * Get user's input for add business time from console
 	 */
 	public void businessTimeInput(){
+		try{
 		String business_day;
 		String owner_username = username;
 		String open_time;
@@ -193,6 +193,10 @@ public class BusinessController {
 		}
 		else{
 			System.out.println("Information wasn't stored, return to the business menu.\n");
+			return;
+		}
+		}catch(Exception e){
+			System.out.println("Invalid input!");
 			return;
 		}
 	}
