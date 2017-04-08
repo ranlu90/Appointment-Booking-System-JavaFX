@@ -11,8 +11,8 @@ All files including trello, user stories, mock up etc. are in the "documentation
 Trello: https://trello.com/b/rGisSTbv <br/>
 GitHub: https://github.com/SEPT-Project-Semester1-2017/SEPT-Project1 <br/>
 
-Ran Lu: Structures for each classes, all functions in DatabasseManager, login and register, view all worker’s availability, view available days/time for booking, all test cases.<br/>
+Ran Lu: Structures for each classes, all functions in DatabasseManager, login and register, view all worker’s availability, view available days/time for booking, test cases for login and register.<br/>
 
-Ziqi Liu: System main menu, login and register menus, email and contact number check for login and register functions, view all bookings.<br/>
+Ziqi Liu: System main menu, login and register menus, email and contact number check for login and register functions, view all bookings, test cases for view all bookings and new bookings.<br/>
 
-Yang Ding: All user stories and mock up, view new bookings.
+Yang Ding: All user stories and mock up, view new bookings, test cases for view all worker’s availability, view available days/time for booking.
