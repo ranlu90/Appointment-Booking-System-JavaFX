@@ -424,7 +424,7 @@ public class DatabaseManager {
                        " owner_username     TEXT	NOT NULL, " +
                        " open_time     		TEXT	NOT NULL, " +
                        " closing_time       TEXT	NOT NULL, " +
-                       "PRIMARY KEY(business_day,owner_username)," +
+                       "PRIMARY KEY(business_day,owner_username,open_time,closing_time)," +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
