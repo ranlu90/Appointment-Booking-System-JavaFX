@@ -16,8 +16,7 @@ import controller.ViewController;
 public class DatabaseManager {
 
 	ViewController view = new ViewController();
-   	String username = System.getProperty("user.name");
-    String path = "jdbc:sqlite:/Users/" + username + "/" + "AppointmentBookingSystem.db";
+    String path = "jdbc:sqlite:" + "AppointmentBookingSystem.db";
     Connection c = null;
     Statement stmt = null;
 
@@ -28,8 +27,7 @@ public class DatabaseManager {
 	 * delete existing database in local files, the path is /Users/'username'/AppointmentBookingSystem.db
 	 */
 	public void deleteDatabase(){
-        String url = "/Users/" + username + "/" + "AppointmentBookingSystem.db";
-        File f = new File(url);
+        File f = new File(path);
     	f.delete();
     	view.add("DatabaseManager", "The existing database has been deleted.");
 	}
@@ -55,7 +53,7 @@ public class DatabaseManager {
 	 */
     public void createNewDatabase(String fileName) {
 
-        String url = "jdbc:sqlite:/Users/" + username + "/" + fileName;
+        String url = "jdbc:sqlite:" + fileName;
 
         try ( Connection con = DriverManager.getConnection(url)) {
             if (con != null) {
@@ -178,7 +176,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                "VALUES ('" + username + "','" + username + "','Melbourne','0123 456 789','customer','customer');";
+                "VALUES ('Tom','Cruise','Melbourne','0123 456 789','customer','customer');";
           stmt.executeUpdate(sql);
           c.commit();
         } catch ( Exception e ) {
