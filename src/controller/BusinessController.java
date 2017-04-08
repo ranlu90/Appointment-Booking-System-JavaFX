@@ -260,9 +260,10 @@ public class BusinessController {
 				i = Integer.parseInt(sc.nextLine());
 				if(i == 1){
 					addEmployee(firstname,lastname,owner_username,email,contactNumber, workingDay, workingTime);
-					break;
+					return;
 				}
 			}while(i != 3);
+			System.out.println("Employee information wasn't saved!");
 			return;
 		}
 		catch(Exception e){
