@@ -13,6 +13,6 @@ GitHub: https://github.com/SEPT-Project-Semester1-2017/SEPT-Project1 <br/>
 
 Ran Lu: Structures for each classes, all functions in DatabasseManager, login and register, view all worker’s availability, view available days/time for booking, all test cases.<br/>
 
-Ziqi Liu: System main menu, login and register menus, view all bookings.<br/>
+Ziqi Liu: System main menu, login and register menus, email and contact number check for login and register functions, view all bookings.<br/>
 
 Yang Ding: All user stories and mock up, view new bookings.
