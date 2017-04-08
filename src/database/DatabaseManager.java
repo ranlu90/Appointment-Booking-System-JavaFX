@@ -9,10 +9,9 @@ import controller.ViewController;
 
 /**
  * Manage databases include delete database if existed, create a AppointmentBookingSystem database,
- * create Business and Customerinfo tables, insert initial entities for them, search username or password,
- * and update new customer in the Customerinfo.
+ * create Business, Customerinfo, Employee, BusinessTime, WorkingTime and Booking tables and insert initial entities for them.
+ * Also, include functions for searching database, create new entities.
  * @author ranlu
- *
  */
 public class DatabaseManager {
 

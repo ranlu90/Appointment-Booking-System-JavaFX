@@ -9,8 +9,9 @@ import java.util.Scanner;
 import database.DatabaseManager;
 
 /**
- * Include functions for business owner, provide fundamental methods for viewController, add information to business owner.
- * Parameters received from ViewController class, managing information in business owner.
+ * Include functions for business owner, provide fundamental methods for viewController, add information to Business table,
+ * businessTime table, Employee Table and WorkingTime table in the database.
+ * databaseManger and username received from ViewController class.
  * @author ranlu
  *
  */
@@ -25,7 +26,7 @@ public class BusinessController {
 
 	/**
 	 * set database for business owner
-	 * @param database get from clientModel
+	 * @param database get from viewController
 	 */
 	public void setDatabaseManager(DatabaseManager databaseManager){
 		this.databaseManager = databaseManager;
@@ -182,7 +183,7 @@ public class BusinessController {
 
 
 	/**
-	 * Get user's input for add business time from console
+	 * Get user's input for add business time from console.
 	 */
 	public void businessTimeInput(){
 		try{
@@ -220,7 +221,7 @@ public class BusinessController {
 
 
 	/**
-	 * Get user's input from console for add employee.
+	 * Get user's input from console for adding employee.
 	 */
 	public void employeeInput(){
 		try{

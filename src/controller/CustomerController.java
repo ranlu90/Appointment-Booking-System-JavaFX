@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import database.DatabaseManager;
 
 /**
- * Include functions for customer, provide fundamental methods for viewController, add information to customer.
+ * Include functions for customer, provide fundamental methods for viewController.
  * Parameters received from ViewController class, managing information in customer.
  * @author ranlu
  */
@@ -19,7 +19,7 @@ public class CustomerController {
 
 	/**
 	 * set database for business owner
-	 * @param database get from clientModel
+	 * @param database get from viewController
 	 */
 	public void setDatabaseManager(DatabaseManager database){
 		this.databaseManager = database;

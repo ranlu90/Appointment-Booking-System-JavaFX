@@ -9,8 +9,9 @@ import java.util.Scanner;
 import database.DatabaseManager;
 
 /**
- * This class manages functions of add logging information, gotoBusiness and gotoCustonmer.
- * parameters received from clientModel, allow the user to select functions in business or customer menu,
+ * This class manages functions of adding logging information, gotoBusiness and gotoCustonmer.
+ * Initiate businessController and customerController, databaseManager and username received from clientModel.
+ * Allow the user to select functions in business or customer menu and
  * pass the user's selection to BusinessController or CustomerController.
  * @author ranlu
  */
@@ -33,7 +34,7 @@ public class ViewController {
 
 	/**
 	 * set database for view controller
-	 * @param database get from clientModel
+	 * @param database get from clientModel, pass to businessController and customerContrller.
 	 */
 	public void setDatabaseManager(DatabaseManager databaseManager){
 		this.databaseManager = databaseManager;
@@ -62,7 +63,6 @@ public class ViewController {
 	 * add a new employee, add working time/dates for the next month,
 	 * look at the summaries of bookings, new booking,
 	 * show all workers’ availability for the next 7 days.
-	 * @throws
 	 */
 	public void gotoBusiness()
 	{

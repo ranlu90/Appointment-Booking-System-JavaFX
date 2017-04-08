@@ -123,9 +123,8 @@ public class ClientModel {
 
     /**
      * create appointment booking system datbase,
-     * create tables for business and customerinfo and
-     * insert entities for them.
-     * @throws IOException
+     * create all tables and insert entities for them.
+     * @throws IOException If any exceptions occur.
      */
     public void initDatabase() throws IOException{
 
@@ -148,7 +147,7 @@ public class ClientModel {
 
 
     /**
-     * Get user's input for username and password, if both are found in the database, go to client menus.
+     * Get user's input for username and password, if both are found in the database, go to business owner or client menu.
      */
 	public boolean login(String username, String password)
 	{
