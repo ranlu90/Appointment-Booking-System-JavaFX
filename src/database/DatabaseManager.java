@@ -27,7 +27,7 @@ public class DatabaseManager {
 	 * delete existing database in local files, the path is /Users/'username'/AppointmentBookingSystem.db
 	 */
 	public void deleteDatabase(){
-        File f = new File(path);
+        File f = new File("AppointmentBookingSystem.db");
     	f.delete();
     	view.add("DatabaseManager", "The existing database has been deleted.");
 	}
