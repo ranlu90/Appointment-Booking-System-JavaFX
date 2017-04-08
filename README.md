@@ -7,6 +7,8 @@ s3583185 Ran Lu     33%<br />
 Tutorial Time: Friday 12.30pm - 12.11.19 <br />
 Tutor: A Homy Ash
 
+The default username and password for business owner: owner | owner<br />
+The default username and password for customer: customer | customer<br />
 All files including trello, user stories, mock up etc. are in the "documentation" folder.<br/>
 Trello: https://trello.com/b/rGisSTbv <br/>
 GitHub: https://github.com/SEPT-Project-Semester1-2017/SEPT-Project1 <br/>
