@@ -76,7 +76,7 @@ public class ViewController {
 			 System.out.println("A - Add a new employee");
 			 System.out.println("B - Add working time/dates for the next month");
 			 System.out.println("C - View the summaries of bookings");
-			 System.out.println("D - View new booking");
+			 System.out.println("D - View new bookings");
 			 System.out.println("E - Show all workers’ availability for the next 7 days");
 			 System.out.println("X - Logout");
 			 System.out.print("Enter your selection: ");
