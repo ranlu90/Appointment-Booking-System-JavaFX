@@ -143,6 +143,7 @@ public class ViewController {
 		{
 		    System.out.println("Please select one of the following options:");
 			System.out.println("A - View available days/time");
+			System.out.println("B - Make a new booking");
 			System.out.println("X - Logout");
 			System.out.print("Enter your selection: ");
 			input2 = sc.nextLine();
@@ -170,6 +171,11 @@ public class ViewController {
             	customerController.viewBookingAvailability();
             	break;
 
+            case 'B':
+            	//view available days/time
+            	customerController.makeBooking();
+            	break;
+            	
             case 'X':
                 break;
 

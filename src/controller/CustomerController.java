@@ -41,4 +41,10 @@ public class CustomerController {
 			System.out.println(temp.get(0) + "          " + temp.get(1) + "         "  + temp.get(2));
 		}
 	}
+
+
+	public void makeBooking() {
+		// TODO Auto-generated method stub
+		System.out.println();
+	}
 }

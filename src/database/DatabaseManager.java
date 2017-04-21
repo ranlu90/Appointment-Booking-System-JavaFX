@@ -114,7 +114,7 @@ public class DatabaseManager {
     	view.add("DatabaseManager", "Business entities have been inserted.");
     }
 
-
+   
     /**
      * create new table customerinfo
      */
@@ -413,7 +413,27 @@ public class DatabaseManager {
         return null;
     }
 
+    /**
+     * Insert entities for employee table.
+     */
+    public void insertInitialEntitiesForEmployee(){
+        try {
+          c.setAutoCommit(false);
+          String sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
+                       "VALUES ('tony', 'wu', 'owner', 'tony@gmail.com', '0412 345 678' );";
+          stmt.executeUpdate(sql);
 
+          c.commit();
+
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    	view.add("DatabaseManager", "Employee entities have been inserted.");
+    }
+    
+    
+    
     /**
      * create new table BusinessTime, store each business owner's business date and time.
      */

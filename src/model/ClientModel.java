@@ -142,7 +142,7 @@ public class ClientModel {
     	databaseManager.insertInitialEntitiesForBooking();
     	databaseManager.insertInitialEntitiesForBusiness();
     	databaseManager.insertInitialEntitiesForCustomerInfo();
-
+        databaseManager.insertInitialEntitiesForEmployee();
     }
 
 
