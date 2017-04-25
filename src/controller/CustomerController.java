@@ -17,7 +17,7 @@ public class CustomerController {
 	private DatabaseManager databaseManager;
 	private static Scanner sc = new Scanner(System.in);
 	public CustomerController(){}
-    private String owner;
+    
 
 	/**
 	 * set database for business owner
@@ -52,8 +52,8 @@ public class CustomerController {
 		String staff;
 		String date;
 		String time;
-		String owner_username = owner;
-		String cust_name = username;
+		String owner_username = "owner";
+		String cust_username = username;
 			ArrayList<ArrayList<String>> employee = databaseManager.getEmployee();
 			System.out.println("Please select a staff:");
 			for(int i=0; i<employee.size();i++){
@@ -64,12 +64,14 @@ public class CustomerController {
 			date = sc.nextLine();
 			System.out.println("Please enter a time which you want booking");
 			time = sc.nextLine();
+			System.out.println(owner_username);
+			System.out.println(cust_username);
 			System.out.println("Please select one of the following options:");
 			System.out.println("1 - Store the business time");
 			System.out.println("2 - Quit without saving any information");
 			j = Integer.parseInt(sc.nextLine());
 			if(j == 1){
-					databaseManager.setBooking(date, time, staff, owner_username, cust_name);
+					databaseManager.setBooking(date, time, staff, owner_username, cust_username);
 					return;
 			}
 		}while(j != 2);

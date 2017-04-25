@@ -605,8 +605,8 @@ public class DatabaseManager {
     public void setBooking(String date, String time, String employee, String owner_username, String customer_username){
         try {
           c.setAutoCommit(false);
-          String sql = "INSERT INTO Booking(date,time,employee,owner_username,customer_username) " +
-                  "VALUES ('"+ date +"', '"+ time +"','"+ employee +"','"+ owner_username +"','"+ customer_username +");";
+          String sql = "INSERT INTO Booking(booking_date,booking_time,employee,owner_username,customer_username) " +
+                  "VALUES ('"+ date +"', '"+ time +"','"+ employee +"','"+ owner_username +"','"+ customer_username+"');";
           stmt.executeUpdate(sql);
           c.commit();
         } catch ( Exception e ) {
