@@ -2,6 +2,8 @@ package controller;
 
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import database.DatabaseManager;
 
 /**
@@ -13,9 +15,9 @@ public class CustomerController {
 
 	private String username;
 	private DatabaseManager databaseManager;
-
+	private static Scanner sc = new Scanner(System.in);
 	public CustomerController(){}
-
+    private String owner;
 
 	/**
 	 * set database for business owner
@@ -28,7 +30,7 @@ public class CustomerController {
 	public void setUserName(String username) {
 		this.username = username;
 	}
-
+    
 	/**
 	 * Customer can view available booking days and time.
 	 */
@@ -44,7 +46,42 @@ public class CustomerController {
 
 
 	public void makeBooking() {
-		// TODO Auto-generated method stub
-		System.out.println();
+		try{
+			int j;
+			do{
+		String staff;
+		String date;
+		String time;
+		String owner_username = owner;
+		String cust_name = username;
+			ArrayList<ArrayList<String>> employee = databaseManager.getEmployee();
+			System.out.println("Please select a staff:");
+			for(int i=0; i<employee.size();i++){
+				System.out.println(i+"."+employee.get(i));	//firstname + lastname	
+			}
+			staff = sc.nextLine();
+			System.out.println("Please enter a date which you want booking");
+			date = sc.nextLine();
+			System.out.println("Please enter a time which you want booking");
+			time = sc.nextLine();
+			System.out.println("Please select one of the following options:");
+			System.out.println("1 - Store the business time");
+			System.out.println("2 - Quit without saving any information");
+			j = Integer.parseInt(sc.nextLine());
+			if(j == 1){
+					databaseManager.setBooking(date, time, staff, owner_username, cust_name);
+					return;
+			}
+		}while(j != 2);
+		System.out.println("Information wasn't stored, return to the business menu.\n");
+		return;
+	}catch(Exception e){
+		System.out.println("Invalid input!");
+		return;
 	}
-}
+		}
+		
+		
+	}
+
+

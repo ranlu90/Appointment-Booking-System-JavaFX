@@ -78,6 +78,7 @@ public class ViewController {
 			 System.out.println("C - View the summaries of bookings");
 			 System.out.println("D - View new bookings");
 			 System.out.println("E - Show all workers’ availability for the next 7 days");
+			 System.out.println("F - Make a booking");
 			 System.out.println("X - Logout");
 			 System.out.print("Enter your selection: ");
 			 input = sc.nextLine();
@@ -115,6 +116,9 @@ public class ViewController {
             case 'E':
             	businessController.viewWorkersAvailability();
                 break;
+                
+            case 'F':
+            	businessController.makeBooking();
 
             case 'X':
                 break;

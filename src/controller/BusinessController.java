@@ -97,7 +97,7 @@ public class BusinessController {
 			System.out.println("Summary of Booking information are shown as following:");
 			System.out.println("==========================================");
 			for(ArrayList<String> temp : booking){
-				ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(3));
+				ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(4));
 				System.out.println(temp.get(0) + " "+ temp.get(1));
 				System.out.println(customerinfo);
 		    System.out.println("==========================================");
@@ -125,7 +125,7 @@ public class BusinessController {
 			System.out.println("The New Booking information as following:");
 			System.out.println("==========================================");
 			for(ArrayList<String> temp : bookingList){
-				ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(3));
+				ArrayList<String> customerinfo = databaseManager.getCustomerinfo(temp.get(4));
 				Date date = df.parse(temp.get(0));
 				Date time = tf.parse(temp.get(1));
 				Date currentDate = df.parse(df.format(new Date()));
@@ -270,5 +270,11 @@ public class BusinessController {
 			System.out.println("Invalid input!");
 			return;
 		}
+	}
+
+
+	public void makeBooking() {
+		// TODO Auto-generated method stub
+
 	}
 }

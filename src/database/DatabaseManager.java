@@ -412,7 +412,25 @@ public class DatabaseManager {
           }
         return null;
     }
-
+    
+    public ArrayList<ArrayList<String>> getEmployee(){
+        try {
+			ArrayList<ArrayList<String>> employee = new ArrayList<ArrayList<String>>();
+			String sql = "select first_name,last_name from Employee;";
+			ResultSet result = stmt.executeQuery(sql);
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("first_name"));
+				temp.add(result.getString("last_name"));
+				employee.add(temp);
+			}
+            return employee;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
+    }
     /**
      * Insert entities for employee table.
      */
@@ -422,7 +440,11 @@ public class DatabaseManager {
           String sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
                        "VALUES ('tony', 'wu', 'owner', 'tony@gmail.com', '0412 345 678' );";
           stmt.executeUpdate(sql);
-
+         
+          sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
+                  "VALUES ('john', 'frank', 'owner', 'tony1@gmail.com', '0412 345 678' );";
+          stmt.executeUpdate(sql);
+    
           c.commit();
 
         } catch ( Exception e ) {
@@ -567,9 +589,10 @@ public class DatabaseManager {
           String sql = "CREATE TABLE Booking " +
                        "(booking_date		TEXT	NOT NULL, " +
                        " booking_time		TEXT	NOT NULL, " +
+                       " employee		    TEXT	NOT NULL, " +
                        " owner_username		TEXT	NOT NULL, " +
                        " customer_username	TEXT	NOT NULL, " +
-                       "PRIMARY KEY (booking_date,booking_time,owner_username,customer_username)," +
+                       "PRIMARY KEY (booking_date,booking_time,owner_username,customer_username,employee)," +
                        "FOREIGN KEY(owner_username) REFERENCES Business(username)," +
                        "FOREIGN KEY(customer_username)	REFERENCES CustomerInfo(username))";
           stmt.executeUpdate(sql);
@@ -579,7 +602,18 @@ public class DatabaseManager {
         }
     	view.add("DatabaseManager", "Booking table has been created.");
     }
-
+    public void setBooking(String date, String time, String employee, String owner_username, String customer_username){
+        try {
+          c.setAutoCommit(false);
+          String sql = "INSERT INTO Booking(date,time,employee,owner_username,customer_username) " +
+                  "VALUES ('"+ date +"', '"+ time +"','"+ employee +"','"+ owner_username +"','"+ customer_username +");";
+          stmt.executeUpdate(sql);
+          c.commit();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    }
     /**
      * Get all bookings for one business owner.
      */
@@ -592,6 +626,7 @@ public class DatabaseManager {
 				ArrayList<String> temp = new ArrayList<String>();
 				temp.add(result.getString("booking_date"));
 				temp.add(result.getString("booking_time"));
+				temp.add(result.getString("employee"));
 				temp.add(result.getString("owner_username"));
 				temp.add(result.getString("customer_username"));
 				booking.add(temp);
@@ -612,20 +647,20 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
 
-          String sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
-                       "VALUES ('07.03.2017','11:00', 'owner','bruce');";
+          String sql = "INSERT INTO Booking (booking_date,booking_time,employee,owner_username,customer_username) " +
+                       "VALUES ('07.03.2017','11:00','tony wu','owner','bruce');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
-                  "VALUES ('09.03.2017','15:00', 'owner','david');";
+          sql = "INSERT INTO Booking (booking_date,booking_time,employee,owner_username,customer_username) " +
+                  "VALUES ('09.03.2017','15:00','tony wu','owner','david');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
-                  "VALUES ('08.04.2017','12:00', 'owner','customer');";
+          sql = "INSERT INTO Booking (booking_date,booking_time,employee,owner_username,customer_username) " +
+                  "VALUES ('08.04.2017','12:00','john frank','owner','customer');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
-                  "VALUES ('02.05.2017','15:00', 'owner','david');";
+          sql = "INSERT INTO Booking (booking_date,booking_time,employee,owner_username,customer_username) " +
+                  "VALUES ('02.05.2017','15:00','tony wu','owner','david');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (booking_date,booking_time,owner_username,customer_username) " +
-                  "VALUES ('03.05.2017','17:00', 'owner','customer');";
+          sql = "INSERT INTO Booking (booking_date,booking_time,employee,owner_username,customer_username) " +
+                  "VALUES ('03.05.2017','17:00','john frank','owner','customer');";
           stmt.executeUpdate(sql);
 
           c.commit();
