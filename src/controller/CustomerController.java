@@ -64,8 +64,7 @@ public class CustomerController {
 			date = sc.nextLine();
 			System.out.println("Please enter a time which you want booking");
 			time = sc.nextLine();
-			System.out.println(owner_username);
-			System.out.println(cust_username);
+			
 			System.out.println("Please select one of the following options:");
 			System.out.println("1 - Store the business time");
 			System.out.println("2 - Quit without saving any information");

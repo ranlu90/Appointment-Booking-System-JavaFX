@@ -275,6 +275,41 @@ public class BusinessController {
 
 	public void makeBooking() {
 		// TODO Auto-generated method stub
-
+		try{
+			int j;
+			do{
+		String staff;
+		String date;
+		String time;
+		String owner_username = username;
+		String cust_username;
+			ArrayList<ArrayList<String>> employee = databaseManager.getEmployee();
+			System.out.println("Please select a staff:");
+			for(int i=0; i<employee.size();i++){
+				System.out.println(i+"."+employee.get(i));	//firstname + lastname	
+			}
+			staff = sc.nextLine();
+			System.out.println("Please enter a date which you want booking");
+			date = sc.nextLine();
+			System.out.println("Please enter a time which you want booking");
+			time = sc.nextLine();
+			System.out.println("Please enter customer username");
+			cust_username = sc.nextLine();
+			System.out.println("Please select one of the following options:");
+			System.out.println("1 - Store the business time");
+			System.out.println("2 - Quit without saving any information");
+			j = Integer.parseInt(sc.nextLine());
+			if(j == 1){
+					databaseManager.setBooking(date, time, staff, owner_username, cust_username);
+					return;
+			}
+		}while(j != 2);
+		System.out.println("Information wasn't stored, return to the business menu.\n");
+		return;
+	}catch(Exception e){
+		System.out.println("Invalid input!");
+		return;
 	}
-}
+		}
+	}
+
