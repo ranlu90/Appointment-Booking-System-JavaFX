@@ -121,29 +121,6 @@ public class ClientModel {
 	}
 
 
-    /**
-     * create appointment booking system datbase,
-     * create all tables and insert entities for them.
-     * @throws IOException If any exceptions occur.
-     */
-    public void initDatabase() throws IOException{
-
-    	databaseManager.deleteDatabase();
-    	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
-
-    	databaseManager.setConnection();
-    	databaseManager.createBusinessTable();
-    	databaseManager.createCustomerInfoTable();
-    	databaseManager.createEmployeeTable();
-    	databaseManager.createBusinessTimeTable();
-    	databaseManager.createWorkingTimeTable();
-    	databaseManager.createBookingTable();
-
-    	databaseManager.insertInitialEntitiesForBooking();
-    	databaseManager.insertInitialEntitiesForBusiness();
-    	databaseManager.insertInitialEntitiesForCustomerInfo();
-        databaseManager.insertInitialEntitiesForEmployee();
-    }
 
 
     /**

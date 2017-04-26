@@ -1,12 +1,20 @@
 package controller;
 
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
-
 import database.DatabaseManager;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * This class manages functions of adding logging information, gotoBusiness and gotoCustonmer.
@@ -15,29 +23,46 @@ import database.DatabaseManager;
  * pass the user's selection to BusinessController or CustomerController.
  * @author ranlu
  */
-public class ViewController {
+public class ViewController{
 
-
-	private BusinessController businessController = new BusinessController();
-	private CustomerController customerController = new CustomerController();
-	private static Scanner sc = new Scanner(System.in);
 	private String username;
 	private DatabaseManager databaseManager;
+	private Stage stage;
+    private AnchorPane container;
 
 	public ViewController(){}
 
+    /**
+     * create appointment booking system database,
+     * create all tables and insert entities for them.
+     * @throws IOException If any exceptions occur.
+     */
+    public void initDatabase(DatabaseManager databaseManager) throws IOException{
 
+    	this.databaseManager = databaseManager;
+    	databaseManager.deleteDatabase();
+    	databaseManager.createNewDatabase("AppointmentBookingSystem.db");
+
+    	databaseManager.setConnection();
+    	databaseManager.createBusinessTable();
+    	databaseManager.createCustomerInfoTable();
+    	databaseManager.createEmployeeTable();
+    	databaseManager.createBusinessTimeTable();
+    	databaseManager.createWorkingTimeTable();
+    	databaseManager.createBookingTable();
+
+    	databaseManager.insertInitialEntitiesForBooking();
+    	databaseManager.insertInitialEntitiesForBusiness();
+    	databaseManager.insertInitialEntitiesForCustomerInfo();
+        databaseManager.insertInitialEntitiesForEmployee();
+    }
+
+    /**
+     * Pass username as a primary key.
+     * @param username received from loginController, pass to next level controller.
+     */
 	public void setUserName(String username){
 		this.username = username;
-	}
-
-
-	/**
-	 * set database for view controller
-	 * @param database get from clientModel, pass to businessController and customerContrller.
-	 */
-	public void setDatabaseManager(DatabaseManager databaseManager){
-		this.databaseManager = databaseManager;
 	}
 
 
@@ -58,137 +83,162 @@ public class ViewController {
     }
 
 
-	/**
-	 * Go to main menu of business owner, functions include
-	 * add a new employee, add working time/dates for the next month,
-	 * look at the summaries of bookings, new booking,
-	 * show all workers’ availability for the next 7 days.
-	 */
-	public void gotoBusiness()
-	{
-		 businessController.setUsername(username);
-		 businessController.setDatabaseManager(databaseManager);
-		 String input;
-		 char selection = '\0';
-		 do
-		 {
-			 System.out.println("Please select one of the following options:");
-			 System.out.println("A - Add a new employee");
-			 System.out.println("B - Add business day/time for the next month");
-			 System.out.println("C - View the summaries of bookings");
-			 System.out.println("D - View new bookings");
-			 System.out.println("E - Show all workers’ availability for the next 7 days");
-			 System.out.println("F - Make a booking");
-			 System.out.println("X - Logout");
-			 System.out.print("Enter your selection: ");
-			 input = sc.nextLine();
+    /**
+     * Initialize the first page - The login page - and shows the window.
+     */
+    public void initStage(Stage stage)
+    {
+        this.stage = stage;
+        createMain();
+        gotoLogin();
+        stage.show();
+    }
 
-			 System.out.println();
+    public void setContainer(AnchorPane container)
+    {
+        this.container = container;
+    }
 
-        if (input.length() != 1){
-            System.out.println("Error - selection must be a single character!");
+    public void createMain()
+    {
+        try {
+            MainController main = (MainController) createScene("Main.fxml");
+            main.initViewController(this);
         }
-        else{
-            // extract the user's menu selection as a char value and
-            // convert it to upper case so that the menu becomes
-            // case-insensitive
-            selection = Character.toUpperCase(input.charAt(0));
-
-            // process the user's selection
-            switch (selection)
-            {
-            case 'A':
-            	businessController.employeeInput();
-                break;
-
-            case 'B':
-            	businessController.businessTimeInput();
-                break;
-
-            case 'C':
-            	businessController.viewAllBookings();
-                break;
-
-            case 'D':
-            	businessController.viewNewBookings();
-                break;
-
-            case 'E':
-            	businessController.viewWorkersAvailability();
-                break;
-                
-            case 'F':
-            	businessController.makeBooking();
-
-            case 'X':
-                break;
-
-            default:
-                // default case - handles invalid selections
-                System.out.println("Error - invalid selection!");
-            }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
-        System.out.println();
-		 } while (selection != 'X');
-	}
+    }
 
 
-	/**
-	 * Go to main menu of customer, customer can only view available days/time.
-	 */
-	public void gotoCustomer()
-	{
-		customerController.setUserName(username);
-		customerController.setDatabaseManager(databaseManager);
-		String input2;
-		char selection2 = '\0';
+    /**
+     * Switch to the view login.
+     */
+    public void gotoLogin()
+    {
+        try {
+            LoginController login = (LoginController) setScene("Login.fxml");
+            login.initViewController(this);
+            login.initDatabaseManager(databaseManager);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
-		do
-		{
-		    System.out.println("Please select one of the following options:");
-			System.out.println("A - View available days/time");
-			System.out.println("B - Make a new booking");
-			System.out.println("X - Logout");
-			System.out.print("Enter your selection: ");
-			input2 = sc.nextLine();
 
-			System.out.println();
+    /**
+     * Switch to the business menu.
+     */
+    public void gotoBusinessMenu()
+    {
+        try {
+        	BusinessMenuController businessMenu = (BusinessMenuController) setScene("BusinessMenu.fxml");
+        	businessMenu.initViewController(this);
+        	businessMenu.initDatabaseManager(databaseManager);
+        	businessMenu.setUsername(username);
 
-			if (input2.length() != 1)
-			{
-				System.out.println("Error - selection must be a single character!");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
-			}
-			else
-			{
-            // extract the user's menu selection as a char value and
-            // convert it to upper case so that the menu becomes
-            // case-insensitive
 
-            selection2 = Character.toUpperCase(input2.charAt(0));
+    /**
+     * Switch to the customer menu.
+     */
+    public void gotoCustomerMenu()
+    {
+        try {
+        	CustomerMenuController customerMenu = (CustomerMenuController) setScene("CustomerMenu.fxml");
+        	customerMenu.initViewController(this);
+        	customerMenu.initDatabaseManager(databaseManager);
+        	customerMenu.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
-            // process the user's selection
-            switch (selection2)
-            {
-            case 'A':
-            	//view available days/time
-            	customerController.viewBookingAvailability();
-            	break;
 
-            case 'B':
-            	//view available days/time
-            	customerController.makeBooking();
-            	break;
-            	
-            case 'X':
-                break;
+    /**
+     * Switch to the customer register.
+     */
+    public void gotoCustomerRegister()
+    {
+        try {
+        	CustomerRegisterController customerRegister = (CustomerRegisterController) setScene("CustomerRegister.fxml");
+        	customerRegister.initViewController(this);
+        	customerRegister.initDatabaseManager(databaseManager);
+        	customerRegister.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
-            default:
-                // default case - handles invalid selections
-                System.out.println("Error - invalid selection!");
-            }
-        	}
-        	System.out.println();
-    	} while (selection2 != 'X');
-	}
+
+    /**
+     * Switch to the customer menu.
+     */
+    public void gotoOwnerRegister()
+    {
+        try {
+        	OwnerRegisterController ownerRegister = (OwnerRegisterController) setScene("OwnerRegister.fxml");
+        	ownerRegister.initViewController(this);
+        	ownerRegister.initDatabaseManager(databaseManager);
+        	ownerRegister.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Sets the scene to the supplied fxml document - Used for initially
+     * creating the  stage with Main.fxml.
+     * @param  fxml The filename of the view to switch to.
+     * @return Returns the controller object to allow objects to be passed to
+     * it.
+     *
+     * This was based on the tutorial FXML-LoginDemo provided by Oracle.
+     */
+    public Initializable createScene(String fxml) throws Exception
+    {
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = getClass().getResourceAsStream("../view/"+fxml);
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(getClass().getResource("../view/"+fxml));
+        Parent pane;
+        try {
+            pane = (Parent) loader.load(in);
+        }
+        finally {
+            in.close();
+        }
+        Scene scene = new Scene(pane);
+        stage.setScene(scene);
+        return (Initializable) loader.getController();
+    }
+
+    /* Switches the contents of the scene to another fxml document provided */
+    public Initializable setScene(String fxml) throws Exception
+    {
+        FXMLLoader loader = new FXMLLoader(
+            getClass().getResource("../view/"+fxml));
+        Node node = (Node) loader.load();
+        /* Anchor to all sides */
+        AnchorPane.setTopAnchor(node, 0.0);
+        AnchorPane.setRightAnchor(node, 0.0);
+        AnchorPane.setBottomAnchor(node, 0.0);
+        AnchorPane.setLeftAnchor(node, 0.0);
+        container.getChildren().setAll(node);
+        return (Initializable) loader.getController();
+    }
 }

@@ -1,6 +1,9 @@
 package app;
 
-import model.ClientModel;
+import controller.ViewController;
+import database.DatabaseManager;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 
 /**
@@ -9,13 +12,19 @@ import model.ClientModel;
  * @author ranlu
  *
  */
-public class AppointmentBookingSystem {
+public class AppointmentBookingSystem extends Application{
 
 	public static void main(String[] args) throws Exception{
+		launch(args);
+	}
 
-		ClientModel clientModel = new ClientModel();
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 
-		clientModel.initDatabase();
-		clientModel.initMenu();
+		ViewController view = new ViewController();
+		DatabaseManager databaseManager = new DatabaseManager();
+		view.initDatabase(databaseManager);
+		view.initStage(primaryStage);
+
 	}
 }

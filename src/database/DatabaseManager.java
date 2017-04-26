@@ -2,10 +2,10 @@ package database;
 
 import java.io.File;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 
-import controller.ViewController;
 
 /**
  * Manage databases include delete database if existed, create a AppointmentBookingSystem database,
@@ -15,7 +15,6 @@ import controller.ViewController;
  */
 public class DatabaseManager {
 
-	ViewController view = new ViewController();
     String path = "jdbc:sqlite:" + "AppointmentBookingSystem.db";
     Connection c = null;
     Statement stmt = null;
@@ -29,7 +28,6 @@ public class DatabaseManager {
 	public void deleteDatabase(){
         File f = new File("AppointmentBookingSystem.db");
     	f.delete();
-    	view.add("DatabaseManager", "The existing database has been deleted.");
 	}
 
 
@@ -40,7 +38,6 @@ public class DatabaseManager {
 		try{
 			c = DriverManager.getConnection(path);
 			stmt = c.createStatement();
-			view.add("DatabaseManager", "The connection to the database has been established.");
 		}
         catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -57,7 +54,6 @@ public class DatabaseManager {
 
         try ( Connection con = DriverManager.getConnection(url)) {
             if (con != null) {
-            	view.add("DatabaseManager", fileName + " database has been created.");
             	con.close();
             }
         }
@@ -84,7 +80,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Business table has been created.");
     }
 
 
@@ -111,10 +106,9 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Business entities have been inserted.");
     }
 
-   
+
     /**
      * create new table customerinfo
      */
@@ -133,7 +127,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Customerinfo table has been created.");
     }
 
 
@@ -183,7 +176,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Customerinfo entities have been inserted.");
     }
 
 
@@ -345,7 +337,6 @@ public class DatabaseManager {
                        " contact_number     TEXT	NOT NULL, " +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
-      	  view.add("DatabaseManager", "Employee table has been created.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -385,7 +376,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "A new employee has been inserted into Employee.");
     }
 
 
@@ -412,7 +402,7 @@ public class DatabaseManager {
           }
         return null;
     }
-    
+
     public ArrayList<ArrayList<String>> getEmployee(){
         try {
 			ArrayList<ArrayList<String>> employee = new ArrayList<ArrayList<String>>();
@@ -440,22 +430,21 @@ public class DatabaseManager {
           String sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
                        "VALUES ('tony', 'wu', 'owner', 'tony@gmail.com', '0412 345 678' );";
           stmt.executeUpdate(sql);
-         
+
           sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
                   "VALUES ('john', 'frank', 'owner', 'tony1@gmail.com', '0412 345 678' );";
           stmt.executeUpdate(sql);
-    
+
           c.commit();
 
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Employee entities have been inserted.");
     }
-    
-    
-    
+
+
+
     /**
      * create new table BusinessTime, store each business owner's business date and time.
      */
@@ -473,7 +462,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "BusinessTime table has been created.");
     }
 
 
@@ -513,7 +501,6 @@ public class DatabaseManager {
                   "VALUES ('"+ business_day +"', '"+ owner_username +"','"+ open_time +"', '"+ closing_time +"');";
           stmt.executeUpdate(sql);
           c.commit();
-      	  view.add("DatabaseManager", "New business time has been inserted into BusinessTime.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -537,7 +524,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "WorkingTime table has been created.");
     }
 
 
@@ -600,7 +586,6 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Booking table has been created.");
     }
     public void setBooking(String date, String time, String employee, String owner_username, String customer_username){
         try {
@@ -668,6 +653,5 @@ public class DatabaseManager {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-    	view.add("DatabaseManager", "Booking entities have been inserted.");
     }
 }
