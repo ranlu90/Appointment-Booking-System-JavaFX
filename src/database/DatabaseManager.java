@@ -94,12 +94,9 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', 'toniguy', 'toniguy');";
+                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', 'owner', 'owner');";
           stmt.executeUpdate(sql);
 
-          sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                "VALUES ('System Testing Account','RMIT','Melbourne CBD','+61 3 9925 2000', 'owner','owner');";
-          stmt.executeUpdate(sql);
           c.commit();
 
         } catch ( Exception e ) {
@@ -651,10 +648,10 @@ public class DatabaseManager {
                   "VALUES ('08.04.2017','12:00','john frank','owner','customer');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_date,booking_time,employee,owner_username,customer_username) " +
-                  "VALUES ('02.05.2017','15:00','tony wu','owner','david');";
+                  "VALUES ('02.06.2017','15:00','tony wu','owner','david');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (booking_date,booking_time,employee,owner_username,customer_username) " +
-                  "VALUES ('03.05.2017','17:00','john frank','owner','customer');";
+                  "VALUES ('03.06.2017','17:00','john frank','owner','customer');";
           stmt.executeUpdate(sql);
 
           c.commit();
@@ -684,10 +681,63 @@ public class DatabaseManager {
         }
     }
 
+    /**
+     * Add service for a business owner.
+     */
+    public void addService(String name, String duration, String owner_username, String description){
+        try {
+          c.setAutoCommit(false);
+          String sql = "INSERT INTO Service (name,duration,owner_username,description) " +
+                  "VALUES ('"+ name +"', '"+ duration +"','"+ owner_username +"','"+ description +"');";
+          stmt.executeUpdate(sql);
+          c.commit();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    }
 
+
+	/**
+	 * Search the database to find if an existing service has been created in the service table.
+	 */
+	public boolean searchService(String name, String duration, String owner_username){
+		try{
+			   String sql = "select * from Service where name = '" + name + "' and duration = '" + duration + "' and owner_username = '" + owner_username + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			if(result.next()){
+				return true;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
+
+
+    /**
+     * Insert initial entities for service table.
+     */
 	public void insertInitialEntitiesForService() {
-		// TODO Auto-generated method stub
+        try {
+            c.setAutoCommit(false);
 
+            String sql = "INSERT INTO Service (name,duration,owner_username,description) " +
+                         "VALUES ('Men Haircut','30','owner','The duration is 30 minutes, all employee can provide this service.');";
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO Service (name,duration,owner_username,description) " +
+                    "VALUES ('Women Haircut','60','owner','The duration is 60 minutes, all employee can provide this service.');";
+            stmt.executeUpdate(sql);
+       	 	sql = "INSERT INTO Service (name,duration,owner_username,description) " +
+               "VALUES ('Hair Colouring','60','owner','The duration is 60 minutes, all employee can provide this service.');";
+       		stmt.executeUpdate(sql);
+
+            c.commit();
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
 	}
 
 }

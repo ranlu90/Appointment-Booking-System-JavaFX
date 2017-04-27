@@ -217,6 +217,7 @@ public class ViewController{
             service.initViewController(this);
             service.initDatabaseManager(databaseManager);
             service.setUsername(username);
+            service.initDuration();
         }
         catch(Exception e)
         {

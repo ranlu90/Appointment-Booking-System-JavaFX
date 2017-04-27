@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServiceController">
+   <children>
+      <Text fontSmoothingType="LCD" layoutX="118.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Service" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="name" layoutX="127.0" layoutY="79.0" promptText="Name" />
+      <ComboBox fx:id="duration" layoutX="127.0" layoutY="126.0" prefHeight="27.0" prefWidth="167.0" promptText="Duration" />
+      <TextArea fx:id="description" layoutX="127.0" layoutY="179.0" prefHeight="117.0" prefWidth="167.0" promptText="Description" />
+      <Button layoutX="127.0" layoutY="312.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" />
+      <Button layoutX="127.0" layoutY="404.0" mnemonicParsing="false" onAction="#MainMenu" prefWidth="167.0" text="Main Menu" />
+      <Line endX="230.0" layoutX="159.0" layoutY="371.0" startX="-100.0" stroke="#c2c2c2" />
+   </children>
+</AnchorPane>
