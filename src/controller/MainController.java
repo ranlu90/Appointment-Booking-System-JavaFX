@@ -8,6 +8,11 @@ import javafx.fxml.*;
 
 import javafx.scene.layout.*;
 
+/**
+ * This class sets the default container for all scenes.
+ * @author ranlu
+ *
+ */
 public class MainController implements Initializable {
 
     private ViewController view;

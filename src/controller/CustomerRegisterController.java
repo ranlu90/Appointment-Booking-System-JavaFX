@@ -20,7 +20,6 @@ import javafx.scene.control.TextField;
 public class CustomerRegisterController implements Initializable{
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
-	private	String user;							//primary key for all tables in database, received from viewController
 
     @FXML
     private Button login, customerRegister;
@@ -41,9 +40,7 @@ public class CustomerRegisterController implements Initializable{
 	public void initDatabaseManager(DatabaseManager databaseManager) {
 		this.databaseManager = databaseManager;
 	}
-	public void setUsername(String username){
-		user = username;
-	}
+
 
 	/**
 	 * This method will check if firstname, lastname, email and contact number meet the requirements. It will also check if username already exists

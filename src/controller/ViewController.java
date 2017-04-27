@@ -17,10 +17,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * This class manages functions of adding logging information, gotoBusiness and gotoCustonmer.
- * Initiate businessController and customerController, databaseManager and username received from clientModel.
- * Allow the user to select functions in business or customer menu and
- * pass the user's selection to BusinessController or CustomerController.
+ * This class manages functions of adding logging information and go to all pages.
+ * All variables received from system main method.
  * @author ranlu
  */
 public class ViewController{
@@ -99,6 +97,9 @@ public class ViewController{
         this.container = container;
     }
 
+    /**
+     * Create the main page, set default container.
+     */
     public void createMain()
     {
         try {
@@ -139,6 +140,7 @@ public class ViewController{
         	businessMenu.initViewController(this);
         	businessMenu.initDatabaseManager(databaseManager);
         	businessMenu.setUsername(username);
+        	businessMenu.welcomeMessage();
 
         }
         catch(Exception e)
@@ -158,6 +160,7 @@ public class ViewController{
         	customerMenu.initViewController(this);
         	customerMenu.initDatabaseManager(databaseManager);
         	customerMenu.setUsername(username);
+        	customerMenu.welcomeMessage();
         }
         catch(Exception e)
         {
@@ -175,7 +178,6 @@ public class ViewController{
         	CustomerRegisterController customerRegister = (CustomerRegisterController) setScene("CustomerRegister.fxml");
         	customerRegister.initViewController(this);
         	customerRegister.initDatabaseManager(databaseManager);
-        	customerRegister.setUsername(username);
         }
         catch(Exception e)
         {
@@ -193,13 +195,139 @@ public class ViewController{
         	OwnerRegisterController ownerRegister = (OwnerRegisterController) setScene("OwnerRegister.fxml");
         	ownerRegister.initViewController(this);
         	ownerRegister.initDatabaseManager(databaseManager);
-        	ownerRegister.setUsername(username);
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
     }
+
+
+    /**
+     * Switch to the add new service.
+     */
+    public void gotoService()
+    {
+        try {
+            ServiceController service = (ServiceController) setScene("AddServices.fxml");
+            service.initViewController(this);
+            service.initDatabaseManager(databaseManager);
+            service.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Switch to the add new employee or update employee information.
+     */
+    public void gotoEmployee()
+    {
+        try {
+            EmployeeController employee = (EmployeeController) setScene("AddEmployee.fxml");
+            employee.initViewController(this);
+            employee.initDatabaseManager(databaseManager);
+            employee.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Switch to the add or update business hours.
+     */
+    public void gotoBusinessHours()
+    {
+        try {
+        	BusinessHoursController business = (BusinessHoursController) setScene("AddBusinessHours.fxml");
+        	business.initViewController(this);
+        	business.initDatabaseManager(databaseManager);
+        	business.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Switch to view all bookings.
+     */
+    public void gotoAllBookings()
+    {
+        try {
+        	ViewBookingController booking = (ViewBookingController) setScene("ViewAllBookings.fxml");
+        	booking.initViewController(this);
+        	booking.initDatabaseManager(databaseManager);
+        	booking.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Switch to view new bookings, new bookings are those after current date and time.
+     */
+    public void gotoNewBookings()
+    {
+        try {
+        	ViewBookingController booking = (ViewBookingController) setScene("ViewNewBookings.fxml");
+        	booking.initViewController(this);
+        	booking.initDatabaseManager(databaseManager);
+        	booking.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Switch to the page for creating a booking.
+     */
+    public void gotoCreateBookings()
+    {
+        try {
+        	CreateBookingController booking = (CreateBookingController) setScene("OwnerCreateBooking.fxml");
+        	booking.initViewController(this);
+        	booking.initDatabaseManager(databaseManager);
+        	booking.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Switch to the page for viewing all workers' availabilities.
+     */
+    public void gotoViewWorkers()
+    {
+        try {
+        	ViewEmployeeController employee = (ViewEmployeeController) setScene("ShowAllWorkers.fxml");
+        	employee.initViewController(this);
+        	employee.initDatabaseManager(databaseManager);
+        	employee.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * Sets the scene to the supplied fxml document - Used for initially
      * creating the  stage with Main.fxml.

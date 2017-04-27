@@ -10,27 +10,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerRegisterController">
    <children>
-      <Button fx:id="customerRegister" layoutX="130.0" layoutY="360.0" mnemonicParsing="false" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" text="Register" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="364.0" />
-      <Button fx:id="login" layoutX="130.0" layoutY="446.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="160.0" text="Login" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
       <Text fontSmoothingType="LCD" layoutX="25.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Registration" textAlignment="CENTER" wrappingWidth="370.79150390625" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.20849609375">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <PasswordField fx:id="password" layoutX="181.0" layoutY="284.0" prefHeight="30.0" prefWidth="160.0" promptText="Password" AnchorPane.leftAnchor="181.0" AnchorPane.topAnchor="284.0" />
-      <TextField fx:id="contactNumber" layoutX="181.0" layoutY="204.0" prefHeight="30.0" prefWidth="160.0" promptText="Contact Number" AnchorPane.leftAnchor="181.0" AnchorPane.topAnchor="204.0" />
       <Line endX="230.0" layoutX="145.0" layoutY="66.0" startX="-100.0" stroke="#c2c2c2" />
       <Line endX="230.0" layoutX="145.0" layoutY="409.0" startX="-100.0" stroke="#c2c2c2" AnchorPane.bottomAnchor="80.5" />
-      <TextField fx:id="firstname" layoutX="181.0" layoutY="79.0" prefHeight="30.0" prefWidth="160.0" promptText="First Name" AnchorPane.bottomAnchor="379.0" AnchorPane.topAnchor="79.0" />
-      <TextField fx:id="lastname" layoutX="181.0" layoutY="124.0" prefHeight="30.0" prefWidth="160.0" promptText="Last Name" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="124.0" />
-      <TextField fx:id="address" layoutX="181.0" layoutY="163.0" prefHeight="30.0" prefWidth="160.0" promptText="Address" AnchorPane.leftAnchor="181.0" AnchorPane.topAnchor="163.0" />
-      <TextField fx:id="username" layoutX="181.0" layoutY="245.0" prefHeight="30.0" prefWidth="160.0" promptText="Username" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="245.0" />
+      <TextField fx:id="firstname" layoutX="181.0" layoutY="79.0" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" promptText="First Name" AnchorPane.bottomAnchor="379.0" AnchorPane.topAnchor="79.0" />
+      <TextField fx:id="lastname" layoutX="181.0" layoutY="124.0" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" promptText="Last Name" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="124.0" />
+      <TextField fx:id="address" layoutX="181.0" layoutY="163.0" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" promptText="Address" AnchorPane.leftAnchor="181.0" AnchorPane.topAnchor="163.0" />
+      <TextField fx:id="contactNumber" layoutX="181.0" layoutY="204.0" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" promptText="Contact Number" AnchorPane.leftAnchor="181.0" AnchorPane.topAnchor="204.0" />
+      <TextField fx:id="username" layoutX="181.0" layoutY="245.0" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" promptText="Username" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="245.0" />
+      <PasswordField fx:id="password" layoutX="181.0" layoutY="284.0" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" promptText="Password" AnchorPane.leftAnchor="181.0" AnchorPane.topAnchor="284.0" />
+      <PasswordField fx:id="password2" layoutX="181.0" layoutY="324.0" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" promptText="Confirm Passsword" AnchorPane.topAnchor="324.0" />
+      <Button fx:id="customerRegister" layoutX="130.0" layoutY="360.0" mnemonicParsing="false" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" text="Register" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="364.0" />
+      <Button fx:id="login" layoutX="130.0" layoutY="446.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="160.0" text="Login" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
       <Text fontSmoothingType="LCD" layoutX="91.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" textAlignment="CENTER" wrappingWidth="238.5712890625" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="90.4287109375">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
       </Text>
-      <PasswordField fx:id="password2" layoutX="181.0" layoutY="324.0" prefHeight="30.0" prefWidth="160.0" promptText="Confirm Passsword" AnchorPane.topAnchor="324.0" />
       <Text fontSmoothingType="LCD" layoutX="57.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
          <font>
             <Font name="Arial" size="14.0" />
