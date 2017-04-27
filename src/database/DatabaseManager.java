@@ -509,6 +509,15 @@ public class DatabaseManager {
 
 
     /**
+     * Initial entities for business hours will be created when starting the program. Customer can view these information when select
+     * view available day/time for booking.
+     */
+    public void insertInitialEntitiesForBusinessHours(){
+		// TODO Auto-generated method stub
+
+    }
+
+    /**
      * create new table WorkingTime, store each employee's working time in a week, user day as primary key, email as foreign key.
      */
     public void createWorkingTimeTable(){
@@ -654,4 +663,31 @@ public class DatabaseManager {
           System.exit(0);
         }
     }
+
+
+    /**
+     * create new table Service, store services for each business owner.
+     */
+    public void createServiceTable(){
+        try {
+          String sql = "CREATE TABLE Service " +
+                       "(name	 	 	TEXT	NOT NULL," +
+                       " duration	    TEXT	NOT NULL, " +
+                       " owner_username	TEXT	NOT NULL, " +
+                       " description	TEXT, " +
+                       "PRIMARY KEY (name,duration,owner_username)," +
+                       "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
+          stmt.executeUpdate(sql);
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    }
+
+
+	public void insertInitialEntitiesForService() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

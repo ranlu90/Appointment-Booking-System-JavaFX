@@ -48,11 +48,15 @@ public class ViewController{
     	databaseManager.createBusinessTimeTable();
     	databaseManager.createWorkingTimeTable();
     	databaseManager.createBookingTable();
+    	databaseManager.createServiceTable();
 
     	databaseManager.insertInitialEntitiesForBooking();
     	databaseManager.insertInitialEntitiesForBusiness();
     	databaseManager.insertInitialEntitiesForCustomerInfo();
         databaseManager.insertInitialEntitiesForEmployee();
+        databaseManager.insertInitialEntitiesForService();
+        databaseManager.insertInitialEntitiesForBusinessHours();
+
     }
 
     /**
