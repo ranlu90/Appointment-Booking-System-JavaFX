@@ -429,7 +429,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
-                  "VALUES ('john', 'frank', 'owner', 'tony1@gmail.com', '0412 345 678' );";
+                  "VALUES ('john', 'frank', 'owner', 'john@gmail.com', '0412 345 678' );";
           stmt.executeUpdate(sql);
 
           c.commit();
@@ -521,9 +521,10 @@ public class DatabaseManager {
         try {
           String sql = "CREATE TABLE WorkingTime " +
                        "(day	 	 	TEXT	NOT NULL," +
-                       " time	     	TEXT	NOT NULL, " +
+                       " start_time	    TEXT	NOT NULL, " +
+                       " end_time	    TEXT	NOT NULL, " +
                        " employee_email	TEXT	NOT NULL, " +
-                       "PRIMARY KEY (day,time,employee_email)," +
+                       "PRIMARY KEY (day,start_time,end_time,employee_email)," +
                        "FOREIGN KEY(employee_email)	REFERENCES Employee(email))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
@@ -544,7 +545,8 @@ public class DatabaseManager {
 			while(result.next()){
 				ArrayList<String> temp = new ArrayList<String>();
 				temp.add(result.getString("day"));
-				temp.add(result.getString("time"));
+				temp.add(result.getString("start_time"));
+				temp.add(result.getString("end_time"));
 				workingTime.add(temp);
 			}
             return workingTime;
@@ -559,17 +561,44 @@ public class DatabaseManager {
     /**
      * set working time for an employee.
      */
-    public void setWorkingTime(String day, String time, String employee_email){
+    public void setWorkingTime(String day, String start_time, String end_time, String employee_email){
         try {
           c.setAutoCommit(false);
-          String sql = "INSERT INTO WorkingTime (day,time,employee_email) " +
-                  "VALUES ('"+ day +"', '"+ time +"','"+ employee_email +"');";
+          String sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
+                  "VALUES ('"+ day +"', '"+ start_time +"','"+ end_time +"','"+ employee_email +"');";
           stmt.executeUpdate(sql);
           c.commit();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+    }
+
+
+    /**
+     * Add initial entities for employees' working time.
+     */
+    public void insertInitialEntitiesForWorkingTime(){
+        try {
+            c.setAutoCommit(false);
+            String sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
+                         "VALUES ('Monday', '9:00', '11:00', 'tony@gmail.com');";
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
+                    "VALUES ('Monday', '13:00', '15:00', 'tony@gmail.com');";
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
+            		"VALUES ('Tuesday', '9:00', '11:00', 'john@gmail.com');";
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
+            		"VALUES ('Tuesday', '13:00', '15:00', 'john@gmail.com');";
+            stmt.executeUpdate(sql);
+
+            c.commit();
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
     }
 
 

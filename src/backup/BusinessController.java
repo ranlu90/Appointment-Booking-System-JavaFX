@@ -256,7 +256,7 @@ public class BusinessController {
 				System.out.println("1 - Store the employee information");
 				System.out.println("2 - Add more working time");
 				System.out.println("3 - Quit without saving any information");
-				databaseManager.setWorkingTime(workingDay, workingTime, email);
+				//databaseManager.setWorkingTime(workingDay, workingTime, email);
 				i = Integer.parseInt(sc.nextLine());
 				if(i == 1){
 					addEmployee(firstname,lastname,owner_username,email,contactNumber, workingDay, workingTime);
@@ -286,7 +286,7 @@ public class BusinessController {
 			ArrayList<ArrayList<String>> employee = databaseManager.getEmployee();
 			System.out.println("Please select a staff:");
 			for(int i=0; i<employee.size();i++){
-				System.out.println(i+"."+employee.get(i));	//firstname + lastname	
+				System.out.println(i+"."+employee.get(i));	//firstname + lastname
 			}
 			staff = sc.nextLine();
 			System.out.println("Please enter a date which you want booking");
