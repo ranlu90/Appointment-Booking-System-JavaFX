@@ -6,22 +6,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerRegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BusinessMenuController">
    <children>
-      <Text fx:id="welcomeMessage" fontSmoothingType="LCD" layoutX="25.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER" wrappingWidth="370.79150390625" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.20849609375">
+      <Text fx:id="welcomeMessage" fontSmoothingType="LCD" layoutX="25.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER" wrappingWidth="370.79150390625" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.20849609375">
          <font>
-            <Font name="Arial" size="24.0" />
+            <Font name="Arial" size="18.0" />
          </font>
       </Text>
-      <Line endX="230.0" layoutX="145.0" layoutY="66.0" startX="-100.0" stroke="#c2c2c2" />
-      <Line endX="230.0" layoutX="145.0" layoutY="432.0" startX="-100.0" stroke="#c2c2c2" AnchorPane.bottomAnchor="57.5" />
-      <Button fx:id="addNewService" layoutX="112.0" layoutY="85.0" mnemonicParsing="false" onAction="#addNewService" prefHeight="30.0" prefWidth="196.0" text="Add New Service" AnchorPane.bottomAnchor="375.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="85.0" />
-      <Button fx:id="updateEmployee" layoutX="112.0" layoutY="130.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="30.0" prefWidth="196.0" text="Update Employee" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="135.0" />
-      <Button fx:id="changeBusinessHours" layoutX="112.0" layoutY="191.0" mnemonicParsing="false" onAction="#changeBusinessHours" prefHeight="30.0" prefWidth="196.0" text="Change Business Hours" AnchorPane.topAnchor="185.0" />
-      <Button fx:id="viewAllBookings" layoutX="112.0" layoutY="230.0" mnemonicParsing="false" onAction="#viewAllBookings" prefHeight="30.0" prefWidth="196.0" text="View All Bookings" AnchorPane.topAnchor="235.0" />
-      <Button fx:id="viewNewBookings" layoutX="112.0" layoutY="283.0" mnemonicParsing="false" onAction="#viewNewBookings" prefHeight="30.0" prefWidth="196.0" text="View New Bookings" AnchorPane.topAnchor="285.0" />
-      <Button fx:id="createABooking" layoutX="112.0" layoutY="327.0" mnemonicParsing="false" onAction="#createABooking" prefHeight="30.0" prefWidth="196.0" text="Create A Booking" AnchorPane.topAnchor="335.0" />
-      <Button fx:id="viewAvailability" layoutX="112.0" layoutY="377.0" mnemonicParsing="false" onAction="#viewAvailability" prefHeight="30.0" prefWidth="196.0" text="View Employees' Availability" AnchorPane.topAnchor="385.0" />
-      <Button fx:id="logout" layoutX="130.0" layoutY="446.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="160.0" text="Logout" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
+      <Line endX="230.0" layoutX="145.0" layoutY="49.0" startX="-100.0" stroke="#c2c2c2" />
+      <Line endX="230.0" layoutX="145.0" layoutY="413.0" startX="-100.0" stroke="#c2c2c2" AnchorPane.bottomAnchor="76.5" />
+      <Button fx:id="addNewService" layoutX="112.0" layoutY="67.0" mnemonicParsing="false" onAction="#addNewService" prefHeight="30.0" prefWidth="196.0" text="Add New Service" AnchorPane.bottomAnchor="395.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="65.0" />
+      <Button fx:id="updateEmployee" layoutX="112.0" layoutY="130.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="30.0" prefWidth="196.0" text="Update Employee" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="115.0" />
+      <Button fx:id="changeBusinessHours" layoutX="112.0" layoutY="191.0" mnemonicParsing="false" onAction="#changeBusinessHours" prefHeight="30.0" prefWidth="196.0" text="Change Business Hours" AnchorPane.topAnchor="165.0" />
+      <Button fx:id="viewAllBookings" layoutX="112.0" layoutY="230.0" mnemonicParsing="false" onAction="#viewAllBookings" prefHeight="30.0" prefWidth="196.0" text="View All Bookings" AnchorPane.topAnchor="215.0" />
+      <Button fx:id="viewNewBookings" layoutX="112.0" layoutY="283.0" mnemonicParsing="false" onAction="#viewNewBookings" prefHeight="30.0" prefWidth="196.0" text="View New Bookings" AnchorPane.topAnchor="265.0" />
+      <Button fx:id="createABooking" layoutX="112.0" layoutY="327.0" mnemonicParsing="false" onAction="#createABooking" prefHeight="30.0" prefWidth="196.0" text="Create A Booking" AnchorPane.topAnchor="315.0" />
+      <Button fx:id="viewAvailability" layoutX="112.0" layoutY="377.0" mnemonicParsing="false" onAction="#viewAvailability" prefHeight="30.0" prefWidth="196.0" text="View Employees' Availability" AnchorPane.topAnchor="365.0" />
+      <Button fx:id="logout" layoutX="112.0" layoutY="432.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="196.0" text="Logout" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" />
    </children>
 </AnchorPane>
