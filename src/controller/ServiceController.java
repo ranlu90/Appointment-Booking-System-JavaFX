@@ -66,7 +66,7 @@ public class ServiceController implements Initializable{
 	@FXML
 	private void Confirm(){
 		Alert alert;
-		if(name.getText() != null && duration.getValue() != null){
+		if(name.getText().trim().isEmpty() == false && duration.getValue() != null){
 			if(databaseManager.searchService(name.getText(), duration.getValue(), user) == false){
 				databaseManager.addService(name.getText(), duration.getValue(), user, description.getText());
 				alert = new Alert(AlertType.INFORMATION,"A new service has been created!");

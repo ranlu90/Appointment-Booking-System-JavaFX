@@ -116,10 +116,14 @@ public class CreateBookingController implements Initializable{
 	 */
 	@FXML
 	private void Confirm(){
+		Alert alert;
+		if(employee.getValue() != null && service.getValue() != null && date.getValue() != null &&
+				hour.getValue() != null && minute.getValue() != null &&
+				firstname.getText().trim().isEmpty() == false && lastname.getText().trim().isEmpty() == false){
+
 		ArrayList<String> dayList = new ArrayList<String>();
 		String workingDay = "";
 		boolean dayCheck = false;		//check if the day matches employee's working day
-		Alert alert;
 
 		//add duration of the service to the start time of booking and create a new end time
 		int duration = Integer.parseInt(databaseManager.getDuration(service.getValue()));
@@ -132,7 +136,6 @@ public class CreateBookingController implements Initializable{
 		//split employee's full name by whitespace and check his email in the database by firstname and lastname
 		String[] name = employee.getValue().split(" ");
 		String employee_email = databaseManager.searchEmployeeEmailByName(name[0], name[1]);
-		String customer_ID = databaseManager.searchCustomerID(firstname.getText(), lastname.getText());
 
 		ArrayList<ArrayList<String>> workingTime = databaseManager.getWorkingTime(employee_email);
 
@@ -146,8 +149,6 @@ public class CreateBookingController implements Initializable{
 			}
 		}
 
-		if(employee.getValue() != null && service.getValue() != null && date.getValue() != null &&
-				hour.getValue() != null && minute.getValue() != null && firstname.getText() != null && lastname.getText() != null){
 			if(dayCheck == false){			//The employee doesn't work on the selected day.
 				ArrayList<ArrayList<String>> temp1 = databaseManager.getWorkingTime(employee_email);	//select working time by email
 				for(ArrayList<String> t : temp1){

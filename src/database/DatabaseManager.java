@@ -739,19 +739,19 @@ public class DatabaseManager {
           c.setAutoCommit(false);
 
           String sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                       "VALUES ('7/03/2017','11:00','11:30','tony@gmail.com','Men Haircut','owner','bruce','Wayne');";
+                       "VALUES ('2017-03-07','11:00','11:30','tony@gmail.com','Men Haircut','owner','bruce','Wayne');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('9/03/2017','15:00','16:00','tony@gmail.com','Hair Colouring','owner','david','Short');";
+                  "VALUES ('2017-03-09','15:00','16:00','tony@gmail.com','Hair Colouring','owner','david','Short');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('8/04/2017','12:00','13:00','john@gmail.com','Women Haircut','owner','Ran','Lu');";
+                  "VALUES ('2017-04-08','12:00','13:00','john@gmail.com','Women Haircut','owner','Ran','Lu');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('2/06/2017','15:00','16:00','tony@gmail.com','Women Haircut','owner','david','Short');";
+                  "VALUES ('2017-06-02','15:00','16:00','tony@gmail.com','Women Haircut','owner','david','Short');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('3/06/2017','17:00','17:30','john@gmail.com','Men Haircut','owner','Ran','Lu');";
+                  "VALUES ('2017-06-03','17:00','17:30','john@gmail.com','Men Haircut','owner','Ran','Lu');";
           stmt.executeUpdate(sql);
 
           c.commit();
