@@ -268,6 +268,8 @@ public class ViewController{
     public void gotoAllBookings()
     {
         try {
+            stage.setMinWidth(600);
+            stage.setMinHeight(490);
         	ViewBookingController booking = (ViewBookingController) setScene("ViewAllBookings.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
@@ -286,6 +288,8 @@ public class ViewController{
     public void gotoNewBookings()
     {
         try {
+            stage.setMinWidth(600);
+            stage.setMinHeight(490);
         	ViewBookingController booking = (ViewBookingController) setScene("ViewNewBookings.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
@@ -321,6 +325,8 @@ public class ViewController{
     public void gotoViewWorkers()
     {
         try {
+            stage.setMinWidth(600);
+            stage.setMinHeight(490);
         	ViewEmployeeController employee = (ViewEmployeeController) setScene("ShowAllWorkers.fxml");
         	employee.initViewController(this);
         	employee.initDatabaseManager(databaseManager);
