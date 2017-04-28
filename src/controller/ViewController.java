@@ -305,13 +305,17 @@ public class ViewController{
     /**
      * Switch to the page for creating a booking.
      */
-    public void gotoCreateBookings()
+    public void gotoOwnerCreateBooking()
     {
         try {
         	CreateBookingController booking = (CreateBookingController) setScene("OwnerCreateBooking.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
+        	booking.getEmployee();
+        	booking.getService();
+        	booking.SetHour();
+        	booking.SetMinute();
         }
         catch(Exception e)
         {

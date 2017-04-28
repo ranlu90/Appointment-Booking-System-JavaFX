@@ -42,9 +42,6 @@ public class LoginController implements Initializable{
 	@FXML
 	private void login(){
 		Alert alert;
-
-		if(username.getText() != null && password.getText() != null){
-
 			if(databaseManager.searchBusiness(username.getText(),password.getText()) == true){
 				viewController.setUserName(username.getText());
 				viewController.gotoBusinessMenu();
@@ -58,7 +55,6 @@ public class LoginController implements Initializable{
 						"Incorrect credentials!");
 				alert.showAndWait();
 			}
-		}
 	}
 
     /**

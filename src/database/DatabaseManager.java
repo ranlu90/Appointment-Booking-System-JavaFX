@@ -166,7 +166,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                "VALUES ('Tom','Cruise','Melbourne','0123 456 789','customer','customer');";
+                "VALUES ('Ran','Lu','Melbourne','0123 456 789','customer','customer');";
           stmt.executeUpdate(sql);
           c.commit();
         } catch ( Exception e ) {
@@ -210,6 +210,25 @@ public class DatabaseManager {
 			exp.printStackTrace();
 		}
 		return false;
+	}
+
+	/**
+	 * Search customerinfo table to find if username.
+	 */
+	public String searchCustomerID(String first_name, String last_name){
+		try{
+			String username;
+			String sql = "select * from Customerinfo where first_name = '" + first_name + "' and last_name = '" + last_name + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			if(result.next()){
+				username = result.getString("username");
+				return username;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return null;
 	}
 
 
@@ -359,6 +378,26 @@ public class DatabaseManager {
 	}
 
 
+	/**
+	 * Search employee's email by his/her full name.
+	 */
+	public String searchEmployeeEmailByName(String first_name, String last_name){
+		try{
+			String email;
+			String check = "select * from Employee where first_name = '" + first_name + "' and last_name = '" + last_name + "'";
+			ResultSet result = stmt.executeQuery(check);
+			if(result.next()){
+				email = result.getString("email");
+				return email;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return null;
+	}
+
+
     /**
      * set new employee in database
      */
@@ -400,24 +439,7 @@ public class DatabaseManager {
         return null;
     }
 
-    public ArrayList<ArrayList<String>> getEmployee(){
-        try {
-			ArrayList<ArrayList<String>> employee = new ArrayList<ArrayList<String>>();
-			String sql = "select first_name,last_name from Employee;";
-			ResultSet result = stmt.executeQuery(sql);
-			while(result.next()){
-				ArrayList<String> temp = new ArrayList<String>();
-				temp.add(result.getString("first_name"));
-				temp.add(result.getString("last_name"));
-				employee.add(temp);
-			}
-            return employee;
-          } catch ( Exception e ) {
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            System.exit(0);
-          }
-        return null;
-    }
+
     /**
      * Insert entities for employee table.
      */
@@ -630,31 +652,58 @@ public class DatabaseManager {
                        " employee_email		TEXT	NOT NULL, " +
                        " service			TEXT	NOT NULL, " +
                        " owner_username		TEXT	NOT NULL, " +
-                       " customer_username	TEXT	NOT NULL, " +
-                       "PRIMARY KEY (date,start_time,end_time,employee_email,owner_username,customer_username)," +
+                       " customer_firstname	TEXT	NOT NULL, " +
+                       " customer_lastname	TEXT	NOT NULL, " +
+                       "PRIMARY KEY(date,start_time,end_time,employee_email,owner_username)," +
                        "FOREIGN KEY(employee_email) REFERENCES Employee(email)," +
                        "FOREIGN KEY(service) REFERENCES Service(name)," +
                        "FOREIGN KEY(owner_username) REFERENCES Business(username)," +
-                       "FOREIGN KEY(customer_username)	REFERENCES CustomerInfo(username))";
+                       "FOREIGN KEY(customer_firstname)	REFERENCES CustomerInfo(first_name)," +
+                       "FOREIGN KEY(customer_lastname)	REFERENCES CustomerInfo(last_name))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
     }
+
+    /**
+     * Create a new booking entity in booking table.
+     */
     public void setBooking(String date, String start_time, String end_time, String employee_email,
-    		String service, String owner_username, String customer_username){
+    		String service, String owner_username, String customer_firstname, String customer_lastname){
         try {
-          c.setAutoCommit(false);
-          String sql = "INSERT INTO Booking(date,start_time,end_time,employee_email,service,owner_username,customer_username) " +
-                  "VALUES ('"+ date +"', '"+ start_time +"','"+ end_time +"','"+ employee_email +"','"+ service +"','"+ owner_username +"','"+ customer_username+"');";
-          stmt.executeUpdate(sql);
-          c.commit();
-        } catch ( Exception e ) {
-          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-          System.exit(0);
+	          c.setAutoCommit(false);
+	          String sql = "INSERT INTO Booking(date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
+	                  "VALUES ('"+ date +"', '"+ start_time +"','"+ end_time +"','"+ employee_email +"','"+ service +"','"+ owner_username +"','"+ customer_firstname+"','"+ customer_lastname+"');";
+	          stmt.executeUpdate(sql);
+	          c.commit();
+        }
+        catch(Exception e){
+	          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+	          System.exit(0);
         }
     }
+
+
+	/**
+	 * Search the database to find if an existing booking has been created in the booking table.
+	 */
+	public boolean searchBooking(String date, String start_time, String end_time, String employee_email, String owner_username){
+		try{
+			   String sql = "select * from Booking where date = '" + date + "' and start_time = '" + start_time + "' and end_time = '" + end_time + "' and employee_email = '" + employee_email + "' and owner_username = '" + owner_username + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			if(result.next()){
+				return true;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
+
+
     /**
      * Get all bookings for one business owner.
      */
@@ -669,7 +718,8 @@ public class DatabaseManager {
 				temp.add(result.getString("start_time"));
 				temp.add(result.getString("employee_email"));
 				temp.add(result.getString("owner_username"));
-				temp.add(result.getString("customer_username"));
+				temp.add(result.getString("customer_firstname"));
+				temp.add(result.getString("customer_lastname"));
 				booking.add(temp);
 			}
             return booking;
@@ -688,20 +738,20 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
 
-          String sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_username) " +
-                       "VALUES ('07.03.2017','11:00','11:30','tony@gmail.com','Men Haircut','owner','bruce');";
+          String sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
+                       "VALUES ('7/03/2017','11:00','11:30','tony@gmail.com','Men Haircut','owner','bruce','Wayne');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_username) " +
-                  "VALUES ('09.03.2017','15:00','16:00','tony@gmail.com','Hair Colouring','owner','david');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
+                  "VALUES ('9/03/2017','15:00','16:00','tony@gmail.com','Hair Colouring','owner','david','Short');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_username) " +
-                  "VALUES ('08.04.2017','12:00','13:00','john@gmail.com','Women Haircut','owner','customer');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
+                  "VALUES ('8/04/2017','12:00','13:00','john@gmail.com','Women Haircut','owner','Ran','Lu');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_username) " +
-                  "VALUES ('02.06.2017','15:00','16:00','tony@gmail.com','Women Haircut','owner','david');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
+                  "VALUES ('2/06/2017','15:00','16:00','tony@gmail.com','Women Haircut','owner','david','Short');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_username) " +
-                  "VALUES ('03.06.2017','17:00','17:30','john@gmail.com','Men Haircut','owner','customer');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
+                  "VALUES ('3/06/2017','17:00','17:30','john@gmail.com','Men Haircut','owner','Ran','Lu');";
           stmt.executeUpdate(sql);
 
           c.commit();
@@ -790,4 +840,47 @@ public class DatabaseManager {
           }
 	}
 
+
+    /**
+     * Get all service for one business owner.
+     */
+    public ArrayList<ArrayList<String>> getService(String username){
+        try {
+			ArrayList<ArrayList<String>> service = new ArrayList<ArrayList<String>>();
+			String sql = "select * from Service where owner_username = '" + username + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("name"));
+				temp.add(result.getString("duration"));
+				temp.add(result.getString("description"));
+				service.add(temp);
+			}
+            return service;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
+    }
+
+
+    /**
+     * Get duration for one service.
+     */
+    public String getDuration(String service_name){
+        try {
+        	String duration;
+			String sql = "select * from Service where name = '" + service_name + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			while(result.next()){
+				duration = result.getString("duration");
+				return duration;
+			}
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
+    }
 }

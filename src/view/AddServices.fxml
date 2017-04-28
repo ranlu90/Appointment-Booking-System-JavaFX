@@ -9,18 +9,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServiceController">
+<AnchorPane maxHeight="490.0" maxWidth="420.0" minHeight="490.0" minWidth="420.0" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServiceController">
    <children>
       <Text fontSmoothingType="LCD" layoutX="118.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Service" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="name" layoutX="127.0" layoutY="79.0" promptText="Name" />
-      <ComboBox fx:id="duration" layoutX="127.0" layoutY="126.0" prefHeight="27.0" prefWidth="167.0" promptText="Duration" />
-      <TextArea fx:id="description" layoutX="127.0" layoutY="179.0" prefHeight="117.0" prefWidth="167.0" promptText="Description" />
-      <Button layoutX="127.0" layoutY="312.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" />
-      <Button layoutX="127.0" layoutY="404.0" mnemonicParsing="false" onAction="#MainMenu" prefWidth="167.0" text="Main Menu" />
-      <Line endX="200.0" layoutX="159.0" layoutY="371.0" startX="-100.0" stroke="#c2c2c2" />
+      <TextField fx:id="name" layoutX="127.0" layoutY="98.0" promptText="Name" />
+      <ComboBox fx:id="duration" layoutX="127.0" layoutY="162.0" prefHeight="27.0" prefWidth="167.0" AnchorPane.leftAnchor="127.0" />
+      <TextArea fx:id="description" layoutX="127.0" layoutY="228.0" prefHeight="117.0" prefWidth="167.0" promptText="Description" AnchorPane.leftAnchor="127.0" />
+      <Button layoutX="127.0" layoutY="363.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" AnchorPane.leftAnchor="127.0" />
+      <Button layoutX="127.0" layoutY="426.0" mnemonicParsing="false" onAction="#MainMenu" prefWidth="167.0" text="Main Menu" />
+      <Line endX="200.0" layoutX="160.0" layoutY="408.0" startX="-100.0" stroke="#c2c2c2" />
+      <Text fontSmoothingType="LCD" layoutX="127.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="129.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration" textAlignment="CENTER" AnchorPane.leftAnchor="127.0">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="129.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" textAlignment="CENTER" AnchorPane.leftAnchor="127.0">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

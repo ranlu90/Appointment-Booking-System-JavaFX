@@ -68,7 +68,7 @@ public class BusinessMenuController implements Initializable {
 
 	@FXML
 	private void createABooking(){
-		viewController.gotoCreateBookings();
+		viewController.gotoOwnerCreateBooking();
 	}
 
 	@FXML
