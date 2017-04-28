@@ -342,6 +342,39 @@ public class ViewController{
         }
     }
 
+    /**
+     * Switch to the page for customer creating a booking.
+     */
+    public void gotoCustomerCreateBooking()
+    {
+        try {
+        	CustomerCreateBookingController customer = (CustomerCreateBookingController) setScene("CustomerCreateBooking.fxml");
+        	customer.initViewController(this);
+        	customer.initDatabaseManager(databaseManager);
+        	customer.setUsername(username);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * Customer checks booking availability.
+     */
+    public void gotoViewBookingAvailability(){
+        try {
+        	BookingAvailabilityController booking = (BookingAvailabilityController) setScene("ViewBookingAvailability.fxml");
+        	booking.initViewController(this);
+        	booking.initDatabaseManager(databaseManager);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * Sets the scene to the supplied fxml document - Used for initially

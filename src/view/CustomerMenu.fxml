@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane maxHeight="490.0" maxWidth="420.0" minHeight="490.0" minWidth="420.0" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerMenuController">
+   <children>
+      <Text fx:id="welcomeMessage" fontSmoothingType="LCD" layoutX="25.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER" wrappingWidth="370.79150390625" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.20849609375">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Text>
+      <Line endX="230.0" layoutX="145.0" layoutY="49.0" startX="-100.0" stroke="#c2c2c2" />
+      <Line endX="230.0" layoutX="145.0" layoutY="413.0" startX="-100.0" stroke="#c2c2c2" AnchorPane.bottomAnchor="76.5" />
+      <Button layoutX="112.0" layoutY="67.0" mnemonicParsing="false" onAction="#CreateBooking" prefHeight="30.0" prefWidth="196.0" text="Create A Booking" AnchorPane.bottomAnchor="395.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="65.0" />
+      <Button layoutX="112.0" layoutY="130.0" mnemonicParsing="false" onAction="#viewBookingAvailability" prefHeight="30.0" prefWidth="196.0" text="View Booking Availability" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="115.0" />
+      <Button layoutX="112.0" layoutY="432.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="196.0" text="Logout" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="112.0" />
+   </children>
 </AnchorPane>
-

@@ -37,4 +37,19 @@ public class CustomerMenuController implements Initializable{
 	public void welcomeMessage(){
 		welcomeMessage.setText("Welcome! " + databaseManager.getCustomerName(user));
 	}
+
+	@FXML
+	private void CreateBooking(){
+		viewController.gotoCustomerCreateBooking();
+	}
+
+	@FXML
+	private void viewBookingAvailability(){
+		viewController.gotoViewBookingAvailability();
+	}
+
+	@FXML
+	private void logout(){
+		viewController.gotoLogin();
+	}
 }
