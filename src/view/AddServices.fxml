@@ -21,6 +21,6 @@
       <TextArea fx:id="description" layoutX="127.0" layoutY="179.0" prefHeight="117.0" prefWidth="167.0" promptText="Description" />
       <Button layoutX="127.0" layoutY="312.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" />
       <Button layoutX="127.0" layoutY="404.0" mnemonicParsing="false" onAction="#MainMenu" prefWidth="167.0" text="Main Menu" />
-      <Line endX="230.0" layoutX="159.0" layoutY="371.0" startX="-100.0" stroke="#c2c2c2" />
+      <Line endX="200.0" layoutX="159.0" layoutY="371.0" startX="-100.0" stroke="#c2c2c2" />
    </children>
 </AnchorPane>

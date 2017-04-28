@@ -16,41 +16,41 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="106.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="38.9736328125">
+      <Text fontSmoothingType="LCD" layoutX="108.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="38.9736328125" AnchorPane.leftAnchor="104.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="106.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="38.9736328125">
+      <Text fontSmoothingType="LCD" layoutX="104.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="38.9736328125" AnchorPane.leftAnchor="104.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="104.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee" wrappingWidth="65.9736328125">
+      <Text fontSmoothingType="LCD" layoutX="110.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee" wrappingWidth="65.9736328125" AnchorPane.leftAnchor="104.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <DatePicker fx:id="date" layoutX="105.0" layoutY="75.0" onAction="#setDate" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="121.0" />
-      <ComboBox fx:id="hour" layoutX="107.0" layoutY="129.0" onAction="#SetHour" prefHeight="27.0" prefWidth="89.0" promptText="Hour" />
-      <ComboBox fx:id="minute" layoutX="208.0" layoutY="129.0" onAction="#SetMinute" prefHeight="27.0" prefWidth="89.0" promptText="Minute" />
-      <ComboBox fx:id="employee" layoutX="104.0" layoutY="185.0" onAction="#getEmployee" prefHeight="27.0" prefWidth="194.0" />
-      <ComboBox fx:id="service" layoutX="104.0" layoutY="245.0" onAction="#getService" prefHeight="27.0" prefWidth="194.0" />
-      <Text fontSmoothingType="LCD" layoutX="103.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service" wrappingWidth="82.9736328125">
+      <ComboBox fx:id="employee" layoutX="104.0" layoutY="70.0" onAction="#getEmployee" prefHeight="27.0" prefWidth="194.0" AnchorPane.leftAnchor="104.0" />
+      <ComboBox fx:id="service" layoutX="104.0" layoutY="127.0" onAction="#getService" prefHeight="27.0" prefWidth="194.0" AnchorPane.leftAnchor="104.0" />
+      <DatePicker fx:id="date" layoutX="104.0" layoutY="190.0" onAction="#setDate" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="122.0" />
+      <ComboBox fx:id="hour" layoutX="101.0" layoutY="250.0" onAction="#SetHour" prefHeight="27.0" prefWidth="89.0" promptText="Hour" AnchorPane.leftAnchor="104.0" />
+      <ComboBox fx:id="minute" layoutX="210.0" layoutY="250.0" onAction="#SetMinute" prefHeight="27.0" prefWidth="89.0" promptText="Minute" />
+      <TextField layoutX="108.0" layoutY="347.0" prefHeight="27.0" prefWidth="89.0" promptText="First Name" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="347.0" />
+      <TextField layoutX="210.0" layoutY="347.0" prefHeight="27.0" prefWidth="89.0" promptText="Last Name" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="347.0" />
+      <Text fontSmoothingType="LCD" layoutX="101.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service" wrappingWidth="82.9736328125" AnchorPane.leftAnchor="104.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="duration" fontSmoothingType="LCD" layoutX="105.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration" wrappingWidth="194.00000095367432">
+      <Text fx:id="duration" fontSmoothingType="LCD" layoutX="104.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration" wrappingWidth="194.00000095367432" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="121.99999904632568">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <TextField layoutX="107.0" layoutY="342.0" prefHeight="27.0" prefWidth="89.0" promptText="First Name" />
-      <TextField layoutX="210.0" layoutY="342.0" prefHeight="27.0" prefWidth="89.0" promptText="Last Name" />
       <Button layoutX="119.0" layoutY="387.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Confirm" />
       <Button layoutX="119.0" layoutY="442.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Main Menu" />
       <Line endX="230.0" layoutX="136.0" layoutY="425.0" startX="-100.0" stroke="#c2c2c2" />
-      <Text fx:id="duration1" fontSmoothingType="LCD" layoutX="105.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="194.00000095367432">
+      <Text fx:id="duration1" fontSmoothingType="LCD" layoutX="104.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="194.00000095367432" AnchorPane.leftAnchor="104.0">
          <font>
             <Font size="14.0" />
          </font>
