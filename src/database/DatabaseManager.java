@@ -505,6 +505,23 @@ public class DatabaseManager {
     }
 
 
+	/**
+	 * Search existing business hour entity.
+	 */
+	public boolean searchBusinessHours(String business_day, String owner_username){
+		try{
+			String check = "select * from BusinessTime where business_day = '" + business_day + "' and owner_username = '" + owner_username + "'";
+			ResultSet result = stmt.executeQuery(check);
+			if(result.next()){
+				return true;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
+
     /**
      * Get business time for a given business in the BusinessTime.
      * @param username received from cilentModel, passed to the businessController.
@@ -528,6 +545,24 @@ public class DatabaseManager {
 	          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 		}
 		return null;
+	}
+
+
+	/**
+	 * Update existing business hours for one business owner.
+	 */
+	public void updateBusinessHours(String business_day, String owner_username, String open_time, String closing_time){
+        try {
+            c.setAutoCommit(false);
+            String sql = "UPDATE BusinessTime set open_time = '" + open_time + "' where owner_username = '" + owner_username + "' and business_day = '" + business_day + "';";
+            stmt.executeUpdate(sql);
+            sql = "UPDATE BusinessTime set closing_time = '" + closing_time + "' where owner_username = '" + owner_username + "' and business_day = '" + business_day + "';";
+            stmt.executeUpdate(sql);
+            c.commit();
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
 	}
 
 

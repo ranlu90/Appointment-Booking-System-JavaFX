@@ -1,10 +1,9 @@
 package controller;
 
 import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import database.Booking;
 import database.DatabaseManager;
 import database.Employee;
 import javafx.collections.FXCollections;

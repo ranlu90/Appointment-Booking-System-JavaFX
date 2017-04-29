@@ -254,6 +254,7 @@ public class ViewController{
         	business.initViewController(this);
         	business.initDatabaseManager(databaseManager);
         	business.setUsername(username);
+        	business.initBusinessHours();
         }
         catch(Exception e)
         {

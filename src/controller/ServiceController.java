@@ -60,6 +60,13 @@ public class ServiceController implements Initializable{
 		durationList.add("60");
 		durationList.add("90");
 		durationList.add("120");
+		durationList.add("150");
+		durationList.add("180");
+		durationList.add("210");
+		durationList.add("240");
+		durationList.add("270");
+		durationList.add("300");
+
 		duration.getItems().addAll(durationList);
 	}
 
