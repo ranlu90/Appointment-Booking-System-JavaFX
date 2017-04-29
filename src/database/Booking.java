@@ -10,6 +10,7 @@ public class Booking {
 
 	public Booking(){}
 
+
 	public void setDate(String date){
 		this.date = date;
 	}
@@ -28,5 +29,25 @@ public class Booking {
 	}
 	public void setContact(String contact){
 		this.contact = contact;
+	}
+
+
+	public String getDate(){
+		return date;
+	}
+	public String getTime(){
+		return time;
+	}
+	public String getEmployee(){
+		return employee;
+	}
+	public String getService(){
+		return service;
+	}
+	public String getCustomer(){
+		return customer;
+	}
+	public String getContact(){
+		return contact;
 	}
 }

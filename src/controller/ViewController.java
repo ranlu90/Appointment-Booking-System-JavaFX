@@ -274,7 +274,7 @@ public class ViewController{
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
-        	booking.populateAll();
+        	booking.populateTable();
         }
         catch(Exception e)
         {

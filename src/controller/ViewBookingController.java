@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import database.Booking;
 import database.DatabaseManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,10 +21,11 @@ public class ViewBookingController implements Initializable{
 	private String user;
 
 	@FXML
-	private TableColumn<ArrayList<String>,String> date,time,employee,service,customer,contact;
+	private TableColumn<Booking,String> dateColumn,timeColumn,employeeColumn,serviceColumn,customerColumn,contactColumn;
 
 	@FXML
-	private TableView<ArrayList<String>> bookingTable;
+	private TableView<Booking> bookingTable;
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -41,31 +43,50 @@ public class ViewBookingController implements Initializable{
 		user = username;
 	}
 
+	@SuppressWarnings("unchecked")
 	@FXML
-	public void populateAll(){
-		date.setCellValueFactory(new PropertyValueFactory<>(Booking.get(0)));
-		time.setCellValueFactory(new PropertyValueFactory<>(Booking.get(1)));
-		employee.setCellValueFactory(new PropertyValueFactory<>(Booking.get(2)));
-		service.setCellValueFactory(new PropertyValueFactory<>(Booking.get(3)));
-		customer.setCellValueFactory(new PropertyValueFactory<>(Booking.get(4)));
-		contact.setCellValueFactory(new PropertyValueFactory<>(Booking.get(5)));
+	public void populateTable(){
+		dateColumn = new TableColumn<Booking,String>("Date");
+		dateColumn.setMinWidth(90);
+		dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+		timeColumn = new TableColumn<Booking,String>("Time");
+		timeColumn.setMinWidth(90);
+		timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+
+		employeeColumn = new TableColumn<Booking,String>("Employee");
+		employeeColumn.setMinWidth(100);
+		employeeColumn.setCellValueFactory(new PropertyValueFactory<>("employee"));
+
+		serviceColumn = new TableColumn<Booking,String>("Service");
+		serviceColumn.setMinWidth(100);
+		serviceColumn.setCellValueFactory(new PropertyValueFactory<>("service"));
+
+		customerColumn = new TableColumn<Booking,String>("Customer");
+		customerColumn.setMinWidth(100);
+		customerColumn.setCellValueFactory(new PropertyValueFactory<>("customer"));
+
+		contactColumn = new TableColumn<Booking,String>("Contact");
+		contactColumn.setMinWidth(100);
+		contactColumn.setCellValueFactory(new PropertyValueFactory<>("contact"));
+
 		bookingTable.setItems(getBooking());
-		bookingTable.getColumns().addAll(date,time,employee,service,customer,contact);
+		bookingTable.getColumns().addAll(dateColumn,timeColumn,employeeColumn,serviceColumn,customerColumn,contactColumn);
 	}
 
-	public ObservableList<ArrayList<String>> getBooking(){
+	public ObservableList<Booking> getBooking(){
 		ArrayList<ArrayList<String>> allBookings = databaseManager.getBookingForBusiness(user);
-		ObservableList<ArrayList<String>> bookings = FXCollections.observableArrayList();
+		ObservableList<Booking> bookings = FXCollections.observableArrayList();
 		for(ArrayList<String> temp : allBookings){
 			ArrayList<String> name = databaseManager.searchEmployeeFullName(temp.get(2));
-			ArrayList<String> Booking = new ArrayList<String>();
-			Booking.add(temp.get(0));				//date
-			Booking.add(temp.get(1));				//time
-			Booking.add(name.get(0) + " " + name.get(1));			//employee's full name
-			Booking.add(temp.get(3));								//service
-			Booking.add(temp.get(4) + " " + temp.get(5));			//customer's full name
-			Booking.add(temp.get(6));								//contact number
-			bookings.add(Booking);
+			Booking entity = new Booking();
+			entity.setDate(temp.get(0));										//date
+			entity.setTime(temp.get(1));										//time
+			entity.setEmployee(name.get(0) + " " + name.get(1));				//employee's full name
+			entity.setService(temp.get(3));										//service
+			entity.setCustomer(temp.get(4) + " " + temp.get(5));				//customer's full name
+			entity.setContact(temp.get(6));										//contact number
+			bookings.add(entity);
 		}
 		return bookings;
 	}
