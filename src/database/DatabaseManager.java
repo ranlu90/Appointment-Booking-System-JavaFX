@@ -628,6 +628,24 @@ public class DatabaseManager {
     }
 
 
+	/**
+	 * Search existing working time entity.
+	 */
+	public boolean searchWorkingTime(String day, String start_time, String end_time,String employee_email){
+		try{
+			String check = "select * from WorkingTime where day = '" + day + "' and start_time = '" + start_time + "' and end_time = '" + end_time + "' and employee_email = '" + employee_email + "'";
+			ResultSet result = stmt.executeQuery(check);
+			if(result.next()){
+				return true;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
+
+
     /**
      * Get all working time for one employee.
      */

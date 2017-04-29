@@ -236,6 +236,7 @@ public class ViewController{
             employee.initViewController(this);
             employee.initDatabaseManager(databaseManager);
             employee.setUsername(username);
+            employee.initTimeUnit();
         }
         catch(Exception e)
         {

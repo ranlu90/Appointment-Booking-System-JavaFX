@@ -74,6 +74,7 @@ public class BusinessHoursController implements Initializable{
 	@FXML
 	private void Confirm() throws ParseException{
 		Alert alert;
+		boolean f = false;
 		SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
 
 		if(open1.getValue() != null && close1.getValue() != null){
@@ -81,8 +82,10 @@ public class BusinessHoursController implements Initializable{
 				if(databaseManager.searchBusinessHours("Monday", user) == true){
 					databaseManager.updateBusinessHours("Monday", user, open1.getValue(), close1.getValue());
 				}
-				else
+				else{
 					databaseManager.setBusinessTime("Monday", user, open1.getValue(), close1.getValue());
+				}
+				f = true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
@@ -97,8 +100,10 @@ public class BusinessHoursController implements Initializable{
 					databaseManager.updateBusinessHours("Tuesday", user, open2.getValue(), close2.getValue());
 
 				}
-				else
+				else{
 					databaseManager.setBusinessTime("Tuesday", user, open2.getValue(), close2.getValue());
+				}
+				f = true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
@@ -112,8 +117,10 @@ public class BusinessHoursController implements Initializable{
 				if(databaseManager.searchBusinessHours("Wednesday", user) == true){
 					databaseManager.updateBusinessHours("Wednesday", user, open3.getValue(), close3.getValue());
 				}
-				else
+				else{
 					databaseManager.setBusinessTime("Wednesday", user, open3.getValue(), close3.getValue());
+				}
+				f = true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
@@ -126,8 +133,10 @@ public class BusinessHoursController implements Initializable{
 				if(databaseManager.searchBusinessHours("Thursday", user) == true){
 					databaseManager.updateBusinessHours("Thursday", user, open4.getValue(), close4.getValue());
 				}
-				else
+				else{
 					databaseManager.setBusinessTime("Thursday", user, open4.getValue(), close4.getValue());
+				}
+				f = true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
@@ -140,8 +149,10 @@ public class BusinessHoursController implements Initializable{
 				if(databaseManager.searchBusinessHours("Friday", user) == true){
 					databaseManager.updateBusinessHours("Friday", user, open5.getValue(), close5.getValue());
 				}
-				else
+				else{
 					databaseManager.setBusinessTime("Friday", user, open5.getValue(), close5.getValue());
+				}
+				f = true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
@@ -154,8 +165,10 @@ public class BusinessHoursController implements Initializable{
 				if(databaseManager.searchBusinessHours("Saturday", user) == true){
 					databaseManager.updateBusinessHours("Saturday", user, open6.getValue(), close6.getValue());
 				}
-				else
+				else{
 					databaseManager.setBusinessTime("Saturday", user, open6.getValue(), close6.getValue());
+				}
+				f = true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
@@ -168,14 +181,20 @@ public class BusinessHoursController implements Initializable{
 				if(databaseManager.searchBusinessHours("Sunday", user) == true){
 					databaseManager.updateBusinessHours("Sunday", user, open7.getValue(), close7.getValue());
 				}
-				else
+				else{
 					databaseManager.setBusinessTime("Sunday", user, open7.getValue(), close7.getValue());
+				}
+				f = true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
 				alert.showAndWait();
 				viewController.gotoBusinessMenu();
 			}
+		}
+		if(f == true){
+			alert = new Alert(AlertType.INFORMATION,"New business hours has been successfully updated!");
+			alert.showAndWait();
 		}
 		viewController.gotoBusinessMenu();
 	}
