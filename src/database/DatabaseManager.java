@@ -715,10 +715,33 @@ public class DatabaseManager {
 				temp.add(result.getString("date"));
 				temp.add(result.getString("start_time"));
 				temp.add(result.getString("employee_email"));
-				temp.add(result.getString("owner_username"));
+				temp.add(result.getString("service"));
 				temp.add(result.getString("customer_firstname"));
 				temp.add(result.getString("customer_lastname"));
 				temp.add(result.getString("customer_contact"));
+				booking.add(temp);
+			}
+            return booking;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
+    }
+
+
+    /**
+     * Get all bookings for one employee.
+     */
+    public ArrayList<ArrayList<String>> getBookingForEmployee(String employee_email, String date){
+        try {
+			ArrayList<ArrayList<String>> booking = new ArrayList<ArrayList<String>>();
+			String sql = "select * from Booking where employee_email = '" + employee_email + "' and date = '" + date + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("start_time"));
+				temp.add(result.getString("service"));
 				booking.add(temp);
 			}
             return booking;

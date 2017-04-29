@@ -1,10 +1,11 @@
 package controller;
 
 import java.net.URL;
+
+
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import database.DatabaseManager;
 import javafx.fxml.FXML;
@@ -114,7 +115,7 @@ public class CreateBookingController implements Initializable{
 	 * @throws ParseException
 	 */
 	@FXML
-	private void Confirm() throws ParseException{
+	private void Confirm(){
 		Alert alert;
 		if(employee.getValue() != null && service.getValue() != null && date.getValue() != null &&
 				hour.getValue() != null && minute.getValue() != null && firstname.getText().trim().isEmpty() == false &&
@@ -124,12 +125,6 @@ public class CreateBookingController implements Initializable{
 		String workingDay = "";
 		String timeMessage = "";		//show employee's working time
 		boolean dayCheck = false;		//check if the day matches employee's working day
-
-		//add duration of the service to the start time of booking and create a new end time
-		int duration = Integer.parseInt(databaseManager.getDuration(service.getValue()));
-		int totalMinutes = (Integer.parseInt(hour.getValue()) * 60) + Integer.parseInt(minute.getValue()) + duration;
-		int hours = totalMinutes / 60;
-		int minutes = totalMinutes % 60;
 		String start_time = hour.getValue() + ":" + minute.getValue();
 
 		//split employee's full name by whitespace and check his email in the database by firstname and lastname
@@ -160,11 +155,11 @@ public class CreateBookingController implements Initializable{
 				alert = new Alert(AlertType.ERROR,"The same booking already exists!");
 				alert.showAndWait();
 			}
-			else if(false){
-				for(ArrayList<String> t : workingTime){
-					timeMessage += t.get(0) + " " + t.get(1) + "-" + t.get(2) + " ";
+			else if(CheckTimeSlot(employee_email, date.getValue().getDayOfWeek().toString(), date.getValue().toString(), start_time,  service.getValue()) == false){
+				for(ArrayList<String> temp: workingTime){
+					timeMessage += temp.get(0) + " " + temp.get(1) + "-" + temp.get(2) + " ";
 				}
-				alert = new Alert(AlertType.ERROR,"The employee's working time is " + timeMessage + "Please select a different time.");
+				alert = new Alert(AlertType.ERROR,"The employee is not available at this time. His/Her working time is " + timeMessage + "Please select a different time.");
 				alert.showAndWait();
 			}
 
@@ -187,22 +182,52 @@ public class CreateBookingController implements Initializable{
 		viewController.gotoBusinessMenu();
 	}
 
-	/**
-	 * Check if the employee works on the day, then check if he/she already got a booking at the same time.
-	 * @return true if the employee is available at that time.
-	 * @throws ParseException
-	 */
-	public boolean CheckEmployeeWorkingTime(String email, String date, String startTime, String endTime, String day) throws ParseException{
-		ArrayList<ArrayList<String>> workingTime = databaseManager.getWorkingTime(email);
-		SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
 
+	/**
+	 * Check if the employee works on that time, then check if he/she already got a booking.
+	 * @return true if the employee is available at that time.
+	 */
+	public boolean CheckTimeSlot(String email, String day, String date, String startTime, String serviceName){
+
+		ArrayList<ArrayList<String>> workingTime = databaseManager.getWorkingTime(email);
+		ArrayList<ArrayList<String>> booking = databaseManager.getBookingForEmployee(email, date);
+		HashMap<Integer, Boolean> timeSlot = new HashMap<Integer,Boolean>();
+		for(int i = 1; i <= 48; i ++){
+			timeSlot.put(i, false);
+		}
+
+		//add time slots by employee's working time divided by 30
 		for(ArrayList<String> temp:workingTime){
 			if(temp.get(0).compareToIgnoreCase(day) == 0){
-				Date start = tf.parse(temp.get(1));
-				Date end = tf.parse(temp.get(2));
-				if(tf.parse(startTime).compareTo(start) < 0 || tf.parse(endTime).compareTo(end) > 0){
-					return true; 					//the chosen booking time is not in employee's working time
+				String[] str = temp.get(1).split(":");			//working start time
+				String[] str2 = temp.get(2).split(":");			//working end time
+				int slot1 = ((Integer.parseInt(str[0]) * 60) + Integer.parseInt(str[1])) / 30 + 1;
+				int slot2 = ((Integer.parseInt(str2[0]) * 60) + Integer.parseInt(str2[1])) / 30;
+				for(int i = slot1; i <= slot2; i ++){
+					timeSlot.put(i, true);
 				}
+			}
+		}
+
+		//remove time slots by employee's existing booking
+		for(ArrayList<String> temp:booking){
+			String[] str3 = temp.get(0).split(":");			//booking start time
+			int slot3 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1])) / 30 + 1;
+			int duration = Integer.parseInt(databaseManager.getDuration(temp.get(1)));
+			int slot4 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1]) + duration) / 30;
+			for(int i = slot3; i <= slot4; i ++){
+				timeSlot.put(i, false);
+			}
+		}
+
+		//check if selected time slots are available by selected booking time and service
+		String[] str4 = startTime.split(":");			//selected booking start time
+		int slot5 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1])) / 30 + 1;
+		int selectedDuration = Integer.parseInt(databaseManager.getDuration(serviceName));
+		int slot6 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1]) + selectedDuration) / 30;
+		for(int i = slot5; i <= slot6; i ++){
+			if(timeSlot.get(i) == false){			//the time slot has been occupied
+				return false;
 			}
 		}
 		return true;
