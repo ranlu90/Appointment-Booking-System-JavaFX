@@ -99,12 +99,8 @@ public class CreateBookingController implements Initializable{
 	@FXML
 	public void SetMinute(){
 		ArrayList<String> minutes = new ArrayList<String>();
-		for(int i = 0; i <= 9; i ++){
-			minutes.add("0" + Integer.toString(i));
-		}
-		for(int i = 10; i <= 59; i ++){
-			minutes.add(Integer.toString(i));
-		}
+		minutes.add("00");
+		minutes.add("30");
 		minute.getItems().addAll(minutes);
 	}
 
@@ -135,7 +131,6 @@ public class CreateBookingController implements Initializable{
 		int hours = totalMinutes / 60;
 		int minutes = totalMinutes % 60;
 		String start_time = hour.getValue() + ":" + minute.getValue();
-		String end_time = Integer.toString(hours) + ":" + Integer.toString(minutes);
 
 		//split employee's full name by whitespace and check his email in the database by firstname and lastname
 		String[] name = employee.getValue().split(" ");
@@ -161,11 +156,11 @@ public class CreateBookingController implements Initializable{
 				alert.showAndWait();
 			}
 
-			else if(databaseManager.searchBooking(date.getValue().toString(), start_time, end_time, employee_email, user) == true){
+			else if(databaseManager.searchBooking(date.getValue().toString(), start_time, employee_email, user) == true){
 				alert = new Alert(AlertType.ERROR,"The same booking already exists!");
 				alert.showAndWait();
 			}
-			else if(CheckEmployeeWorkingTime(employee_email,date.getValue().toString(), start_time, end_time, date.getValue().getDayOfWeek().toString()) == false){
+			else if(false){
 				for(ArrayList<String> t : workingTime){
 					timeMessage += t.get(0) + " " + t.get(1) + "-" + t.get(2) + " ";
 				}
@@ -174,7 +169,7 @@ public class CreateBookingController implements Initializable{
 			}
 
 			else{
-				databaseManager.setBooking(date.getValue().toString(), start_time, end_time, employee_email, service.getValue(), user, firstname.getText(),lastname.getText(),contactNumber.getText());
+				databaseManager.setBooking(date.getValue().toString(), start_time, employee_email, service.getValue(), user, firstname.getText(),lastname.getText(),contactNumber.getText());
 				alert = new Alert(AlertType.INFORMATION,"A new booking has been successfully created!");
 				alert.showAndWait();
 				viewController.gotoBusinessMenu();

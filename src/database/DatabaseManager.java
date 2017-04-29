@@ -213,7 +213,7 @@ public class DatabaseManager {
 	}
 
 	/**
-	 * Search customerinfo table to find if username.
+	 * Search customerinfo table to find username.
 	 */
 	public String searchCustomerID(String first_name, String last_name){
 		try{
@@ -643,19 +643,18 @@ public class DatabaseManager {
     /**
      * Create new table Booking, store each booking's time, owner_username, customer_username.
      */
-    public void createBookingTable(){
+    public void createBookingTable(){							//date, start time, employee are enough to define an unique booking.
         try {
           String sql = "CREATE TABLE Booking " +
                        "(date				TEXT	NOT NULL, " +
                        " start_time			TEXT	NOT NULL, " +
-                       " end_time			TEXT	NOT NULL, " +
                        " employee_email		TEXT	NOT NULL, " +
                        " service			TEXT	NOT NULL, " +
                        " owner_username		TEXT	NOT NULL, " +
                        " customer_firstname	TEXT	NOT NULL, " +
                        " customer_lastname	TEXT	NOT NULL, " +
                        " customer_contact	TEXT	NOT NULL, " +
-                       "PRIMARY KEY(date,start_time,end_time,employee_email,owner_username)," +
+                       "PRIMARY KEY(date,start_time,employee_email,owner_username)," +
                        "FOREIGN KEY(employee_email) REFERENCES Employee(email)," +
                        "FOREIGN KEY(service) REFERENCES Service(name)," +
                        "FOREIGN KEY(owner_username) REFERENCES Business(username))";
@@ -669,12 +668,12 @@ public class DatabaseManager {
     /**
      * Create a new booking entity in booking table.
      */
-    public void setBooking(String date, String start_time, String end_time, String employee_email,
+    public void setBooking(String date, String start_time, String employee_email,
     		String service, String owner_username, String customer_firstname, String customer_lastname, String customer_contact){
         try {
 	          c.setAutoCommit(false);
-	          String sql = "INSERT INTO Booking(date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-	                  "VALUES ('"+ date +"', '"+ start_time +"','"+ end_time +"','"+ employee_email +"','"+ service +"','"+ owner_username +"','"+ customer_firstname+"','"+ customer_lastname+"','"+ customer_contact+"');";
+	          String sql = "INSERT INTO Booking(date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+	                  "VALUES ('"+ date +"', '"+ start_time +"','"+ employee_email +"','"+ service +"','"+ owner_username +"','"+ customer_firstname+"','"+ customer_lastname+"','"+ customer_contact+"');";
 	          stmt.executeUpdate(sql);
 	          c.commit();
         }
@@ -688,9 +687,9 @@ public class DatabaseManager {
 	/**
 	 * Search the database to find if an existing booking has been created in the booking table.
 	 */
-	public boolean searchBooking(String date, String start_time, String end_time, String employee_email, String owner_username){
+	public boolean searchBooking(String date, String start_time, String employee_email, String owner_username){
 		try{
-			   String sql = "select * from Booking where date = '" + date + "' and start_time = '" + start_time + "' and end_time = '" + end_time + "' and employee_email = '" + employee_email + "' and owner_username = '" + owner_username + "'";
+			   String sql = "select * from Booking where date = '" + date + "' and start_time = '" + start_time + "' and employee_email = '" + employee_email + "' and owner_username = '" + owner_username + "'";
 			ResultSet result = stmt.executeQuery(sql);
 			if(result.next()){
 				return true;
@@ -719,6 +718,7 @@ public class DatabaseManager {
 				temp.add(result.getString("owner_username"));
 				temp.add(result.getString("customer_firstname"));
 				temp.add(result.getString("customer_lastname"));
+				temp.add(result.getString("customer_contact"));
 				booking.add(temp);
 			}
             return booking;
@@ -737,20 +737,20 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
 
-          String sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                       "VALUES ('2017-03-07','11:00','11:30','tony@gmail.com','Men Haircut','owner','bruce','Wayne','01234 56789');";
+          String sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                       "VALUES ('2017-03-07','11:00','tony@gmail.com','Men Haircut','owner','Bruce','Wayne','01234 56789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-03-09','15:00','16:00','tony@gmail.com','Hair Colouring','owner','david','Short','0123 456 789');";
+          sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-03-09','15:00','tony@gmail.com','Hair Colouring','owner','David','Short','0123 456 789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-04-08','12:00','13:00','john@gmail.com','Women Haircut','owner','Ran','Lu','0123 456 789');";
+          sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-04-08','12:00','john@gmail.com','Women Haircut','owner','Ran','Lu','0123 456 789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-06-02','15:00','16:00','tony@gmail.com','Women Haircut','owner','david','Short','0123 456 789');";
+          sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-06-02','15:00','tony@gmail.com','Women Haircut','owner','David','Short','0123 456 789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-06-03','17:00','17:30','john@gmail.com','Men Haircut','owner','Ran','Lu','0123 456 789');";
+          sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-06-03','17:00','john@gmail.com','Men Haircut','owner','Ran','Lu','0123 456 789');";
           stmt.executeUpdate(sql);
 
           c.commit();
