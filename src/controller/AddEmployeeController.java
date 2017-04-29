@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import database.DatabaseManager;
 import javafx.fxml.Initializable;
 
-public class EmployeeController implements Initializable{
+public class AddEmployeeController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

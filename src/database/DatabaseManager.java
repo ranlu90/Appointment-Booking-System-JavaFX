@@ -379,6 +379,27 @@ public class DatabaseManager {
 
 
 	/**
+	 * Match user's input email with data in Employee to find employee's first name and last name.
+	 */
+	public ArrayList<String> searchEmployeeFullName(String email){
+		try{
+			ArrayList<String> name = new ArrayList<String>();
+			String check = "select * from Employee where email = '" + email + "'";
+			ResultSet result = stmt.executeQuery(check);
+			if(result.next()){
+				name.add(result.getString("first_name"));
+				name.add(result.getString("last_name"));
+				return name;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return null;
+	}
+
+
+	/**
 	 * Search employee's email by his/her full name.
 	 */
 	public String searchEmployeeEmailByName(String first_name, String last_name){

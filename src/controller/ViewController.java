@@ -232,7 +232,7 @@ public class ViewController{
     public void gotoEmployee()
     {
         try {
-            EmployeeController employee = (EmployeeController) setScene("AddEmployee.fxml");
+            AddEmployeeController employee = (AddEmployeeController) setScene("AddEmployee.fxml");
             employee.initViewController(this);
             employee.initDatabaseManager(databaseManager);
             employee.setUsername(username);
@@ -274,6 +274,7 @@ public class ViewController{
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
+        	booking.populateAll();
         }
         catch(Exception e)
         {
