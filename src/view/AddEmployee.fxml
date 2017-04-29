@@ -92,6 +92,6 @@
       <TextField fx:id="contact" layoutX="413.0" layoutY="87.0" prefHeight="27.0" prefWidth="109.0" promptText="Contact" />
       <TextField fx:id="email" layoutX="171.0" layoutY="87.0" prefHeight="27.0" prefWidth="109.0" promptText="Email" />
       <Text layoutX="82.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select An Existing Employee" />
-      <ComboBox fx:id="employeeList" layoutX="314.0" layoutY="122.0" prefHeight="27.0" prefWidth="135.0" />
+      <ComboBox fx:id="employeeList" layoutX="314.0" layoutY="122.0" onAction="#setText" prefHeight="27.0" prefWidth="135.0" />
    </children>
 </AnchorPane>

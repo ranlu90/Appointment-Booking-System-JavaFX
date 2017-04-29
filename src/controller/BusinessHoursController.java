@@ -19,6 +19,7 @@ public class BusinessHoursController implements Initializable{
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
 	private String user;
+	private boolean check = false;
 
 	@FXML
 	private ComboBox<String> open1,open2,open3,open4,open5,open6,open7,close1,close2,close3,close4,close5,close6,close7;
@@ -74,126 +75,15 @@ public class BusinessHoursController implements Initializable{
 	@FXML
 	private void Confirm() throws ParseException{
 		Alert alert;
-		boolean f = false;
-		SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
-
-		if(open1.getValue() != null && close1.getValue() != null){
-			if(tf.parse(open1.getValue()).compareTo(tf.parse(close1.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Monday", user) == true){
-					databaseManager.updateBusinessHours("Monday", user, open1.getValue(), close1.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Monday", user, open1.getValue(), close1.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-
-		if(open2.getValue() != null && close2.getValue() != null){
-			if(tf.parse(open2.getValue()).compareTo(tf.parse(close2.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Tuesday", user) == true){
-					databaseManager.updateBusinessHours("Tuesday", user, open2.getValue(), close2.getValue());
-
-				}
-				else{
-					databaseManager.setBusinessTime("Tuesday", user, open2.getValue(), close2.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-
-		if(open3.getValue() != null && close3.getValue() != null){
-			if(tf.parse(open3.getValue()).compareTo(tf.parse(close3.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Wednesday", user) == true){
-					databaseManager.updateBusinessHours("Wednesday", user, open3.getValue(), close3.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Wednesday", user, open3.getValue(), close3.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open4.getValue() != null && close4.getValue() != null){
-			if(tf.parse(open4.getValue()).compareTo(tf.parse(close4.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Thursday", user) == true){
-					databaseManager.updateBusinessHours("Thursday", user, open4.getValue(), close4.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Thursday", user, open4.getValue(), close4.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open5.getValue() != null && close5.getValue() != null){
-			if(tf.parse(open5.getValue()).compareTo(tf.parse(close5.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Friday", user) == true){
-					databaseManager.updateBusinessHours("Friday", user, open5.getValue(), close5.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Friday", user, open5.getValue(), close5.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open6.getValue() != null && close6.getValue() != null){
-			if(tf.parse(open6.getValue()).compareTo(tf.parse(close6.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Saturday", user) == true){
-					databaseManager.updateBusinessHours("Saturday", user, open6.getValue(), close6.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Saturday", user, open6.getValue(), close6.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open7.getValue() != null && close7.getValue() != null){
-			if(tf.parse(open7.getValue()).compareTo(tf.parse(close7.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Sunday", user) == true){
-					databaseManager.updateBusinessHours("Sunday", user, open7.getValue(), close7.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Sunday", user, open7.getValue(), close7.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(f == true){
-			alert = new Alert(AlertType.INFORMATION,"New business hours has been successfully updated!");
+		addBusinessHours("Monday",open1.getValue(),close1.getValue());
+		addBusinessHours("Tuesday",open2.getValue(),close2.getValue());
+		addBusinessHours("Wednesday",open3.getValue(),close3.getValue());
+		addBusinessHours("Thursday",open4.getValue(),close4.getValue());
+		addBusinessHours("Friday",open5.getValue(),close5.getValue());
+		addBusinessHours("Saturday",open6.getValue(),close6.getValue());
+		addBusinessHours("Sunday",open7.getValue(),close7.getValue());
+		if(check == true){
+			alert = new Alert(AlertType.INFORMATION,"New business hours has been updated.");
 			alert.showAndWait();
 		}
 		viewController.gotoBusinessMenu();
@@ -203,5 +93,27 @@ public class BusinessHoursController implements Initializable{
 	@FXML
 	private void MainMenu(){
 		viewController.gotoBusinessMenu();
+	}
+
+	public void addBusinessHours(String day, String open_time, String closing_time) throws ParseException{
+		Alert alert;
+		SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
+
+		if(open_time != null && closing_time != null){
+			if(tf.parse(open_time).compareTo(tf.parse(closing_time)) < 0 ){
+				if(databaseManager.searchBusinessHours(day, user) == true){
+					databaseManager.updateBusinessHours(day, user, open_time, closing_time);
+				}
+				else{
+					databaseManager.setBusinessTime(day, user, open_time, closing_time);
+				}
+				check = true;
+			}
+			else{
+				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
+				alert.showAndWait();
+				viewController.gotoBusinessMenu();
+			}
+		}
 	}
 }

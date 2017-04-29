@@ -381,7 +381,7 @@ public class DatabaseManager {
 	/**
 	 * Match user's input email with data in Employee to find employee's first name and last name.
 	 */
-	public ArrayList<String> searchEmployeeFullName(String email){
+	public ArrayList<String> searchOneEmployee(String email){
 		try{
 			ArrayList<String> name = new ArrayList<String>();
 			String check = "select * from Employee where email = '" + email + "'";
@@ -389,6 +389,7 @@ public class DatabaseManager {
 			if(result.next()){
 				name.add(result.getString("first_name"));
 				name.add(result.getString("last_name"));
+				name.add(result.getString("contact_number"));
 				return name;
 			}
 		}

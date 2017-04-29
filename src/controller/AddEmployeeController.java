@@ -20,7 +20,7 @@ public class AddEmployeeController implements Initializable{
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
 	private String user;
-	private boolean f = false;
+	private boolean check = false;
 
 	@FXML
 	private ComboBox<String> employeeList,open1,open2,open3,open4,open5,open6,open7,close1,close2,close3,close4,close5,close6,close7;
@@ -81,16 +81,33 @@ public class AddEmployeeController implements Initializable{
 		if(firstname.getText().trim().isEmpty() == false && lastname.getText().trim().isEmpty() == false &&
 				email.getText().trim().isEmpty() == false && contact.getText().trim().isEmpty() == false){
 			if(databaseManager.searchEmployeeEmail(email.getText()) == false){
-				databaseManager.setEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
-				alert = new Alert(AlertType.INFORMATION,"A new employee's information has been created!");
-				alert.showAndWait();
+				if(firstname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}") && lastname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}") &&
+						email.getText().matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})") && contact.getText().matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
+					databaseManager.setEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
+					alert = new Alert(AlertType.INFORMATION,"A new employee's information has been created!");
+					alert.showAndWait();
+				}
+				else{
+					alert = new Alert(AlertType.ERROR,"First name can only contain letters and one space." + System.lineSeparator()
+							+ "Last name can only contain letters and one space." + System.lineSeparator()
+							+ "Email address format is invalid. " + System.lineSeparator()
+							+ "Contact number can only contain digits, space and + ( ) ");
+					alert.showAndWait();
+				}
 			}
-			if(employeeList.getValue() != null){
-				String[] name = employeeList.getValue().split(" ");
-				String employee_email = databaseManager.searchEmployeeEmailByName(name[0], name[1]);
-			}
-			addTime(email.getText());
+			addTime("Monday", open1.getValue(), close1.getValue(),email.getText());
+			addTime("Tuesday", open2.getValue(), close2.getValue(),email.getText());
+			addTime("Wednesday", open3.getValue(), close3.getValue(),email.getText());
+			addTime("Thursday", open4.getValue(), close4.getValue(),email.getText());
+			addTime("Friday", open5.getValue(), close5.getValue(),email.getText());
+			addTime("Saturday", open6.getValue(), close6.getValue(),email.getText());
+			addTime("Sunday", open7.getValue(), close7.getValue(),email.getText());
 		}
+		if(check == true){
+			alert = new Alert(AlertType.INFORMATION,"New working time has been updated.");
+			alert.showAndWait();
+		}
+		viewController.gotoBusinessMenu();
 	}
 
 
@@ -138,17 +155,16 @@ public class AddEmployeeController implements Initializable{
 	 * working time.
 	 * @param email Employee's email
 	 */
-	public void addTime(String email) throws ParseException{
+	public void addTime(String day, String startTime, String endTime, String email) throws ParseException{
 		Alert alert;
-		boolean f = false;
 		SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
 
-		if(open1.getValue() != null && close1.getValue() != null){
-			if(tf.parse(open1.getValue()).compareTo(tf.parse(close1.getValue())) < 0 ){
-				if(databaseManager.searchWorkingTime("Monday", open1.getValue(), close1.getValue(), email) == false){
-					if(CheckTime("Monday",open1.getValue(),close1.getValue()) == true){
-						databaseManager.setWorkingTime("Monday", open1.getValue(), close1.getValue(),email);
-						f = true;
+		if(startTime != null && endTime != null){
+			if(tf.parse(startTime).compareTo(tf.parse(endTime)) < 0 ){
+				if(databaseManager.searchWorkingTime(day, startTime, endTime, email) == false){
+					if(CheckTime(day,startTime,endTime) == true){
+						databaseManager.setWorkingTime(day, startTime, endTime,email);
+						check = true;
 					}
 					else{
 						alert = new Alert(AlertType.ERROR,"Working time has to been within business hours!");
@@ -168,114 +184,26 @@ public class AddEmployeeController implements Initializable{
 				viewController.gotoBusinessMenu();
 			}
 		}
-
-		if(open2.getValue() != null && close2.getValue() != null){
-			if(tf.parse(open2.getValue()).compareTo(tf.parse(close2.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Tuesday", user) == true){
-					databaseManager.updateBusinessHours("Tuesday", user, open2.getValue(), close2.getValue());
-
-				}
-				else{
-					databaseManager.setBusinessTime("Tuesday", user, open2.getValue(), close2.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-
-		if(open3.getValue() != null && close3.getValue() != null){
-			if(tf.parse(open3.getValue()).compareTo(tf.parse(close3.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Wednesday", user) == true){
-					databaseManager.updateBusinessHours("Wednesday", user, open3.getValue(), close3.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Wednesday", user, open3.getValue(), close3.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open4.getValue() != null && close4.getValue() != null){
-			if(tf.parse(open4.getValue()).compareTo(tf.parse(close4.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Thursday", user) == true){
-					databaseManager.updateBusinessHours("Thursday", user, open4.getValue(), close4.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Thursday", user, open4.getValue(), close4.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open5.getValue() != null && close5.getValue() != null){
-			if(tf.parse(open5.getValue()).compareTo(tf.parse(close5.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Friday", user) == true){
-					databaseManager.updateBusinessHours("Friday", user, open5.getValue(), close5.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Friday", user, open5.getValue(), close5.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open6.getValue() != null && close6.getValue() != null){
-			if(tf.parse(open6.getValue()).compareTo(tf.parse(close6.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Saturday", user) == true){
-					databaseManager.updateBusinessHours("Saturday", user, open6.getValue(), close6.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Saturday", user, open6.getValue(), close6.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(open7.getValue() != null && close7.getValue() != null){
-			if(tf.parse(open7.getValue()).compareTo(tf.parse(close7.getValue())) < 0 ){
-				if(databaseManager.searchBusinessHours("Sunday", user) == true){
-					databaseManager.updateBusinessHours("Sunday", user, open7.getValue(), close7.getValue());
-				}
-				else{
-					databaseManager.setBusinessTime("Sunday", user, open7.getValue(), close7.getValue());
-				}
-				f = true;
-			}
-			else{
-				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
-				alert.showAndWait();
-				viewController.gotoBusinessMenu();
-			}
-		}
-		if(f == true){
-			alert = new Alert(AlertType.INFORMATION,"New working time has been successfully updated!");
-			alert.showAndWait();
-		}
-		viewController.gotoBusinessMenu();
 	}
+
 
 	@FXML
 	private void MainMenu(){
 		viewController.gotoBusinessMenu();
+	}
+
+	@FXML
+	private void setText(){
+		String[] name = employeeList.getValue().split(" ");
+		String employee_email = databaseManager.searchEmployeeEmailByName(name[0], name[1]);
+		ArrayList<String> info = databaseManager.searchOneEmployee(employee_email);
+		firstname.setText(info.get(0));
+		lastname.setText(info.get(1));
+		email.setText(employee_email);
+		contact.setText(info.get(2));
+		firstname.setEditable(false);
+		lastname.setEditable(false);
+		email.setEditable(false);
+		contact.setEditable(false);
 	}
 }

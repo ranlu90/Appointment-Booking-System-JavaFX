@@ -86,7 +86,7 @@ public class ViewNewBookingController implements Initializable{
 		Date currentTime = tf.parse(tf.format(new Date()));
 
 		for(ArrayList<String> temp : allBookings){
-			ArrayList<String> name = databaseManager.searchEmployeeFullName(temp.get(2));
+			ArrayList<String> name = databaseManager.searchOneEmployee(temp.get(2));
 			Booking entity = new Booking();
 			entity.setDate(temp.get(0));										//date
 			entity.setTime(temp.get(1));										//time
