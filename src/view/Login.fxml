@@ -8,29 +8,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="490.0" minWidth="600.0" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <TextField fx:id="username" layoutX="130.0" layoutY="124.0" onAction="#login" prefHeight="30.0" prefWidth="160.0" promptText="Username" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
-      <PasswordField fx:id="password" layoutX="130.0" layoutY="203.0" onAction="#login" prefHeight="30.0" prefWidth="160.0" promptText="Password" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
-      <Button fx:id="login" layoutX="130.0" layoutY="253.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="160.0" text="Login" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
-      <Button fx:id="customerRegister" layoutX="130.0" layoutY="332.0" mnemonicParsing="false" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" text="Customer Register" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
-      <Button fx:id="ownerRegister" layoutX="130.0" layoutY="394.0" mnemonicParsing="false" onAction="#ownerRegister" prefHeight="30.0" prefWidth="160.0" text="Owner Register" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
-      <Text fontSmoothingType="LCD" layoutX="25.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Booking System" textAlignment="CENTER" wrappingWidth="370.79150390625">
+      <TextField fx:id="username" layoutX="220.0" layoutY="124.0" onAction="#login" prefHeight="30.0" prefWidth="160.0" promptText="Username" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" />
+      <PasswordField fx:id="password" layoutX="130.0" layoutY="203.0" onAction="#login" prefHeight="30.0" prefWidth="160.0" promptText="Password" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" />
+      <Button fx:id="login" layoutX="130.0" layoutY="253.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="160.0" text="Login" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" />
+      <Button fx:id="customerRegister" layoutX="130.0" layoutY="332.0" mnemonicParsing="false" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" text="Customer Register" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" />
+      <Button fx:id="ownerRegister" layoutX="130.0" layoutY="394.0" mnemonicParsing="false" onAction="#ownerRegister" prefHeight="30.0" prefWidth="160.0" text="Owner Register" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" />
+      <Text fontSmoothingType="LCD" layoutX="115.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Booking System" textAlignment="CENTER" wrappingWidth="370.79150390625" AnchorPane.leftAnchor="115.0">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <Line endX="230.0" layoutX="150.0" layoutY="77.0" startX="-100.0" stroke="#c2c2c2" />
-      <Line endX="230.0" layoutX="145.0" layoutY="308.0" startX="-100.0" stroke="#c2c2c2" />
-      <Text fontSmoothingType="LCD" layoutX="130.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Line endX="230.0" layoutX="235.0" layoutY="77.0" startX="-100.0" stroke="#c2c2c2" />
+      <Text fontSmoothingType="LCD" layoutX="145.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" AnchorPane.leftAnchor="220.0">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Text>
-      <Text fontSmoothingType="LCD" layoutX="130.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text fontSmoothingType="LCD" layoutX="130.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" AnchorPane.leftAnchor="220.0">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Text>
+      <Line endX="230.0" layoutX="235.0" layoutY="308.0" startX="-100.0" stroke="#c2c2c2" />
    </children>
 </AnchorPane>
