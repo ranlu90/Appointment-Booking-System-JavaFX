@@ -331,6 +331,7 @@ public class ViewController{
         	employee.initViewController(this);
         	employee.initDatabaseManager(databaseManager);
         	employee.setUsername(username);
+        	employee.populateTable();
         }
         catch(Exception e)
         {
