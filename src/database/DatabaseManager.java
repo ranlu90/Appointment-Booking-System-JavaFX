@@ -626,7 +626,7 @@ public class DatabaseManager {
                     "VALUES ('Monday', '13:00', '15:00', 'tony@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
-            		"VALUES ('Tuesday', '9:00', '11:00', 'john@gmail.com');";
+            		"VALUES ('Tuesday', '10:00', '12:00', 'john@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
             		"VALUES ('Tuesday', '13:00', '15:00', 'john@gmail.com');";
@@ -654,12 +654,11 @@ public class DatabaseManager {
                        " owner_username		TEXT	NOT NULL, " +
                        " customer_firstname	TEXT	NOT NULL, " +
                        " customer_lastname	TEXT	NOT NULL, " +
+                       " customer_contact	TEXT	NOT NULL, " +
                        "PRIMARY KEY(date,start_time,end_time,employee_email,owner_username)," +
                        "FOREIGN KEY(employee_email) REFERENCES Employee(email)," +
                        "FOREIGN KEY(service) REFERENCES Service(name)," +
-                       "FOREIGN KEY(owner_username) REFERENCES Business(username)," +
-                       "FOREIGN KEY(customer_firstname)	REFERENCES CustomerInfo(first_name)," +
-                       "FOREIGN KEY(customer_lastname)	REFERENCES CustomerInfo(last_name))";
+                       "FOREIGN KEY(owner_username) REFERENCES Business(username))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -671,11 +670,11 @@ public class DatabaseManager {
      * Create a new booking entity in booking table.
      */
     public void setBooking(String date, String start_time, String end_time, String employee_email,
-    		String service, String owner_username, String customer_firstname, String customer_lastname){
+    		String service, String owner_username, String customer_firstname, String customer_lastname, String customer_contact){
         try {
 	          c.setAutoCommit(false);
-	          String sql = "INSERT INTO Booking(date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-	                  "VALUES ('"+ date +"', '"+ start_time +"','"+ end_time +"','"+ employee_email +"','"+ service +"','"+ owner_username +"','"+ customer_firstname+"','"+ customer_lastname+"');";
+	          String sql = "INSERT INTO Booking(date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+	                  "VALUES ('"+ date +"', '"+ start_time +"','"+ end_time +"','"+ employee_email +"','"+ service +"','"+ owner_username +"','"+ customer_firstname+"','"+ customer_lastname+"','"+ customer_contact+"');";
 	          stmt.executeUpdate(sql);
 	          c.commit();
         }
@@ -738,20 +737,20 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
 
-          String sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                       "VALUES ('2017-03-07','11:00','11:30','tony@gmail.com','Men Haircut','owner','bruce','Wayne');";
+          String sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                       "VALUES ('2017-03-07','11:00','11:30','tony@gmail.com','Men Haircut','owner','bruce','Wayne','01234 56789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('2017-03-09','15:00','16:00','tony@gmail.com','Hair Colouring','owner','david','Short');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-03-09','15:00','16:00','tony@gmail.com','Hair Colouring','owner','david','Short','0123 456 789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('2017-04-08','12:00','13:00','john@gmail.com','Women Haircut','owner','Ran','Lu');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-04-08','12:00','13:00','john@gmail.com','Women Haircut','owner','Ran','Lu','0123 456 789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('2017-06-02','15:00','16:00','tony@gmail.com','Women Haircut','owner','david','Short');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-06-02','15:00','16:00','tony@gmail.com','Women Haircut','owner','david','Short','0123 456 789');";
           stmt.executeUpdate(sql);
-          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname) " +
-                  "VALUES ('2017-06-03','17:00','17:30','john@gmail.com','Men Haircut','owner','Ran','Lu');";
+          sql = "INSERT INTO Booking (date,start_time,end_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-06-03','17:00','17:30','john@gmail.com','Men Haircut','owner','Ran','Lu','0123 456 789');";
           stmt.executeUpdate(sql);
 
           c.commit();

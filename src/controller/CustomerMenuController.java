@@ -1,12 +1,13 @@
 package controller;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
 import database.DatabaseManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class CustomerMenuController implements Initializable{
 
@@ -15,7 +16,7 @@ public class CustomerMenuController implements Initializable{
 	private	String user;
 
 	@FXML
-	private TextField welcomeMessage;
+	private Text welcomeMessage;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

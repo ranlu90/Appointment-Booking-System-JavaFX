@@ -1,9 +1,10 @@
 package controller;
 
 import java.net.URL;
-
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import database.DatabaseManager;
 import javafx.fxml.FXML;
@@ -25,7 +26,7 @@ public class CreateBookingController implements Initializable{
 	ComboBox<String> employee,service,hour,minute;
 
 	@FXML
-	TextField firstname, lastname;
+	TextField firstname, lastname, contactNumber;
 
 	@FXML
 	Button confirm, mainMenu;
@@ -113,16 +114,19 @@ public class CreateBookingController implements Initializable{
 	 * 2. Check if a same booking already exists.
 	 * 3. Check if the employee is available at that time.
 	 * If the employee works on one day but doesn't have time(already have customer's booking), inform owner the message.
+	 * If the employee works on one day but doesn't work at that time, inform owner the message.
+	 * @throws ParseException
 	 */
 	@FXML
-	private void Confirm(){
+	private void Confirm() throws ParseException{
 		Alert alert;
 		if(employee.getValue() != null && service.getValue() != null && date.getValue() != null &&
-				hour.getValue() != null && minute.getValue() != null &&
-				firstname.getText().trim().isEmpty() == false && lastname.getText().trim().isEmpty() == false){
+				hour.getValue() != null && minute.getValue() != null && firstname.getText().trim().isEmpty() == false &&
+				lastname.getText().trim().isEmpty() == false && contactNumber.getText().trim().isEmpty() == false){
 
 		ArrayList<String> dayList = new ArrayList<String>();
 		String workingDay = "";
+		String timeMessage = "";		//show employee's working time
 		boolean dayCheck = false;		//check if the day matches employee's working day
 
 		//add duration of the service to the start time of booking and create a new end time
@@ -136,8 +140,8 @@ public class CreateBookingController implements Initializable{
 		//split employee's full name by whitespace and check his email in the database by firstname and lastname
 		String[] name = employee.getValue().split(" ");
 		String employee_email = databaseManager.searchEmployeeEmailByName(name[0], name[1]);
-
 		ArrayList<ArrayList<String>> workingTime = databaseManager.getWorkingTime(employee_email);
+
 
 		for(ArrayList<String> temp : workingTime){
 			dayList.add(temp.get(0));
@@ -150,8 +154,7 @@ public class CreateBookingController implements Initializable{
 		}
 
 			if(dayCheck == false){			//The employee doesn't work on the selected day.
-				ArrayList<ArrayList<String>> temp1 = databaseManager.getWorkingTime(employee_email);	//select working time by email
-				for(ArrayList<String> t : temp1){
+				for(ArrayList<String> t : workingTime){
 					workingDay += t.get(0) + " ";
 				}
 				alert = new Alert(AlertType.ERROR,"The employee only works on " + workingDay + "!");
@@ -162,9 +165,16 @@ public class CreateBookingController implements Initializable{
 				alert = new Alert(AlertType.ERROR,"The same booking already exists!");
 				alert.showAndWait();
 			}
+			else if(CheckEmployeeWorkingTime(employee_email,date.getValue().toString(), start_time, end_time, date.getValue().getDayOfWeek().toString()) == false){
+				for(ArrayList<String> t : workingTime){
+					timeMessage += t.get(0) + " " + t.get(1) + "-" + t.get(2) + " ";
+				}
+				alert = new Alert(AlertType.ERROR,"The employee's working time is " + timeMessage + "Please select a different time.");
+				alert.showAndWait();
+			}
 
 			else{
-				databaseManager.setBooking(date.getValue().toString(), start_time, end_time, employee_email, service.getValue(), user, firstname.getText(),lastname.getText());
+				databaseManager.setBooking(date.getValue().toString(), start_time, end_time, employee_email, service.getValue(), user, firstname.getText(),lastname.getText(),contactNumber.getText());
 				alert = new Alert(AlertType.INFORMATION,"A new booking has been successfully created!");
 				alert.showAndWait();
 				viewController.gotoBusinessMenu();
@@ -180,5 +190,26 @@ public class CreateBookingController implements Initializable{
 	@FXML
 	private void MainMenu(){
 		viewController.gotoBusinessMenu();
+	}
+
+	/**
+	 * Check if the employee works on the day, then check if he/she already got a booking at the same time.
+	 * @return true if the employee is available at that time.
+	 * @throws ParseException
+	 */
+	public boolean CheckEmployeeWorkingTime(String email, String date, String startTime, String endTime, String day) throws ParseException{
+		ArrayList<ArrayList<String>> workingTime = databaseManager.getWorkingTime(email);
+		SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
+
+		for(ArrayList<String> temp:workingTime){
+			if(temp.get(0).compareToIgnoreCase(day) == 0){
+				Date start = tf.parse(temp.get(1));
+				Date end = tf.parse(temp.get(2));
+				if(tf.parse(startTime).compareTo(start) < 0 || tf.parse(endTime).compareTo(end) > 0){
+					return true; 					//the chosen booking time is not in employee's working time
+				}
+			}
+		}
+		return true;
 	}
 }
