@@ -61,7 +61,9 @@ public class BookingAvailabilityController implements Initializable{
 	@SuppressWarnings("unchecked")
 	@FXML
 	private void pupulateBusinessHours(){
-
+		if(name.getText().trim().isEmpty() == false){
+			businessTimeTable.getColumns().clear();
+		}
 		dayColumn = new TableColumn<BusinessOwner,String>("Day");
 		dayColumn.setMinWidth(90);
 		dayColumn.setCellValueFactory(new PropertyValueFactory<>("day"));
