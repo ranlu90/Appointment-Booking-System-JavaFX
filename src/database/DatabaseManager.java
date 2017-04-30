@@ -94,7 +94,7 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne, Victoria 3000', '(03) 9654 9444', 'owner', 'owner');";
+                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne 3000', '(03) 9654 9444', 'owner', 'owner');";
           stmt.executeUpdate(sql);
 
           c.commit();
@@ -104,6 +104,53 @@ public class DatabaseManager {
           System.exit(0);
         }
     }
+
+
+	/**
+	 * Get all business owners in the database.
+	 */
+	public ArrayList<ArrayList<String>> getAllBusiness(){
+        try {
+			ArrayList<ArrayList<String>> business = new ArrayList<ArrayList<String>>();
+			String sql = "select * from Business";
+			ResultSet result = stmt.executeQuery(sql);
+			while(result.next()){
+				ArrayList<String> temp = new ArrayList<String>();
+				temp.add(result.getString("business_name"));
+				temp.add(result.getString("address"));
+				temp.add(result.getString("phone"));
+				business.add(temp);
+			}
+            return business;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
+	}
+
+
+	/**
+	 * Get one business owner when the customer select a business name.
+	 */
+	public ArrayList<String> getOneBusiness(String business_name){
+        try {
+			ArrayList<String> business = new ArrayList<String>();
+			String sql = "select * from Business where business_name = '"+business_name+"'";
+			ResultSet result = stmt.executeQuery(sql);
+			while(result.next()){
+				business.add(result.getString("business_name"));
+				business.add(result.getString("address"));
+				business.add(result.getString("phone"));
+				business.add(result.getString("username"));
+			}
+            return business;
+          } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+          }
+        return null;
+	}
 
 
     /**

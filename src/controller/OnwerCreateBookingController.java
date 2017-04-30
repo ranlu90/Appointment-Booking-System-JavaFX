@@ -17,7 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class CreateBookingController implements Initializable{
+public class OnwerCreateBookingController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

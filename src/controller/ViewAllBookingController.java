@@ -14,7 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ViewBookingController implements Initializable{
+public class ViewAllBookingController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="490.0" maxWidth="600.0" minHeight="490.0" minWidth="600.0" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateBookingController">
+<AnchorPane maxHeight="490.0" maxWidth="600.0" minHeight="490.0" minWidth="600.0" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OnwerCreateBookingController">
    <children>
       <Text fontSmoothingType="LCD" layoutX="206.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create A Booking">
          <font>

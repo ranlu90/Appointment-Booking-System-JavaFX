@@ -270,7 +270,7 @@ public class ViewController{
     public void gotoAllBookings()
     {
         try {
-        	ViewBookingController booking = (ViewBookingController) setScene("ViewAllBookings.fxml");
+        	ViewAllBookingController booking = (ViewAllBookingController) setScene("ViewAllBookings.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
@@ -308,7 +308,7 @@ public class ViewController{
     public void gotoOwnerCreateBooking()
     {
         try {
-        	CreateBookingController booking = (CreateBookingController) setScene("OwnerCreateBooking.fxml");
+        	OnwerCreateBookingController booking = (OnwerCreateBookingController) setScene("OwnerCreateBooking.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
@@ -367,6 +367,7 @@ public class ViewController{
         	BookingAvailabilityController booking = (BookingAvailabilityController) setScene("ViewBookingAvailability.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
+        	booking.initOwnerList();
         }
         catch(Exception e)
         {

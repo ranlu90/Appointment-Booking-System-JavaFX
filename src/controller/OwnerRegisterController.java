@@ -7,7 +7,9 @@ import database.DatabaseManager;
 import javafx.fxml.Initializable;
 
 public class OwnerRegisterController implements Initializable{
+	@SuppressWarnings("unused")
 	private ViewController viewController;
+	@SuppressWarnings("unused")
 	private DatabaseManager databaseManager;
 
 	@Override
