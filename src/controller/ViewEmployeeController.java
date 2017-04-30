@@ -55,7 +55,7 @@ public class ViewEmployeeController implements Initializable{
 		lastnameColumn.setCellValueFactory(new PropertyValueFactory<>("lastname"));
 
 		emailColumn = new TableColumn<Employee,String>("Email");
-		emailColumn.setMinWidth(120);
+		emailColumn.setMinWidth(100);
 		emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
 		contactColumn = new TableColumn<Employee,String>("Contact");

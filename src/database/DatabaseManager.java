@@ -90,7 +90,7 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547','daguido','daguido' );";
+                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547','owner1','owner1' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
@@ -469,15 +469,19 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
-                       "VALUES ('tony', 'wu', 'owner', 'tony@gmail.com', '0412 345 678' );";
+                       "VALUES ('Smith', 'Jo', 'owner', 'Smith@gmail.com', '03 9654 9444' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
-                  "VALUES ('john', 'frank', 'owner', 'john@gmail.com', '0412 345 678' );";
+                  "VALUES ('Andrew', 'Dion', 'owner', 'Andrew@gmail.com', '0123 456 789' );";
+          stmt.executeUpdate(sql);
+
+
+          sql = "INSERT INTO Employee (first_name,last_name,owner_username,email,contact_number) " +
+                  "VALUES ('Giuseppe', 'Verdi', 'owner1', 'Giuseppe@gmail.com', '(+61) 03 8528 4547' );";
           stmt.executeUpdate(sql);
 
           c.commit();
-
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -591,22 +595,55 @@ public class DatabaseManager {
     public void insertInitialEntitiesForBusinessHours(){
         try {
             c.setAutoCommit(false);
+
+            //entities for Toni&Guy
             String sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
-                         "VALUES ('Monday', 'owner', '9:00', '17:00' );";
+                         "VALUES ('Monday', 'owner', '9:00', '18:30' );";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
-                    "VALUES ('Tuesday', 'owner', '10:00', '17:00' );";
+                    "VALUES ('Tuesday', 'owner', '9:00', '18:30' );";
             stmt.executeUpdate(sql);
        		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
-               "VALUES ('Friday', 'owner', '10:00', '17:00' );";
+               "VALUES ('Wednesday', 'owner', '10:00', '20:00' );";
        		stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Thursday', 'owner', '10:00', '21:00' );";
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                            "VALUES ('Friday', 'owner', '10:00', '21:00' );";
+            stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Saturday', 'owner', '9:30', '17:30' );";
+            stmt.executeUpdate(sql);
 
+            //entities for Da Guido Melbourne la Pasta
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Monday', 'owner1', '18:00', '22:00' );";
+            stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Tuesday', 'owner1', '18:00', '22:00' );";
+            stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Wednesday', 'owner1', '18:00', '22:00' );";
+            stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Thursday', 'owner1', '18:00', '22:00' );";
+            stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Friday', 'owner1', '18:00', '22:00' );";
+            stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Saturday', 'owner1', '18:00', '22:00' );";
+            stmt.executeUpdate(sql);
+       		sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
+                    "VALUES ('Sunday', 'owner1', '18:00', '22:00' );";
+            stmt.executeUpdate(sql);
             c.commit();
-
-          } catch ( Exception e ) {
+        }
+        catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
-          }
+        }
     }
 
     /**
@@ -695,18 +732,21 @@ public class DatabaseManager {
         try {
             c.setAutoCommit(false);
             String sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
-                         "VALUES ('Monday', '9:00', '11:00', 'tony@gmail.com');";
+                         "VALUES ('Monday', '9:00', '11:00', 'Smith@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
-                    "VALUES ('Monday', '13:00', '15:00', 'tony@gmail.com');";
+                    "VALUES ('Monday', '13:00', '15:00', 'Smith@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
-            		"VALUES ('Tuesday', '10:00', '12:00', 'john@gmail.com');";
+            		"VALUES ('Tuesday', '10:00', '12:00', 'Andrew@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
-            		"VALUES ('Tuesday', '13:00', '15:00', 'john@gmail.com');";
+            		"VALUES ('Tuesday', '13:00', '15:00', 'Andrew@gmail.com');";
             stmt.executeUpdate(sql);
 
+            sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
+            		"VALUES ('Wednesday', '19:00', '22:00', 'Giuseppe@gmail.com');";
+            stmt.executeUpdate(sql);
             c.commit();
           } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -836,21 +876,28 @@ public class DatabaseManager {
           c.setAutoCommit(false);
 
           String sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                       "VALUES ('2017-03-07','11:00','tony@gmail.com','Men Haircut','owner','Bruce','Wayne','01234 56789');";
+                       "VALUES ('2017-03-06','11:00','Smith@gmail.com','Men Haircut','owner','Bruce','Wayne','01234 56789');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-03-09','15:00','tony@gmail.com','Hair Colouring','owner','David','Short','0123 456 789');";
+                  "VALUES ('2017-03-13','15:00','Smith@gmail.com','Hair Colouring','owner','David','Short','0123 456 789');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-04-08','12:00','john@gmail.com','Women Haircut','owner','Ran','Lu','0123 456 789');";
+                  "VALUES ('2017-04-18','12:00','Andrew@gmail.com','Women Haircut','owner','Ran','Lu','0123 456 789');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-06-02','15:00','tony@gmail.com','Women Haircut','owner','David','Short','0123 456 789');";
+                  "VALUES ('2017-06-05','15:00','Smith@gmail.com','Women Haircut','owner','David','Short','0123 456 789');";
           stmt.executeUpdate(sql);
           sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
-                  "VALUES ('2017-06-03','17:00','john@gmail.com','Men Haircut','owner','Ran','Lu','0123 456 789');";
+                  "VALUES ('2017-06-06','17:00','Andrew@gmail.com','Men Haircut','owner','Ran','Lu','0123 456 789');";
           stmt.executeUpdate(sql);
 
+          //booking for owner 1
+          sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-04-11','20:00','Giuseppe@gmail.com','Dinner','owner1','Ran','Lu','0123 456 789');";
+          stmt.executeUpdate(sql);
+          sql = "INSERT INTO Booking (date,start_time,employee_email,service,owner_username,customer_firstname,customer_lastname,customer_contact) " +
+                  "VALUES ('2017-06-07','20:00','Giuseppe@gmail.com','Dinner','owner1','Ran','Lu','0123 456 789');";
+          stmt.executeUpdate(sql);
           c.commit();
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -929,6 +976,10 @@ public class DatabaseManager {
        	 	sql = "INSERT INTO Service (name,duration,owner_username,description) " +
                "VALUES ('Hair Colouring','60','owner','The duration is 60 minutes, all employee can provide this service.');";
        		stmt.executeUpdate(sql);
+
+       	 	sql = "INSERT INTO Service (name,duration,owner_username,description) " +
+                    "VALUES ('Dinner','30','owner1','Dinner need to be reserved on day earlier.');";
+            stmt.executeUpdate(sql);
 
             c.commit();
           } catch ( Exception e ) {
