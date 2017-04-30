@@ -3,6 +3,7 @@ package businessController;
 import java.net.URL;
 
 
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,11 +14,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import systemController.ViewController;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
+/**
+ * Owner creates bookings for one customer.
+ * @author ranlu
+ *
+ */
 public class OwnerCreateBookingController implements Initializable{
 
 	private ViewController viewController;
@@ -30,8 +35,7 @@ public class OwnerCreateBookingController implements Initializable{
 	@FXML
 	TextField firstname, lastname, contactNumber;
 
-	@FXML
-	Button confirm, mainMenu;
+
 
 	@FXML
 	DatePicker date;

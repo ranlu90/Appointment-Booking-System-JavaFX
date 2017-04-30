@@ -15,6 +15,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import systemController.ViewController;
 
+/**
+ * Create or update business hours for one business owner.
+ * @author ranlu
+ *
+ */
 public class OwnerBusinessHoursController implements Initializable{
 
 	private ViewController viewController;

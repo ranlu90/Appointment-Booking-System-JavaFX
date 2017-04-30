@@ -16,6 +16,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import systemController.ViewController;
 
+/**
+ * Add employee for one business owner.
+ * @author ranlu
+ *
+ */
 public class OwnerAddEmployeeController implements Initializable{
 
 	private ViewController viewController;

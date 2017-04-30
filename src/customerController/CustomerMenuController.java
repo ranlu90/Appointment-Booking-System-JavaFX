@@ -10,6 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 import systemController.ViewController;
 
+/**
+ * Customer menu.
+ * @author ranlu
+ *
+ */
 public class CustomerMenuController implements Initializable{
 
 	private ViewController viewController;

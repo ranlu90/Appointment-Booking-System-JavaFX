@@ -20,6 +20,11 @@ import systemController.ViewController;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 
+/**
+ * Customer creates a booking for a specific business owner.
+ * @author ranlu
+ *
+ */
 public class CustomerCreateBookingController implements Initializable{
 
 	private ViewController viewController;

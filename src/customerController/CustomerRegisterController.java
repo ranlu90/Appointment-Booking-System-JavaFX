@@ -1,6 +1,7 @@
 package customerController;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
 import database.DatabaseManager;
@@ -9,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import systemController.ViewController;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -22,8 +22,7 @@ public class CustomerRegisterController implements Initializable{
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
 
-    @FXML
-    private Button login, customerRegister;
+
     @FXML
     private TextField firstname,lastname,address,contactNumber,username;
     @FXML

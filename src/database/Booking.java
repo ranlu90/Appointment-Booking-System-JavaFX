@@ -1,5 +1,10 @@
 package database;
 
+/**
+ * A new booking entity. It isn't related to database, but used for table view in GUI.
+ * @author ranlu
+ *
+ */
 public class Booking {
 	private String date;
 	private String time;

@@ -1,0 +1,589 @@
+Ran Lu archived test report 样板6 minutes ago
+RLRan Lu moved test report from Product Backlog to Supporting Documents6 minutes ago
+YD
+Yang Ding attached test document.docx to test report  
+4 hours ago
+YDYang Ding added test report to Product Backlog4 hours ago
+RL
+Ran Lu attached Part1 Test cases documentation.pdf to test report 样板  
+6 hours ago
+RLRan Lu added test report 样板 to Product Backlog6 hours ago
+RLRan Lu joined Build GUI using Scene Builder6 hours ago
+RLRan Lu left Build GUI using Scene Builder6 hours ago
+RLRan Lu joined An Employee can be added and their days/times be added or updated later6 hours ago
+RL
+Ran Lu attached part1.zip to Back up for BusinessController and CustomerController (Part 1)  
+11 hours ago
+RLRan Lu added Back up for BusinessController and CustomerController (Part 1) to Supporting Documents11 hours ago
+RLRan Lu removed Yang Ding from Sprint Planning Meeting 27/04/2017yesterday at 13:46
+RL
+Ran Lu attached week8-1.docx to Sprint Meeting 28/04/2017  
+yesterday at 13:46
+RLRan Lu deleted the week8-1.docx attachment from Sprint Meeting 28/04/2017yesterday at 13:45
+RL
+Ran Lu attached week8-1.docx to Sprint Meeting 28/04/2017  
+yesterday at 13:45
+RL
+Ran Lu attached week7-2.docx to Sprint Planning Meeting 27/04/2017  
+yesterday at 13:41
+RLRan Lu joined A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is availableyesterday at 13:37
+RLRan Lu joined Sprint Meeting 28/04/2017yesterday at 13:36
+RLRan Lu added Ziqi Liu to Sprint Meeting 28/04/2017yesterday at 13:36
+RLRan Lu added Sprint Meeting 28/04/2017 to Sprint 8yesterday at 13:36
+RLRan Lu moved A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available from Sprint Backlog (on weekly basis) to Sprint 8yesterday at 13:36
+RLRan Lu moved An Employee can be added and their days/times be added or updated later from Sprint Backlog (on weekly basis) to Sprint 8yesterday at 13:36
+RLRan Lu moved The Business Owner OR a configuration file/database can be used to define activities that take different times from Sprint 7 (completed) to Sprint 8yesterday at 13:36
+RLRan Lu moved The Business Owner OR a configuration file/database can be used to define activities that take different times from Sprint Backlog (on weekly basis) to Sprint 7 (completed)yesterday at 13:36
+RLRan Lu joined The Business Owner OR a configuration file/database can be used to define activities that take different timesyesterday at 13:36
+RLRan Lu added Sprint 8 to this board27 Apr at 15:00
+RL
+Ran Lu attached week7-1.docx to Sprint Planning Meeting 21/04/2017  
+27 Apr at 14:58
+RLRan Lu moved A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available from Product Backlog to Sprint Backlog (on weekly basis)27 Apr at 14:56
+RLRan Lu moved An Employee can be added and their days/times be added or updated later from Product Backlog to Sprint Backlog (on weekly basis)27 Apr at 14:56
+RLRan Lu moved The Business Owner OR a configuration file/database can be used to define activities that take different times from Product Backlog to Sprint Backlog (on weekly basis)27 Apr at 14:56
+RLRan Lu removed Ziqi Liu from Employees and their days/times can also be loaded from a configuration file or database27 Apr at 14:56
+RLRan Lu added Yang Ding to Employees and their days/times can also be loaded from a configuration file or database27 Apr at 14:56
+RLRan Lu added Ziqi Liu to Employees and their days/times can also be loaded from a configuration file or database27 Apr at 14:56
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 27/04/201727 Apr at 14:49
+RLRan Lu added Yang Ding to Sprint Planning Meeting 27/04/201727 Apr at 14:49
+RLRan Lu joined Sprint Planning Meeting 27/04/201727 Apr at 14:49
+RLRan Lu added Sprint Planning Meeting 27/04/2017 to Sprint 727 Apr at 14:48
+RLRan Lu moved A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available from Sprint 7 to Product Backlog27 Apr at 14:47
+RLRan Lu added Ziqi Liu to A Customer must be able to create a booking; a Business Owner should be able to create a Booking for a Customer27 Apr at 14:47
+RLRan Lu joined Build GUI using Scene Builder27 Apr at 14:47
+RLRan Lu added How to build a GUI to Supporting Documents21 Apr at 12:46
+YDYang Ding joined User Stories - make a booking20 Apr at 19:38
+YD
+Yang Ding attached make_a_booking.docx to User Stories - make a booking  
+20 Apr at 19:37
+YDYang Ding added User Stories - make a booking to Sprint 720 Apr at 19:37
+ZLZiqi Liu joined mock up - make a booking20 Apr at 12:43
+ZL
+Ziqi Liu attached booking.PNG to mock up - make a booking 
+20 Apr at 12:43
+ZLZiqi Liu moved mock up - make a booking from Sprint Backlog (on weekly basis) to Sprint 720 Apr at 12:43
+ZLZiqi Liu added mock up - make a booking to Sprint Backlog (on weekly basis)20 Apr at 12:43
+ZLZiqi Liu archived mock up - make a booking20 Apr at 12:42
+ZLZiqi Liu moved mock up - make a booking from Sprint 7 to Sprint Backlog (on weekly basis)20 Apr at 12:42
+ZLZiqi Liu added mock up - make a booking to Sprint 720 Apr at 12:39
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 21/04/201720 Apr at 12:29
+RLRan Lu added Yang Ding to Sprint Planning Meeting 21/04/201720 Apr at 12:29
+RLRan Lu joined Sprint Planning Meeting 21/04/201720 Apr at 12:29
+RLRan Lu moved A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available from Product Backlog to Sprint 720 Apr at 11:56
+RLRan Lu moved A Customer must be able to create a booking; a Business Owner should be able to create a Booking for a Customer from Product Backlog to Sprint 720 Apr at 11:56
+RLRan Lu moved An Employee can be added and their days/times be added or updated later from Sprint 7 to Product Backlog20 Apr at 11:56
+RLRan Lu moved Employees and their days/times can also be loaded from a configuration file or database from Product Backlog to Sprint 720 Apr at 11:55
+RLRan Lu moved An Employee can be added and their days/times be added or updated later from Product Backlog to Sprint 720 Apr at 11:54
+RLRan Lu left Build GUI using Scene Builder20 Apr at 11:54
+RLRan Lu moved Build GUI using Scene Builder from Product Backlog to Sprint 720 Apr at 11:54
+RLRan Lu joined Build GUI using Scene Builder20 Apr at 11:54
+RLRan Lu added Sprint Planning Meeting 21/04/2017 to Sprint 720 Apr at 11:53
+RLRan Lu added Sprint 7 to this board20 Apr at 11:52
+RLRan Lu added Build GUI using Scene Builder to Product Backlog20 Apr at 11:52
+RLRan Lu added A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available to Product Backlog20 Apr at 11:52
+RLRan Lu added A Customer must be able to create a booking; a Business Owner should be able to create a Booking for a Customer to Product Backlog20 Apr at 11:52
+RLRan Lu added The Business Owner OR a configuration file/database can be used to define activities that take different times to Product Backlog20 Apr at 11:50
+RLRan Lu added Employees and their days/times can also be loaded from a configuration file or database to Product Backlog20 Apr at 11:50
+RLRan Lu added An Employee can be added and their days/times be added or updated later to Product Backlog20 Apr at 11:50
+RL
+Ran Lu attached owner customer employee.zip to Object classes for owner, customer and employee  
+7 Apr at 21:11
+RLRan Lu added Object classes for owner, customer and employee to Supporting Documents7 Apr at 21:11
+RL
+Ran Lu attached week6.docx to Sprint Planning Meeting 07/04/2017  
+7 Apr at 21:02
+RL
+Ran Lu attached week5-2.docx to Sprint Planning Meeting 06/04/2017  
+7 Apr at 20:50
+RLRan Lu deleted the week5-2.docx attachment from Sprint Planning Meeting 06/04/20177 Apr at 20:50
+RLRan Lu moved view new bookings from Sprint Backlog (on weekly basis) to Sprint 6 (completed)7 Apr at 20:47
+RLRan Lu moved view the summaries of bookings from Sprint Backlog (on weekly basis) to Sprint 6 (completed)7 Apr at 20:47
+RLRan Lu added Ziqi Liu to view new bookings7 Apr at 20:47
+RLRan Lu added Yang Ding to view the summaries of bookings7 Apr at 20:47
+RLRan Lu removed Yang Ding from Sprint Planning Meeting 07/04/20177 Apr at 13:21
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 07/04/20177 Apr at 10:43
+RLRan Lu added Yang Ding to Sprint Planning Meeting 07/04/20177 Apr at 10:43
+RLRan Lu joined Sprint Planning Meeting 07/04/20177 Apr at 10:43
+RLRan Lu added Sprint Planning Meeting 07/04/2017 to Sprint 67 Apr at 10:43
+RLRan Lu moved show all workers’ availability for the next 7 days from Sprint 5 (completed) to Sprint 67 Apr at 10:43
+RLRan Lu moved view available days/time but not yet book a slot from Sprint 5 (completed) to Sprint 67 Apr at 10:43
+RLRan Lu added Sprint 6 to this board7 Apr at 10:43
+RLRan Lu moved view available days/time but not yet book a slot from Sprint Backlog (on weekly basis) to Sprint 5 (completed)7 Apr at 10:42
+RLRan Lu joined view available days/time but not yet book a slot7 Apr at 10:42
+RL
+Ran Lu attached week5-2.docx to Sprint Planning Meeting 06/04/2017  
+6 Apr at 19:58
+RL
+Ran Lu attached week5-1.docx to Sprint Planning Meeting 31/03/2017  
+6 Apr at 19:53
+RLRan Lu moved show all workers’ availability for the next 7 days from Sprint Backlog (on weekly basis) to Sprint 5 (completed)6 Apr at 19:47
+RLRan Lu moved view available days/time but not yet book a slot from Product Backlog to Sprint Backlog (on weekly basis)6 Apr at 19:47
+RLRan Lu moved mock up - view available days/time from Product Backlog to Sprint 5 (completed)6 Apr at 19:47
+RLRan Lu moved User Stories - customer view available days/time from Product Backlog to Sprint 5 (completed)6 Apr at 19:47
+RLRan Lu archived Functions Clarification6 Apr at 19:46
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 06/04/20176 Apr at 19:46
+RLRan Lu added Yang Ding to Sprint Planning Meeting 06/04/20176 Apr at 19:46
+RLRan Lu joined Sprint Planning Meeting 06/04/20176 Apr at 19:46
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 31/03/20176 Apr at 19:46
+RLRan Lu added Yang Ding to Sprint Planning Meeting 31/03/20176 Apr at 19:46
+RLRan Lu joined Sprint Planning Meeting 31/03/20176 Apr at 19:46
+RLRan Lu added Sprint Planning Meeting 06/04/2017 to Sprint 5 (completed)6 Apr at 19:46
+RLRan Lu added Sprint Planning Meeting 31/03/2017 to Sprint 5 (completed)6 Apr at 19:45
+RLRan Lu moved add working time/dates for the next month from Sprint 4 (completed) to Sprint 56 Apr at 19:44
+ZLZiqi Liu changed the background of this board31 Mar at 12:55
+RLRan Lu added Functions Clarification to Sprint Backlog (on weekly basis)31 Mar at 01:33
+RLRan Lu moved mock up - show all workers' availability for the next 7 days from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 23:31
+RLRan Lu moved mock up - view new bookings from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 23:31
+RLRan Lu moved mock up - view summaries of bookings from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 23:31
+RLRan Lu moved User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days. from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 23:31
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 30/03/201730 Mar at 23:30
+RLRan Lu added Yang Ding to Sprint Planning Meeting 30/03/201730 Mar at 23:30
+RLRan Lu joined Sprint Planning Meeting 30/03/201730 Mar at 23:30
+RL
+Ran Lu attached week4-2.docx to Sprint Planning Meeting 30/03/2017  
+30 Mar at 23:30
+RLRan Lu deleted card #28 from Color Codes30 Mar at 21:39
+RLRan Lu moved show all workers’ availability for the next 7 days from Product Backlog to Sprint Backlog (on weekly basis)30 Mar at 21:37
+RLRan Lu moved view the summaries of bookings from Product Backlog to Sprint Backlog (on weekly basis)30 Mar at 21:37
+RLRan Lu moved view new bookings from Product Backlog to Sprint Backlog (on weekly basis)30 Mar at 21:37
+RLRan Lu moved mock up - show all workers' availability for the next 7 days from Sprint 5 (Not started yet) to Sprint Backlog (on weekly basis)30 Mar at 21:37
+RLRan Lu moved mock up - view new bookings from Sprint 5 (Not started yet) to Sprint Backlog (on weekly basis)30 Mar at 21:36
+RLRan Lu moved mock up - view summaries of bookings from Sprint 5 (Not started yet) to Sprint Backlog (on weekly basis)30 Mar at 21:36
+RLRan Lu moved User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days. from Sprint 5 (Not started yet) to Sprint Backlog (on weekly basis)30 Mar at 21:36
+RLRan Lu moved show all workers’ availability for the next 7 days from Sprint Backlog (on weekly basis) to Product Backlog30 Mar at 21:36
+RLRan Lu moved add working time/dates for the next month from Sprint Backlog (on weekly basis) to Sprint 4 (completed)30 Mar at 21:35
+RLRan Lu joined add working time/dates for the next month30 Mar at 21:35
+RLRan Lu moved add a new employee from Sprint Backlog (on weekly basis) to Sprint 4 (completed)30 Mar at 21:35
+RLRan Lu joined add a new employee30 Mar at 21:35
+RLRan Lu moved mock up - view available days/time from Sprint Backlog (on weekly basis) to Product Backlog30 Mar at 21:35
+RLRan Lu moved User Stories - customer view available days/time from Sprint Backlog (on weekly basis) to Product Backlog30 Mar at 21:35
+RLRan Lu moved mock up - view available days/time from Sprint 5 (Not started yet) to Sprint Backlog (on weekly basis)30 Mar at 21:35
+RLRan Lu moved User Stories - customer view available days/time from Sprint 5 (Not started yet) to Sprint Backlog (on weekly basis)30 Mar at 21:34
+RLRan Lu moved User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days. from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 21:34
+RLRan Lu moved mock up - view new bookings from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 21:34
+RLRan Lu moved mock up - view summaries of bookings from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 21:34
+RLRan Lu moved mock up - show all workers' availability for the next 7 days from Sprint Backlog (on weekly basis) to Sprint 5 (Not started yet)30 Mar at 21:33
+YDYang Ding deleted card #63 from Sprint Backlog (on weekly basis)30 Mar at 20:21
+YD
+Yang Ding attached user story for view booking_show workers' availability.docx to User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days.  
+30 Mar at 20:21
+YDYang Ding deleted the user story for view booking_show workers' availability.docx attachment from User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days.30 Mar at 20:20
+YD
+Yang Ding attached mock up - show all works' availability for the next 7 days.PNG to mock up - show all workers' availability for the next 7 days 
+30 Mar at 20:20
+YD
+Yang Ding attached mock up - view new bookings.PNG to mock up - view new bookings 
+30 Mar at 20:20
+YD
+Yang Ding attached mock up - view summaries of bookings.PNG to mock up - view summaries of bookings 
+30 Mar at 20:20
+YDYang Ding joined mock up - show all workers' availability for the next 7 days30 Mar at 20:16
+YDYang Ding joined mock up - view new bookings30 Mar at 20:16
+YDYang Ding joined mock up - view summaries of bookings30 Mar at 20:16
+YDYang Ding joined User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days.30 Mar at 20:16
+YD
+Yang Ding attached user story for view booking_show workers' availability.docx to User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days.  
+30 Mar at 20:15
+YDYang Ding added mock up - show all workers' availability for the next 7 days to Sprint Backlog (on weekly basis)30 Mar at 20:15
+YDYang Ding added mock up - view new bookings to Sprint Backlog (on weekly basis)30 Mar at 20:15
+YDYang Ding added mock up - view summaries of bookings to Sprint Backlog (on weekly basis)30 Mar at 20:14
+YDYang Ding added User stories for view the summaries of bookings, view new bookings, show workers' availability for the next 7 days. to Sprint Backlog (on weekly basis)30 Mar at 20:14
+RLRan Lu moved show all workers’ availability for the next 7 days from Product Backlog to Sprint Backlog (on weekly basis)29 Mar at 22:16
+RLRan Lu left add working time/dates for the next month29 Mar at 22:15
+RLRan Lu left add a new employee29 Mar at 22:15
+RLRan Lu joined show all workers’ availability for the next 7 days29 Mar at 13:33
+RL
+Ran Lu on add a new employee
+need to initiate and clear business owner info for each login
+29 Mar at 11:36
+RLRan Lu joined add working time/dates for the next month28 Mar at 23:04
+RLRan Lu joined add a new employee28 Mar at 14:59
+RLRan Lu archived A full Test-Driven Development approach for your project, whereby comprehensive automated tests are written before development commences: Proper use of a Test-Driven Development process will attract a 15% BONUS for Part 1.27 Mar at 22:32
+RLRan Lu archived list Requirements for each following weeks27 Mar at 22:30
+RLRan Lu moved mock up - view available days/time from Requirements for each following weeks to Sprint 527 Mar at 22:30
+RLRan Lu moved User Stories - customer view available days/time from Requirements for each following weeks to Sprint 527 Mar at 22:30
+RLRan Lu added Sprint 5 to this board27 Mar at 22:30
+RLRan Lu moved finish unit tests for login and registration from Sprint Backlog (on weekly basis) to Sprint 427 Mar at 22:29
+RLRan Lu moved more user information input for creating an account from Sprint Backlog (on weekly basis) to Sprint 427 Mar at 22:28
+RLRan Lu deleted card #53 from Sprint 427 Mar at 22:28
+RLRan Lu moved business & customer menu with an exit function from Sprint Backlog (on weekly basis) to Sprint 427 Mar at 22:28
+RL
+Ran Lu attached business.jpeg to SQLite 
+25 Mar at 15:14
+RL
+Ran Lu attached check.jpeg to SQLite 
+25 Mar at 15:08
+RL
+Ran Lu attached success.jpeg to SQLite 
+25 Mar at 15:03
+RLRan Lu left view available days/time but not yet book a slot25 Mar at 11:48
+RLRan Lu archived Not started yet25 Mar at 11:46
+RLRan Lu added Not started yet to Color Codes25 Mar at 11:45
+RLRan Lu added Sprint Planning Meeting 30/03/2017 to Sprint 425 Mar at 11:44
+RLRan Lu joined finish unit tests for login and registration25 Mar at 11:43
+RLRan Lu archived list Sprint 525 Mar at 11:40
+RLRan Lu moved mock up - view available days/time from Sprint 5 to Requirements for each following weeks25 Mar at 11:40
+RLRan Lu moved User Stories - customer view available days/time from Sprint 5 to Requirements for each following weeks25 Mar at 11:40
+RLRan Lu left SQLite25 Mar at 11:39
+RLRan Lu moved finish unit tests for login and registration from Sprint 4 to Sprint Backlog (on weekly basis)25 Mar at 11:39
+RLRan Lu moved business & customer menu with an exit function from Sprint 4 to Sprint Backlog (on weekly basis)25 Mar at 11:39
+RLRan Lu moved more user information input for creating an account from Sprint 4 to Sprint Backlog (on weekly basis)25 Mar at 11:38
+RLRan Lu moved mock up - view available days/time from Requirements for each following weeks to Sprint 525 Mar at 11:37
+RLRan Lu moved User Stories - customer view available days/time from Requirements for each following weeks to Sprint 525 Mar at 11:37
+RLRan Lu added List to this board25 Mar at 11:37
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 24/03/201725 Mar at 11:36
+RLRan Lu added Yang Ding to Sprint Planning Meeting 24/03/201725 Mar at 11:36
+RLRan Lu joined Sprint Planning Meeting 24/03/201725 Mar at 11:36
+RL
+Ran Lu attached week4-1.docx to Sprint Planning Meeting 24/03/2017  
+25 Mar at 11:36
+RLRan Lu joined SQLite25 Mar at 01:19
+RL
+Ran Lu attached sqlite3.zip to SQLite  
+25 Mar at 01:15
+RLRan Lu added SQLite to Supporting Documents25 Mar at 01:15
+RLRan Lu added Supporting Documents to this board25 Mar at 01:15
+YD
+Yang Ding attached add working times_days success.PNG to mock up - add working time/dates 
+24 Mar at 23:17
+YD
+Yang Ding attached add working dates_times unsuccess.PNG to mock up - add working time/dates 
+24 Mar at 23:17
+YDYang Ding deleted the add working dates_times unsuccess.PNG attachment from mock up - add working time/dates24 Mar at 23:17
+YDYang Ding deleted the add working times_dates success.PNG attachment from mock up - add working time/dates24 Mar at 23:17
+YD
+Yang Ding attached add new empolyee unsuccess.PNG to mock up - add employee 
+24 Mar at 23:17
+YD
+Yang Ding attached add new employee success.PNG to mock up - add employee 
+24 Mar at 23:17
+YDYang Ding deleted the add employee unsuccess.PNG attachment from mock up - add employee24 Mar at 23:16
+YDYang Ding deleted the add_employee success.PNG attachment from mock up - add employee24 Mar at 23:16
+YD
+Yang Ding attached user story for add employee and time slot.docx to User stories - add employee and add working time/dates  
+24 Mar at 23:13
+YDYang Ding deleted the user story for add employee and time slot.docx attachment from User stories - add employee and add working time/dates24 Mar at 23:13
+RLRan Lu added Yang Ding to mock up - add working time/dates24 Mar at 21:39
+RLRan Lu moved User Stories - customer view available days/time from Sprint 4 to Requirements for each following weeks24 Mar at 21:31
+RLRan Lu moved mock up - view available days/time from Sprint 4 to Requirements for each following weeks24 Mar at 21:31
+RLRan Lu moved add working time/dates for the next month from Product Backlog to Sprint Backlog (on weekly basis)24 Mar at 21:30
+RLRan Lu moved view available days/time but not yet book a slot from Sprint Backlog (on weekly basis) to Product Backlog24 Mar at 21:30
+RLRan Lu added Need Testing to Color Codes24 Mar at 21:29
+YD
+Yang Ding attached add working times_dates success.PNG to mock up - add working time/dates  
+24 Mar at 19:37
+YD
+Yang Ding attached add working dates_times unsuccess.PNG to mock up - add working time/dates  
+24 Mar at 19:37
+YD
+Yang Ding attached add_employee success.PNG to mock up - add employee  
+24 Mar at 19:37
+YD
+Yang Ding attached add employee unsuccess.PNG to mock up - add employee  
+24 Mar at 19:37
+YDYang Ding joined mock up - add employee24 Mar at 19:34
+YD
+Yang Ding attached user story for add employee and time slot.docx to User stories - add employee and add working time/dates  
+24 Mar at 19:33
+YDYang Ding joined User stories - add employee and add working time/dates24 Mar at 19:33
+YDYang Ding added mock up - add working time/dates to Sprint 424 Mar at 19:33
+YDYang Ding added mock up - add employee to Sprint 424 Mar at 19:32
+YDYang Ding added User stories - add employee and add working time/dates to Sprint 424 Mar at 19:32
+RLRan Lu added Ziqi Liu to more user information input for creating an account24 Mar at 14:13
+RLRan Lu added more user information input for creating an account to Sprint 424 Mar at 14:13
+RLRan Lu added Ziqi Liu to business & customer menu with an exit function24 Mar at 14:06
+RLRan Lu joined create more complex password24 Mar at 14:06
+RLRan Lu added business & customer menu with an exit function to Sprint 424 Mar at 14:06
+RLRan Lu added create more complex password to Sprint 424 Mar at 14:05
+RLRan Lu added finish unit tests for login and registration to Sprint 424 Mar at 13:32
+RL
+Ran Lu attached login_and_register.docx to User Stories - login and register  
+23 Mar at 23:34
+RLRan Lu deleted the login and register.docx attachment from User Stories - login and register23 Mar at 23:33
+YDYang Ding joined mock up - view available days/time23 Mar at 23:29
+YD
+Yang Ding attached Mock up - available times.PNG to mock up - view available days/time 
+23 Mar at 23:29
+RL
+Ran Lu attached User Acceptance Test 2.docx to Acceptance Test - Register  
+23 Mar at 23:18
+RLRan Lu joined Acceptance Test - Register23 Mar at 23:07
+RLRan Lu added Acceptance Test - Register to Sprint 323 Mar at 23:07
+RL
+Ran Lu attached User Acceptance Test 1.docx to Acceptance Test - Login  
+23 Mar at 23:06
+RLRan Lu joined Acceptance Test - Login23 Mar at 23:06
+RLRan Lu added Acceptance Test - Login to Sprint 323 Mar at 23:06
+RLRan Lu added Yang Ding to mock up - login23 Mar at 22:36
+RLRan Lu left mock up - login23 Mar at 22:36
+RLRan Lu added mock up - view available days/time to Sprint 423 Mar at 22:35
+RLRan Lu archived mock up - customer register pwd_not_match23 Mar at 22:25
+RLRan Lu moved view available days/time but not yet book a slot from Product Backlog to Sprint Backlog (on weekly basis)23 Mar at 22:24
+RLRan Lu moved add a new employee from Product Backlog to Sprint Backlog (on weekly basis)23 Mar at 22:24
+RLRan Lu moved User Stories - customer view available days/time from Sprint Backlog (on weekly basis) to Sprint 423 Mar at 22:24
+RLRan Lu moved mock up - customer menu from Sprint Backlog (on weekly basis) to Sprint 323 Mar at 22:24
+RLRan Lu moved mock up - business owner menu from Sprint Backlog (on weekly basis) to Sprint 323 Mar at 22:24
+RL
+Ran Lu attached 1.jpeg to mock up - business owner menu 
+23 Mar at 22:23
+RLRan Lu deleted the 3.jpeg attachment from mock up - business owner menu23 Mar at 22:20
+RL
+Ran Lu attached 3.jpeg to mock up - customer menu 
+23 Mar at 22:20
+RLRan Lu moved mock up - customer menu from Sprint 4 to Sprint Backlog (on weekly basis)23 Mar at 22:19
+RLRan Lu moved mock up - business owner menu from Sprint 4 to Sprint Backlog (on weekly basis)23 Mar at 22:19
+RLRan Lu moved User Stories - customer view available days/time from Sprint 4 to Sprint Backlog (on weekly basis)23 Mar at 22:19
+RLRan Lu moved view available days/time but not yet book a slot from Sprint Backlog (on weekly basis) to Product Backlog23 Mar at 22:19
+RL
+Ran Lu attached 3.jpeg to mock up - business owner menu  
+23 Mar at 22:19
+RLRan Lu moved mock up - customer menu from Sprint 3 to Sprint 423 Mar at 22:18
+RLRan Lu moved mock up - business owner menu from Sprint 3 to Sprint 423 Mar at 22:18
+RLRan Lu moved mock up - customer menu from Sprint 4 to Sprint 323 Mar at 22:17
+RL
+Ran Lu attached 1.jpeg to mock up - login 
+23 Mar at 22:16
+RLRan Lu joined mock up - login23 Mar at 22:16
+RLRan Lu added mock up - login to Sprint 223 Mar at 22:16
+RLRan Lu moved mock up - customer menu from Sprint 3 to Sprint 423 Mar at 22:16
+RLRan Lu added Sprint Planning Meeting 24/03/2017 to Sprint 423 Mar at 22:15
+RLRan Lu moved User Stories - customer view available days/time from Sprint 3 to Sprint 423 Mar at 22:15
+RLRan Lu archived list mock up23 Mar at 22:15
+RLRan Lu moved mock up - register from mock up to Sprint 223 Mar at 22:15
+RLRan Lu moved mock up - customer menu from mock up to Sprint 323 Mar at 22:14
+RLRan Lu moved mock up - main menu from Sprint 2 to Sprint 1 (completed)23 Mar at 22:14
+RLRan Lu moved mock up - main menu from mock up to Sprint 223 Mar at 22:14
+RLRan Lu moved mock up - customer menu from Sprint 3 to mock up23 Mar at 22:14
+RLRan Lu moved mock up - customer register pwd_not_match from Sprint 3 to Requirements for each following weeks23 Mar at 22:14
+RL
+Ran Lu attached 55.jpeg to mock up - register 
+23 Mar at 22:13
+RL
+Ran Lu attached 4.jpeg to mock up - register 
+23 Mar at 22:13
+RLRan Lu moved mock up - register from Sprint 2 to mock up23 Mar at 22:12
+RLRan Lu moved mock up - main menu from Sprint 2 to mock up23 Mar at 22:12
+RLRan Lu added mock up to this board23 Mar at 22:12
+RL
+Ran Lu attached 1.jpeg to mock up - main menu 
+23 Mar at 22:05
+YDYang Ding joined mock up - customer register23 Mar at 19:36
+YD
+Yang Ding attached Customer_pwd_wrong.PNG to mock up - customer register 
+23 Mar at 19:36
+YDYang Ding added mock up - customer register to Sprint 323 Mar at 19:35
+YDYang Ding joined mock up - business owner menu23 Mar at 19:34
+YD
+Yang Ding attached Business owner_1.PNG to mock up - business owner menu 
+23 Mar at 19:34
+YDYang Ding added mock up - business owner menu to Sprint 323 Mar at 19:34
+YD
+Yang Ding attached Customer login_1.PNG to mock up - customer menu 
+23 Mar at 19:33
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 23/03/201723 Mar at 15:11
+RLRan Lu added Yang Ding to Sprint Planning Meeting 23/03/201723 Mar at 15:10
+RLRan Lu joined Sprint Planning Meeting 23/03/201723 Mar at 15:10
+RL
+Ran Lu attached week3-2.docx to Sprint Planning Meeting 23/03/2017  
+23 Mar at 15:10
+RLRan Lu moved view available days/time but not yet book a slot from Sprint 3 to Sprint Backlog (on weekly basis)23 Mar at 12:42
+RLRan Lu joined authenticate and authorise users and based on user type/role23 Mar at 12:40
+RLRan Lu moved login as a business owner or a customer from Sprint 2 to Sprint 323 Mar at 12:40
+RLRan Lu joined login as a business owner or a customer23 Mar at 12:39
+RLRan Lu moved authenticate and authorise users and based on user type/role from Sprint 2 to Sprint 323 Mar at 12:39
+RLRan Lu archived list Completed23 Mar at 12:38
+RLRan Lu added Sprint 4 to this board23 Mar at 12:38
+RLRan Lu moved view available days/time but not yet book a slot from Sprint Backlog (on weekly basis) to Sprint 323 Mar at 12:37
+RLRan Lu deleted card #40 from Sprint Backlog (on weekly basis)23 Mar at 12:36
+RLRan Lu moved view the summaries of bookings from Sprint Backlog (on weekly basis) to Product Backlog23 Mar at 12:35
+RLRan Lu moved mock up - customer menu from Sprint Backlog (on weekly basis) to Sprint 323 Mar at 12:35
+RL
+Ran Lu attached view available days and time.docx to User Stories - customer view available days/time  
+23 Mar at 12:35
+RL
+Ran Lu attached login and register.docx to User Stories - login and register  
+23 Mar at 11:54
+RLRan Lu deleted the User_Stories_week_2.docx attachment from User Stories - login and register23 Mar at 11:54
+RLRan Lu archived Week 423 Mar at 11:48
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 16/03/201723 Mar at 11:47
+RLRan Lu added Yang Ding to Sprint Planning Meeting 16/03/201723 Mar at 11:47
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 03/03/201723 Mar at 11:47
+RLRan Lu joined Sprint Planning Meeting 03/03/201723 Mar at 11:47
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 10/03/201723 Mar at 11:47
+RLRan Lu added Yang Ding to Sprint Planning Meeting 10/03/201723 Mar at 11:47
+RLRan Lu joined Sprint Planning Meeting 17/03/201723 Mar at 11:46
+RLRan Lu added Ziqi Liu to Sprint Planning Meeting 17/03/201723 Mar at 11:46
+RLRan Lu added Sprint Planning Meeting 23/03/2017 to Sprint 323 Mar at 11:46
+YDYang Ding joined mock up - main menu23 Mar at 09:49
+YD
+Yang Ding attached login-mockup.PNG to mock up - main menu 
+23 Mar at 09:49
+YDYang Ding added mock up - main menu to Sprint 223 Mar at 09:49
+YDYang Ding deleted card #38 from Sprint 223 Mar at 09:48
+YDYang Ding deleted card #36 from Sprint 223 Mar at 09:48
+YDYang Ding deleted card #37 from Sprint 223 Mar at 09:48
+RLRan Lu deleted the meeting week 3.docx attachment from User Stories - customer view available days/time17 Mar at 15:03
+RL
+Ran Lu attached meeting week 3.docx to Sprint Planning Meeting 17/03/2017  
+17 Mar at 15:02
+RL
+Ran Lu attached meeting week 3.docx to User Stories - customer view available days/time  
+17 Mar at 15:02
+RLRan Lu joined User Stories - customer view available days/time17 Mar at 14:59
+RLRan Lu added User Stories - customer view available days/time to Sprint 317 Mar at 14:58
+RLRan Lu left login as a business owner or a customer17 Mar at 14:56
+RLRan Lu added Ziqi Liu to login as a business owner or a customer17 Mar at 14:56
+RLRan Lu joined view available days/time but not yet book a slot17 Mar at 14:56
+RLRan Lu joined login as a business owner or a customer17 Mar at 14:56
+RLRan Lu joined user registration as a customer17 Mar at 14:56
+RLRan Lu joined a file named customerinfo.txt or a database17 Mar at 14:55
+RLRan Lu joined a file named business.txt or a database17 Mar at 14:55
+RLRan Lu added Ziqi Liu to authenticate and authorise users and based on user type/role17 Mar at 14:55
+RLRan Lu added Yang Ding to mock up - customer menu17 Mar at 14:55
+RLRan Lu removed the due date from view the summaries of bookings17 Mar at 14:55
+RLRan Lu removed the due date from login as a business owner or a customer17 Mar at 14:53
+RLRan Lu removed the due date from user registration as a customer17 Mar at 14:53
+RLRan Lu removed the due date from authenticate and authorise users and based on user type/role17 Mar at 14:52
+RLRan Lu added Low Priority to Color Codes17 Mar at 14:51
+RLRan Lu archived Week 317 Mar at 14:46
+YDYang Ding moved view available days/time but not yet book a slot from Sprint 3 to Sprint Backlog (on weekly basis)17 Mar at 13:27
+YDYang Ding moved view the summaries of bookings from Sprint 3 to Sprint Backlog (on weekly basis)17 Mar at 13:27
+YDYang Ding moved mock up - customer menu from Sprint 3 to Sprint Backlog (on weekly basis)17 Mar at 13:27
+YDYang Ding moved view available days/time but not yet book a slot from Product Backlog to Sprint 317 Mar at 13:23
+YDYang Ding moved view the summaries of bookings from Product Backlog to Sprint 317 Mar at 13:23
+YDYang Ding added mock up - customer menu to Sprint 317 Mar at 13:22
+YDYang Ding joined mock up - register17 Mar at 12:37
+YD
+Yang Ding attached Customer Registration.PNG to mock up - register 
+17 Mar at 12:35
+YDYang Ding added mock up - register to Sprint 217 Mar at 12:35
+RLRan Lu joined User Stories - login and register17 Mar at 12:31
+RLRan Lu added Yang Ding to User Stories - login and register17 Mar at 12:31
+YDYang Ding deleted the User_Stories_week_2.docx attachment from User Stories - login and register16 Mar at 22:44
+YD
+Yang Ding attached User_Stories_week_2.docx to User Stories - login and register  
+16 Mar at 22:44
+YD
+Yang Ding attached User_Stories_week_2.docx to User Stories - login and register  
+16 Mar at 22:43
+YDYang Ding deleted the User Stories week 2.docx attachment from User Stories - login and register16 Mar at 22:42
+RL
+Ran Lu attached meeting week2-1.docx to Sprint Planning Meeting 10/03/2017  
+16 Mar at 16:10
+RLRan Lu deleted the meeting.docx attachment from Sprint Planning Meeting 10/03/201716 Mar at 16:10
+RL
+Ran Lu attached meeting week2-2.docx to Sprint Planning Meeting 16/03/2017  
+16 Mar at 16:08
+RLRan Lu added Yang Ding to Week 316 Mar at 15:31
+RLRan Lu added Yang Ding to Week 616 Mar at 15:31
+RLRan Lu added Yang Ding to Week 516 Mar at 15:31
+RLRan Lu added Yang Ding to Week 416 Mar at 15:31
+RLRan Lu added Yang Ding to Sprint Planning Meeting 17/03/201716 Mar at 15:31
+RLRan Lu added Sprint Planning Meeting 17/03/2017 to Sprint 316 Mar at 15:30
+RLRan Lu added Sprint 3 to this board16 Mar at 15:29
+RLRan Lu moved a file named business.txt or a database from Product Backlog to Sprint 214 Mar at 12:14
+RLRan Lu moved a file named customerinfo.txt or a database from Product Backlog to Sprint 214 Mar at 12:14
+RLRan Lu removed the due date from login as a business owner or a customer13 Mar at 18:37
+RLRan Lu joined Sprint Planning Meeting 16/03/201713 Mar at 18:35
+RLRan Lu moved user registration as a customer from Product Backlog to Sprint 213 Mar at 12:39
+RL
+Ran Lu attached User Stories week 2.docx to User Stories - login and register  
+13 Mar at 12:36
+RLRan Lu added User Stories - login and register to Sprint 213 Mar at 12:36
+RLRan Lu archived list User Story13 Mar at 12:36
+RLRan Lu moved Sprint Planning Meeting 16/03/2017 from Sprint 1 (Completed) to Sprint 213 Mar at 12:36
+RLRan Lu added Sprint Planning Meeting 16/03/2017 to Sprint 1 (Completed)10 Mar at 14:18
+RLRan Lu archived Sprint 1 (Completed)10 Mar at 14:14
+RLRan Lu added Sprint 1 (Completed) to Week 210 Mar at 14:14
+RLRan Lu added Medium Priority to Color Codes10 Mar at 14:12
+RLRan Lu added High Priority to Color Codes10 Mar at 14:10
+RLRan Lu added Completed to Color Codes10 Mar at 14:09
+RLRan Lu moved authenticate and authorise users and based on user type/role from Sprint Backlog to Week 210 Mar at 14:08
+RLRan Lu moved login as a business owner or a customer from Sprint Backlog to Week 210 Mar at 14:08
+RLRan Lu archived Class Digram10 Mar at 14:07
+RLRan Lu moved Sprint Planning Meeting 10/03/2017 from Meeting Minutes in future to Week 210 Mar at 14:07
+RLRan Lu added Week 2 to this board10 Mar at 14:07
+RLRan Lu moved Sprint Planning Meeting 03/03/2017 from Meeting Minutes to Week 110 Mar at 14:07
+RLRan Lu added Week 1 to this board10 Mar at 14:07
+RLRan Lu joined Sprint Planning Meeting 10/03/201710 Mar at 14:03
+RL
+Ran Lu attached meeting.docx to Sprint Planning Meeting 10/03/2017  
+10 Mar at 14:03
+RL
+Ran Lu attached week 1 meeting.docx to Sprint Planning Meeting 03/03/2017  
+10 Mar at 13:52
+RLRan Lu added Color Codes to this board10 Mar at 13:52
+RLRan Lu moved authenticate and authorise users and based on user type/role from Backlog to Sprint Backlog10 Mar at 13:52
+RLRan Lu moved login as a business owner or a customer from Backlog to Sprint Backlog10 Mar at 13:52
+RLRan Lu added Yang Ding to Sprint Planning Meeting 03/03/201710 Mar at 13:37
+RLRan Lu added Sprint Backlog to this board10 Mar at 13:36
+ZLZiqi Liu added Week 6 to Sprint10 Mar at 13:35
+RLRan Lu archived list Meeting Minutes10 Mar at 13:35
+RLRan Lu archived list Business Owner10 Mar at 13:35
+RLRan Lu moved show all workers’ availability for the next 7 days from Business Owner to Backlog10 Mar at 13:35
+RLRan Lu moved view new bookings from Business Owner to Backlog10 Mar at 13:35
+ZLZiqi Liu added Week 5 to Sprint10 Mar at 13:35
+RLRan Lu moved view the summaries of bookings from Business Owner to Backlog10 Mar at 13:35
+RLRan Lu moved add working time/dates for the next month from Business Owner to Backlog10 Mar at 13:35
+RLRan Lu moved add a new employee from Business Owner to Backlog10 Mar at 13:35
+RLRan Lu archived list Bonus10 Mar at 13:35
+RLRan Lu archived list Customer10 Mar at 13:35
+RLRan Lu moved A full Test-Driven Development approach for your project, whereby comprehensive automated tests are written before development commences: Proper use of a Test-Driven Development process will attract a 15% BONUS for Part 1. from Bonus to Backlog10 Mar at 13:35
+RLRan Lu moved view available days/time but not yet book a slot from Customer to Backlog10 Mar at 13:34
+RLRan Lu archived list Databases or Text Files10 Mar at 13:34
+RLRan Lu archived list System10 Mar at 13:34
+RLRan Lu moved a file named customerinfo.txt or a database from Databases or Text Files to Backlog10 Mar at 13:34
+RLRan Lu moved a file named business.txt or a database from Databases or Text Files to Backlog10 Mar at 13:34
+RLRan Lu moved user registration as a customer from System to Backlog10 Mar at 13:34
+RLRan Lu moved authenticate and authorise users and based on user type/role from System to Backlog10 Mar at 13:34
+RLRan Lu moved login as a business owner or a customer from System to Backlog10 Mar at 13:34
+ZLZiqi Liu added Week 4 to Weekly Task10 Mar at 13:34
+ZLZiqi Liu added Week 3 to Weekly Task10 Mar at 13:34
+ZLZiqi Liu added Sprint Planning Meeting 10/03/2017 to Weekly Task10 Mar at 13:34
+ZLZiqi Liu added Sprint Planning Meeting 03/03/2017 to Weekly Task10 Mar at 13:34
+RLRan Lu transferred Business Owner from Functional Requirements for Team10 Mar at 13:34
+RLRan Lu transferred Bonus from Functional Requirements for Team10 Mar at 13:34
+RLRan Lu transferred Customer from Functional Requirements for Team10 Mar at 13:33
+RLRan Lu transferred Databases or Text Files from Functional Requirements for Team10 Mar at 13:33
+RLRan Lu transferred System from Functional Requirements for Team10 Mar at 13:33
+ZLZiqi Liu added Weekly Task to this board10 Mar at 13:33
+RLRan Lu archived list Group Member10 Mar at 13:32
+RLRan Lu archived list Class Diagram10 Mar at 13:32
+RLRan Lu added Class Digram to Backlog10 Mar at 13:31
+RLRan Lu added Completed to this board10 Mar at 13:31
+RLRan Lu added Backlog to this board10 Mar at 13:30
+RLRan Lu changed the background of this board10 Mar at 13:29
+YDYang Ding added s3558075 Yang Ding to Group Member10 Mar at 13:28
+RLRan Lu added s3583185 Ran Lu to Group Member10 Mar at 13:27
+YDYang Ding added Meeting Minutes to this board10 Mar at 13:25
+RLRan Lu added Lawrence Cavedon to this board10 Mar at 13:24
+ZLZiqi Liu renamed this board (from 404 Not Found)10 Mar at 13:24
+ZLZiqi Liu renamed this board (from 404)10 Mar at 13:23
+ZLZiqi Liu renamed this board (from SEPT)10 Mar at 13:23
+ZLZiqi Liu added v1: https://www.lucidchart.com/invitations/accept/780c466f-fb67-4d93-a49f-c0eee5a46baa to Class Diagram10 Mar at 13:22
+ZLZiqi Liu added Class Diagram to this board10 Mar at 13:22
+ZLZiqi Liu added s3441902 Ziqi Liu to Group Member10 Mar at 13:21
+ZLZiqi Liu added Ran Lu to this board10 Mar at 13:21
+ZLZiqi Liu added Homy to this board10 Mar at 13:21
+ZLZiqi Liu added Yang Ding to this board10 Mar at 13:21
+ZLZiqi Liu added Group Member to this board10 Mar at 13:21
+ZLZiqi Liu added As a customer, I want to use a booking system so that I can actually book a slot. (Part 2) to User Story10 Mar at 13:20
+ZLZiqi Liu added As a customer, I want to find a booking system so that I can view available days/time. to User Story10 Mar at 13:20
+ZLZiqi Liu added As a business owner, I want to view the summaries of bookings, new bookings and get all workers’ availability for the next 7 days so that I can create a booking timetable for customers. to User Story10 Mar at 13:20
+ZLZiqi Liu added As a business owner, I want to add a new employee and edit working time/dates for the next month so that I can manage employees' status more efficiently. to User Story10 Mar at 13:20
+ZLZiqi Liu added User Story to this board10 Mar at 13:19
+ZLZiqi Liu added this board to COSC2299 SEPT Project Semester 1, 201710 Mar at 13:19
+ZLZiqi Liu created this board10 Mar at 13:19
+RLRan Lu added a full Test-Driven Development approach for your project, whereby comprehensive automated tests are written before development commences: Proper use of a Test-Driven Development process will attract a 15% BONUS for Part 1 to Bonus9 Mar at 22:40
+RLRan Lu added view available days/time but not yet book a slot to Customer9 Mar at 22:35
+RLRan Lu added view new bookings to Business Owner9 Mar at 22:33
+RLRan Lu added show all workers’ availability for the next 7 days to Business Owner9 Mar at 22:06
+RLRan Lu added view the summaries of bookings to Business Owner9 Mar at 22:04
+RLRan Lu added add working time/dates for the next month to Business Owner9 Mar at 22:00
+RLRan Lu added add a new employee to Customer9 Mar at 21:37
+RLRan Lu added a file named customerinfo.txt or a database to Databases or Text Files9 Mar at 21:27
+RLRan Lu added a file named business.txt or a database to Databases or Text Files9 Mar at 21:26
+RLRan Lu added authenticate and authorise users and based on user type/role to System9 Mar at 20:49
+RLRan Lu added user registration as a customer to System9 Mar at 20:49
+RLRan Lu added login as a business owner or a customer to System

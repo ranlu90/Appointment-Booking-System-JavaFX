@@ -340,7 +340,6 @@ public class DatabaseManager {
 
     /**
      * Get business name for a given username in the business table.
-     * @param username received from cilentModel, pass to the database.
      * @return business name for the given username.
      */
 	public String getBusinessName(String username){
@@ -364,7 +363,6 @@ public class DatabaseManager {
 
     /**
      * Get name for a given username in the customer table.
-     * @param username received from cilentModel, pass to the database.
      * @return name for the given username.
      */
 	public String getCustomerName(String username){

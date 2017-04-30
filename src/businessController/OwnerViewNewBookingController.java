@@ -18,6 +18,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import systemController.ViewController;
 
+/**
+ * View new bookings after current date and time.
+ * @author ranlu
+ *
+ */
 public class OwnerViewNewBookingController implements Initializable{
 
 	private ViewController viewController;

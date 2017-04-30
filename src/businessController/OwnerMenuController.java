@@ -11,6 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 import systemController.ViewController;
 
+/**
+ * Business owner menu.
+ * @author ranlu
+ *
+ */
 public class OwnerMenuController implements Initializable {
 
 	private ViewController viewController;

@@ -17,6 +17,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import systemController.ViewController;
 
+/**
+ * Customers view business hours for one business owner.
+ * @author ranlu
+ *
+ */
 public class CustomerBookingAvailabilityController implements Initializable{
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

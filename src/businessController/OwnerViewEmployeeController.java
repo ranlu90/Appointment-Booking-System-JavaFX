@@ -15,6 +15,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import systemController.ViewController;
 
+/**
+ * Owner views all employee's availabilities.
+ * @author ranlu
+ *
+ */
 public class OwnerViewEmployeeController implements Initializable{
 
 	private ViewController viewController;

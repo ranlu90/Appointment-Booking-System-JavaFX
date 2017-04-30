@@ -15,6 +15,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import systemController.ViewController;
 
+/**
+ * View all bookings for one business owner.
+ * @author ranlu
+ *
+ */
 public class OwnerViewAllBookingController implements Initializable{
 
 	private ViewController viewController;

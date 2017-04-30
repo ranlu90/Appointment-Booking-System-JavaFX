@@ -3,7 +3,7 @@ package database;
 
 
 /**
- * business owner information will be stored in Businessowner table.
+ * business owner information will be stored in Business table.
  */
 public class BusinessOwner {
 

@@ -7,6 +7,11 @@ import database.DatabaseManager;
 import javafx.fxml.Initializable;
 import systemController.ViewController;
 
+/**
+ * Owner registration in the database.
+ * @author ranlu
+ *
+ */
 public class OwnerRegisterController implements Initializable{
 	@SuppressWarnings("unused")
 	private ViewController viewController;

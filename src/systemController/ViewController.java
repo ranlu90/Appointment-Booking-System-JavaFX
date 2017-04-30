@@ -31,8 +31,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * This class manages functions of adding logging information and go to all pages.
- * All variables received from system main method.
+ * This class create pages for different functionalities and contains logging information.
  * @author ranlu
  */
 public class ViewController{
@@ -99,9 +98,6 @@ public class ViewController{
     }
 
 
-    /**
-     * Initialize the first page - The login page - and shows the window.
-     */
     public void initStage(Stage stage)
     {
         this.stage = stage;
@@ -132,7 +128,7 @@ public class ViewController{
 
 
     /**
-     * Switch to the view login.
+     * Switch to the the page for login.
      */
     public void gotoLogin()
     {

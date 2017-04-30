@@ -7,7 +7,7 @@ import systemController.ViewController;
 
 
 /**
- * This is the main class for the system. All data will be initiated including clientModel and database
+ * This is the main class for the system. All data will be initiated including viewController and database
  * and launch the main menu.
  * @author ranlu
  *

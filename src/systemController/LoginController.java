@@ -2,6 +2,7 @@ package systemController;
 
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
 import database.DatabaseManager;
@@ -9,17 +10,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * System login page. Authenticate the user's username and password and go to business owner menu or customer menu.
+ * @author ranlu
+ *
+ */
 public class LoginController implements Initializable{
 
     private ViewController viewController;
     private DatabaseManager databaseManager;
 
-    @FXML
-    private Button login, customerRegister, ownerRegister;
     @FXML
     private TextField username;
     @FXML
@@ -36,7 +39,7 @@ public class LoginController implements Initializable{
 
 
 	/**
-	 * Attempt to login when a user press the login button, authenticate username,
+	 * Attempt to login when a user press the login button,
 	 * change to business owner menu or customer menu.
 	 */
 	@FXML
