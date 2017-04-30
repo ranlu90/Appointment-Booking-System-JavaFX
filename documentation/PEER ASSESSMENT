@@ -7,9 +7,8 @@ s3583185 Ran Lu          33%
 Tutorial Time: Friday 12.30pm - 12.11.19 
 Tutor: A Homy Ash
 
-Ran Lu: Structures for each classes, all functions in DatabasseManager, login and register, view all worker’s availability, view available days/time for booking, test cases for login and register.
+Ran Lu: Structures for all Controller classes, all scenes by JavaFX.
 
-Ziqi Liu: System main menu, login and register menus, email and contact number check for login and register functions, view all bookings, test cases for view all bookings and new bookings.
+Ziqi Liu: Owner or customer makes new booking functionalities.
 
-Yang Ding: All user stories and mock up, view new bookings, test cases for view all worker’s availability, view available days/time for booking.
-
+Yang Ding: All user stories and all test cases, update employee functionality.
