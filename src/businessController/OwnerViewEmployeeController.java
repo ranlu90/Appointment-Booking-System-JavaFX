@@ -1,4 +1,4 @@
-package controller;
+package businessController;
 
 import java.net.URL;
 
@@ -13,8 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import systemController.ViewController;
 
-public class ViewEmployeeController implements Initializable{
+public class OwnerViewEmployeeController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

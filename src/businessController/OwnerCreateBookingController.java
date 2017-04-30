@@ -1,4 +1,4 @@
-package controller;
+package businessController;
 
 import java.net.URL;
 
@@ -12,12 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import systemController.ViewController;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class OnwerCreateBookingController implements Initializable{
+public class OwnerCreateBookingController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

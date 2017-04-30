@@ -1,4 +1,4 @@
-package controller;
+package systemController;
 
 
 import java.io.IOException;
@@ -6,6 +6,20 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import businessController.OwnerAddEmployeeController;
+import businessController.OwnerAddServiceController;
+import businessController.OwnerBusinessHoursController;
+import businessController.OwnerCreateBookingController;
+import businessController.OwnerMenuController;
+import businessController.OwnerRegisterController;
+import businessController.OwnerViewAllBookingController;
+import businessController.OwnerViewEmployeeController;
+import businessController.OwnerViewNewBookingController;
+import customerController.CustomerBookingAvailabilityController;
+import customerController.CustomerCreateBookingController;
+import customerController.CustomerMenuController;
+import customerController.CustomerRegisterController;
 import database.DatabaseManager;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -140,7 +154,7 @@ public class ViewController{
     public void gotoBusinessMenu()
     {
         try {
-        	BusinessMenuController businessMenu = (BusinessMenuController) setScene("BusinessMenu.fxml");
+        	OwnerMenuController businessMenu = (OwnerMenuController) setScene("BusinessMenu.fxml");
         	businessMenu.initViewController(this);
         	businessMenu.initDatabaseManager(databaseManager);
         	businessMenu.setUsername(username);
@@ -213,7 +227,7 @@ public class ViewController{
     public void gotoService()
     {
         try {
-            ServiceController service = (ServiceController) setScene("AddServices.fxml");
+            OwnerAddServiceController service = (OwnerAddServiceController) setScene("AddServices.fxml");
             service.initViewController(this);
             service.initDatabaseManager(databaseManager);
             service.setUsername(username);
@@ -232,7 +246,7 @@ public class ViewController{
     public void gotoEmployee()
     {
         try {
-            AddEmployeeController employee = (AddEmployeeController) setScene("AddEmployee.fxml");
+            OwnerAddEmployeeController employee = (OwnerAddEmployeeController) setScene("AddEmployee.fxml");
             employee.initViewController(this);
             employee.initDatabaseManager(databaseManager);
             employee.setUsername(username);
@@ -251,7 +265,7 @@ public class ViewController{
     public void gotoBusinessHours()
     {
         try {
-        	BusinessHoursController business = (BusinessHoursController) setScene("AddBusinessHours.fxml");
+        	OwnerBusinessHoursController business = (OwnerBusinessHoursController) setScene("AddBusinessHours.fxml");
         	business.initViewController(this);
         	business.initDatabaseManager(databaseManager);
         	business.setUsername(username);
@@ -270,7 +284,7 @@ public class ViewController{
     public void gotoAllBookings()
     {
         try {
-        	ViewAllBookingController booking = (ViewAllBookingController) setScene("ViewAllBookings.fxml");
+        	OwnerViewAllBookingController booking = (OwnerViewAllBookingController) setScene("ViewAllBookings.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
@@ -289,7 +303,7 @@ public class ViewController{
     public void gotoNewBookings()
     {
         try {
-        	ViewNewBookingController booking = (ViewNewBookingController) setScene("ViewNewBookings.fxml");
+        	OwnerViewNewBookingController booking = (OwnerViewNewBookingController) setScene("ViewNewBookings.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
@@ -308,7 +322,7 @@ public class ViewController{
     public void gotoOwnerCreateBooking()
     {
         try {
-        	OnwerCreateBookingController booking = (OnwerCreateBookingController) setScene("OwnerCreateBooking.fxml");
+        	OwnerCreateBookingController booking = (OwnerCreateBookingController) setScene("OwnerCreateBooking.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
@@ -329,7 +343,7 @@ public class ViewController{
     public void gotoViewWorkers()
     {
         try {
-        	ViewEmployeeController employee = (ViewEmployeeController) setScene("ShowAllWorkers.fxml");
+        	OwnerViewEmployeeController employee = (OwnerViewEmployeeController) setScene("ShowAllWorkers.fxml");
         	employee.initViewController(this);
         	employee.initDatabaseManager(databaseManager);
         	employee.setUsername(username);
@@ -364,7 +378,7 @@ public class ViewController{
      */
     public void gotoViewBookingAvailability(){
         try {
-        	BookingAvailabilityController booking = (BookingAvailabilityController) setScene("ViewBookingAvailability.fxml");
+        	CustomerBookingAvailabilityController booking = (CustomerBookingAvailabilityController) setScene("ViewBookingAvailability.fxml");
         	booking.initViewController(this);
         	booking.initDatabaseManager(databaseManager);
         	booking.initOwnerList();

@@ -1,4 +1,4 @@
-package controller;
+package businessController;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -12,13 +12,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import systemController.ViewController;
 
 /**
  * This class contains functions for adding a new service.
  * @author ranlu
  *
  */
-public class ServiceController implements Initializable{
+public class OwnerAddServiceController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

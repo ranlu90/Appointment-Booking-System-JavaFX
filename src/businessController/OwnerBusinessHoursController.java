@@ -1,4 +1,4 @@
-package controller;
+package businessController;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -13,8 +13,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
+import systemController.ViewController;
 
-public class BusinessHoursController implements Initializable{
+public class OwnerBusinessHoursController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;

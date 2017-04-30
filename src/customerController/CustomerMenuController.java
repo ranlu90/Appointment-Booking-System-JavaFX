@@ -1,7 +1,6 @@
-package controller;
+package customerController;
 
 import java.net.URL;
-
 
 import java.util.ResourceBundle;
 
@@ -9,8 +8,9 @@ import database.DatabaseManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
+import systemController.ViewController;
 
-public class BusinessMenuController implements Initializable {
+public class CustomerMenuController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
@@ -31,49 +31,23 @@ public class BusinessMenuController implements Initializable {
 	public void initDatabaseManager(DatabaseManager databaseManager) {
 		this.databaseManager = databaseManager;
 	}
-
 	public void setUsername(String username){
 		user = username;
 	}
 
 	@FXML
 	public void welcomeMessage(){
-		welcomeMessage.setText("Welcome! " + databaseManager.getBusinessName(user));
+		welcomeMessage.setText("Welcome! " + databaseManager.getCustomerName(user));
 	}
 
 	@FXML
-	private void addNewService(){
-		viewController.gotoService();
+	private void CreateBooking(){
+		viewController.gotoCustomerCreateBooking();
 	}
 
 	@FXML
-	private void updateEmployee(){
-		viewController.gotoEmployee();
-	}
-
-	@FXML
-	private void changeBusinessHours(){
-		viewController.gotoBusinessHours();
-	}
-
-	@FXML
-	private void viewAllBookings(){
-		viewController.gotoAllBookings();
-	}
-
-	@FXML
-	private void viewNewBookings(){
-		viewController.gotoNewBookings();
-	}
-
-	@FXML
-	private void createABooking(){
-		viewController.gotoOwnerCreateBooking();
-	}
-
-	@FXML
-	private void viewAvailability(){
-		viewController.gotoViewWorkers();
+	private void viewBookingAvailability(){
+		viewController.gotoViewBookingAvailability();
 	}
 
 	@FXML

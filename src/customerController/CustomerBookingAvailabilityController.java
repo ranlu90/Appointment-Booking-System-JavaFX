@@ -1,4 +1,4 @@
-package controller;
+package customerController;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,8 +15,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import systemController.ViewController;
 
-public class BookingAvailabilityController implements Initializable{
+public class CustomerBookingAvailabilityController implements Initializable{
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
 	private String receivedName,receivedAddress,receivedPhone;

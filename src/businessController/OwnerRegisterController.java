@@ -1,15 +1,17 @@
-package controller;
+package businessController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import database.DatabaseManager;
 import javafx.fxml.Initializable;
+import systemController.ViewController;
 
-public class CustomerCreateBookingController implements Initializable{
+public class OwnerRegisterController implements Initializable{
+	@SuppressWarnings("unused")
 	private ViewController viewController;
+	@SuppressWarnings("unused")
 	private DatabaseManager databaseManager;
-	private String user;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -17,13 +19,11 @@ public class CustomerCreateBookingController implements Initializable{
 
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
+
 	}
 
 	public void initDatabaseManager(DatabaseManager databaseManager) {
 		this.databaseManager = databaseManager;
 	}
 
-	public void setUsername(String username) {
-		user = username;
-	}
 }
