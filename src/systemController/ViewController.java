@@ -406,9 +406,9 @@ public class ViewController{
     public Initializable createScene(String fxml) throws Exception
     {
         FXMLLoader loader = new FXMLLoader();
-        InputStream in = getClass().getResourceAsStream("../view/"+fxml);
+        InputStream in = getClass().getResourceAsStream("/view/"+fxml);
         loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(getClass().getResource("../view/"+fxml));
+        loader.setLocation(getClass().getResource("/view/"+fxml));
         Parent pane;
         try {
             pane = (Parent) loader.load(in);
@@ -425,7 +425,7 @@ public class ViewController{
     public Initializable setScene(String fxml) throws Exception
     {
         FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("../view/"+fxml));
+            getClass().getResource("/view/"+fxml));
         Node node = (Node) loader.load();
         /* Anchor to all sides */
         AnchorPane.setTopAnchor(node, 0.0);

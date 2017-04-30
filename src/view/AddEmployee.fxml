@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
@@ -8,9 +9,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="businessController.OwnerAddEmployeeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="businessController.OwnerAddEmployeeController">
    <children>
-      <Text layoutX="193.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Emoloyee">
+      <AnchorPane layoutY="12.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </AnchorPane>
+      <Text fill="WHITE" layoutX="193.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Emoloyee">
          <font>
             <Font size="24.0" />
          </font>
@@ -50,8 +56,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button layoutX="200.0" layoutY="387.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="160.0" text="Confirm" />
-      <Button layoutX="200.0" layoutY="449.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="27.0" prefWidth="160.0" text="Main Menu" />
+      <Button layoutX="219.0" layoutY="375.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="160.0" text="Confirm" />
       <Line endX="150.0" layoutX="255.0" layoutY="431.0" startX="-100.0" stroke="#c3c0c0" />
       <ComboBox fx:id="open1" layoutX="171.0" layoutY="161.0" prefHeight="27.0" prefWidth="135.0" promptText="Start Time" />
       <ComboBox fx:id="close1" layoutX="314.0" layoutY="161.0" prefHeight="27.0" prefWidth="135.0" promptText="End Time" />
@@ -67,31 +72,39 @@
       <ComboBox fx:id="close5" layoutX="314.0" layoutY="281.0" prefHeight="27.0" prefWidth="135.0" promptText="End Time" />
       <ComboBox fx:id="close6" layoutX="314.0" layoutY="311.0" prefHeight="27.0" prefWidth="135.0" promptText="End Time" />
       <ComboBox fx:id="close7" layoutX="314.0" layoutY="341.0" prefHeight="27.0" prefWidth="135.0" promptText="End Time" />
-      <Text layoutX="82.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+      <Text layoutX="83.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="299.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+      <Text layoutX="299.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="82.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text layoutX="84.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="299.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number">
+      <Text layoutX="299.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="firstname" layoutX="171.0" layoutY="53.0" prefHeight="27.0" prefWidth="109.0" promptText="First Name" />
-      <TextField fx:id="lastname" layoutX="413.0" layoutY="53.0" prefHeight="27.0" prefWidth="109.0" promptText="Last Name" />
-      <TextField fx:id="contact" layoutX="413.0" layoutY="87.0" prefHeight="27.0" prefWidth="109.0" promptText="Contact" />
-      <TextField fx:id="email" layoutX="171.0" layoutY="87.0" prefHeight="27.0" prefWidth="109.0" promptText="Email" />
-      <Text layoutX="82.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select An Existing Employee" />
-      <ComboBox fx:id="employeeList" layoutX="314.0" layoutY="122.0" onAction="#setText" prefHeight="27.0" prefWidth="135.0" />
+      <TextField fx:id="firstname" layoutX="171.0" layoutY="67.0" prefHeight="27.0" prefWidth="109.0" promptText="First Name" />
+      <TextField fx:id="lastname" layoutX="413.0" layoutY="67.0" prefHeight="27.0" prefWidth="109.0" promptText="Last Name" />
+      <TextField fx:id="contact" layoutX="413.0" layoutY="100.0" prefHeight="27.0" prefWidth="109.0" promptText="Contact" />
+      <TextField fx:id="email" layoutX="171.0" layoutY="101.0" prefHeight="27.0" prefWidth="109.0" promptText="Email" />
+      <Text layoutX="84.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select An Existing Employee" />
+      <ComboBox fx:id="employeeList" layoutX="314.0" layoutY="131.0" onAction="#setText" prefHeight="27.0" prefWidth="135.0" />
+      <AnchorPane layoutY="392.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+         <children>
+            <Button layoutX="217.0" layoutY="27.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="27.0" prefWidth="167.0" text="Main Menu" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
