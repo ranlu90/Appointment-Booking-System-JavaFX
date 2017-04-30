@@ -90,11 +90,11 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton, Victoria 3053', '+61 3 8528 4547','owner1','owner1' );";
+                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton', '+61 3 8528 4547','owner1','owner1' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne 3000', '(03) 9654 9444', 'owner', 'owner');";
+                "VALUES ('TONI&GUY Georges', 'Tom', '195 Little Collins St, Melbourne', '(03) 9654 9444', 'owner', 'owner');";
           stmt.executeUpdate(sql);
 
           c.commit();
@@ -782,10 +782,10 @@ public class DatabaseManager {
                          "VALUES ('Monday', '9:00', '11:00', 'Smith@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
-                    "VALUES ('Monday', '13:00', '15:00', 'Smith@gmail.com');";
+                    "VALUES ('Tuesday', '10:00', '15:00', 'Smith@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
-            		"VALUES ('Tuesday', '10:00', '12:00', 'Andrew@gmail.com');";
+            		"VALUES ('Monday', '10:00', '12:00', 'Andrew@gmail.com');";
             stmt.executeUpdate(sql);
             sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
             		"VALUES ('Tuesday', '13:00', '15:00', 'Andrew@gmail.com');";
