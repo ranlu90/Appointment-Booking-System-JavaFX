@@ -1,4 +1,4 @@
-# SEPT-Project1 v1.0
+# Appointment Booking System v1.0
 
 s3441902 Ziqi Liu   33%<br />
 s3558075 Yang Ding  33%<br />
@@ -9,6 +9,7 @@ Tutor: A Homy Ash
 
 The default username and password for business owner: owner | owner OR owner1 | owner1<br />
 The default username and password for customer: customer | customer OR david | david OR bruce | bruce<br />
+
 All files including trello, user stories, mock up etc. are in the "documentation" folder.<br/>
 Trello: https://trello.com/b/rGisSTbv <br/>
 GitHub: https://github.com/SEPT-Project-Semester1-2017/SEPT-Project1 <br/>
