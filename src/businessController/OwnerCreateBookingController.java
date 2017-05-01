@@ -131,6 +131,7 @@ public class OwnerCreateBookingController implements Initializable{
 		String timeMessage = "";		//show employee's working time
 		boolean dayCheck = false;		//check if the day matches employee's working day
 		String start_time = hour.getValue() + ":" + minute.getValue();
+		int duration = Integer.parseInt(databaseManager.getDuration(service.getValue(),user));
 
 		//split employee's full name by whitespace and check his email in the database by firstname and lastname
 		String[] name = employee.getValue().split(" ");
@@ -167,7 +168,7 @@ public class OwnerCreateBookingController implements Initializable{
 				alert = new Alert(AlertType.ERROR,"The employee is not available at this time. His/Her working time is " + timeMessage + "Please select a different time.");
 				alert.showAndWait();
 			}
-			else if(CheckTime(date.getValue().getDayOfWeek().toString(),hour.toString(),minute.toString())){
+			else if(CheckTime(date.getValue().getDayOfWeek().toString(),start_time, duration) == false){
 				alert = new Alert(AlertType.ERROR,"Booking time has to be within business hours.");
 				alert.showAndWait();
 			}
@@ -221,7 +222,7 @@ public class OwnerCreateBookingController implements Initializable{
 		for(ArrayList<String> temp:booking){
 			String[] str3 = temp.get(0).split(":");			//booking start time
 			int slot3 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1])) / 30 + 1;
-			int duration = Integer.parseInt(databaseManager.getDuration(temp.get(1)));
+			int duration = Integer.parseInt(databaseManager.getDuration(temp.get(1),user));
 			int slot4 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1]) + duration) / 30;
 			for(int i = slot3; i <= slot4; i ++){
 				timeSlot.put(i, false);
@@ -231,7 +232,7 @@ public class OwnerCreateBookingController implements Initializable{
 		//check if selected time slots are available by selected booking time and service
 		String[] str4 = startTime.split(":");			//selected booking start time
 		int slot5 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1])) / 30 + 1;
-		int selectedDuration = Integer.parseInt(databaseManager.getDuration(serviceName));
+		int selectedDuration = Integer.parseInt(databaseManager.getDuration(serviceName,user));
 		int slot6 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1]) + selectedDuration) / 30;
 		for(int i = slot5; i <= slot6; i ++){
 			if(timeSlot.get(i) == false){			//the time slot has been occupied
@@ -242,11 +243,12 @@ public class OwnerCreateBookingController implements Initializable{
 	}
 
 
+
 	/**
 	 * This method check if selected booking time is within the business owner's business hours.
-	 * Return true if the time period for booking can be added.
+	 * Return true if the time period for booking time can be added.
 	 */
-	public boolean CheckTime(String day, String startTime, String endTime){
+	public boolean CheckTime(String day, String startTime, int duration){
 
 		ArrayList<ArrayList<String>> businessHours = databaseManager.getBusinessTime(user);
 		HashMap<Integer, Boolean> timeSlot = new HashMap<Integer,Boolean>();
@@ -268,10 +270,9 @@ public class OwnerCreateBookingController implements Initializable{
 		}
 
 		//check if selected time slots are within business hours
-		String[] str3 = startTime.split(":");			//work starts
-		String[] str4 = endTime.split(":");				//work ends
+		String[] str3 = startTime.split(":");			//booking starts
  		int slot3 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1])) / 30 + 1;
-		int slot4 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1])) / 30;
+		int slot4 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1]) + duration) / 30;
 		for(int i = slot3; i <= slot4; i ++){
 			if(timeSlot.get(i) == false){			//the time slot has been occupied
 				return false;
@@ -279,5 +280,4 @@ public class OwnerCreateBookingController implements Initializable{
 		}
 		return true;
 	}
-
 }

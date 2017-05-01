@@ -260,7 +260,7 @@ public class CustomerCreateBookingController implements Initializable{
 		for(ArrayList<String> temp:booking){
 			String[] str3 = temp.get(0).split(":");			//booking start time
 			int slot3 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1])) / 30 + 1;
-			int duration = Integer.parseInt(databaseManager.getDuration(temp.get(1)));
+			int duration = Integer.parseInt(databaseManager.getDuration(temp.get(1),ownerID));
 			int slot4 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1]) + duration) / 30;
 			for(int i = slot3; i <= slot4; i ++){
 				timeSlot.put(i, false);
@@ -270,7 +270,7 @@ public class CustomerCreateBookingController implements Initializable{
 		//check if selected time slots are available by selected booking time and service
 		String[] str4 = startTime.split(":");			//selected booking start time
 		int slot5 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1])) / 30 + 1;
-		int selectedDuration = Integer.parseInt(databaseManager.getDuration(serviceName));
+		int selectedDuration = Integer.parseInt(databaseManager.getDuration(serviceName,ownerID));
 		int slot6 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1]) + selectedDuration) / 30;
 		for(int i = slot5; i <= slot6; i ++){
 			if(timeSlot.get(i) == false){			//the time slot has been occupied

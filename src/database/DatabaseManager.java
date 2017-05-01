@@ -961,7 +961,7 @@ public class DatabaseManager {
                        " duration	    TEXT	NOT NULL, " +
                        " owner_username	TEXT	NOT NULL, " +
                        " description	TEXT, " +
-                       "PRIMARY KEY (name,duration,owner_username)," +
+                       "PRIMARY KEY (name,owner_username)," +
                        "FOREIGN KEY(owner_username)	REFERENCES Business(username))";
           stmt.executeUpdate(sql);
         } catch ( Exception e ) {
@@ -990,9 +990,9 @@ public class DatabaseManager {
 	/**
 	 * Search the database to find if an existing service has been created in the service table.
 	 */
-	public boolean searchService(String name, String duration, String owner_username){
+	public boolean searchService(String name, String owner_username){
 		try{
-			   String sql = "select * from Service where name = '" + name + "' and duration = '" + duration + "' and owner_username = '" + owner_username + "'";
+			   String sql = "select * from Service where name = '" + name + "' and owner_username = '" + owner_username + "'";
 			ResultSet result = stmt.executeQuery(sql);
 			if(result.next()){
 				return true;
@@ -1061,10 +1061,10 @@ public class DatabaseManager {
     /**
      * Get duration for one service.
      */
-    public String getDuration(String service_name){
+    public String getDuration(String service_name, String ownerID){
         try {
         	String duration;
-			String sql = "select * from Service where name = '" + service_name + "'";
+			String sql = "select * from Service where name = '" + service_name + "' and owner_username = '" + ownerID + "'";
 			ResultSet result = stmt.executeQuery(sql);
 			while(result.next()){
 				duration = result.getString("duration");
