@@ -54,7 +54,7 @@
       </Text>
       <Button fx:id="confirm" layoutX="217.0" layoutY="373.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" AnchorPane.leftAnchor="217.0" />
       <Line endX="230.0" layoutX="227.0" layoutY="417.0" startX="-100.0" stroke="#c2c2c2" />
-      <Text fontSmoothingType="LCD" layoutX="149.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="194.00000095367432" AnchorPane.leftAnchor="149.0">
+      <Text fontSmoothingType="LCD" layoutX="149.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="115.00000095367432" AnchorPane.leftAnchor="149.0">
          <font>
             <Font size="14.0" />
          </font>

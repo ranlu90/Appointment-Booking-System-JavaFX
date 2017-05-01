@@ -175,19 +175,16 @@ public class OwnerAddEmployeeController implements Initializable{
 					else{
 						alert = new Alert(AlertType.ERROR,"Working time has to been within business hours!");
 						alert.showAndWait();
-						viewController.gotoBusinessMenu();
 					}
 				}
 				else{
 					alert = new Alert(AlertType.ERROR,"A same working time already exists!");
 					alert.showAndWait();
-					viewController.gotoBusinessMenu();
 				}
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"Start time need to be earlier than end time!");
 				alert.showAndWait();
-				viewController.gotoBusinessMenu();
 			}
 		}
 	}

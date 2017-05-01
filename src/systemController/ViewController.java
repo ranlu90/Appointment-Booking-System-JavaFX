@@ -201,7 +201,7 @@ public class ViewController{
 
 
     /**
-     * Switch to the customer menu.
+     * Switch to the owner register.
      */
     public void gotoOwnerRegister()
     {

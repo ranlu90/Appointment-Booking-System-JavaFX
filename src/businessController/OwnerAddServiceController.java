@@ -79,7 +79,6 @@ public class OwnerAddServiceController implements Initializable{
 				databaseManager.addService(name.getText(), duration.getValue(), user, description.getText());
 				alert = new Alert(AlertType.INFORMATION,"A new service has been created!");
 				alert.showAndWait();
-				viewController.gotoBusinessMenu();
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,"A service with the same name and duration has already existed!");

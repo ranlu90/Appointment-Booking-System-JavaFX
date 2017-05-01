@@ -118,7 +118,6 @@ public class OwnerBusinessHoursController implements Initializable{
 			else{
 				alert = new Alert(AlertType.ERROR,"Open time need to be earlier than closing time!");
 				alert.showAndWait();
-				viewController.gotoBusinessMenu();
 			}
 		}
 	}

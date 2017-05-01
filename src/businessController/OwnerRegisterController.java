@@ -13,9 +13,8 @@ import systemController.ViewController;
  *
  */
 public class OwnerRegisterController implements Initializable{
-	@SuppressWarnings("unused")
+
 	private ViewController viewController;
-	@SuppressWarnings("unused")
 	private DatabaseManager databaseManager;
 
 	@Override

@@ -167,7 +167,10 @@ public class OwnerCreateBookingController implements Initializable{
 				alert = new Alert(AlertType.ERROR,"The employee is not available at this time. His/Her working time is " + timeMessage + "Please select a different time.");
 				alert.showAndWait();
 			}
-
+			else if(CheckTime(date.getValue().getDayOfWeek().toString(),hour.toString(),minute.toString())){
+				alert = new Alert(AlertType.ERROR,"Booking time has to be within business hours.");
+				alert.showAndWait();
+			}
 			else{
 				databaseManager.setBooking(date.getValue().toString(), start_time, employee_email, service.getValue(), user, firstname.getText(),lastname.getText(),contactNumber.getText());
 				alert = new Alert(AlertType.INFORMATION,"A new booking has been successfully created!");
@@ -237,4 +240,44 @@ public class OwnerCreateBookingController implements Initializable{
 		}
 		return true;
 	}
+
+
+	/**
+	 * This method check if selected booking time is within the business owner's business hours.
+	 * Return true if the time period for booking can be added.
+	 */
+	public boolean CheckTime(String day, String startTime, String endTime){
+
+		ArrayList<ArrayList<String>> businessHours = databaseManager.getBusinessTime(user);
+		HashMap<Integer, Boolean> timeSlot = new HashMap<Integer,Boolean>();
+		for(int i = 1; i <= 48; i ++){
+			timeSlot.put(i, false);
+		}
+
+		//add time slots by owner's business hours divided by 30
+		for(ArrayList<String> temp:businessHours){
+			if(temp.get(0).compareToIgnoreCase(day) == 0){
+				String[] str = temp.get(1).split(":");			//business open time
+				String[] str2 = temp.get(2).split(":");			//business closing time
+				int slot1 = ((Integer.parseInt(str[0]) * 60) + Integer.parseInt(str[1])) / 30 + 1;
+				int slot2 = ((Integer.parseInt(str2[0]) * 60) + Integer.parseInt(str2[1])) / 30;
+				for(int i = slot1; i <= slot2; i ++){
+					timeSlot.put(i, true);
+				}
+			}
+		}
+
+		//check if selected time slots are within business hours
+		String[] str3 = startTime.split(":");			//work starts
+		String[] str4 = endTime.split(":");				//work ends
+ 		int slot3 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1])) / 30 + 1;
+		int slot4 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1])) / 30;
+		for(int i = slot3; i <= slot4; i ++){
+			if(timeSlot.get(i) == false){			//the time slot has been occupied
+				return false;
+			}
+		}
+		return true;
+	}
+
 }
