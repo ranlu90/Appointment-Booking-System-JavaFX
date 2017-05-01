@@ -75,7 +75,7 @@ public class OwnerAddServiceController implements Initializable{
 	private void Confirm(){
 		Alert alert;
 		if(name.getText().trim().isEmpty() == false && duration.getValue() != null){
-			if(databaseManager.searchService(name.getText(), duration.getValue(), user) == false){
+			if(databaseManager.searchService(name.getText(), user) == false){
 				databaseManager.addService(name.getText(), duration.getValue(), user, description.getText());
 				alert = new Alert(AlertType.INFORMATION,"A new service has been created!");
 				alert.showAndWait();

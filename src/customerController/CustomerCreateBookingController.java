@@ -29,7 +29,7 @@ public class CustomerCreateBookingController implements Initializable{
 
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
-	private String user;
+	private String customer;
 	private String ownerID;
 
 	@FXML
@@ -59,7 +59,7 @@ public class CustomerCreateBookingController implements Initializable{
 	}
 
 	public void setUsername(String username) {
-		user = username;
+		customer = username;
 	}
 
 	@FXML
@@ -160,17 +160,17 @@ public class CustomerCreateBookingController implements Initializable{
 	@FXML
 	private void Confirm(){
 		Alert alert;
-		ArrayList<String> customerinfo = databaseManager.getCustomerinfo(user);
+		ArrayList<String> customerinfo = databaseManager.getCustomerinfo(customer);
 
 		if(employee.getValue() != null && service.getValue() != null && date.getValue() != null &&
 				hour.getValue() != null && minute.getValue() != null && ownerList.getValue() != null){
 
 		ArrayList<String> dayList = new ArrayList<String>();
 		String workingDay = "";
-		String timeMessage = "";		//show employee's working time
+		String timeMessage = System.lineSeparator();		//show employee's working time
 		boolean dayCheck = false;		//check if the day matches employee's working day
 		String start_time = hour.getValue() + ":" + minute.getValue();
-
+		int duration = Integer.parseInt(databaseManager.getDuration(service.getValue(),ownerID));
 		//split employee's full name by whitespace and check his email in the database by firstname and lastname
 		String[] name = employee.getValue().split(" ");
 		String employee_email = databaseManager.searchEmployeeEmailByName(name[0], name[1]);
@@ -201,12 +201,12 @@ public class CustomerCreateBookingController implements Initializable{
 			}
 			else if(CheckTimeSlot(employee_email, date.getValue().getDayOfWeek().toString(), date.getValue().toString(), start_time,  service.getValue()) == false){
 				for(ArrayList<String> temp: workingTime){
-					timeMessage += temp.get(0) + " " + temp.get(1) + "-" + temp.get(2) + " ";
+					timeMessage += temp.get(0) + " " + temp.get(1) + "-" + temp.get(2) + System.lineSeparator();
 				}
 				alert = new Alert(AlertType.ERROR,"The employee is not available at this time. His/Her working time is " + timeMessage + "Please select a different time.");
 				alert.showAndWait();
 			}
-			else if(CheckTime(date.getValue().getDayOfWeek().toString(),hour.toString(),minute.toString())){
+			else if(CheckTime(date.getValue().getDayOfWeek().toString(),start_time, duration) == false){
 				alert = new Alert(AlertType.ERROR,"Booking time has to be within business hours.");
 				alert.showAndWait();
 			}
@@ -280,13 +280,14 @@ public class CustomerCreateBookingController implements Initializable{
 		return true;
 	}
 
+
 	/**
 	 * This method check if selected booking time is within the business owner's business hours.
-	 * Return true if the time period for booking can be added.
+	 * Return true if the time period for booking time can be added.
 	 */
-	public boolean CheckTime(String day, String startTime, String endTime){
+	public boolean CheckTime(String day, String startTime, int duration){
 
-		ArrayList<ArrayList<String>> businessHours = databaseManager.getBusinessTime(user);
+		ArrayList<ArrayList<String>> businessHours = databaseManager.getBusinessTime(ownerID);
 		HashMap<Integer, Boolean> timeSlot = new HashMap<Integer,Boolean>();
 		for(int i = 1; i <= 48; i ++){
 			timeSlot.put(i, false);
@@ -306,10 +307,9 @@ public class CustomerCreateBookingController implements Initializable{
 		}
 
 		//check if selected time slots are within business hours
-		String[] str3 = startTime.split(":");			//work starts
-		String[] str4 = endTime.split(":");				//work ends
+		String[] str3 = startTime.split(":");			//booking starts
  		int slot3 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1])) / 30 + 1;
-		int slot4 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1])) / 30;
+		int slot4 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1]) + duration) / 30;
 		for(int i = slot3; i <= slot4; i ++){
 			if(timeSlot.get(i) == false){			//the time slot has been occupied
 				return false;
@@ -317,5 +317,4 @@ public class CustomerCreateBookingController implements Initializable{
 		}
 		return true;
 	}
-
 }
