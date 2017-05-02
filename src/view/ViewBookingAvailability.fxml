@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -23,34 +24,34 @@
          </children>
       </AnchorPane>
       <Button layoutX="217.0" layoutY="418.0" mnemonicParsing="false" onAction="#MainMenu" prefWidth="167.0" text="Main Menu" />
-      <TableView fx:id="businessTimeTable" layoutX="309.0" layoutY="120.0" prefHeight="250.0" prefWidth="180.0" />
-      <Text layoutX="81.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a business owner">
+      <TableView fx:id="availabilityTable" layoutX="285.0" layoutY="177.0" prefHeight="228.0" prefWidth="200.0" />
+      <Text layoutX="66.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a business owner">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <ComboBox fx:id="ownerList" layoutX="309.0" layoutY="77.0" onAction="#pupulateBusinessHours" prefHeight="27.0" prefWidth="180.0" />
-      <Text layoutX="81.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Business Name">
+      <ComboBox fx:id="ownerList" layoutX="285.0" layoutY="78.0" onAction="#pupulateEmployee" prefHeight="27.0" prefWidth="200.0" />
+      <Text layoutX="66.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Business Name">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text layoutX="81.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+      <Text layoutX="66.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text layoutX="81.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone">
+      <Text layoutX="66.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fx:id="name" layoutX="81.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="name" layoutX="66.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="default business">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fx:id="address" layoutX="81.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="address" layoutX="66.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="default address">
          <font>
             <Font size="14.0" />
          </font></Text>
-      <Text fx:id="phone" layoutX="81.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="phone" layoutX="66.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="default phone">
          <font>
             <Font size="14.0" />
          </font></Text>
@@ -62,5 +63,17 @@
             <Button layoutX="217.0" layoutY="27.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="27.0" prefWidth="167.0" text="Main Menu" />
          </children>
       </AnchorPane>
+      <Text layoutX="66.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select an employee">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="66.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a date">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="employee" layoutX="285.0" layoutY="109.0" onAction="#clear" prefHeight="27.0" prefWidth="200.0" />
+      <DatePicker fx:id="date" layoutX="285.0" layoutY="141.0" onAction="#populateAvailability" prefHeight="27.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
