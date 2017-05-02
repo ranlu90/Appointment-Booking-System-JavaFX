@@ -39,14 +39,14 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <ComboBox fx:id="employee" layoutX="279.0" layoutY="91.0" prefHeight="27.0" prefWidth="167.0" AnchorPane.leftAnchor="279.0" />
-      <ComboBox fx:id="service" layoutX="279.0" layoutY="135.0" prefHeight="27.0" prefWidth="167.0" AnchorPane.leftAnchor="279.0" />
-      <DatePicker fx:id="date" layoutX="279.0" layoutY="179.0" prefHeight="27.0" prefWidth="167.0" AnchorPane.leftAnchor="279.0" AnchorPane.rightAnchor="154.0" />
-      <ComboBox fx:id="hour" layoutX="272.0" layoutY="232.0" prefHeight="27.0" prefWidth="83.0" promptText="Hour" AnchorPane.leftAnchor="272.0" />
-      <ComboBox fx:id="minute" layoutX="363.0" layoutY="232.0" prefHeight="27.0" prefWidth="89.0" promptText="Minute" />
-      <TextField fx:id="firstname" layoutX="269.0" layoutY="287.0" prefHeight="27.0" prefWidth="89.0" promptText="First Name" AnchorPane.leftAnchor="269.0" AnchorPane.topAnchor="287.0" />
-      <TextField fx:id="lastname" layoutX="363.0" layoutY="287.0" prefHeight="27.0" prefWidth="89.0" promptText="Last Name" AnchorPane.leftAnchor="363.0" AnchorPane.topAnchor="287.0" />
-      <TextField fx:id="contactNumber" layoutX="272.0" layoutY="337.0" prefHeight="27.0" prefWidth="167.0" AnchorPane.leftAnchor="272.0" />
+      <ComboBox fx:id="employee" layoutX="279.0" layoutY="91.0" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
+      <ComboBox fx:id="service" layoutX="279.0" layoutY="135.0" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
+      <DatePicker fx:id="date" layoutX="279.0" layoutY="179.0" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
+      <ComboBox fx:id="hour" layoutX="279.0" layoutY="231.0" prefHeight="27.0" prefWidth="83.0" promptText="Hour" AnchorPane.leftAnchor="279.0" />
+      <ComboBox fx:id="minute" layoutX="369.0" layoutY="231.0" prefHeight="27.0" prefWidth="89.0" promptText="Minute" />
+      <TextField fx:id="firstname" layoutX="279.0" layoutY="287.0" prefHeight="27.0" prefWidth="83.0" promptText="First Name" AnchorPane.leftAnchor="279.0" AnchorPane.topAnchor="287.0" />
+      <TextField fx:id="lastname" layoutX="369.0" layoutY="287.0" prefHeight="27.0" prefWidth="89.0" promptText="Last Name" AnchorPane.leftAnchor="369.0" AnchorPane.topAnchor="287.0" />
+      <TextField fx:id="contactNumber" layoutX="279.0" layoutY="337.0" prefHeight="27.0" prefWidth="179.0" />
       <Text fontSmoothingType="LCD" layoutX="181.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service" wrappingWidth="82.9736328125" AnchorPane.leftAnchor="149.0">
          <font>
             <Font size="14.0" />

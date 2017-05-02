@@ -22,7 +22,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <TextField fx:id="businessName" layoutX="250.0" layoutY="79.0" onAction="#businessRegister" prefHeight="32.0" prefWidth="160.0" promptText="Business Name" AnchorPane.bottomAnchor="379.0" AnchorPane.topAnchor="79.0" />
+      <TextField fx:id="businessName" layoutX="250.0" layoutY="79.0" onAction="#businessRegister" prefHeight="32.0" prefWidth="160.0" promptText="Business Name" AnchorPane.topAnchor="79.0" />
       <TextField fx:id="businessOwner" layoutX="250.0" layoutY="124.0" onAction="#businessRegister" prefHeight="30.0" prefWidth="160.0" promptText="Business Owner Name" />
       <TextField fx:id="address" layoutX="250.0" layoutY="163.0" onAction="#businessRegister" prefHeight="30.0" prefWidth="160.0" promptText="Address" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="163.0" />
       <TextField fx:id="contactNumber" layoutX="250.0" layoutY="204.0" onAction="#businessRegister" prefHeight="30.0" prefWidth="160.0" promptText="Contact Number" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="204.0" />
