@@ -101,6 +101,7 @@ public class ViewController{
     public void initStage(Stage stage)
     {
         this.stage = stage;
+        stage.setResizable(false);
         createMain();
         gotoLogin();
         stage.show();
