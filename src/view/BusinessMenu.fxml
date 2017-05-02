@@ -13,7 +13,7 @@
             <Insets bottom="20.0" />
          </padding>
          <children>
-            <Text fx:id="welcomeMessage" fill="WHITE" fontSmoothingType="LCD" layoutX="115.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER" wrappingWidth="370.79150390625" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="114.20849609375">
+            <Text fx:id="welcomeMessage" fill="WHITE" fontSmoothingType="LCD" layoutX="115.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER" wrappingWidth="370.79150390625">
                <font>
                   <Font size="24.0" />
                </font>

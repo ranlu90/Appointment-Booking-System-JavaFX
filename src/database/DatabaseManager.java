@@ -90,7 +90,7 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
-                       "VALUES ('Da Guido Melbourne la Pasta', 'Williams','130 Lygon St, Carlton', '+61 3 8528 4547','owner1','owner1' );";
+                       "VALUES ('Da Guido Melbourne', 'Williams','130 Lygon St, Carlton', '+61 3 8528 4547','owner1','owner1' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
@@ -223,11 +223,7 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                       "VALUES ('David', 'Beckham','London', '0123 456 789', 'david','david' );";
-          stmt.executeUpdate(sql);
-
-          sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                "VALUES ('Bruce', 'Wayne', 'New York City', '0345 689 910', 'bruce', 'bruce');";
+                       "VALUES ('David', 'Beckham','London', '0123 456 789', 'customer1','customer1' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
