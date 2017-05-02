@@ -107,6 +107,24 @@ public class DatabaseManager {
 
 
 	/**
+	 * Insert username, password, firstname, lastname,
+	 *  address and contact number into business database
+	 */
+    public void insertIntoBusiness(String business_name, String business_owner_name,
+			String address, String phone, String username, String password){
+        try {
+          c.setAutoCommit(false);
+          String sql = "INSERT INTO Business (business_name,business_owner_name,address,phone,username,password) " +
+                       "VALUES ('"+ business_name +"', '"+ business_owner_name +"','"+ address +"', '"+ phone +"', '"+ username +"','"+ password +"' );";
+          stmt.executeUpdate(sql);
+          c.commit();
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    }
+
+	/**
 	 * Get all business owners in the database.
 	 */
 	public ArrayList<ArrayList<String>> getAllBusiness(){
@@ -321,7 +339,7 @@ public class DatabaseManager {
 	 * Insert username, password, firstname, lastname,
 	 *  address and contact number into customerinfo database
 	 */
-    public boolean insertIntoCustomer(String firstname, String lastname,
+    public void insertIntoCustomer(String firstname, String lastname,
 			String address, String contactNumber, String username, String password){
         try {
           c.setAutoCommit(false);
@@ -329,12 +347,10 @@ public class DatabaseManager {
                        "VALUES ('"+ firstname +"', '"+ lastname +"','"+ address +"', '"+ contactNumber +"', '"+ username +"','"+ password +"' );";
           stmt.executeUpdate(sql);
           c.commit();
-          return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
-        return false;
     }
 
 
