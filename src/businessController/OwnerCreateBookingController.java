@@ -173,8 +173,15 @@ public class OwnerCreateBookingController implements Initializable{
 				alert.showAndWait();
 			}
 			else{
+				String message = "A new booking has been created." + System.lineSeparator() +
+						 "Employee: " + employee.getValue() + System.lineSeparator() +
+						 "Service: " + service.getValue() + System.lineSeparator() +
+						 "Date: " + date.getValue() + System.lineSeparator() +
+						 "Time: " + hour.getValue() + ":" + minute.getValue() + System.lineSeparator() +
+						 "Customer: " + firstname.getText()	+ " "+ lastname.getText() + System.lineSeparator() +
+						 "Contact Number: " + contactNumber.getText()	+ System.lineSeparator();
 				databaseManager.setBooking(date.getValue().toString(), start_time, employee_email, service.getValue(), user, firstname.getText(),lastname.getText(),contactNumber.getText());
-				alert = new Alert(AlertType.INFORMATION,"A new booking has been successfully created!");
+				alert = new Alert(AlertType.INFORMATION, message);
 				alert.showAndWait();
 				viewController.gotoBusinessMenu();
 			}
