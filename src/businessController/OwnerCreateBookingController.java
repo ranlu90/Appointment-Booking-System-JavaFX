@@ -172,6 +172,10 @@ public class OwnerCreateBookingController implements Initializable{
 				alert = new Alert(AlertType.ERROR,"Booking time has to be within business hours.");
 				alert.showAndWait();
 			}
+			else if(!contactNumber.getText().matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
+				alert = new Alert(AlertType.ERROR,"Contact number can only contain digits, space and + ( ) ");
+				alert.showAndWait();
+			}
 			else{
 				String message = "A new booking has been created." + System.lineSeparator() +
 						 "Employee: " + employee.getValue() + System.lineSeparator() +
