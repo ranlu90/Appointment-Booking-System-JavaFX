@@ -5,6 +5,7 @@ import java.io.File;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 
 /**
@@ -18,6 +19,7 @@ public class DatabaseManager {
     String path = "jdbc:sqlite:" + "AppointmentBookingSystem.db";
     Connection c = null;
     Statement stmt = null;
+    private static Logger logger = Logger.getLogger("database.DatabaseManager");
 
 	public DatabaseManager(){}
 
@@ -118,6 +120,7 @@ public class DatabaseManager {
                        "VALUES ('"+ business_name +"', '"+ business_owner_name +"','"+ address +"', '"+ phone +"', '"+ username +"','"+ password +"' );";
           stmt.executeUpdate(sql);
           c.commit();
+          logger.info("A new business owner has been inserted into Business.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -343,6 +346,7 @@ public class DatabaseManager {
                        "VALUES ('"+ firstname +"', '"+ lastname +"','"+ address +"', '"+ contactNumber +"', '"+ username +"','"+ password +"' );";
           stmt.executeUpdate(sql);
           c.commit();
+          logger.info("A new customer has been inserted into Customerinfo.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -487,6 +491,7 @@ public class DatabaseManager {
                   "VALUES ('"+ firstname +"', '"+ lastname +"','"+ owner_username +"', '"+ email +"', '"+ contact_number +"');";
           stmt.executeUpdate(sql);
           c.commit();
+          logger.info("A new employee has been inserted into Employee.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -621,6 +626,7 @@ public class DatabaseManager {
             sql = "UPDATE BusinessTime set closing_time = '" + closing_time + "' where owner_username = '" + owner_username + "' and business_day = '" + business_day + "';";
             stmt.executeUpdate(sql);
             c.commit();
+            logger.info("Business hours has been updated for " + owner_username + " in BusinessTime.");
           } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
@@ -638,6 +644,7 @@ public class DatabaseManager {
                   "VALUES ('"+ business_day +"', '"+ owner_username +"','"+ open_time +"', '"+ closing_time +"');";
           stmt.executeUpdate(sql);
           c.commit();
+          logger.info("New business hours has been inserted for " + owner_username + " in BusinessTime.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -775,6 +782,7 @@ public class DatabaseManager {
                   "VALUES ('"+ day +"', '"+ start_time +"','"+ end_time +"','"+ employee_email +"');";
           stmt.executeUpdate(sql);
           c.commit();
+          logger.info("New working time for " + employee_email +" has been inserted into WorkingTime.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
@@ -848,6 +856,7 @@ public class DatabaseManager {
 	                  "VALUES ('"+ date +"', '"+ start_time +"','"+ employee_email +"','"+ service +"','"+ owner_username +"','"+ customer_firstname+"','"+ customer_lastname+"','"+ customer_contact+"');";
 	          stmt.executeUpdate(sql);
 	          c.commit();
+	          logger.info("A New booking for " + owner_username + " made by "+ customer_firstname + " " + customer_lastname +" has been inserted into Booking.");
         }
         catch(Exception e){
 	          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -992,6 +1001,7 @@ public class DatabaseManager {
                   "VALUES ('"+ name +"', '"+ duration +"','"+ owner_username +"','"+ description +"');";
           stmt.executeUpdate(sql);
           c.commit();
+          logger.info("A new service has been inserted into Service.");
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
