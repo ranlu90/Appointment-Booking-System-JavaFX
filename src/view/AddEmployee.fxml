@@ -15,12 +15,14 @@
          <padding>
             <Insets bottom="20.0" />
          </padding>
+         <children>
+            <Text fill="WHITE" layoutX="219.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Emoloyee">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
       </AnchorPane>
-      <Text fill="WHITE" layoutX="193.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Emoloyee">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
       <Text layoutX="82.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monday">
          <font>
             <Font size="14.0" />

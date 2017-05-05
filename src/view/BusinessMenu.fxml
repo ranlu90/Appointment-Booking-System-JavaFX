@@ -21,7 +21,7 @@
          </children>
       </AnchorPane>
       <Button fx:id="addNewService" layoutX="202.0" layoutY="80.0" mnemonicParsing="false" onAction="#addNewService" prefHeight="30.0" prefWidth="196.0" text="Add New Service" />
-      <Button fx:id="updateEmployee" layoutX="202.0" layoutY="125.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="30.0" prefWidth="196.0" text="Update Employee" />
+      <Button fx:id="updateEmployee" layoutX="202.0" layoutY="125.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="30.0" prefWidth="196.0" text="Add new Employee" />
       <Button fx:id="changeBusinessHours" layoutX="202.0" layoutY="170.0" mnemonicParsing="false" onAction="#changeBusinessHours" prefHeight="30.0" prefWidth="196.0" text="Update Business Hours" />
       <Button fx:id="viewAllBookings" layoutX="202.0" layoutY="215.0" mnemonicParsing="false" onAction="#viewAllBookings" prefHeight="30.0" prefWidth="196.0" text="View All Bookings" />
       <Button fx:id="viewNewBookings" layoutX="202.0" layoutY="260.0" mnemonicParsing="false" onAction="#viewNewBookings" prefHeight="30.0" prefWidth="196.0" text="View New Bookings" />
