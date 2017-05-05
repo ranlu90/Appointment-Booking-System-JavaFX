@@ -53,6 +53,9 @@ public class LoginController implements Initializable{
 				viewController.setUserName(username.getText());
 				viewController.gotoCustomerMenu();
 			}
+			else if(username.getText().equals("admin") && password.getText().equals("admin")){
+				viewController.gotoOwnerRegister();
+			}
 			else{
 				alert = new Alert(AlertType.ERROR,
 						"Incorrect credentials!");
@@ -68,17 +71,6 @@ public class LoginController implements Initializable{
     {
         // Switch to customer register view
         viewController.gotoCustomerRegister();
-    }
-
-
-    /**
-     * Switch views to business owner register page.
-     */
-    @FXML
-    private void ownerRegister()
-    {
-        // Switch to  owner register view
-        viewController.gotoOwnerRegister();
     }
 
 

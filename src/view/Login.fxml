@@ -41,6 +41,5 @@
          </padding>
       </AnchorPane>
       <Button layoutX="220.0" layoutY="320.0" mnemonicParsing="false" onAction="#customerRegister" prefHeight="30.0" prefWidth="160.0" text="Customer Register" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" />
-      <Button fx:id="ownerRegister" layoutX="220.0" layoutY="363.0" mnemonicParsing="false" onAction="#ownerRegister" prefHeight="30.0" prefWidth="160.0" text="Owner Register" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="220.0" />
    </children>
 </AnchorPane>
