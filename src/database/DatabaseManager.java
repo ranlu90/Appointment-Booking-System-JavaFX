@@ -294,6 +294,22 @@ public class DatabaseManager {
 		}
 		return null;
 	}
+	public boolean searchCustomerByNumber(String first_name, String last_name, String contact_number){
+		try{
+			
+			String sql = "select * from Customerinfo where first_name = '" + first_name + "' and last_name = '" + last_name + "' "
+					+ "and contact_number = '" + contact_number + "'";
+			ResultSet result = stmt.executeQuery(sql);
+			if(result.next()){
+				return true;
+			}
+		
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
 
 
 	/**
