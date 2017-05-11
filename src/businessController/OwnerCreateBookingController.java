@@ -31,7 +31,7 @@ public class OwnerCreateBookingController implements Initializable{
 	private String user;
 
 	@FXML
-	ComboBox<String> employee,service,hour,minute;
+	ComboBox<String> employee,service,hour,minute,existingCustomer;
 
 	@FXML
 	TextField firstname, lastname, contactNumber;
@@ -312,12 +312,24 @@ public class OwnerCreateBookingController implements Initializable{
 
 	@FXML
 	private void CheckExistingCustomer(){
-		if(databaseManager.searchCustomerByNumber(contactNumber.getText()) != null){
-			ArrayList<String> customer = databaseManager.searchCustomerByNumber(contactNumber.getText());
-			firstname.setText(customer.get(0));
-			lastname.setText(customer.get(1));
-			firstname.setEditable(false);
-			lastname.setEditable(false);
+		if(existingCustomer.getItems() != null){
+			existingCustomer.getItems().clear();
 		}
+		if(databaseManager.searchCustomerByNumber(contactNumber.getText()) != null){
+			ArrayList<ArrayList<String>> customerList = databaseManager.searchCustomerByNumber(contactNumber.getText());
+			ArrayList<String> temp = new ArrayList<String>();
+			for(ArrayList<String> customer: customerList){
+				String name = customer.get(0) + " " + customer.get(1);
+				temp.add(name);
+			}
+			existingCustomer.getItems().addAll(temp);
+		}
+	}
+
+	@FXML
+	private void setCustomer(){
+		String temp[] = existingCustomer.getValue().split(" ");
+		firstname.setText(temp[0]);
+		lastname.setText(temp[1]);
 	}
 }
