@@ -117,10 +117,15 @@ public class OwnerMenuController implements Initializable {
 
 
 	public void initLogo(String logoURL) {
+		File f =  new File("image/" + user + ".jpg");
+
 		if(logoURL != null){
 			logo.setImage(new Image(new File(logoURL).toURI().toString()));
 		}
-		else
-			logo.setImage(new Image("image/" + user + ".jpg"));
+		else{
+			if(f.exists()){
+				logo.setImage(new Image("image/" + user + ".jpg"));
+			}
+		}
 	}
 }
