@@ -6,7 +6,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -46,14 +45,13 @@
       <ComboBox fx:id="minute" layoutX="369.0" layoutY="231.0" prefHeight="27.0" prefWidth="89.0" promptText="Minute" />
       <TextField fx:id="firstname" layoutX="279.0" layoutY="287.0" prefHeight="27.0" prefWidth="83.0" promptText="First Name" AnchorPane.leftAnchor="279.0" AnchorPane.topAnchor="287.0" />
       <TextField fx:id="lastname" layoutX="369.0" layoutY="287.0" prefHeight="27.0" prefWidth="89.0" promptText="Last Name" AnchorPane.leftAnchor="369.0" AnchorPane.topAnchor="287.0" />
-      <TextField fx:id="contactNumber" layoutX="279.0" layoutY="337.0" prefHeight="27.0" prefWidth="179.0" />
+      <TextField fx:id="contactNumber" layoutX="279.0" layoutY="337.0" onAction="#CheckExistingCustomer" prefHeight="27.0" prefWidth="179.0" promptText="Contact Number" />
       <Text fontSmoothingType="LCD" layoutX="181.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service" wrappingWidth="82.9736328125" AnchorPane.leftAnchor="149.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
       <Button fx:id="confirm" layoutX="217.0" layoutY="373.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" AnchorPane.leftAnchor="217.0" />
-      <Line endX="230.0" layoutX="227.0" layoutY="417.0" startX="-100.0" stroke="#c2c2c2" />
       <Text fontSmoothingType="LCD" layoutX="149.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" wrappingWidth="115.00000095367432" AnchorPane.leftAnchor="149.0">
          <font>
             <Font size="14.0" />

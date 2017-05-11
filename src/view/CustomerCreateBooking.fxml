@@ -48,7 +48,6 @@
          </font>
       </Text>
       <Button layoutX="217.0" layoutY="367.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" AnchorPane.leftAnchor="217.0" />
-      <Button layoutX="209.0" layoutY="434.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="27.0" prefWidth="167.0" text="Main Menu" />
       <Text layoutX="144.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select business">
          <font>
             <Font size="14.0" />

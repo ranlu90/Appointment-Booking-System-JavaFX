@@ -125,7 +125,7 @@ public class OwnerCreateBookingController implements Initializable{
 		if(employee.getValue() != null && service.getValue() != null && date.getValue() != null &&
 				hour.getValue() != null && minute.getValue() != null && firstname.getText().trim().isEmpty() == false &&
 				lastname.getText().trim().isEmpty() == false && contactNumber.getText().trim().isEmpty() == false){
-        
+
 		ArrayList<String> dayList = new ArrayList<String>();
 		String workingDay = "";
 		String timeMessage = System.lineSeparator();		//show employee's working time
@@ -176,15 +176,14 @@ public class OwnerCreateBookingController implements Initializable{
 				alert = new Alert(AlertType.ERROR,"Contact number can only contain digits, space and + ( ) ");
 				alert.showAndWait();
 			}
-			else if(databaseManager.searchCustomerByNumber(firstname.getText(), lastname.getText(),contactNumber.getText()) == false){
-				databaseManager.insertIntoCustomer(firstname.getText(),lastname.getText(),"null"
-						,contactNumber.getText(),"guess","guess");
-				String message = "A new customer has been added" + System.lineSeparator();
-				alert = new Alert(AlertType.ERROR,message);
-				alert.showAndWait();
-				
-			}
 			else {
+				if(databaseManager.searchCustomerByNumber(contactNumber.getText()) == null){
+					if(databaseManager.searchCustomerUserName("guest") == false){
+						databaseManager.insertIntoCustomer(firstname.getText(),lastname.getText(),"",contactNumber.getText(),"guest","guest");
+						alert = new Alert(AlertType.INFORMATION,"A new customer has been added.");
+						alert.showAndWait();
+					}
+				}
 				String message = "A new booking has been created." + System.lineSeparator() +
 						 "Employee: " + employee.getValue() + System.lineSeparator() +
 						 "Service: " + service.getValue() + System.lineSeparator() +
@@ -297,5 +296,16 @@ public class OwnerCreateBookingController implements Initializable{
 			}
 		}
 		return true;
+	}
+
+	@FXML
+	private void CheckExistingCustomer(){
+		if(databaseManager.searchCustomerByNumber(contactNumber.getText()) != null){
+			ArrayList<String> customer = databaseManager.searchCustomerByNumber(contactNumber.getText());
+			firstname.setText(customer.get(0));
+			lastname.setText(customer.get(1));
+			firstname.setEditable(false);
+			lastname.setEditable(false);
+		}
 	}
 }

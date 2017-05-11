@@ -226,7 +226,7 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                       "VALUES ('David', 'Beckham','London', '0123 456 789', 'customer1','customer1' );";
+                       "VALUES ('David', 'Beckham','London', '0233 456 789', 'customer1','customer1' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
@@ -294,21 +294,27 @@ public class DatabaseManager {
 		}
 		return null;
 	}
-	public boolean searchCustomerByNumber(String first_name, String last_name, String contact_number){
+
+
+	/**
+	 * Search existing customer by contact number.
+	 * @return customer's firstname and lastname.
+	 */
+	public ArrayList<String> searchCustomerByNumber(String contact_number){
 		try{
-			
-			String sql = "select * from Customerinfo where first_name = '" + first_name + "' and last_name = '" + last_name + "' "
-					+ "and contact_number = '" + contact_number + "'";
+			ArrayList<String> customer = new ArrayList<String>();
+			String sql = "select * from Customerinfo where contact_number = '" + contact_number + "'";
 			ResultSet result = stmt.executeQuery(sql);
 			if(result.next()){
-				return true;
+				customer.add(result.getString("first_name"));
+				customer.add(result.getString("last_name"));
+				return customer;
 			}
-		
 		}
 		catch (Exception exp){
 			exp.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 

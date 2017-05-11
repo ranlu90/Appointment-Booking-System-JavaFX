@@ -11,12 +11,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="businessController.OwnerAddEmployeeController">
    <children>
-      <AnchorPane layoutY="12.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.topAnchor="0.0">
-         <padding>
-            <Insets bottom="20.0" />
-         </padding>
+      <AnchorPane layoutX="-1.0" layoutY="4.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text fill="WHITE" layoutX="219.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Emoloyee">
+            <Text fill="WHITE" layoutX="190.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Emoloyee">
                <font>
                   <Font size="24.0" />
                </font>
