@@ -20,13 +20,13 @@
             </Text>
          </children>
       </AnchorPane>
-      <Button fx:id="addNewService" layoutX="202.0" layoutY="80.0" mnemonicParsing="false" onAction="#addNewService" prefHeight="30.0" prefWidth="196.0" text="Add New Service" />
-      <Button fx:id="updateEmployee" layoutX="202.0" layoutY="125.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="30.0" prefWidth="196.0" text="Add New Employee" />
-      <Button fx:id="changeBusinessHours" layoutX="202.0" layoutY="170.0" mnemonicParsing="false" onAction="#changeBusinessHours" prefHeight="30.0" prefWidth="196.0" text="Update Business Hours" />
-      <Button fx:id="viewAllBookings" layoutX="202.0" layoutY="215.0" mnemonicParsing="false" onAction="#viewAllBookings" prefHeight="30.0" prefWidth="196.0" text="View All Bookings" />
-      <Button fx:id="viewNewBookings" layoutX="202.0" layoutY="260.0" mnemonicParsing="false" onAction="#viewNewBookings" prefHeight="30.0" prefWidth="196.0" text="View New Bookings" />
-      <Button fx:id="createABooking" layoutX="202.0" layoutY="305.0" mnemonicParsing="false" onAction="#createABooking" prefHeight="30.0" prefWidth="196.0" text="Create A Booking" />
-      <Button fx:id="viewAvailability" layoutX="202.0" layoutY="350.0" mnemonicParsing="false" onAction="#viewAvailability" prefHeight="30.0" prefWidth="196.0" text="View Employees' Availability" />
+      <Button fx:id="addNewService" layoutX="202.0" layoutY="120.0" mnemonicParsing="false" onAction="#addNewService" prefHeight="30.0" prefWidth="196.0" text="Add New Service" />
+      <Button fx:id="updateEmployee" layoutX="202.0" layoutY="160.0" mnemonicParsing="false" onAction="#updateEmployee" prefHeight="30.0" prefWidth="196.0" text="Add New Employee" />
+      <Button fx:id="changeBusinessHours" layoutX="202.0" layoutY="200.0" mnemonicParsing="false" onAction="#changeBusinessHours" prefHeight="30.0" prefWidth="196.0" text="Update Business Hours" />
+      <Button fx:id="viewAllBookings" layoutX="202.0" layoutY="240.0" mnemonicParsing="false" onAction="#viewAllBookings" prefHeight="30.0" prefWidth="196.0" text="View All Bookings" />
+      <Button fx:id="viewNewBookings" layoutX="202.0" layoutY="280.0" mnemonicParsing="false" onAction="#viewNewBookings" prefHeight="30.0" prefWidth="196.0" text="View New Bookings" />
+      <Button fx:id="createABooking" layoutX="202.0" layoutY="320.0" mnemonicParsing="false" onAction="#createABooking" prefHeight="30.0" prefWidth="196.0" text="Create A Booking" />
+      <Button fx:id="viewAvailability" layoutX="202.0" layoutY="360.0" mnemonicParsing="false" onAction="#viewAvailability" prefHeight="30.0" prefWidth="196.0" text="View Employees' Availability" />
       <AnchorPane layoutY="407.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
          <padding>
             <Insets bottom="20.0" />
@@ -35,5 +35,6 @@
             <Button fx:id="logout" layoutX="217.0" layoutY="27.0" mnemonicParsing="false" onAction="#logout" prefHeight="27.0" prefWidth="167.0" text="Logout" AnchorPane.leftAnchor="217.0" />
          </children>
       </AnchorPane>
+      <Button layoutX="202.0" layoutY="80.0" mnemonicParsing="false" onAction="#CustomizeLayout" prefHeight="30.0" prefWidth="196.0" text="Customize Layout" />
    </children>
 </AnchorPane>

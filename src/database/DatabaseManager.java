@@ -226,11 +226,11 @@ public class DatabaseManager {
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                       "VALUES ('David', 'Beckham','London', '0233 456 789', 'customer1','customer1' );";
+                       "VALUES ('David', 'Beckham','London', '0233456789', 'customer1','customer1' );";
           stmt.executeUpdate(sql);
 
           sql = "INSERT INTO Customerinfo (first_name,last_name,address,contact_number,username,password) " +
-                "VALUES ('Ran','Lu','Melbourne','0123 456 789','customer','customer');";
+                "VALUES ('Ran','Lu','Melbourne','0123456789','customer','customer');";
           stmt.executeUpdate(sql);
           c.commit();
         } catch ( Exception e ) {

@@ -2,15 +2,13 @@ package systemController;
 
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
+import java.io.InputStream;
 import businessController.OwnerAddEmployeeController;
 import businessController.OwnerAddServiceController;
 import businessController.OwnerBusinessHoursController;
 import businessController.OwnerCreateBookingController;
+import businessController.OwnerCustomizeLayoutController;
 import businessController.OwnerMenuController;
 import businessController.OwnerRegisterController;
 import businessController.OwnerViewAllBookingController;
@@ -40,6 +38,9 @@ public class ViewController{
 	private DatabaseManager databaseManager;
 	private Stage stage;
     private AnchorPane container;
+    private String message;				//welcome message for business owner
+    private AnchorPane header,footer;
+
 
 	public ViewController(){}
 
@@ -72,6 +73,13 @@ public class ViewController{
         databaseManager.insertInitialEntitiesForService();
     }
 
+    public void setHeader(AnchorPane header){
+    	this.header = header;
+    }
+
+    public void setFooter(AnchorPane footer){
+    	this.footer = footer;
+    }
     /**
      * Pass username as a primary key.
      * @param username received from loginController, pass to next level controller.
@@ -79,24 +87,6 @@ public class ViewController{
 	public void setUserName(String username){
 		this.username = username;
 	}
-
-
-	/**
-	 * Add logging information to console.
-	 * @param from - the class name for printed information.
-	 * @param message - print to console.
-	 */
-    public void add(String from, String message)
-    {
-        // Get the date and format it for output
-        Date date = new Date();
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
-        // Create the output message
-        String logMsg = "[" + dateFormat.format(date) + "] "+ from +": "+ message;
-        // Output to console
-        System.out.println(logMsg);
-    }
-
 
     public void initStage(Stage stage)
     {
@@ -112,6 +102,9 @@ public class ViewController{
         this.container = container;
     }
 
+    public void setMessage(String message){
+    	this.message = message;
+    }
     /**
      * Create the main page, set default container.
      */
@@ -155,7 +148,7 @@ public class ViewController{
         	businessMenu.initViewController(this);
         	businessMenu.initDatabaseManager(databaseManager);
         	businessMenu.setUsername(username);
-        	businessMenu.welcomeMessage();
+        	businessMenu.initMessage(message);
 
         }
         catch(Exception e)
@@ -390,6 +383,19 @@ public class ViewController{
         }
     }
 
+    /**
+     * Customer checks booking availability.
+     */
+    public void gotoLayout(){
+        try {
+        	OwnerCustomizeLayoutController layout = (OwnerCustomizeLayoutController) setScene("CustomizeLayout.fxml");
+        	layout.initViewController(this);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Sets the scene to the supplied fxml document - Used for initially

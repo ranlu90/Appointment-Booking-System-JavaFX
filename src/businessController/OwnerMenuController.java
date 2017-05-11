@@ -21,12 +21,22 @@ public class OwnerMenuController implements Initializable {
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
 	private	String user;
+	@SuppressWarnings("unused")
+	private String message;
 
 	@FXML
 	private Text welcomeMessage;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+	}
+
+	public void initMessage(String message){
+		this.message = message;
+		if(message != null)
+			welcomeMessage.setText(message);
+		else
+			welcomeMessage.setText("Welcome! " + databaseManager.getBusinessName(user));
 	}
 
 	public void initViewController(ViewController viewController) {
@@ -43,8 +53,8 @@ public class OwnerMenuController implements Initializable {
 	}
 
 	@FXML
-	public void welcomeMessage(){
-		welcomeMessage.setText("Welcome! " + databaseManager.getBusinessName(user));
+	public void CustomizeLayout(){
+		viewController.gotoLayout();
 	}
 
 	@FXML
