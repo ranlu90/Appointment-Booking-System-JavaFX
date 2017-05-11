@@ -276,25 +276,6 @@ public class DatabaseManager {
 		return false;
 	}
 
-	/**
-	 * Search customerinfo table to find username.
-	 */
-	public String searchCustomerID(String first_name, String last_name){
-		try{
-			String username;
-			String sql = "select * from Customerinfo where first_name = '" + first_name + "' and last_name = '" + last_name + "'";
-			ResultSet result = stmt.executeQuery(sql);
-			if(result.next()){
-				username = result.getString("username");
-				return username;
-			}
-		}
-		catch (Exception exp){
-			exp.printStackTrace();
-		}
-		return null;
-	}
-
 
 	/**
 	 * Search existing customer by contact number.
