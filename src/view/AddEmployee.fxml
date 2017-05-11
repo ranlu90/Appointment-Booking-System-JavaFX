@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="businessController.OwnerAddEmployeeController">
    <children>
-      <AnchorPane layoutX="-1.0" layoutY="4.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="header" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Text fill="WHITE" layoutX="190.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Emoloyee">
                <font>
@@ -97,7 +97,7 @@
       <TextField fx:id="email" layoutX="171.0" layoutY="101.0" prefHeight="27.0" prefWidth="109.0" promptText="Email" />
       <Text layoutX="84.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select An Existing Employee" />
       <ComboBox fx:id="employeeList" layoutX="314.0" layoutY="131.0" onAction="#setText" prefHeight="27.0" prefWidth="135.0" />
-      <AnchorPane layoutY="392.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
+      <AnchorPane fx:id="footer" layoutY="392.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
          <padding>
             <Insets bottom="20.0" />
          </padding>

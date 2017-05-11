@@ -390,6 +390,8 @@ public class ViewController{
         try {
         	OwnerCustomizeLayoutController layout = (OwnerCustomizeLayoutController) setScene("CustomizeLayout.fxml");
         	layout.initViewController(this);
+        	layout.setHeader(header);
+        	layout.setFooter(footer);
         }
         catch(Exception e)
         {
