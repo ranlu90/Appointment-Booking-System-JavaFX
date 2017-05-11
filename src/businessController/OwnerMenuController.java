@@ -1,5 +1,6 @@
 package businessController;
 
+import java.io.File;
 import java.net.URL;
 
 
@@ -8,6 +9,7 @@ import java.util.ResourceBundle;
 import database.DatabaseManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -114,7 +116,11 @@ public class OwnerMenuController implements Initializable {
 	}
 
 
-	public void initLogo(ImageView logo) {
-		this.logo = logo;
+	public void initLogo(String logoURL) {
+		if(logoURL != null){
+			logo.setImage(new Image(new File(logoURL).toURI().toString()));
+		}
+		else
+			logo.setImage(new Image("image/toniguy.jpg"));
 	}
 }

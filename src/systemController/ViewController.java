@@ -3,6 +3,7 @@ package systemController;
 
 import java.io.IOException;
 
+
 import java.io.InputStream;
 import businessController.OwnerAddEmployeeController;
 import businessController.OwnerAddServiceController;
@@ -25,7 +26,6 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -41,7 +41,7 @@ public class ViewController{
     private AnchorPane container;
     private String message;				//welcome message for business owner
     private String headerColor,footerColor;
-    private ImageView logo;
+    private String logoURL;
 
 	public ViewController(){}
 
@@ -80,6 +80,9 @@ public class ViewController{
 
     public void setFooter(String footerColor){
     	this.footerColor = footerColor;
+    }
+    public void setLogoURL(String logoURL){
+    	this.logoURL = logoURL;
     }
     /**
      * Pass username as a primary key.
@@ -150,7 +153,7 @@ public class ViewController{
         	businessMenu.initDatabaseManager(databaseManager);
         	businessMenu.setUsername(username);
         	businessMenu.initMessage(message);
-        	businessMenu.initLogo(logo);
+        	businessMenu.initLogo(logoURL);
         	businessMenu.setHeader(headerColor);
         	businessMenu.setFooter(footerColor);
         }
@@ -409,6 +412,7 @@ public class ViewController{
         	layout.initViewController(this);
         	layout.setHeader(headerColor);
         	layout.setFooter(footerColor);
+        	layout.initStage(stage);
         }
         catch(Exception e)
         {

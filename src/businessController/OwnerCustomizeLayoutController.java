@@ -1,6 +1,9 @@
 package businessController;
 
+import java.io.File;
 import java.net.URL;
+
+
 
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -10,11 +13,17 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import systemController.ViewController;
 
 public class OwnerCustomizeLayoutController implements Initializable{
 
 	private ViewController viewController;
+	private Stage stage;
+
+	@FXML
+	private TextField filepath;
 
 	@FXML
 	private TextField textMessage;
@@ -56,13 +65,23 @@ public class OwnerCustomizeLayoutController implements Initializable{
 		if(textMessage.getText().trim().isEmpty() == false){
 			viewController.setMessage(textMessage.getText());
 		}
-		if(colorHeader.getValue() != null || colorFooter.getValue() != null || textMessage.getText().trim().isEmpty() == false){
+		if(filepath.getText().trim().isEmpty() == false){
+			viewController.setLogoURL(filepath.getText());
+		}
+		if(colorHeader.getValue() != null || colorFooter.getValue() != null || filepath.getText().trim().isEmpty() == false || textMessage.getText().trim().isEmpty() == false){
 			alert = new Alert(AlertType.INFORMATION,"Customized layout has been saved.");
 			alert.showAndWait();
 			viewController.gotoBusinessMenu();
 		}
 	}
 
+	@FXML
+	private void ChooseFile(){
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.bmp", "*.png", "*.jpg", "*.gif", "*.jpeg"));
+		File file = fileChooser.showOpenDialog(stage);
+		filepath.setText(file.getAbsolutePath());
+	}
 
 	@FXML
 	private void MainMenu(){
@@ -71,5 +90,8 @@ public class OwnerCustomizeLayoutController implements Initializable{
 
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
+	}
+	public void initStage(Stage stage){
+		this.stage = stage;
 	}
 }

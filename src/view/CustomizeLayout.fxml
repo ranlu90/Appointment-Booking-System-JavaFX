@@ -22,25 +22,20 @@
             </Text>
          </children>
       </AnchorPane>
-      <Text layoutX="203.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Header Message">
+      <Text layoutX="204.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Header Message">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="textMessage" layoutX="217.0" layoutY="111.0" />
-      <ColorPicker fx:id="colorHeader" layoutX="217.0" layoutY="254.0" prefHeight="29.0" prefWidth="167.0" />
-      <Text layoutX="203.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Logo">
+      <TextField fx:id="textMessage" layoutX="217.0" layoutY="110.0" />
+      <ColorPicker fx:id="colorHeader" layoutX="217.0" layoutY="255.0" prefHeight="29.0" prefWidth="167.0" />
+      <ColorPicker fx:id="colorFooter" layoutX="217.0" layoutY="327.0" prefHeight="29.0" prefWidth="167.0" />
+      <Text layoutX="228.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Header Color">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <ColorPicker fx:id="colorFooter" layoutX="216.0" layoutY="323.0" prefHeight="29.0" prefWidth="167.0" />
-      <Text layoutX="203.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Header Color">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="203.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Footer Color">
+      <Text layoutX="230.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Footer Color">
          <font>
             <Font size="18.0" />
          </font>
@@ -54,5 +49,7 @@
          </children>
       </AnchorPane>
       <Button layoutX="216.0" layoutY="370.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" />
+      <TextField fx:id="filepath" editable="false" layoutX="217.0" layoutY="196.0" prefHeight="27.0" prefWidth="167.0" promptText="Logo File Path" />
+      <Button layoutX="217.0" layoutY="158.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="27.0" prefWidth="167.0" text="Select Logo" />
    </children>
 </AnchorPane>
