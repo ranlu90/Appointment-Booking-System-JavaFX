@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
 import database.DatabaseManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import systemController.ViewController;
 
@@ -26,11 +28,25 @@ public class OwnerMenuController implements Initializable {
 
 	@FXML
 	private Text welcomeMessage;
+	@FXML
+	private AnchorPane header,footer;
+	@FXML
+	private ImageView logo;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
+    public void setHeader(String headerColor){
+    	if(headerColor != null){
+    		header.setStyle(headerColor);
+    	}
+    }
 
+    public void setFooter(String footerColor){
+    	if(footerColor != null){
+    		footer.setStyle(footerColor);
+    	}
+    }
 	public void initMessage(String message){
 		this.message = message;
 		if(message != null)
@@ -95,5 +111,10 @@ public class OwnerMenuController implements Initializable {
 	@FXML
 	private void logout(){
 		viewController.gotoLogin();
+	}
+
+
+	public void initLogo(ImageView logo) {
+		this.logo = logo;
 	}
 }

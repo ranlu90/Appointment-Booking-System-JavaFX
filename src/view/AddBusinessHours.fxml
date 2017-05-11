@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="businessController.OwnerBusinessHoursController">
    <children>
-      <AnchorPane layoutY="10.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="header" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.topAnchor="0.0">
          <padding>
             <Insets bottom="20.0" />
          </padding>
@@ -72,7 +72,7 @@
       <ComboBox fx:id="close6" layoutX="278.0" layoutY="290.0" prefHeight="27.0" prefWidth="135.0" promptText="Closing Time" />
       <ComboBox fx:id="close7" layoutX="278.0" layoutY="330.0" prefHeight="27.0" prefWidth="135.0" promptText="Closing Time" />
       <Text fx:id="businessHours" layoutX="422.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours" />
-      <AnchorPane layoutY="409.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
+      <AnchorPane fx:id="footer" layoutY="409.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
          <padding>
             <Insets bottom="20.0" />
          </padding>

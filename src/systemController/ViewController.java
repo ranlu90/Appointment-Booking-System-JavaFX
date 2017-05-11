@@ -25,6 +25,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -39,8 +40,8 @@ public class ViewController{
 	private Stage stage;
     private AnchorPane container;
     private String message;				//welcome message for business owner
-    private AnchorPane header,footer;
-
+    private String headerColor,footerColor;
+    private ImageView logo;
 
 	public ViewController(){}
 
@@ -73,12 +74,12 @@ public class ViewController{
         databaseManager.insertInitialEntitiesForService();
     }
 
-    public void setHeader(AnchorPane header){
-    	this.header = header;
+    public void setHeader(String headerColor){
+    	this.headerColor = headerColor;
     }
 
-    public void setFooter(AnchorPane footer){
-    	this.footer = footer;
+    public void setFooter(String footerColor){
+    	this.footerColor = footerColor;
     }
     /**
      * Pass username as a primary key.
@@ -149,7 +150,9 @@ public class ViewController{
         	businessMenu.initDatabaseManager(databaseManager);
         	businessMenu.setUsername(username);
         	businessMenu.initMessage(message);
-
+        	businessMenu.initLogo(logo);
+        	businessMenu.setHeader(headerColor);
+        	businessMenu.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -222,6 +225,8 @@ public class ViewController{
             service.initDatabaseManager(databaseManager);
             service.setUsername(username);
             service.initDuration();
+        	service.setHeader(headerColor);
+        	service.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -241,6 +246,8 @@ public class ViewController{
             employee.initDatabaseManager(databaseManager);
             employee.setUsername(username);
             employee.initTimeUnit();
+        	employee.setHeader(headerColor);
+        	employee.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -260,6 +267,8 @@ public class ViewController{
         	business.initDatabaseManager(databaseManager);
         	business.setUsername(username);
         	business.initBusinessHours();
+        	business.setHeader(headerColor);
+        	business.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -279,6 +288,8 @@ public class ViewController{
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
         	booking.populateTable();
+        	booking.setHeader(headerColor);
+        	booking.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -298,6 +309,8 @@ public class ViewController{
         	booking.initDatabaseManager(databaseManager);
         	booking.setUsername(username);
         	booking.populateTable();
+        	booking.setHeader(headerColor);
+        	booking.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -320,6 +333,8 @@ public class ViewController{
         	booking.getService();
         	booking.SetHour();
         	booking.SetMinute();
+        	booking.setHeader(headerColor);
+        	booking.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -338,6 +353,8 @@ public class ViewController{
         	employee.initDatabaseManager(databaseManager);
         	employee.setUsername(username);
         	employee.populateTable();
+        	employee.setHeader(headerColor);
+        	employee.setFooter(footerColor);
         }
         catch(Exception e)
         {
@@ -390,8 +407,8 @@ public class ViewController{
         try {
         	OwnerCustomizeLayoutController layout = (OwnerCustomizeLayoutController) setScene("CustomizeLayout.fxml");
         	layout.initViewController(this);
-        	layout.setHeader(header);
-        	layout.setFooter(footer);
+        	layout.setHeader(headerColor);
+        	layout.setFooter(footerColor);
         }
         catch(Exception e)
         {

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import systemController.ViewController;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -35,7 +36,8 @@ public class OwnerCreateBookingController implements Initializable{
 	@FXML
 	TextField firstname, lastname, contactNumber;
 
-
+	@FXML
+	private AnchorPane header,footer;
 
 	@FXML
 	DatePicker date;
@@ -43,7 +45,17 @@ public class OwnerCreateBookingController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
+    public void setHeader(String headerColor){
+    	if(headerColor != null){
+    		header.setStyle(headerColor);
+    	}
+    }
 
+    public void setFooter(String footerColor){
+    	if(footerColor != null){
+    		footer.setStyle(footerColor);
+    	}
+    }
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
 	}

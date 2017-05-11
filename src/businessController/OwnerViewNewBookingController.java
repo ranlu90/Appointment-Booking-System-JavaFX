@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import systemController.ViewController;
 
 /**
@@ -28,7 +29,8 @@ public class OwnerViewNewBookingController implements Initializable{
 	private ViewController viewController;
 	private DatabaseManager databaseManager;
 	private String user;
-
+	@FXML
+	private AnchorPane header,footer;
 	@FXML
 	private TableColumn<Booking,String> dateColumn,timeColumn,employeeColumn,serviceColumn,customerColumn,contactColumn;
 
@@ -39,7 +41,17 @@ public class OwnerViewNewBookingController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
+    public void setHeader(String headerColor){
+    	if(headerColor != null){
+    		header.setStyle(headerColor);
+    	}
+    }
 
+    public void setFooter(String footerColor){
+    	if(footerColor != null){
+    		footer.setStyle(footerColor);
+    	}
+    }
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
 	}

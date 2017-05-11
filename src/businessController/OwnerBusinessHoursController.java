@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import systemController.ViewController;
@@ -28,11 +29,23 @@ public class OwnerBusinessHoursController implements Initializable{
 	private boolean check = false;
 
 	@FXML
+	private AnchorPane header,footer;
+	@FXML
 	private ComboBox<String> open1,open2,open3,open4,open5,open6,open7,close1,close2,close3,close4,close5,close6,close7;
 
 	@FXML
 	private Text businessHours;
+    public void setHeader(String headerColor){
+    	if(headerColor != null){
+    		header.setStyle(headerColor);
+    	}
+    }
 
+    public void setFooter(String footerColor){
+    	if(footerColor != null){
+    		footer.setStyle(footerColor);
+    	}
+    }
 	@FXML
 	public void initBusinessHours(){
 		String f = "";					//contain all business hours information

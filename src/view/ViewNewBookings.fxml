@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="businessController.OwnerViewNewBookingController">
    <children>
-      <AnchorPane layoutY="13.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="header" layoutY="13.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;" AnchorPane.topAnchor="0.0">
          <padding>
             <Insets bottom="20.0" />
          </padding>
@@ -22,7 +22,7 @@
          </children>
       </AnchorPane>
       <TableView fx:id="bookingTable" layoutX="10.0" layoutY="79.0" prefHeight="250.0" prefWidth="580.0" />
-      <AnchorPane layoutY="409.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
+      <AnchorPane fx:id="footer" layoutY="409.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
          <padding>
             <Insets bottom="20.0" />
          </padding>

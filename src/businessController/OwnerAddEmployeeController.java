@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import systemController.ViewController;
 
 /**
@@ -30,13 +31,24 @@ public class OwnerAddEmployeeController implements Initializable{
 
 	@FXML
 	private ComboBox<String> employeeList,open1,open2,open3,open4,open5,open6,open7,close1,close2,close3,close4,close5,close6,close7;
-
+	@FXML
+	private AnchorPane header,footer;
 	@FXML
 	private TextField firstname, lastname, email, contact;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
+    public void setHeader(String headerColor){
+    	if(headerColor != null){
+    		header.setStyle(headerColor);
+    	}
+    }
 
+    public void setFooter(String footerColor){
+    	if(footerColor != null){
+    		footer.setStyle(footerColor);
+    	}
+    }
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
 	}

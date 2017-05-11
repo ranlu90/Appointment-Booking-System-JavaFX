@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import systemController.ViewController;
 
 /**
@@ -31,12 +32,23 @@ public class OwnerViewEmployeeController implements Initializable{
 
 	@FXML
 	private TableView<Employee> employeeTable;
-
+	@FXML
+	private AnchorPane header,footer;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
+    public void setHeader(String headerColor){
+    	if(headerColor != null){
+    		header.setStyle(headerColor);
+    	}
+    }
 
+    public void setFooter(String footerColor){
+    	if(footerColor != null){
+    		footer.setStyle(footerColor);
+    	}
+    }
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
 	}

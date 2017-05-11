@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import systemController.ViewController;
 
 /**
@@ -33,11 +34,22 @@ public class OwnerAddServiceController implements Initializable{
 
 	@FXML
 	private TextArea description;
-
+	@FXML
+	private AnchorPane header,footer;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
+    public void setHeader(String headerColor){
+    	if(headerColor != null){
+    		header.setStyle(headerColor);
+    	}
+    }
 
+    public void setFooter(String footerColor){
+    	if(footerColor != null){
+    		footer.setStyle(footerColor);
+    	}
+    }
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
 	}
