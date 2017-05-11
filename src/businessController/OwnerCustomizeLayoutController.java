@@ -80,7 +80,9 @@ public class OwnerCustomizeLayoutController implements Initializable{
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.bmp", "*.png", "*.jpg", "*.gif", "*.jpeg"));
 		File file = fileChooser.showOpenDialog(stage);
-		filepath.setText(file.getAbsolutePath());
+		if(file != null){
+			filepath.setText(file.getAbsolutePath());
+		}
 	}
 
 	@FXML
