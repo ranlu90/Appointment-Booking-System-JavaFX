@@ -189,13 +189,6 @@ public class OwnerCreateBookingController implements Initializable{
 				alert.showAndWait();
 			}
 			else {
-				if(databaseManager.searchCustomerByNumber(contactNumber.getText()) == null){
-					if(databaseManager.searchCustomerUserName("guest") == false){
-						databaseManager.insertIntoCustomer(firstname.getText(),lastname.getText(),"",contactNumber.getText(),"guest","guest");
-						alert = new Alert(AlertType.INFORMATION,"A new customer has been added.");
-						alert.showAndWait();
-					}
-				}
 				String message = "A new booking has been created." + System.lineSeparator() +
 						 "Employee: " + employee.getValue() + System.lineSeparator() +
 						 "Service: " + service.getValue() + System.lineSeparator() +
