@@ -328,8 +328,10 @@ public class OwnerCreateBookingController implements Initializable{
 
 	@FXML
 	private void setCustomer(){
+		if(existingCustomer.getValue() != null){
 		String temp[] = existingCustomer.getValue().split(" ");
 		firstname.setText(temp[0]);
 		lastname.setText(temp[1]);
+		}
 	}
 }
