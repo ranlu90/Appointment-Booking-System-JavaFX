@@ -8,7 +8,7 @@ Tutorial Time: Friday 12.30pm - 12.11.19 <br />
 Tutor: A Homy Ash
 
 The default username and password for business owner: owner | owner OR owner1 | owner1<br />
-The default username and password for customer: customer | customer OR david | david OR bruce | bruce<br />
+The default username and password for customer: customer | customer OR customer1 | customer1<br />
 
 All files including trello, user stories, mock up etc. are in the "documentation" folder.<br/>
 Trello: https://trello.com/b/rGisSTbv <br/>
