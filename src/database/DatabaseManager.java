@@ -283,6 +283,7 @@ public class DatabaseManager {
 	 */
 	public ArrayList<ArrayList<String>> searchCustomerByNumber(String contact_number){
 		try{
+			boolean check = false;
 			ArrayList<ArrayList<String>> customer = new ArrayList<ArrayList<String>>();
 			String sql = "select * from Customerinfo where contact_number = '" + contact_number + "'";
 			ResultSet result = stmt.executeQuery(sql);
@@ -291,8 +292,11 @@ public class DatabaseManager {
 				temp.add(result.getString("first_name"));
 				temp.add(result.getString("last_name"));
 				customer.add(temp);
+				check = true;
 			}
-            return customer;
+			if(check == true){
+				return customer;
+			}
 		}
 		catch (Exception exp){
 			exp.printStackTrace();
