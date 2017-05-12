@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="businessController.OwnerCustomizeLayoutController">
+   <children>
+      <AnchorPane fx:id="header" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #3498db;">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+         <children>
+            <Text fill="WHITE" layoutX="198.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customize Layout">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text layoutX="204.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Header Message">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="textMessage" layoutX="217.0" layoutY="110.0" />
+      <ColorPicker fx:id="colorHeader" layoutX="217.0" layoutY="255.0" prefHeight="29.0" prefWidth="167.0" />
+      <ColorPicker fx:id="colorFooter" layoutX="217.0" layoutY="327.0" prefHeight="29.0" prefWidth="167.0" />
+      <Text layoutX="228.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Header Color">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="230.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Footer Color">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <AnchorPane fx:id="footer" layoutY="409.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: #242424;" AnchorPane.bottomAnchor="0.0">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+         <children>
+            <Button layoutX="217.0" layoutY="27.0" mnemonicParsing="false" onAction="#MainMenu" prefHeight="27.0" prefWidth="167.0" text="Main Menu" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="216.0" layoutY="370.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="27.0" prefWidth="167.0" text="Confirm" />
+      <TextField fx:id="filepath" editable="false" layoutX="217.0" layoutY="196.0" prefHeight="27.0" prefWidth="167.0" promptText="Logo File Path" />
+      <Button layoutX="217.0" layoutY="158.0" mnemonicParsing="false" onAction="#ChooseFile" prefHeight="27.0" prefWidth="167.0" text="Select Logo" />
+   </children>
+</AnchorPane>
