@@ -16,7 +16,6 @@ import java.util.logging.Logger;
  */
 public class DatabaseManager {
 
-    String path = "jdbc:sqlite:" + "AppointmentBookingSystem.db";
     Connection c = null;
     Statement stmt = null;
     private static Logger logger = Logger.getLogger("database.DatabaseManager");
@@ -32,34 +31,18 @@ public class DatabaseManager {
     	f.delete();
 	}
 
-
-	/**
-	 * Establish connection to the database, the connection will be only created once.
-	 */
-	public void setConnection(){
-		try{
-			c = DriverManager.getConnection(path);
-			stmt = c.createStatement();
-		}
-        catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-	}
-
 	/**
 	 * This method will create a database in /Users/me/ using SQLite.
 	 * @param fileName will be retrieved from clientModel, default will be AppointmentBookingSystem.
 	 */
     public void createNewDatabase(String fileName) {
-
         String url = "jdbc:sqlite:" + fileName;
-
-        try ( Connection con = DriverManager.getConnection(url)) {
-            if (con != null) {
-            	con.close();
-            }
+        try{
+        	Class.forName("org.sqlite.JDBC");
+        	c = DriverManager.getConnection(url);
+			stmt = c.createStatement();
         }
-        catch (SQLException e) {
+        catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
