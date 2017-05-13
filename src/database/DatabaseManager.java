@@ -38,11 +38,10 @@ public class DatabaseManager {
     public void createNewDatabase(String fileName) {
         String url = "jdbc:sqlite:" + fileName;
         try{
-        	Class.forName("org.sqlite.JDBC");
         	c = DriverManager.getConnection(url);
 			stmt = c.createStatement();
         }
-        catch (SQLException | ClassNotFoundException e) {
+        catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
