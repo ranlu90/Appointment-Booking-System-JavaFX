@@ -27,7 +27,13 @@ public class LoginController implements Initializable{
     private TextField username;
     @FXML
     private PasswordField password;
-
+    
+    public void setUsername(TextField username){
+    	this.username = username;
+    }
+    public void setPassword(PasswordField password){
+    	this.password = password;
+    }
 	public void initViewController(ViewController viewController) {
 		this.viewController = viewController;
 	}
@@ -43,23 +49,27 @@ public class LoginController implements Initializable{
 	 * change to business owner menu or customer menu.
 	 */
 	@FXML
-	private void login(){
+	public boolean login(){
 		Alert alert;
 			if(databaseManager.searchBusiness(username.getText(),password.getText()) == true){
 				viewController.setUserName(username.getText());
 				viewController.gotoBusinessMenu();
+				return true;
 			}
 			else if(databaseManager.searchCustomer(username.getText(), password.getText()) == true){
 				viewController.setUserName(username.getText());
 				viewController.gotoCustomerMenu();
+				return true;
 			}
 			else if(username.getText().equals("admin") && password.getText().equals("admin")){
 				viewController.gotoOwnerRegister();
+				return true;
 			}
 			else{
 				alert = new Alert(AlertType.ERROR,
 						"Incorrect credentials!");
 				alert.showAndWait();
+				return false;
 			}
 	}
 
