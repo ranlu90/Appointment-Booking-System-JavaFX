@@ -102,25 +102,23 @@ public class CustomerBookingAvailabilityController implements Initializable{
 		HashMap<Integer, String> allTime = new HashMap<Integer, String>();
 
 		for(int i = 0; i <= 47; i ++){
-			if(i % 2 == 0){
-				allTime.put(i, (i / 2) +":" + "00");
-			}
-			else{
-				allTime.put(i, (i / 2) +":" + "30");
+			if(check.get(i+1) == true){
+				if(i % 2 == 0){
+					allTime.put(i, (i / 2) +":" + "00");
+				}
+				else{
+					allTime.put(i, (i / 2) +":" + "30");
+				}
 			}
 		}
 
 		for(int i = 1; i <= 48; i ++){
 			BookingAvailability entity = new BookingAvailability();
 			entity.setTime(allTime.get(i-1));
-
 			if(check.get(i) == true){
 				entity.setAvailability("Available");
+				list.add(entity);
 			}
-			else{
-				entity.setAvailability("N/A");
-			}
-			list.add(entity);
 		}
 		return list;
 	}
@@ -218,6 +216,7 @@ public class CustomerBookingAvailabilityController implements Initializable{
 		if(name.getText().trim().isEmpty() == false){
 			availabilityTable.getColumns().clear();
 		}
+		populateAvailability();
 	}
 }
 
