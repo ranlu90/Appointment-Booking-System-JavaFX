@@ -101,9 +101,16 @@ public class OwnerAddEmployeeController implements Initializable{
 			if(databaseManager.searchEmployeeEmail(email.getText()) == false){
 				if(firstname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}") && lastname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}") &&
 						email.getText().matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})") && contact.getText().matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
-					databaseManager.setEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
-					alert = new Alert(AlertType.INFORMATION,"A new employee's information has been created!");
-					alert.showAndWait();
+					if(databaseManager.searchEmployeeName(firstname.getText(), lastname.getText()) == true){
+						databaseManager.updateEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
+						alert = new Alert(AlertType.INFORMATION, firstname.getText() +" " +lastname.getText() + "'s information has been updated.");
+						alert.showAndWait();
+					}
+					else{
+						databaseManager.setEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
+						alert = new Alert(AlertType.INFORMATION,"A new employee's information has been created!");
+						alert.showAndWait();
+					}
 				}
 				else{
 					alert = new Alert(AlertType.ERROR,"First name can only contain letters and one space." + System.lineSeparator()
@@ -218,7 +225,7 @@ public class OwnerAddEmployeeController implements Initializable{
 		contact.setText(info.get(2));
 		firstname.setEditable(false);
 		lastname.setEditable(false);
-		email.setEditable(false);
-		contact.setEditable(false);
+		//email.setEditable(false);
+		//contact.setEditable(false);
 	}
 }

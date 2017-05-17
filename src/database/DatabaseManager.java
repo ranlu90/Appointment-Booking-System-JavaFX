@@ -411,7 +411,25 @@ public class DatabaseManager {
         }
     }
 
+    
+    /**
+     * Search employee's full name.
+     */
+	public boolean searchEmployeeName(String first_name, String last_name){
+		try{
+			   String str = "select * from Employee where first_name = '" + first_name + "' and last_name = '" + last_name + "'";
+			ResultSet result = stmt.executeQuery(str);
+			if(result.next()){
+				return true;
+			}
+		}
+		catch (Exception exp){
+			exp.printStackTrace();
+		}
+		return false;
+	}
 
+	
 	/**
 	 * Match user's input email with data in Employee to find if the email already exists.
 	 */
@@ -489,7 +507,25 @@ public class DatabaseManager {
         }
     }
 
-
+    /**
+     * Update employee's information.
+     */
+    public void updateEmployee(String first_name, String last_name, String owner_username, String email, String contact_number){
+        try {
+          c.setAutoCommit(false);
+          String sql = "UPDATE Employee set email = '" + email + "' where first_name = '" + first_name + "' and last_name = '" + last_name + "';";
+          stmt.executeUpdate(sql);
+          sql = "UPDATE Employee set contact_number = '" + contact_number + "' where first_name = '" + first_name + "' and last_name = '" + last_name + "';";
+          stmt.executeUpdate(sql);
+          c.commit();
+          logger.info(first_name +" " +last_name + "'s information has been updated.");
+        } catch ( Exception e ) {
+          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+          System.exit(0);
+        }
+    }
+    
+    
     /**
      * Get all employees for one business owner.
      */
