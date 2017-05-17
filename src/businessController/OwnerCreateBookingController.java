@@ -142,7 +142,6 @@ public class OwnerCreateBookingController implements Initializable{
 
 		ArrayList<String> dayList = new ArrayList<String>();
 		String workingDay = "";
-		String timeMessage = System.lineSeparator();		//show employee's working time
 		boolean dayCheck = false;		//check if the day matches employee's working day
 		String start_time = time.getValue();
 		int duration = Integer.parseInt(databaseManager.getDuration(service.getValue(),user));
@@ -176,10 +175,8 @@ public class OwnerCreateBookingController implements Initializable{
 				alert.showAndWait();
 			}
 			else if(CheckTimeSlot(employee_email, date.getValue().getDayOfWeek().toString(), date.getValue().toString(), start_time,  service.getValue()) == false){
-				for(ArrayList<String> temp: workingTime){
-					timeMessage += temp.get(0) + " " + temp.get(1) + "-" + temp.get(2) + System.lineSeparator();
-				}
-				alert = new Alert(AlertType.ERROR,"The employee is not available at this time. His/Her working time is " + timeMessage + "Please select a different time.");
+				int selectedDuration = Integer.parseInt(databaseManager.getDuration(service.getValue(),user));
+				alert = new Alert(AlertType.ERROR,"The employee is not available for " + selectedDuration + " Minutes' " + service.getValue() + ". Please select a different time.");
 				alert.showAndWait();
 			}
 			else if(CheckTime(date.getValue().getDayOfWeek().toString(),start_time, duration) == false){
