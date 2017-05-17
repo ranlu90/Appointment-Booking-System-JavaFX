@@ -37,11 +37,10 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <ComboBox fx:id="employee" layoutX="283.0" layoutY="196.0" prefHeight="27.0" prefWidth="181.0" AnchorPane.leftAnchor="283.0" />
-      <ComboBox fx:id="service" layoutX="282.0" layoutY="240.0" prefHeight="27.0" prefWidth="181.0" AnchorPane.leftAnchor="282.0" />
-      <DatePicker fx:id="date" layoutX="283.0" layoutY="277.0" prefHeight="27.0" prefWidth="181.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="136.0" />
-      <ComboBox fx:id="hour" layoutX="283.0" layoutY="320.0" prefHeight="27.0" prefWidth="89.0" promptText="Hour" AnchorPane.leftAnchor="283.0" />
-      <ComboBox fx:id="minute" layoutX="376.0" layoutY="320.0" prefHeight="27.0" prefWidth="89.0" promptText="Minute" />
+      <ComboBox fx:id="employee" layoutX="283.0" layoutY="196.0" onAction="#SetTime" prefHeight="27.0" prefWidth="181.0" AnchorPane.leftAnchor="283.0" />
+      <ComboBox fx:id="service" layoutX="282.0" layoutY="240.0" onAction="#SetTime" prefHeight="27.0" prefWidth="181.0" AnchorPane.leftAnchor="282.0" />
+      <DatePicker fx:id="date" layoutX="283.0" layoutY="277.0" onAction="#SetTime" prefHeight="27.0" prefWidth="181.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="136.0" />
+      <ComboBox fx:id="time" layoutX="283.0" layoutY="320.0" prefHeight="27.0" prefWidth="181.0" AnchorPane.leftAnchor="283.0" />
       <Text fontSmoothingType="LCD" layoutX="145.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service" wrappingWidth="82.9736328125">
          <font>
             <Font size="14.0" />

@@ -372,9 +372,6 @@ public class ViewController{
         	customer.initViewController(this);
         	customer.initDatabaseManager(databaseManager);
         	customer.setUsername(username);
-
-        	customer.SetHour();
-        	customer.SetMinute();
         	customer.initOwnerList();
         }
         catch(Exception e)
