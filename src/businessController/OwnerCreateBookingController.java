@@ -31,7 +31,7 @@ public class OwnerCreateBookingController implements Initializable{
 	private String user;
 
 	@FXML
-	ComboBox<String> employee,service,hour,minute,existingCustomer;
+	ComboBox<String> employee,service,time,existingCustomer;
 
 	@FXML
 	TextField firstname, lastname, contactNumber;
@@ -99,29 +99,31 @@ public class OwnerCreateBookingController implements Initializable{
 
 
 	/**
-	 * Set drop down list for hours.
+	 * Set drop down list for available time.
 	 */
 	@FXML
-	public void SetHour(){
-		ArrayList<String> hours = new ArrayList<String>();
-		for(int i = 0; i <= 23; i ++){
-			hours.add(Integer.toString(i));
+	public void SetTime(){
+		time.getItems().clear();
+		
+		if(employee.getValue() != null && date.getValue() != null){
+			ArrayList<String> timeList = new ArrayList<String>();
+			String[] name = employee.getValue().split(" ");
+			String employee_email = databaseManager.searchEmployeeEmailByName(name[0], name[1]);
+			HashMap<Integer, Boolean> check = getTimeList(employee_email, date.getValue().getDayOfWeek().toString(), date.getValue().toString());
+			for(int i = 0; i <= 47; i ++){
+				if(check.get(i+1) == true){
+					if(i % 2 == 0){
+						timeList.add((i / 2) +":" + "00");
+					}
+					else{
+						timeList.add((i / 2) +":" + "30");
+					}
+				}
+			}
+			time.getItems().addAll(timeList);
 		}
-		hour.getItems().addAll(hours);
 	}
-
-
-	/**
-	 * Set drop down list for minutes.
-	 */
-	@FXML
-	public void SetMinute(){
-		ArrayList<String> minutes = new ArrayList<String>();
-		minutes.add("00");
-		minutes.add("30");
-		minute.getItems().addAll(minutes);
-	}
-
+	
 
 	/**
 	 * 1. Check if the employee works on selected date.
@@ -135,14 +137,14 @@ public class OwnerCreateBookingController implements Initializable{
 	private void Confirm(){
 		Alert alert;
 		if(employee.getValue() != null && service.getValue() != null && date.getValue() != null &&
-				hour.getValue() != null && minute.getValue() != null && firstname.getText().trim().isEmpty() == false &&
+				time.getValue() != null && firstname.getText().trim().isEmpty() == false &&
 				lastname.getText().trim().isEmpty() == false && contactNumber.getText().trim().isEmpty() == false){
 
 		ArrayList<String> dayList = new ArrayList<String>();
 		String workingDay = "";
 		String timeMessage = System.lineSeparator();		//show employee's working time
 		boolean dayCheck = false;		//check if the day matches employee's working day
-		String start_time = hour.getValue() + ":" + minute.getValue();
+		String start_time = time.getValue();
 		int duration = Integer.parseInt(databaseManager.getDuration(service.getValue(),user));
 
 		//split employee's full name by whitespace and check his email in the database by firstname and lastname
@@ -193,7 +195,7 @@ public class OwnerCreateBookingController implements Initializable{
 						 "Employee: " + employee.getValue() + System.lineSeparator() +
 						 "Service: " + service.getValue() + System.lineSeparator() +
 						 "Date: " + date.getValue() + System.lineSeparator() +
-						 "Time: " + hour.getValue() + ":" + minute.getValue() + System.lineSeparator() +
+						 "Time: " + time.getValue() + System.lineSeparator() +
 						 "Customer: " + firstname.getText()	+ " "+ lastname.getText() + System.lineSeparator() +
 						 "Contact Number: " + contactNumber.getText()	+ System.lineSeparator();
 				databaseManager.setBooking(date.getValue().toString(), start_time, employee_email, service.getValue(), user, firstname.getText(),lastname.getText(),contactNumber.getText());
@@ -251,7 +253,7 @@ public class OwnerCreateBookingController implements Initializable{
 				timeSlot.put(i, false);
 			}
 		}
-
+		
 		//check if selected time slots are available by selected booking time and service
 		String[] str4 = startTime.split(":");			//selected booking start time
 		int slot5 = ((Integer.parseInt(str4[0]) * 60) + Integer.parseInt(str4[1])) / 30 + 1;
@@ -326,5 +328,44 @@ public class OwnerCreateBookingController implements Initializable{
 		firstname.setText(temp[0]);
 		lastname.setText(temp[1]);
 		}
+	}
+	
+	
+	/**
+	 * Get the available time list for an employee on a day.
+	 */
+	public HashMap<Integer, Boolean> getTimeList(String email, String day, String date){
+		ArrayList<ArrayList<String>> workingTime = databaseManager.getWorkingTime(email);
+		ArrayList<ArrayList<String>> booking = databaseManager.getBookingForEmployee(email, date);
+		HashMap<Integer, Boolean> timeSlot = new HashMap<Integer,Boolean>();
+		for(int i = 1; i <= 48; i ++){
+			timeSlot.put(i, false);
+		}
+
+		//add time slots by employee's working time divided by 30
+		for(ArrayList<String> temp:workingTime){
+			if(temp.get(0).compareToIgnoreCase(day) == 0){
+				String[] str = temp.get(1).split(":");			//working start time
+				String[] str2 = temp.get(2).split(":");			//working end time
+				int slot1 = ((Integer.parseInt(str[0]) * 60) + Integer.parseInt(str[1])) / 30 + 1;
+				int slot2 = ((Integer.parseInt(str2[0]) * 60) + Integer.parseInt(str2[1])) / 30;
+				for(int i = slot1; i <= slot2; i ++){
+					timeSlot.put(i, true);
+				}
+			}
+		}
+
+		//remove time slots by employee's existing booking
+		for(ArrayList<String> temp:booking){
+			String[] str3 = temp.get(0).split(":");			//booking start time
+			int slot3 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1])) / 30 + 1;
+			int duration = Integer.parseInt(databaseManager.getDuration(temp.get(1),user));
+			int slot4 = ((Integer.parseInt(str3[0]) * 60) + Integer.parseInt(str3[1]) + duration) / 30;
+			for(int i = slot3; i <= slot4; i ++){
+				timeSlot.put(i, false);
+			}
+		}
+		//get the available time list for an employee
+		return timeSlot;
 	}
 }

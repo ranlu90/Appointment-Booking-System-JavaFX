@@ -333,8 +333,6 @@ public class ViewController{
         	booking.setUsername(username);
         	booking.getEmployee();
         	booking.getService();
-        	booking.SetHour();
-        	booking.SetMinute();
         	booking.setHeader(headerColor);
         	booking.setFooter(footerColor);
         }

@@ -23,7 +23,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <Text fontSmoothingType="LCD" layoutX="149.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="38.9736328125" AnchorPane.leftAnchor="149.0">
+      <Text fontSmoothingType="LCD" layoutX="149.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="38.9736328125">
          <font>
             <Font size="14.0" />
          </font>
@@ -38,11 +38,10 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <ComboBox fx:id="employee" layoutX="279.0" layoutY="163.0" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
-      <ComboBox fx:id="service" layoutX="279.0" layoutY="207.0" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
-      <DatePicker fx:id="date" layoutX="279.0" layoutY="250.0" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
-      <ComboBox fx:id="hour" layoutX="279.0" layoutY="287.0" prefHeight="27.0" prefWidth="83.0" promptText="Hour" AnchorPane.leftAnchor="279.0" />
-      <ComboBox fx:id="minute" layoutX="369.0" layoutY="287.0" prefHeight="27.0" prefWidth="89.0" promptText="Minute" />
+      <ComboBox fx:id="employee" layoutX="279.0" layoutY="163.0" onAction="#SetTime" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
+      <ComboBox fx:id="service" layoutX="279.0" layoutY="207.0" onAction="#SetTime" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
+      <DatePicker fx:id="date" layoutX="279.0" layoutY="250.0" onAction="#SetTime" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
+      <ComboBox fx:id="time" layoutX="279.0" layoutY="287.0" prefHeight="27.0" prefWidth="179.0" AnchorPane.leftAnchor="279.0" />
       <TextField fx:id="firstname" layoutX="279.0" layoutY="324.0" prefHeight="27.0" prefWidth="83.0" promptText="First Name" AnchorPane.leftAnchor="279.0" AnchorPane.topAnchor="324.0" />
       <TextField fx:id="lastname" layoutX="369.0" layoutY="324.0" prefHeight="27.0" prefWidth="89.0" promptText="Last Name" AnchorPane.leftAnchor="369.0" AnchorPane.topAnchor="324.0" />
       <TextField fx:id="contactNumber" layoutX="279.0" layoutY="78.0" onAction="#CheckExistingCustomer" prefHeight="27.0" prefWidth="179.0" promptText="Contact Number" />
