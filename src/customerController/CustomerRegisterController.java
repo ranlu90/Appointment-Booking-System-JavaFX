@@ -51,12 +51,12 @@ public class CustomerRegisterController implements Initializable{
 		Alert alert;
 		if(firstname.getText() != null && lastname.getText() != null && address.getText().trim().isEmpty() == false && contactNumber.getText() != null &&
 				username.getText() != null && password.getText() != null && password2.getText() != null){
-			if(!firstname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}")){
-				alert = new Alert(AlertType.ERROR,"First name can only contain letters and one space !");
+			if(!firstname.getText().matches("[a-zA-Z]{1,}")){
+				alert = new Alert(AlertType.ERROR,"First name can only contain letters!");
 				alert.showAndWait();
 			}
-			else if(!lastname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}")){
-				alert = new Alert(AlertType.ERROR,"Last name can only contain letters and one space !");
+			else if(!lastname.getText().matches("[a-zA-Z]{1,}")){
+				alert = new Alert(AlertType.ERROR,"Last name can only contain letters!");
 				alert.showAndWait();
 			}
 			else if(!contactNumber.getText().matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){

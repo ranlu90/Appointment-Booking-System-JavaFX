@@ -99,7 +99,7 @@ public class OwnerAddEmployeeController implements Initializable{
 		if(firstname.getText().trim().isEmpty() == false && lastname.getText().trim().isEmpty() == false &&
 				email.getText().trim().isEmpty() == false && contact.getText().trim().isEmpty() == false){
 			if(databaseManager.searchEmployeeEmail(email.getText()) == false){
-				if(firstname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}") && lastname.getText().matches("[a-zA-Z]+([ ]?[a-zA-Z]*){1,2}") &&
+				if(firstname.getText().matches("[a-zA-Z]{1,}") && lastname.getText().matches("[a-zA-Z]{1,}") &&
 						email.getText().matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})") && contact.getText().matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
 					if(databaseManager.searchEmployeeName(firstname.getText(), lastname.getText()) == true){
 						databaseManager.updateEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
@@ -113,9 +113,9 @@ public class OwnerAddEmployeeController implements Initializable{
 					}
 				}
 				else{
-					alert = new Alert(AlertType.ERROR,"First name can only contain letters and one space." + System.lineSeparator()
-							+ "Last name can only contain letters and one space." + System.lineSeparator()
-							+ "Email address format is invalid. " + System.lineSeparator()
+					alert = new Alert(AlertType.ERROR,"First name can only contain letters." + System.lineSeparator()
+							+ "Last name can only contain letters." + System.lineSeparator()
+							+ "Email address format is smith@example.com." + System.lineSeparator()
 							+ "Contact number can only contain digits, space and + ( ) ");
 					alert.showAndWait();
 				}
