@@ -419,9 +419,9 @@ public class DatabaseManager {
     /**
      * Search employee's full name.
      */
-	public boolean searchEmployeeName(String first_name, String last_name){
+	public boolean searchEmployeeName(String first_name, String last_name, String owner_username){
 		try{
-			   String str = "select * from Employee where first_name = '" + first_name + "' and last_name = '" + last_name + "'";
+			   String str = "select * from Employee where first_name = '" + first_name + "' and last_name = '" + last_name + "' and owner_username = '" + owner_username + "'";
 			ResultSet result = stmt.executeQuery(str);
 			if(result.next()){
 				return true;
@@ -514,12 +514,10 @@ public class DatabaseManager {
     /**
      * Update employee's information.
      */
-    public void updateEmployee(String first_name, String last_name, String owner_username, String email, String contact_number){
+    public void updateEmployee(String first_name, String last_name, String owner_username, String contact_number){
         try {
           c.setAutoCommit(false);
-          String sql = "UPDATE Employee set email = '" + email + "' where first_name = '" + first_name + "' and last_name = '" + last_name + "';";
-          stmt.executeUpdate(sql);
-          sql = "UPDATE Employee set contact_number = '" + contact_number + "' where first_name = '" + first_name + "' and last_name = '" + last_name + "';";
+          String sql = "UPDATE Employee set contact_number = '" + contact_number + "' where first_name = '" + first_name + "' and last_name = '" + last_name + "' and owner_username = '" + owner_username + "';";
           stmt.executeUpdate(sql);
           c.commit();
           logger.info(first_name +" " +last_name + "'s information has been updated.");
@@ -649,7 +647,7 @@ public class DatabaseManager {
 	/**
 	 * Update existing business hours for one business owner.
 	 */
-	public void updateBusinessHours(String business_day, String owner_username, String open_time, String closing_time){
+	public boolean updateBusinessHours(String business_day, String owner_username, String open_time, String closing_time){
         try {
             c.setAutoCommit(false);
             String sql = "UPDATE BusinessTime set open_time = '" + open_time + "' where owner_username = '" + owner_username + "' and business_day = '" + business_day + "';";
@@ -658,17 +656,19 @@ public class DatabaseManager {
             stmt.executeUpdate(sql);
             c.commit();
             logger.info("Business hours has been updated for " + owner_username + " in BusinessTime.");
+            return true;
           } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
           }
+		return false;
 	}
 
 
     /**
      * set business time for a business owner.
      */
-    public void setBusinessTime(String business_day, String owner_username, String open_time, String closing_time){
+    public boolean setBusinessTime(String business_day, String owner_username, String open_time, String closing_time){
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO BusinessTime (business_day,owner_username,open_time,closing_time) " +
@@ -676,10 +676,12 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
           c.commit();
           logger.info("New business hours has been inserted for " + owner_username + " in BusinessTime.");
+          return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+		return false;
     }
 
 
@@ -806,7 +808,7 @@ public class DatabaseManager {
     /**
      * set working time for an employee.
      */
-    public void setWorkingTime(String day, String start_time, String end_time, String employee_email){
+    public boolean setWorkingTime(String day, String start_time, String end_time, String employee_email){
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO WorkingTime (day,start_time,end_time,employee_email) " +
@@ -814,10 +816,12 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
           c.commit();
           logger.info("New working time for " + employee_email +" has been inserted into WorkingTime.");
+          return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+		return false;
     }
 
 
@@ -1027,7 +1031,7 @@ public class DatabaseManager {
     /**
      * Add service for a business owner.
      */
-    public void addService(String name, String duration, String owner_username, String description){
+    public boolean addService(String name, String duration, String owner_username, String description){
         try {
           c.setAutoCommit(false);
           String sql = "INSERT INTO Service (name,duration,owner_username,description) " +
@@ -1035,10 +1039,12 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
           c.commit();
           logger.info("A new service has been inserted into Service.");
+          return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+		return false;
     }
 
 

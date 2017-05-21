@@ -2,12 +2,12 @@ package junit;
 
 import static org.junit.Assert.*;
 
+
 import java.io.IOException;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import customerController.CustomerCreateBookingController;
 import database.DatabaseManager;
 import systemController.ViewController;
 
@@ -21,7 +21,7 @@ public class TestCustomerCreateBooking {
 		viewController = new ViewController();
 		databaseManager = new DatabaseManager();
 		viewController.initDatabase(databaseManager);
-		customer = new CustomerCreateBookingController();
+
 	}
 	
 	@Test

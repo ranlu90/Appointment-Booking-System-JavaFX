@@ -28,7 +28,8 @@ public class OwnerAddEmployeeController implements Initializable{
 	private DatabaseManager databaseManager;
 	private String user;
 	private boolean check = false;
-
+	private boolean checkEmployeeUpdate = false;	//check if employee info is updated
+	
 	@FXML
 	private ComboBox<String> employeeList,open1,open2,open3,open4,open5,open6,open7,close1,close2,close3,close4,close5,close6,close7;
 	@FXML
@@ -98,19 +99,18 @@ public class OwnerAddEmployeeController implements Initializable{
 
 		if(firstname.getText().trim().isEmpty() == false && lastname.getText().trim().isEmpty() == false &&
 				email.getText().trim().isEmpty() == false && contact.getText().trim().isEmpty() == false){
-			if(databaseManager.searchEmployeeEmail(email.getText()) == false){
+			if(databaseManager.searchEmployeeName(firstname.getText(), lastname.getText(),user) == true){
+				databaseManager.updateEmployee(firstname.getText(), lastname.getText(), user,contact.getText());
+				alert = new Alert(AlertType.INFORMATION, firstname.getText() +" " +lastname.getText() + "'s information has been updated.");
+				alert.showAndWait();
+				checkEmployeeUpdate = true;
+			}
+			if(databaseManager.searchEmployeeEmail(email.getText()) == false && checkEmployeeUpdate == false){
 				if(firstname.getText().matches("[a-zA-Z]{1,}") && lastname.getText().matches("[a-zA-Z]{1,}") &&
 						email.getText().matches("([0-9a-zA-Z._-]+)@((?:[0-9a-zA-Z]+.)+)([a-zA-Z]{2,4})") && contact.getText().matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
-					if(databaseManager.searchEmployeeName(firstname.getText(), lastname.getText()) == true){
-						databaseManager.updateEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
-						alert = new Alert(AlertType.INFORMATION, firstname.getText() +" " +lastname.getText() + "'s information has been updated.");
-						alert.showAndWait();
-					}
-					else{
 						databaseManager.setEmployee(firstname.getText(), lastname.getText(), user, email.getText(), contact.getText());
 						alert = new Alert(AlertType.INFORMATION,"A new employee's information has been created!");
 						alert.showAndWait();
-					}
 				}
 				else{
 					alert = new Alert(AlertType.ERROR,"First name can only contain letters." + System.lineSeparator()
@@ -225,5 +225,6 @@ public class OwnerAddEmployeeController implements Initializable{
 		contact.setText(info.get(2));
 		firstname.setEditable(false);
 		lastname.setEditable(false);
+		email.setEditable(false);
 	}
 }
