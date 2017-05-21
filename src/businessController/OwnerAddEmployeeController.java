@@ -100,10 +100,12 @@ public class OwnerAddEmployeeController implements Initializable{
 		if(firstname.getText().trim().isEmpty() == false && lastname.getText().trim().isEmpty() == false &&
 				email.getText().trim().isEmpty() == false && contact.getText().trim().isEmpty() == false){
 			if(databaseManager.searchEmployeeName(firstname.getText(), lastname.getText(),user) == true){
-				databaseManager.updateEmployee(firstname.getText(), lastname.getText(), user,contact.getText());
-				alert = new Alert(AlertType.INFORMATION, firstname.getText() +" " +lastname.getText() + "'s information has been updated.");
-				alert.showAndWait();
-				checkEmployeeUpdate = true;
+				if(contact.getText().matches("([0-9+]*[ ()]*[0-9]*[ ()]*[0-9]*[ -]*[0-9]+)")){
+					databaseManager.updateEmployee(firstname.getText(), lastname.getText(), user,contact.getText());
+					alert = new Alert(AlertType.INFORMATION, firstname.getText() +" " +lastname.getText() + "'s information has been updated.");
+					alert.showAndWait();
+					checkEmployeeUpdate = true;
+				}
 			}
 			if(databaseManager.searchEmployeeEmail(email.getText()) == false && checkEmployeeUpdate == false){
 				if(firstname.getText().matches("[a-zA-Z]{1,}") && lastname.getText().matches("[a-zA-Z]{1,}") &&
