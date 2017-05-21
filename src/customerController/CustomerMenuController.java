@@ -11,7 +11,7 @@ import javafx.scene.text.Text;
 import systemController.ViewController;
 
 /**
- * Customer menu.
+ * Customer menu, the client can go to different functions in this page.
  * @author ranlu
  *
  */

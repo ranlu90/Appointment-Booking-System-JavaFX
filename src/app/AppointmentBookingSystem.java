@@ -21,10 +21,10 @@ public class AppointmentBookingSystem extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		ViewController view = new ViewController();
+		ViewController facade = new ViewController();
 		DatabaseManager databaseManager = new DatabaseManager();
-		view.initDatabase(databaseManager);
-		view.initStage(primaryStage);
+		facade.initDatabase(databaseManager);
+		facade.initStage(primaryStage);
 
 	}
 }

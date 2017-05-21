@@ -1,10 +1,11 @@
 package businessController;
 
 import java.io.File;
+
+import java.io.IOException;
 import java.net.URL;
-
-
 import java.util.ResourceBundle;
+
 
 import database.DatabaseManager;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import javafx.scene.text.Text;
 import systemController.ViewController;
 
 /**
- * Business owner menu.
+ * Business owner menu, the client can go to different functions.
  * @author ranlu
  *
  */
@@ -116,7 +117,7 @@ public class OwnerMenuController implements Initializable {
 	}
 
 
-	public void initLogo(String logoURL) {
+	public void initLogo(String logoURL) throws IOException {
 		File f =  new File("image/" + user + ".jpg");
 
 		if(logoURL != null){
@@ -124,7 +125,7 @@ public class OwnerMenuController implements Initializable {
 		}
 		else{
 			if(f.exists()){
-				logo.setImage(new Image("image/" + user + ".jpg"));
+				logo.setImage(new Image("image/"+ user + ".jpg"));
 			}
 		}
 	}

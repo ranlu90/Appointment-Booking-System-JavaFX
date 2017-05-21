@@ -17,6 +17,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import systemController.ViewController;
 
+/**
+ * This is the GUI customization page. The client can modify home page message, logo, header color and footer color in this page.
+ * @author ranlu
+ *
+ */
 public class OwnerCustomizeLayoutController implements Initializable{
 
 	private ViewController viewController;
@@ -74,7 +79,10 @@ public class OwnerCustomizeLayoutController implements Initializable{
 			viewController.gotoBusinessMenu();
 		}
 	}
-
+	
+	/**
+	 * Select image file from the system, the file that can be chosen are limited to the following file formats.
+	 */
 	@FXML
 	private void ChooseFile(){
 		FileChooser fileChooser = new FileChooser();

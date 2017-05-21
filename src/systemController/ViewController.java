@@ -30,10 +30,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * This class create pages for different functionalities and contains logging information.
+ * This class create pages for different functionalities and provide a simple default view for clients.
  * @author ranlu
  */
-public class ViewController{
+public class ViewController{			//facade
 
 	private String username;
 	private DatabaseManager databaseManager;

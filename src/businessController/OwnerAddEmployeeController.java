@@ -225,7 +225,5 @@ public class OwnerAddEmployeeController implements Initializable{
 		contact.setText(info.get(2));
 		firstname.setEditable(false);
 		lastname.setEditable(false);
-		//email.setEditable(false);
-		//contact.setEditable(false);
 	}
 }
