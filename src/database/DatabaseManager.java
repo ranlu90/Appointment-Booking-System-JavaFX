@@ -94,7 +94,7 @@ public class DatabaseManager {
 	 * Insert username, password, firstname, lastname,
 	 *  address and contact number into business database
 	 */
-    public void insertIntoBusiness(String business_name, String business_owner_name,
+    public boolean insertIntoBusiness(String business_name, String business_owner_name,
 			String address, String phone, String username, String password){
         try {
           c.setAutoCommit(false);
@@ -103,10 +103,12 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
           c.commit();
           logger.info("A new business owner has been inserted into Business.");
+          return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+		return false;
     }
 
 	/**
@@ -329,7 +331,7 @@ public class DatabaseManager {
 	 * Insert username, password, firstname, lastname,
 	 *  address and contact number into customerinfo database
 	 */
-    public void insertIntoCustomer(String firstname, String lastname,
+    public boolean insertIntoCustomer(String firstname, String lastname,
 			String address, String contactNumber, String username, String password){
         try {
           c.setAutoCommit(false);
@@ -338,10 +340,12 @@ public class DatabaseManager {
           stmt.executeUpdate(sql);
           c.commit();
           logger.info("A new customer has been inserted into Customerinfo.");
+          return true;
         } catch ( Exception e ) {
           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
           System.exit(0);
         }
+		return false;
     }
 
 
@@ -875,7 +879,7 @@ public class DatabaseManager {
     /**
      * Create a new booking entity in booking table.
      */
-    public void setBooking(String date, String start_time, String employee_email,
+    public boolean setBooking(String date, String start_time, String employee_email,
     		String service, String owner_username, String customer_firstname, String customer_lastname, String customer_contact){
         try {
 	          c.setAutoCommit(false);
@@ -884,11 +888,13 @@ public class DatabaseManager {
 	          stmt.executeUpdate(sql);
 	          c.commit();
 	          logger.info("A New booking for " + owner_username + " made by "+ customer_firstname + " " + customer_lastname +" has been inserted into Booking.");
+	          return true;
         }
         catch(Exception e){
 	          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 	          System.exit(0);
         }
+		return false;
     }
 
 

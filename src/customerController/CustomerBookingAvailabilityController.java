@@ -152,7 +152,6 @@ public class CustomerBookingAvailabilityController implements Initializable{
 
 	/**
 	 * Check if the employee works on that time, then check if he/she already got a booking.
-	 * @return true if the employee is available at that time.
 	 */
 	public HashMap<Integer, Boolean> CheckTimeSlot(String email, String day, String date){
 
