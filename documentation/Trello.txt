@@ -1,40 +1,156 @@
-Ran Lu archived test report 样板6 minutes ago
-RLRan Lu moved test report from Product Backlog to Supporting Documents6 minutes ago
+Ran Lu attached week11-2.docx to Sprint Meeting 23/05/2017  
+3 minutes ago
+RL
+Ran Lu attached week11-1.docx to Sprint Meeting 19/05/2017  
+5 minutes ago
+RLRan Lu added Ziqi Liu to Sprint Meeting 23/05/201710 minutes ago
+RLRan Lu added Yang Ding to Sprint Meeting 23/05/201710 minutes ago
+RLRan Lu joined Sprint Meeting 23/05/201710 minutes ago
+RLRan Lu added Ziqi Liu to Sprint Meeting 19/05/201711 minutes ago
+RLRan Lu added Yang Ding to Sprint Meeting 19/05/201711 minutes ago
+RLRan Lu joined Sprint Meeting 19/05/201711 minutes ago
+RLRan Lu added Sprint Meeting 23/05/2017 to Sprint 1111 minutes ago
+RLRan Lu added Sprint Meeting 19/05/2017 to Sprint 1111 minutes ago
+RLRan Lu joined Project Post-Mortem12 minutes ago
+RLRan Lu joined Clear and complete Installation/Build documentation12 minutes ago
+RLRan Lu joined Release Notes13 minutes ago
+RLRan Lu joined Basic but clear User Manual (can be to same standard as Part A)13 minutes ago
+RLRan Lu moved Basic but clear User Manual (can be to same standard as Part A) from Product Backlog to Sprint 1143 minutes ago
+RLRan Lu moved Release Notes from Product Backlog to Sprint 1143 minutes ago
+RLRan Lu moved Project Post-Mortem from Product Backlog to Sprint 1144 minutes ago
+RLRan Lu moved Clear and complete Installation/Build documentation from Product Backlog to Sprint 1144 minutes ago
+RLRan Lu moved Project pitch video from Product Backlog to Sprint 1144 minutes ago
+RLRan Lu added Sprint 11 to this board4 hours ago
+RL
+Ran Lu attached SEPT_-_Presentation 修改.pptx to Project pitch video  
+4 hours ago
+RLRan Lu added Yang Ding to Project pitch video4 hours ago
+RLRan Lu deleted the SEPT - Presentation.pptx attachment from Project pitch video4 hours ago
+RLRan Lu archived JAR 测试5 hours ago
+RLRan Lu moved Use a clear complex Design Pattern, either Factory(not abstract) or Facade from Sprint Backlog to Sprint 105 hours ago
+RLRan Lu joined Use a clear complex Design Pattern, either Factory(not abstract) or Facade5 hours ago
+YD
+Yang Ding attached SEPT - Presentation.pptx to Project pitch video  
+5 hours ago
+RLRan Lu deleted the ABS.jar attachment from JAR 测试18 May at 15:01
+RL
+Ran Lu attached ABS-v1.1-jar-with-dependencies.jar to JAR 测试  
+18 May at 15:01
+RL
+Ran Lu attached week10-2.docx to Sprint Meeting 17/05/2017  
+17 May at 16:08
+RLRan Lu added Ziqi Liu to Sprint Meeting 17/05/201717 May at 16:05
+RLRan Lu added Yang Ding to Sprint Meeting 17/05/201717 May at 16:05
+RLRan Lu joined Sprint Meeting 17/05/201717 May at 16:05
+RLRan Lu added Sprint Meeting 17/05/2017 to Sprint 1017 May at 16:05
+RL
+Ran Lu attached Test cases documentation.docx to acceptance testing report  
+16 May at 00:46
+RLRan Lu deleted the test_document.docx attachment from acceptance testing report16 May at 00:46
+RLRan Lu moved Complete Unit and especially Acceptance Testing from Sprint Backlog to Sprint 1016 May at 00:29
+RLRan Lu moved acceptance testing report from Sprint Backlog to Sprint 1016 May at 00:29
+YD
+Yang Ding attached test_document.docx to acceptance testing report  
+15 May at 22:05
+YDYang Ding joined acceptance testing report15 May at 22:05
+YDYang Ding added acceptance testing report to Sprint Backlog15 May at 22:05
+RL
+Ran Lu attached ABS.jar to JAR 测试  
+14 May at 16:46
+RLRan Lu added JAR 测试 to Product Backlog14 May at 16:45
+RL
+Ran Lu attached week10-1.docx to Sprint Meeting 12/05/2017  
+13 May at 22:57
+RLRan Lu added Ziqi Liu to Complete Unit and especially Acceptance Testing13 May at 22:50
+RLRan Lu joined Complete Unit and especially Acceptance Testing13 May at 22:50
+RLRan Lu added Yang Ding to Complete Unit and especially Acceptance Testing13 May at 22:50
+RLRan Lu moved Complete Unit and especially Acceptance Testing from Product Backlog to Sprint Backlog13 May at 22:50
+RLRan Lu joined Use Maven to manage dependencies and provide automated builds13 May at 22:49
+RLRan Lu moved Use Maven to manage dependencies and provide automated builds from Sprint Backlog to Sprint 1013 May at 22:49
+RL
+Ran Lu attached week9-2.docx to Sprint Meeting 11/05/2017  
+12 May at 13:29
+RLRan Lu added Ziqi Liu to Sprint Meeting 12/05/201712 May at 13:26
+RLRan Lu added Yang Ding to Sprint Meeting 12/05/201712 May at 13:26
+RLRan Lu joined Sprint Meeting 12/05/201712 May at 13:26
+RLRan Lu added Sprint Meeting 12/05/2017 to Sprint 1012 May at 13:26
+RLRan Lu added Sprint 10 to this board12 May at 13:25
+RL
+Ran Lu attached week9-1.docx to Sprint Meeting 05/05/2017  
+12 May at 13:24
+RLRan Lu added Ziqi Liu to Sprint Meeting 11/05/201712 May at 13:20
+RLRan Lu added Yang Ding to Sprint Meeting 11/05/201712 May at 13:20
+RLRan Lu joined Sprint Meeting 11/05/201712 May at 13:20
+RLRan Lu added Sprint Meeting 11/05/2017 to Sprint 910 May at 19:36
+RLRan Lu added Ziqi Liu to Sprint Meeting 05/05/201710 May at 19:35
+RLRan Lu added Yang Ding to Sprint Meeting 05/05/201710 May at 19:35
+RLRan Lu joined Sprint Meeting 05/05/201710 May at 19:35
+RLRan Lu added Sprint Meeting 05/05/2017 to Sprint 910 May at 19:35
+RLRan Lu moved A Business Owner can create a new instance of the system for a business from Sprint Backlog to Sprint 910 May at 19:35
+RLRan Lu deleted card #99 from Sprint Backlog10 May at 19:35
+RLRan Lu added Complete Unit and especially Acceptance Testing to Product Backlog4 May at 19:54
+RLRan Lu added Clear and complete Installation/Build documentation to Product Backlog4 May at 19:54
+RLRan Lu moved Use Maven to manage dependencies and provide automated builds from Product Backlog to Sprint Backlog4 May at 19:52
+RLRan Lu moved Use a clear complex Design Pattern, either Factory(not abstract) or Facade from Product Backlog to Sprint Backlog4 May at 19:52
+RLRan Lu removed Yang Ding from Sprint Planning Meeting 27/04/20174 May at 19:51
+RL
+Ran Lu attached week8-2.docx to Sprint Meeting 04/05/2017  
+4 May at 19:49
+RLRan Lu added Yang Ding to Sprint Meeting 04/05/20174 May at 19:42
+RLRan Lu added Ziqi Liu to Sprint Meeting 04/05/20174 May at 19:42
+RLRan Lu joined Sprint Meeting 04/05/20174 May at 19:42
+RLRan Lu added Sprint 9 to this board4 May at 19:41
+RLRan Lu added Project pitch video to Product Backlog4 May at 19:41
+RLRan Lu added Project Post-Mortem to Product Backlog4 May at 19:41
+RLRan Lu added Release Notes to Product Backlog4 May at 19:40
+RLRan Lu added Basic but clear User Manual (can be to same standard as Part A) to Product Backlog4 May at 19:40
+RLRan Lu joined A Business Owner can create a new instance of the system for a business4 May at 19:39
+RLRan Lu added Yang Ding to Sprint Planning Meeting 27/04/20171 May at 13:10
+RLRan Lu added Sprint Meeting 04/05/2017 to Sprint 81 May at 13:09
+RLRan Lu archived list Sprint 91 May at 13:09
+RLRan Lu moved A Business Owner can create a new instance of the system for a business from Product Backlog to Sprint Backlog1 May at 13:08
+RLRan Lu moved Build GUI using Scene Builder from Sprint 7 (completed) to Sprint 81 May at 13:06
+RLRan Lu added Sprint 9 to this board1 May at 13:06
+RLRan Lu added Use Maven to manage dependencies and provide automated builds to Product Backlog1 May at 13:02
+RLRan Lu added Use a clear complex Design Pattern, either Factory(not abstract) or Facade to Product Backlog1 May at 13:01
+RLRan Lu added A Business Owner can create a new instance of the system for a business to Product Backlog1 May at 13:01
+RLRan Lu archived test report 样板30 Apr at 22:28
+RLRan Lu moved test report from Product Backlog to Supporting Documents30 Apr at 22:28
 YD
 Yang Ding attached test document.docx to test report  
-4 hours ago
-YDYang Ding added test report to Product Backlog4 hours ago
+30 Apr at 18:08
+YDYang Ding added test report to Product Backlog30 Apr at 18:08
 RL
 Ran Lu attached Part1 Test cases documentation.pdf to test report 样板  
-6 hours ago
-RLRan Lu added test report 样板 to Product Backlog6 hours ago
-RLRan Lu joined Build GUI using Scene Builder6 hours ago
-RLRan Lu left Build GUI using Scene Builder6 hours ago
-RLRan Lu joined An Employee can be added and their days/times be added or updated later6 hours ago
+30 Apr at 16:58
+RLRan Lu added test report 样板 to Product Backlog30 Apr at 16:58
+RLRan Lu joined Build GUI using Scene Builder30 Apr at 16:57
+RLRan Lu left Build GUI using Scene Builder30 Apr at 16:57
+RLRan Lu joined An Employee can be added and their days/times be added or updated later30 Apr at 16:57
 RL
 Ran Lu attached part1.zip to Back up for BusinessController and CustomerController (Part 1)  
-11 hours ago
-RLRan Lu added Back up for BusinessController and CustomerController (Part 1) to Supporting Documents11 hours ago
-RLRan Lu removed Yang Ding from Sprint Planning Meeting 27/04/2017yesterday at 13:46
+30 Apr at 11:36
+RLRan Lu added Back up for BusinessController and CustomerController (Part 1) to Supporting Documents30 Apr at 11:35
+RLRan Lu removed Yang Ding from Sprint Planning Meeting 27/04/201729 Apr at 13:46
 RL
 Ran Lu attached week8-1.docx to Sprint Meeting 28/04/2017  
-yesterday at 13:46
-RLRan Lu deleted the week8-1.docx attachment from Sprint Meeting 28/04/2017yesterday at 13:45
+29 Apr at 13:46
+RLRan Lu deleted the week8-1.docx attachment from Sprint Meeting 28/04/201729 Apr at 13:45
 RL
 Ran Lu attached week8-1.docx to Sprint Meeting 28/04/2017  
-yesterday at 13:45
+29 Apr at 13:45
 RL
 Ran Lu attached week7-2.docx to Sprint Planning Meeting 27/04/2017  
-yesterday at 13:41
-RLRan Lu joined A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is availableyesterday at 13:37
-RLRan Lu joined Sprint Meeting 28/04/2017yesterday at 13:36
-RLRan Lu added Ziqi Liu to Sprint Meeting 28/04/2017yesterday at 13:36
-RLRan Lu added Sprint Meeting 28/04/2017 to Sprint 8yesterday at 13:36
-RLRan Lu moved A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available from Sprint Backlog (on weekly basis) to Sprint 8yesterday at 13:36
-RLRan Lu moved An Employee can be added and their days/times be added or updated later from Sprint Backlog (on weekly basis) to Sprint 8yesterday at 13:36
-RLRan Lu moved The Business Owner OR a configuration file/database can be used to define activities that take different times from Sprint 7 (completed) to Sprint 8yesterday at 13:36
-RLRan Lu moved The Business Owner OR a configuration file/database can be used to define activities that take different times from Sprint Backlog (on weekly basis) to Sprint 7 (completed)yesterday at 13:36
-RLRan Lu joined The Business Owner OR a configuration file/database can be used to define activities that take different timesyesterday at 13:36
+29 Apr at 13:41
+RLRan Lu joined A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available29 Apr at 13:37
+RLRan Lu joined Sprint Meeting 28/04/201729 Apr at 13:36
+RLRan Lu added Ziqi Liu to Sprint Meeting 28/04/201729 Apr at 13:36
+RLRan Lu added Sprint Meeting 28/04/2017 to Sprint 829 Apr at 13:36
+RLRan Lu moved A Booking should allow a specific Employee to be selected (if available at that time) and should be a for a particular activity if the full time required is available from Sprint Backlog (on weekly basis) to Sprint 829 Apr at 13:36
+RLRan Lu moved An Employee can be added and their days/times be added or updated later from Sprint Backlog (on weekly basis) to Sprint 829 Apr at 13:36
+RLRan Lu moved The Business Owner OR a configuration file/database can be used to define activities that take different times from Sprint 7 (completed) to Sprint 829 Apr at 13:36
+RLRan Lu moved The Business Owner OR a configuration file/database can be used to define activities that take different times from Sprint Backlog (on weekly basis) to Sprint 7 (completed)29 Apr at 13:36
+RLRan Lu joined The Business Owner OR a configuration file/database can be used to define activities that take different times29 Apr at 13:36
 RLRan Lu added Sprint 8 to this board27 Apr at 15:00
 RL
 Ran Lu attached week7-1.docx to Sprint Planning Meeting 21/04/2017  

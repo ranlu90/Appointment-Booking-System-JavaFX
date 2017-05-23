@@ -14,8 +14,8 @@ All files including trello, user stories, mock up etc. are in the "documentation
 Trello: https://trello.com/b/rGisSTbv <br/>
 GitHub: https://github.com/SEPT-Project-Semester1-2017/SEPT-Project1 <br/>
 
-Ran Lu: Structures for all Controller classes, all scenes by JavaFX.<br/>
+Ran Lu: Structures for all Controller classes, all scenes by JavaFX, junit tests for business owners.<br/>
 
-Ziqi Liu: Owner or customer makes new booking functionalities.<br/>
+Ziqi Liu: Owner or customer makes new booking functionalities, junit tests for customers.<br/>
 
-Yang Ding: All user stories and all test cases, update employee functionality.
+Yang Ding: All user stories and all test cases, update employee functionality, product pitch video.
